@@ -37,3 +37,9 @@ Community app stores are not reviewed by the Umbrel team. Only add stores you tr
 
 Neko by m1k1o (Apache-2.0). linuxserver/brave by linuxserver.io (GPL-3.0). Google Chrome and Brave are trademarks of
 their owners; this store only packages their official images.
+
+## Machine catalog
+
+`machines/catalog.json` lists the operating systems Omarchy Server can create virtual machines from.
+Each entry points at the publisher's own cloud image and checksum file; Omarchy Server refuses any
+download that doesn't match. No hashes are stored here, so "latest" entries stay valid.
