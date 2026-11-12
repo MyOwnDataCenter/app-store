@@ -5,7 +5,7 @@ tagline: Brave, running on your Umbrel and streamed to any device
 icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/brave-logo.png
 category: networking
 version: "3.2.0"
-port: 47781
+port: 38781
 description: >-
   A full Brave browser, with its built-in ad and tracker blocking, that runs on your Umbrel and streams to your phone, tablet or computer, powered by Neko (WebRTC).
   Your profile, bookmarks, passwords and extensions stay on your Umbrel, and downloads land in Home → Downloads.
@@ -25,7 +25,7 @@ repo: https://github.com/m1k1o/neko
 support: https://github.com/TouchWorkStation/app-store/issues
 gallery: []
 releaseNotes: >-
-  First release: Neko 3.2.0 with Brave, a personal-browser policy (sync, bookmarks, passwords, extensions and
+    First release: Neko 3.2.0 with Brave, a personal-browser policy (sync, bookmarks, passwords, extensions and
   downloads allowed), and downloads saved to Home → Downloads.
 dependencies: []
 path: "/?usr=umbrel&pwd=umbrel"

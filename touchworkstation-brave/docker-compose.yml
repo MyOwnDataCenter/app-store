@@ -6,7 +6,7 @@ services:
       # Neko runs on the host network (so the video stream can reach you over your LAN and
       # Tailscale) but listens only on Umbrel's internal bridge, behind Umbrel's sign-in.
       APP_HOST: $GATEWAY_IP
-      APP_PORT: 47791
+      APP_PORT: 38791
 
   web:
     image: ghcr.io/m1k1o/neko/brave:3.2.0
@@ -14,7 +14,7 @@ services:
     shm_size: "2gb"
     restart: on-failure
     environment:
-      NEKO_SERVER_BIND: "${GATEWAY_IP}:47791"
+      NEKO_SERVER_BIND: "${GATEWAY_IP}:38791"
       NEKO_DESKTOP_SCREEN: 1920x1080@30
       # Umbrel's sign-in already protects this app, so Neko's own login is off and you get control at once.
       NEKO_MEMBER_PROVIDER: noauth

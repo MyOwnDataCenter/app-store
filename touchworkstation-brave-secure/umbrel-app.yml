@@ -5,7 +5,7 @@ tagline: Brave on your Umbrel, for use through HTTPS and Cloudflare tunnels
 icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/brave-logo.png
 category: networking
 version: "1.99.56-ls145"
-port: 47782
+port: 38782
 description: >-
   The Brave browser running on your Umbrel, streamed to your device by linuxserver.io's Selkies.
   Your profile stays on your Umbrel, and downloads land in Home → Downloads.
@@ -26,7 +26,7 @@ repo: https://github.com/linuxserver/docker-brave
 support: https://github.com/TouchWorkStation/app-store/issues
 gallery: []
 releaseNotes: >-
-  First release: linuxserver/brave 1.99.56-ls145 (Selkies), hardened to a browser-only desktop, with downloads saved to
+    First release: linuxserver/brave 1.99.56-ls145 (Selkies), hardened to a browser-only desktop, with downloads saved to
   Home → Downloads.
 dependencies: []
 path: ""

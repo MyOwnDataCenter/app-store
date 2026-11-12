@@ -5,7 +5,7 @@ tagline: Google Chrome, running on your Umbrel and streamed to any device
 icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/chrome-logo.png
 category: networking
 version: "3.2.0"
-port: 47780
+port: 38780
 description: >-
   A full Google Chrome browser that runs on your Umbrel and streams to your phone, tablet or computer, powered by Neko (WebRTC).
   Your profile, bookmarks, passwords and extensions stay on your Umbrel, and downloads land in Home → Downloads.
@@ -25,7 +25,7 @@ repo: https://github.com/m1k1o/neko
 support: https://github.com/TouchWorkStation/app-store/issues
 gallery: []
 releaseNotes: >-
-  First release: Neko 3.2.0 with Google Chrome, a personal-browser policy (sign-in, sync, bookmarks, passwords,
+    First release: Neko 3.2.0 with Google Chrome, a personal-browser policy (sign-in, sync, bookmarks, passwords,
   extensions and downloads allowed), uBlock Origin Lite preinstalled, and downloads saved to Home → Downloads.
 dependencies: []
 path: "/?usr=umbrel&pwd=umbrel"
