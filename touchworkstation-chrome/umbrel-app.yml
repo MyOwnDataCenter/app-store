@@ -25,7 +25,7 @@ repo: https://github.com/m1k1o/neko
 support: https://github.com/TouchWorkStation/app-store/issues
 gallery: []
 releaseNotes: >-
-    First release: Neko 3.2.0 with Google Chrome, a personal-browser policy (sign-in, sync, bookmarks, passwords,
+  First release: Neko 3.2.0 with Google Chrome, a personal-browser policy (sign-in, sync, bookmarks, passwords,
   extensions and downloads allowed), uBlock Origin Lite preinstalled, and downloads saved to Home → Downloads.
 dependencies: []
 path: "/?usr=umbrel&pwd=umbrel"
