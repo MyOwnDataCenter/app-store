@@ -1,0 +1,33 @@
+manifestVersion: 1
+id: touchworkstation-chrome
+name: Google Chrome
+tagline: Google Chrome, running on your server and streamed to any device
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/chrome-logo.png
+category: networking
+version: "3.2.0"
+port: 38780
+description: >-
+  A full Google Chrome browser that runs on your server and streams to your phone, tablet or computer, powered by Neko (WebRTC).
+  Your profile, bookmarks, passwords and extensions stay on your server, and downloads land in Home → Downloads.
+
+
+  Works on your home network and over Tailscale. It does not stream through a Cloudflare tunnel, because the video uses
+  WebRTC on ports 52200-52240 (UDP) of your server. For access through Cloudflare, install "Brave (HTTPS)" instead.
+
+
+  Omarchy Server’s sign-in protects this app; anyone who can sign in to your server can use this browser as you.
+  x86-64 (amd64) only.
+developer: m1k1o (Neko) · Google (Chrome)
+website: https://neko.m1k1o.net/
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+repo: https://github.com/m1k1o/neko
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+releaseNotes: >-
+  First release: Neko 3.2.0 with Google Chrome, a personal-browser policy (sign-in, sync, bookmarks, passwords,
+  extensions and downloads allowed), uBlock Origin Lite preinstalled, and downloads saved to Home → Downloads.
+dependencies: []
+path: "/?usr=omarchy&pwd=omarchy"
+defaultUsername: ""
+defaultPassword: ""

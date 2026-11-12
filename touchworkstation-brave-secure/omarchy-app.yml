@@ -1,0 +1,34 @@
+manifestVersion: 1
+id: touchworkstation-brave-secure
+name: Brave (HTTPS)
+tagline: Brave on your server, for use through HTTPS and Cloudflare tunnels
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/brave-logo.png
+category: networking
+version: "1.99.56-ls145"
+port: 38782
+description: >-
+  The Brave browser running on your server, streamed to your device by linuxserver.io's Selkies.
+  Your profile stays on your server, and downloads land in Home → Downloads.
+
+
+  ⚠️ Needs HTTPS. Selkies uses browser features (WebCodecs) that only work on secure pages, so open this app through
+  an HTTPS address, such as a Cloudflare tunnel or Tailscale Serve. Over a plain http:// address it will not stream.
+  On your home network or Tailscale without HTTPS, use the "Brave" or "Google Chrome" apps from this store instead.
+
+
+  The container is hardened to be a browser only: no terminal, no sudo, no remote commands and no sidebar file transfers.
+  Omarchy Server’s sign-in protects this app; anyone who can sign in to your server can use this browser as you.
+developer: Brave Software · linuxserver.io
+website: https://brave.com
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+repo: https://github.com/linuxserver/docker-brave
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+releaseNotes: >-
+  First release: linuxserver/brave 1.99.56-ls145 (Selkies), hardened to a browser-only desktop, with downloads saved to
+  Home → Downloads.
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""

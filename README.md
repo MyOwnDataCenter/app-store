@@ -43,3 +43,9 @@ their owners; this store only packages their official images.
 `machines/catalog.json` lists the operating systems Omarchy Server can create virtual machines from.
 Each entry points at the publisher's own cloud image and checksum file; Omarchy Server refuses any
 download that doesn't match. No hashes are stored here, so "latest" entries stay valid.
+
+## Omarchy Server
+
+Omarchy Server reads this store natively: add `https://github.com/TouchWorkStation/app-store` under
+App Store → Stores. Each app has an `omarchy-app.yml` (its listing in Omarchy Server) next to the
+listing used by umbrelOS; both share the same compose file.
