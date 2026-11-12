@@ -1,0 +1,24 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: touchworkstation-brave-secure_web_1
+      APP_PORT: 3000
+
+  web:
+    image: lscr.io/linuxserver/brave:1.99.56-ls145
+    shm_size: "1gb"
+    restart: on-failure
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TITLE: Brave
+      # Browser only: no terminal, sudo, remote commands or sidebar file transfers inside the container.
+      HARDEN_DESKTOP: "true"
+      # Kiosk-style window that reopens Brave if it's closed.
+      HARDEN_OPENBOX: "true"
+      NO_DECOR: "true"
+    volumes:
+      - ${APP_DATA_DIR}/data/config:/config
+      - ${UMBREL_ROOT}/data/storage/downloads:/config/Downloads

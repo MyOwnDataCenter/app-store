@@ -1,0 +1,33 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      # Neko runs on the host network (so the video stream can reach you over your LAN and
+      # Tailscale) but listens only on Umbrel's internal bridge, behind Umbrel's sign-in.
+      APP_HOST: $GATEWAY_IP
+      APP_PORT: 47791
+
+  web:
+    image: ghcr.io/m1k1o/neko/brave:3.2.0
+    network_mode: host
+    shm_size: "2gb"
+    restart: on-failure
+    environment:
+      NEKO_SERVER_BIND: "${GATEWAY_IP}:47791"
+      NEKO_DESKTOP_SCREEN: 1920x1080@30
+      # Umbrel's sign-in already protects this app, so Neko's own login is off and you get control at once.
+      NEKO_MEMBER_PROVIDER: noauth
+      NEKO_SESSION_IMPLICIT_HOSTING: "true"
+      NEKO_SESSION_MERCIFUL_RECONNECT: "true"
+      # WebRTC: advertise this server's own addresses (LAN, Tailscale), never a looked-up public IP.
+      NEKO_WEBRTC_EPR: 52250-52290
+      NEKO_WEBRTC_ICELITE: "false"
+      NEKO_WEBRTC_IP_RETRIEVAL_URL: ""
+    volumes:
+      - ${APP_DATA_DIR}/data/profile:/home/neko/.config/brave
+      - ${APP_DATA_DIR}/policies.json:/etc/brave/policies/managed/policies.json:ro
+      - ${UMBREL_ROOT}/data/storage/downloads:/home/neko/Downloads
+    # The image's health check calls localhost, which this private bind doesn't answer.
+    healthcheck:
+      disable: true

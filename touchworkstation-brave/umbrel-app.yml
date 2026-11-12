@@ -1,0 +1,33 @@
+manifestVersion: 1
+id: touchworkstation-brave
+name: Brave
+tagline: Brave, running on your Umbrel and streamed to any device
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/brave-logo.png
+category: networking
+version: "3.2.0"
+port: 47781
+description: >-
+  A full Brave browser, with its built-in ad and tracker blocking, that runs on your Umbrel and streams to your phone, tablet or computer, powered by Neko (WebRTC).
+  Your profile, bookmarks, passwords and extensions stay on your Umbrel, and downloads land in Home → Downloads.
+
+
+  Works on your home network and over Tailscale. It does not stream through a Cloudflare tunnel, because the video uses
+  WebRTC on ports 52250-52290 (UDP) of your Umbrel. For access through Cloudflare, install "Brave (HTTPS)" instead.
+
+
+  Umbrel's sign-in protects this app; anyone who can sign in to your Umbrel can use this browser as you.
+  x86-64 (amd64) only.
+developer: m1k1o (Neko) · Brave Software
+website: https://neko.m1k1o.net/
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/umbrel-app-store
+repo: https://github.com/m1k1o/neko
+support: https://github.com/TouchWorkStation/umbrel-app-store/issues
+gallery: []
+releaseNotes: >-
+  First release: Neko 3.2.0 with Brave, a personal-browser policy (sync, bookmarks, passwords, extensions and
+  downloads allowed), and downloads saved to Home → Downloads.
+dependencies: []
+path: "/?usr=umbrel&pwd=umbrel"
+defaultUsername: ""
+defaultPassword: ""
