@@ -1,7 +1,12 @@
-# TouchWorkStation Umbrel App Store
+# TouchWorkStation App Store
 
-A community app store for [umbrelOS](https://umbrel.com/umbrelos) with full web browsers that run on your Umbrel and
-stream to your phone, tablet or computer.
+Apps from TouchWorkStation for self-hosted servers. Today it ships as an
+[umbrelOS](https://umbrel.com/umbrelos) community app store: umbrelOS reads `umbrel-app-store.yml` and the app folders
+at the top level of this repo, so those stay here. Packages for other platforms can live alongside them later.
+
+## Apps
+
+Full web browsers that run on your server and stream to your phone, tablet or computer.
 
 | App | Engine | Works over | Notes |
 | --- | --- | --- | --- |
@@ -16,7 +21,7 @@ Umbrel's internal network.
 ## Add this store
 
 **umbrelOS:** App Store → ⋯ (next to search) → Community App Stores → paste
-`https://github.com/TouchWorkStation/umbrel-app-store` → Add.
+`https://github.com/TouchWorkStation/app-store` → Add.
 
 **UmbrelOS Touch:** Apps → App Store → ⋯ → Community stores → TouchWorkStation.
 
