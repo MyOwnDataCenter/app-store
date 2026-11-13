@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: chromium
+name: "Chromium"
+tagline: "Chromium, running on your server"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/chromium.png
+category: networking
+version: "latest"
+port: 3031
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: chromium
+  port: 3000
+description: >-
+  A full Chromium browser that runs on your server and streams to any device.
+
+  Works best over HTTPS; on your home network it opens over plain HTTP too.
+developer: "linuxserver and contributors"
+website: https://www.chromium.org/Home/
+repo: https://github.com/linuxserver/docker-chromium
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

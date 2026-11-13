@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: nocodb
+name: "NocoDB"
+tagline: "Turn databases into spreadsheets"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/nocodb.png
+category: files
+version: "latest"
+port: 8405
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: nocodb
+  port: 8080
+description: >-
+  NocoDB gives databases an Airtable-like spreadsheet interface with views, forms and an API.
+developer: "nocodb and contributors"
+website: https://nocodb.com
+repo: https://github.com/nocodb/nocodb
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

@@ -5,7 +5,7 @@ tagline: "Test the speed between your devices and your server"
 icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/librespeed.png
 category: networking
 version: "latest"
-port: 8095
+port: 8097
 path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:

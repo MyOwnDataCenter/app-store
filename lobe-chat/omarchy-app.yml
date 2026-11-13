@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: lobe-chat
+name: "Lobe Hub"
+tagline: "A polished chat interface for many AI models"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/lobe-chat.png
+category: ai
+version: "latest"
+port: 3210
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: lobe-chat
+  port: 3210
+description: >-
+  LobeChat is a modern chat app for OpenAI, Claude, Gemini, Ollama and more, with plugins and agents.
+developer: "lobehub and contributors"
+website: https://lobehub.com/
+repo: https://github.com/lobehub/lobehub
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

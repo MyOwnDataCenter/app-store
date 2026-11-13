@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: enclosed
+name: "Enclosed"
+tagline: "Send private notes that self-destruct"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/enclosed.png
+category: files
+version: "latest"
+port: 8787
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: enclosed
+  port: 8787
+description: >-
+  Enclosed shares encrypted notes and files that can expire or be read only once.
+developer: "CorentinTh and contributors"
+website: https://enclosed.cc/
+repo: https://github.com/CorentinTh/enclosed
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

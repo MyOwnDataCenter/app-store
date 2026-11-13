@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: pyload-ng
+name: "pyload-ng"
+tagline: "A download manager for direct links and file hosts"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/pyload-ng.png
+category: files
+version: "latest"
+port: 8031
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: pyload-ng
+  port: 8000
+description: >-
+  pyLoad downloads files from direct links and file-hosting sites in the background, with captcha help and
+  scheduling.
+
+  Change the default password after signing in.
+developer: "pyload and contributors"
+website: https://pyload.net/
+repo: https://github.com/pyload/pyload/
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: "pyload"
+defaultPassword: "pyload"

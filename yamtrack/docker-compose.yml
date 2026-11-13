@@ -1,0 +1,21 @@
+# Yamtrack: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  yamtrack:
+    image: ghcr.io/fuzzygrim/yamtrack:latest
+    restart: unless-stopped
+    environment:
+      SECRET: "${APP_SEED:?set APP_SEED}"
+      REDIS_URL: "redis://redis:6379"
+      URLS: "http://${SERVER_IP:-localhost}:8036"
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/db:/yamtrack/db
+    depends_on:
+      - redis
+    ports:
+      - "8036:8000"
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped

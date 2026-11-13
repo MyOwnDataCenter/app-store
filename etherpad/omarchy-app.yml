@@ -1,0 +1,30 @@
+manifestVersion: 1
+id: etherpad
+name: "Etherpad"
+tagline: "Write documents together in real time"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/etherpad.png
+category: files
+version: "latest"
+port: 9001
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: etherpad
+  port: 9001
+description: >-
+  Etherpad is a collaborative editor where everyone types in the same document at once, with colours for each
+  author.
+
+  The admin page is at /admin (user admin).
+developer: "ether and contributors"
+website: https://etherpad.org/
+repo: https://github.com/ether/etherpad
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""
+# The password is generated per server by Omarchy Server and shown on the app’s page.
+deterministicPassword: true

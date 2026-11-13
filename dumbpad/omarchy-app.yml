@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: dumbpad
+name: "DumbPad"
+tagline: "A shared notepad that autosaves"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/dumbpad.png
+category: files
+version: "latest"
+port: 3014
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: dumbpad
+  port: 3000
+description: >-
+  DumbPad is a simple notepad in the browser that saves as you type, with multiple pads and optional PIN
+  protection.
+developer: "DumbWareio and contributors"
+website: https://github.com/DumbWareio/DumbPad
+repo: https://github.com/DumbWareio/DumbPad
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

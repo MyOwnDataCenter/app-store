@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: ollama
+name: "Ollama"
+tagline: "Run AI language models on your server"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/ollama.png
+category: ai
+version: "latest"
+port: 11434
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: ollama
+  port: 11434
+description: >-
+  Ollama downloads and runs open language models such as Llama, Mistral and Gemma, and offers them to other apps
+  through an API.
+
+  This is the engine; pair it with Open WebUI or another app for a chat page.
+developer: "ollama and contributors"
+website: https://ollama.com/
+repo: https://github.com/ollama/ollama
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

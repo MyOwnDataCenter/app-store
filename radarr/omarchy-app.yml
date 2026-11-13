@@ -5,7 +5,7 @@ tagline: "Finds and organises the movies you want"
 icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/radarr.png
 category: media
 version: "latest"
-port: 7878
+port: 7070
 path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:

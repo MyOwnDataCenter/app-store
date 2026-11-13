@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: karakeep
+name: "Karakeep"
+tagline: "Save links, notes and images, searchable"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/karakeep.png
+category: files
+version: "latest"
+port: 3019
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: karakeep
+  port: 3000
+description: >-
+  Karakeep (formerly Hoarder) bookmarks links, notes and images, fetches page content and makes everything
+  searchable.
+developer: "karakeep-app and contributors"
+website: https://karakeep.app/
+repo: https://github.com/karakeep-app/karakeep
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

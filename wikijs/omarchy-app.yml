@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: wikijs
+name: "Wiki.js"
+tagline: "A modern wiki for teams and families"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/wikijs.png
+category: developer
+version: "latest"
+port: 3016
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: wikijs
+  port: 3000
+description: >-
+  Wiki.js is a fast wiki with a visual and Markdown editor, page history and search.
+
+  Create the admin account the first time you open it.
+developer: "requarks and contributors"
+website: https://js.wiki/
+repo: https://github.com/requarks/wiki
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

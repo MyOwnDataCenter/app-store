@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: calibre-web-automated
+name: "Calibre-Web Automated"
+tagline: "Calibre-Web with automatic book imports"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/calibre-web-automated.png
+category: files
+version: "latest"
+port: 8091
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: calibre-web-automated
+  port: 8083
+description: >-
+  Calibre-Web Automated adds automatic importing, conversion and metadata fixing to Calibre-Web, so dropped-in
+  books simply appear in your library.
+
+  Drop books into Documents/Books/Import. Change the default password after signing in.
+developer: "crocodilestick and contributors"
+website: https://github.com/crocodilestick/Calibre-Web-Automated
+repo: https://github.com/crocodilestick/Calibre-Web-Automated
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: "admin"
+defaultPassword: "admin123"

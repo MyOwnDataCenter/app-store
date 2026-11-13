@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: sqlitebrowser
+name: "DB Browser for SQLite"
+tagline: "Open and edit SQLite databases"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/sqlitebrowser.png
+category: developer
+version: "latest"
+port: 3027
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: sqlitebrowser
+  port: 3000
+description: >-
+  DB Browser for SQLite lets you open, browse and edit SQLite database files, streamed to your browser.
+developer: "sqlitebrowser and contributors"
+website: https://sqlitebrowser.org/
+repo: https://github.com/sqlitebrowser/sqlitebrowser
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

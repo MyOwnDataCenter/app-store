@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: chatpad-ai
+name: "Chatpad AI"
+tagline: "A simple ChatGPT client"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/chatpad-ai.png
+category: ai
+version: "latest"
+port: 8401
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: chatpad-ai
+  port: 80
+description: >-
+  Chatpad AI is a clean chat page for OpenAI models; your chats stay in your browser.
+developer: "deiucanta and contributors"
+website: https://github.com/deiucanta/chatpad
+repo: https://github.com/deiucanta/chatpad
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

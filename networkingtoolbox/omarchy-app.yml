@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: networkingtoolbox
+name: "Networking Toolbox"
+tagline: "Network tools in your browser"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/networkingtoolbox.png
+category: networking
+version: "latest"
+port: 3022
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: networkingtoolbox
+  port: 3000
+description: >-
+  Networking Toolbox bundles subnet calculators, DNS and SSL checks, IP lookups and other network utilities.
+developer: "Lissy93 and contributors"
+website: https://www.networkingtoolbox.net/
+repo: https://github.com/Lissy93/networking-toolbox
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

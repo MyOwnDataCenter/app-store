@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: budibase
+name: "Budibase"
+tagline: "Build internal apps without code"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/budibase.png
+category: developer
+version: "latest"
+port: 8406
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: budibase
+  port: 80
+description: >-
+  Budibase builds forms, dashboards and admin tools on top of your data, with automations.
+developer: "Budibase and contributors"
+website: https://budibase.com
+repo: https://github.com/Budibase/budibase
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

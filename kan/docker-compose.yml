@@ -1,0 +1,26 @@
+# kan: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  kan:
+    image: ghcr.io/kanbn/kan:latest
+    restart: unless-stopped
+    environment:
+      NEXT_PUBLIC_BASE_URL: "http://${SERVER_IP:-localhost}:3017"
+      BETTER_AUTH_SECRET: "${APP_SEED:?set APP_SEED}"
+      POSTGRES_URL: "postgresql://kan:${APP_PASSWORD:?set APP_PASSWORD}@db:5432/kan"
+      NEXT_PUBLIC_ALLOW_CREDENTIALS: "true"
+    depends_on:
+      - db
+    ports:
+      - "3017:3000"
+
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: kan
+      POSTGRES_USER: kan
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/db:/var/lib/postgresql/data

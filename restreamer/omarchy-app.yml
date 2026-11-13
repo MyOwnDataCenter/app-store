@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: restreamer
+name: "Restreamer"
+tagline: "Stream your camera or encoder to many platforms"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/restreamer.png
+category: files
+version: "latest"
+port: 8182
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: restreamer
+  port: 8080
+# Ports that must be reachable from your network.
+openPorts: [1935]
+description: >-
+  Restreamer takes a video feed and restreams it to YouTube, Twitch and others at once, with a player page of
+  its own.
+developer: "datarhei and contributors"
+website: https://datarhei.com/
+repo: https://github.com/datarhei/restreamer
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: music-assistant
+name: "Music Assistant"
+tagline: "One music library for all your speakers"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/music-assistant.png
+category: automation
+version: "latest"
+port: 8095
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: music-assistant
+  port: 8095
+description: >-
+  Music Assistant joins your music services and files into one library and plays it on speakers around the
+  house.
+
+  Runs on your server’s own network so it can find your speakers.
+developer: "music-assistant and contributors"
+website: https://www.music-assistant.io
+repo: https://github.com/music-assistant/server
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

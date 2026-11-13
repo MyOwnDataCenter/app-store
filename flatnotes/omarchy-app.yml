@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: flatnotes
+name: "flatnotes"
+tagline: "Simple Markdown notes, stored as files"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/flatnotes.png
+category: files
+version: "latest"
+port: 8387
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: flatnotes
+  port: 8080
+description: >-
+  flatnotes keeps notes as plain Markdown files with fast search and no database to manage.
+developer: "dullage and contributors"
+website: https://github.com/dullage/flatnotes
+repo: https://github.com/dullage/flatnotes
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: "admin"
+defaultPassword: ""
+# The password is generated per server by Omarchy Server and shown on the app’s page.
+deterministicPassword: true

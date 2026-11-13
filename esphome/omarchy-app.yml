@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: esphome
+name: "ESPHome"
+tagline: "Program ESP32 and ESP8266 devices for your smart home"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/esphome.png
+category: automation
+version: "latest"
+port: 6052
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: esphome
+  port: 6052
+description: >-
+  ESPHome builds firmware for small Wi-Fi boards from simple config files and keeps them updated over the air,
+  ready for Home Assistant.
+developer: "esphome and contributors"
+website: https://esphome.io
+repo: https://github.com/esphome/esphome
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

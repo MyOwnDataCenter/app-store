@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: invio
+name: "Invio"
+tagline: "Simple invoicing for freelancers"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/invio.png
+category: finance
+version: "latest"
+port: 8037
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: invio
+  port: 8000
+description: >-
+  Invio creates and sends clean invoices, tracks what has been paid and keeps your client list.
+
+  Create your account the first time you open it.
+developer: "kittendevv and contributors"
+website: https://github.com/kittendevv/invio
+repo: https://github.com/kittendevv/invio
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

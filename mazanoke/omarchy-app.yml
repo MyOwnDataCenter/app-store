@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: mazanoke
+name: "Mazanoke"
+tagline: "Shrink and convert images"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/mazanoke.png
+category: files
+version: "latest"
+port: 8410
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: mazanoke
+  port: 80
+description: >-
+  Mazanoke optimises and converts images in your browser, handy for making photos smaller before sharing.
+developer: "civilblur and contributors"
+website: https://mazanoke.com/
+repo: https://github.com/civilblur/mazanoke
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

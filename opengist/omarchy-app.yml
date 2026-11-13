@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: opengist
+name: "Opengist"
+tagline: "Share code snippets, Gist style"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/opengist.png
+category: developer
+version: "latest"
+port: 6157
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: opengist
+  port: 6157
+description: >-
+  Opengist is a self-hosted Pastebin and GitHub Gist alternative, backed by Git.
+developer: "thomiceli and contributors"
+website: https://opengist.io/
+repo: https://github.com/thomiceli/opengist
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

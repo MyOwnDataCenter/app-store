@@ -1,0 +1,15 @@
+# HomeHub: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  homehub:
+    image: ghcr.io/surajverma/homehub:latest
+    restart: unless-stopped
+    environment:
+      SECRET_KEY: "${APP_SEED:?set APP_SEED}"
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/uploads:/app/uploads
+      - ${APP_DATA_DIR:-.}/data/media:/app/media
+      - ${APP_DATA_DIR:-.}/data/data:/app/data
+    ports:
+      - "5001:5000"

@@ -1,0 +1,14 @@
+# Wiki.js: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  wikijs:
+    image: ghcr.io/requarks/wiki:2
+    restart: unless-stopped
+    environment:
+      DB_TYPE: sqlite
+      DB_FILEPATH: /wiki/data/content/wiki.sqlite
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/data:/wiki/data/content
+    ports:
+      - "3016:3000"

@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: flaresolverr
+name: "flaresolverr"
+tagline: "Helps Prowlarr and Jackett get past browser checks"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/flaresolverr.png
+category: media
+version: "latest"
+port: 8191
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: flaresolverr
+  port: 8191
+description: >-
+  FlareSolverr opens pages in a headless browser so indexer apps can reach sites protected by browser
+  challenges. It has no page of its own to use.
+developer: "FlareSolverr and contributors"
+website: https://github.com/FlareSolverr/FlareSolverr
+repo: https://github.com/FlareSolverr/FlareSolverr
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

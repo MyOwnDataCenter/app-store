@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: file-browser
+name: "File Browser"
+tagline: "Browse and share files on your server"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/file-browser.png
+category: files
+version: "latest"
+port: 8099
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: file-browser
+  port: 80
+description: >-
+  File Browser gives your server’s folders a simple web interface for uploading, editing, sharing and
+  downloading files.
+
+  Sign in as admin with the one-time password shown in this app’s logs the first time it starts.
+developer: "filebrowser and contributors"
+website: https://filebrowser.org/
+repo: https://github.com/filebrowser/filebrowser
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: "admin"
+defaultPassword: ""

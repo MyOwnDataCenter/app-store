@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: pinchflat
+name: "Pinchflat"
+tagline: "Keep your favourite YouTube channels downloaded"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/pinchflat.png
+category: media
+version: "latest"
+port: 8945
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: pinchflat
+  port: 8945
+description: >-
+  Pinchflat follows YouTube channels and playlists and downloads new videos automatically into your Videos
+  folder.
+developer: "kieraneglin and contributors"
+website: https://github.com/kieraneglin/pinchflat
+repo: https://github.com/kieraneglin/pinchflat
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

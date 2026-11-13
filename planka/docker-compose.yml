@@ -1,0 +1,31 @@
+# Planka: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  planka:
+    image: ghcr.io/plankanban/planka:latest
+    restart: unless-stopped
+    environment:
+      BASE_URL: "http://${SERVER_IP:-localhost}:1337"
+      DATABASE_URL: "postgresql://planka:${APP_PASSWORD:?set APP_PASSWORD}@db/planka"
+      SECRET_KEY: "${APP_SEED:?set APP_SEED}"
+      DEFAULT_ADMIN_EMAIL: "admin@example.com"
+      DEFAULT_ADMIN_USERNAME: admin
+      DEFAULT_ADMIN_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      DEFAULT_ADMIN_NAME: Admin
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/data:/app/data
+    depends_on:
+      - db
+    ports:
+      - "1337:1337"
+
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: planka
+      POSTGRES_USER: planka
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/db:/var/lib/postgresql/data

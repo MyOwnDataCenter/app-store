@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: docuseal
+name: "DocuSeal"
+tagline: "Send documents for signature"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/docuseal.png
+category: files
+version: "latest"
+port: 3012
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: docuseal
+  port: 3000
+description: >-
+  DocuSeal fills in and signs PDFs online: upload a contract, place the fields, and send it out for signatures.
+developer: "docusealco and contributors"
+website: https://www.docuseal.com/
+repo: https://github.com/docusealco/docuseal
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

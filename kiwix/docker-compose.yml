@@ -1,0 +1,12 @@
+# Kiwix: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  kiwix:
+    image: ghcr.io/kiwix/kiwix-serve:latest
+    restart: unless-stopped
+    command: '*.zim'
+    volumes:
+      - ${DOCUMENTS_DIR:-./media/documents}/Kiwix:/data
+    ports:
+      - "8380:8080"

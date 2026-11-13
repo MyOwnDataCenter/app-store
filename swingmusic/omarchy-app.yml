@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: swingmusic
+name: "Swing Music"
+tagline: "A beautiful music player for your library"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/swingmusic.png
+category: media
+version: "latest"
+port: 1970
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: swingmusic
+  port: 1970
+description: >-
+  Swing Music turns your Music folder into a polished streaming player with albums, artists, playlists and
+  lyrics.
+developer: "swingmx and contributors"
+website: https://github.com/swingmx/swingmusic
+repo: https://github.com/swingmx/swingmusic
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: heimdall
+name: "Heimdall"
+tagline: "A start page for all your apps"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/heimdall.png
+category: files
+version: "latest"
+port: 8397
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: heimdall
+  port: 80
+description: >-
+  Heimdall is a tidy dashboard of links to your apps and favourite sites, with live status for some.
+developer: "linuxserver and contributors"
+website: https://heimdall.site
+repo: https://github.com/linuxserver/Heimdall
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

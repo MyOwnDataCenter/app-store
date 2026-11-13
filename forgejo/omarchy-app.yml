@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: forgejo
+name: "Forgejo"
+tagline: "Community-run Git hosting"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/forgejo.png
+category: developer
+version: "latest"
+port: 3024
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: forgejo
+  port: 3000
+# Ports that must be reachable from your network.
+openPorts: [2223]
+description: >-
+  Forgejo hosts Git repositories with issues, pull requests, packages and CI; it is a community fork of Gitea.
+developer: "Forgejo project"
+website: https://forgejo.org/
+repo: https://codeberg.org/forgejo/forgejo
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

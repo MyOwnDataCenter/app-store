@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: palmr
+name: "Palmr"
+tagline: "Share files with a link"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/palmr.png
+category: files
+version: "latest"
+port: 5487
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: palmr
+  port: 5487
+description: >-
+  Palmr is a self-hosted file sharing service: upload, set a password or expiry, and send the link.
+developer: "kyantech and contributors"
+website: https://palmr.kyantech.com.br/
+repo: https://github.com/kyantech/Palmr
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

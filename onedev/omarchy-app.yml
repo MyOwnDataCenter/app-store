@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: onedev
+name: "OneDev"
+tagline: "Git hosting with built-in CI"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/onedev.png
+category: developer
+version: "latest"
+port: 6610
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: onedev
+  port: 6610
+description: >-
+  OneDev is a Git server with code search, issues, pull requests and CI/CD pipelines in one package.
+developer: "theonedev and contributors"
+website: https://onedev.io/
+repo: https://github.com/theonedev/onedev
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

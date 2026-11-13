@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: trip
+name: "Trip"
+tagline: "Plan trips on a map"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/trip.png
+category: files
+version: "latest"
+port: 8034
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: trip
+  port: 8000
+description: >-
+  TRIP is a trip planner for points of interest on a map, day plans and a packing list.
+developer: "itskovacs and contributors"
+website: https://itskovacs-trip.netlify.app/
+repo: https://github.com/itskovacs/trip
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: pingvin-share
+name: "Pingvin Share"
+tagline: "Share large files with expiring links"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/pingvin-share.png
+category: files
+version: "latest"
+port: 3011
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: pingvin-share
+  port: 3000
+description: >-
+  Pingvin Share is a WeTransfer-style sharing page: upload files, choose who can see them and for how long.
+developer: "stonith404 and contributors"
+website: https://stonith404.github.io/pingvin-share/introduction
+repo: https://github.com/stonith404/pingvin-share
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

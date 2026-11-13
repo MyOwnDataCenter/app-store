@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: komga
+name: "Komga"
+tagline: "A home for your comics and manga"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/komga.png
+category: media
+version: "latest"
+port: 25600
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: komga
+  port: 25600
+description: >-
+  Komga serves comics, manga and magazines to any browser and to reading apps through OPDS, keeping track of
+  what you have read.
+
+  Keep comics in Documents/Comics.
+developer: "gotson and contributors"
+website: https://komga.org
+repo: https://github.com/gotson/komga
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

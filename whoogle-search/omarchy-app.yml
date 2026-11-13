@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: whoogle-search
+name: "Whoogle Search"
+tagline: "Google results without the tracking"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/whoogle-search.png
+category: networking
+version: "latest"
+port: 5002
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: whoogle-search
+  port: 5000
+description: >-
+  Whoogle shows Google search results without ads, JavaScript, cookies or tracking.
+developer: "benbusby and contributors"
+website: https://github.com/benbusby
+repo: https://github.com/benbusby/whoogle-search
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

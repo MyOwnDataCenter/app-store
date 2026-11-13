@@ -14,4 +14,4 @@ services:
       - ${VIDEOS_DIR:-./media/videos}/Movies:/movies
       - ${DOWNLOADS_DIR:-./downloads}:/downloads
     ports:
-      - "7878:7878"
+      - "7070:7878"

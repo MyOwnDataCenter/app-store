@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: vert
+name: "VERT"
+tagline: "A private file converter"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/vert.png
+category: files
+version: "latest"
+port: 8382
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: vert
+  port: 80
+description: >-
+  VERT converts images, audio and documents right in your browser, without uploading them anywhere.
+developer: "VERT-sh and contributors"
+website: https://vert.sh/
+repo: https://github.com/VERT-sh/VERT
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

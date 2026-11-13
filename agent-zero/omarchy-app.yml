@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: agent-zero
+name: "Agent Zero"
+tagline: "A general-purpose AI agent"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/agent-zero.png
+category: ai
+version: "latest"
+port: 8403
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: agent-zero
+  port: 80
+description: >-
+  Agent Zero is an AI assistant that can use tools, run code and work through multi-step tasks in its own
+  sandbox.
+developer: "agent0ai and contributors"
+website: https://github.com/agent0ai/agent-zero
+repo: https://github.com/agent0ai/agent-zero
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

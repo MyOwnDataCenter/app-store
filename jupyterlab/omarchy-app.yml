@@ -1,0 +1,29 @@
+manifestVersion: 1
+id: jupyterlab
+name: "JupyterLab"
+tagline: "Notebooks for Python and data"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/jupyterlab.png
+category: developer
+version: "latest"
+port: 8889
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: jupyterlab
+  port: 8888
+description: >-
+  JupyterLab runs interactive notebooks for Python, data analysis and charts in your browser.
+
+  Sign in with the password Omarchy Server shows for this app.
+developer: "jupyterlab and contributors"
+website: https://jupyterlab.readthedocs.io/en/latest/
+repo: https://github.com/jupyterlab/jupyterlab
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""
+# The password is generated per server by Omarchy Server and shown on the app’s page.
+deterministicPassword: true

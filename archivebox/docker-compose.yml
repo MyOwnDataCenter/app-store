@@ -1,0 +1,18 @@
+# ArchiveBox: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  archivebox:
+    image: archivebox/archivebox:latest
+    restart: unless-stopped
+    environment:
+      ADMIN_USERNAME: admin
+      ADMIN_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      ALLOWED_HOSTS: "*"
+      CSRF_TRUSTED_ORIGINS: "http://${SERVER_IP:-localhost}:8033"
+      PUBLIC_INDEX: "false"
+      PUBLIC_SNAPSHOTS: "false"
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/data:/data
+    ports:
+      - "8033:8000"

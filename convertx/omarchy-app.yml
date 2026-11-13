@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: convertx
+name: "ConvertX"
+tagline: "Convert files between hundreds of formats"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/convertx.png
+category: files
+version: "latest"
+port: 3013
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: convertx
+  port: 3000
+description: >-
+  ConvertX converts documents, images, audio and video between formats from a single upload page.
+developer: "C4illin and contributors"
+website: https://github.com/C4illin/ConvertX
+repo: https://github.com/C4illin/ConvertX
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: rotki
+name: "rotki"
+tagline: "Private portfolio tracking and accounting"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/rotki.png
+category: finance
+version: "latest"
+port: 8394
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: rotki
+  port: 80
+description: >-
+  rotki tracks your investments and crypto across accounts and computes taxes, keeping all data on your server.
+developer: "rotki and contributors"
+website: https://rotki.com
+repo: https://github.com/rotki/rotki
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

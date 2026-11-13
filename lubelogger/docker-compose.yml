@@ -1,0 +1,12 @@
+# LubeLogger: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  lubelogger:
+    image: ghcr.io/hargata/lubelogger:latest
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/data:/App/data
+      - ${APP_DATA_DIR:-.}/data/keys:/root/.aspnet/DataProtection-Keys
+    ports:
+      - "8392:8080"

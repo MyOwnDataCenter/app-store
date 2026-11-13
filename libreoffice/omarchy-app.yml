@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: libreoffice
+name: "LibreOffice"
+tagline: "The LibreOffice suite in your browser"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/libreoffice.png
+category: files
+version: "latest"
+port: 3032
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: libreoffice
+  port: 3000
+description: >-
+  LibreOffice Writer, Calc and Impress running on your server, for editing documents from any device.
+
+  Works best over HTTPS; on your home network it opens over plain HTTP too.
+developer: "LibreOffice project"
+website: https://www.libreoffice.org/
+repo: https://www.libreoffice.org/about-us/source-code/
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

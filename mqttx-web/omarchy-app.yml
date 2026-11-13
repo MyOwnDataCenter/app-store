@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: mqttx-web
+name: "MQTTX Web"
+tagline: "An MQTT client in your browser"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/mqttx-web.png
+category: automation
+version: "latest"
+port: 8396
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: mqttx-web
+  port: 80
+description: >-
+  MQTTX Web connects to MQTT brokers so you can publish, subscribe and debug messages from your smart home or
+  IoT devices.
+developer: "emqx and contributors"
+website: https://mqttx.app/
+repo: https://github.com/emqx/MQTTX
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

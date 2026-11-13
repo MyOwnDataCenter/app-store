@@ -1,0 +1,16 @@
+# Emby: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  emby:
+    image: emby/embyserver:latest
+    restart: unless-stopped
+    environment:
+      UID: "${PUID:-1000}"
+      GID: "${PGID:-1000}"
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/config:/config
+      - ${VIDEOS_DIR:-./media/videos}:/mnt/videos
+      - ${MUSIC_DIR:-./media/music}:/mnt/music
+    ports:
+      - "8920:8096"

@@ -1,0 +1,16 @@
+# LibreOffice: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  libreoffice:
+    image: lscr.io/linuxserver/libreoffice:latest
+    restart: unless-stopped
+    environment:
+      PUID: "${PUID:-1000}"
+      PGID: "${PGID:-1000}"
+      TZ: "${TZ:-UTC}"
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/config:/config
+      - ${DOCUMENTS_DIR:-./media/documents}:/config/Documents
+    ports:
+      - "3032:3000"

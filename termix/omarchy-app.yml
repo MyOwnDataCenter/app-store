@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: termix
+name: "Termix"
+tagline: "SSH and server management in the browser"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/termix.png
+category: developer
+version: "latest"
+port: 8408
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: termix
+  port: 8080
+description: >-
+  Termix is a web-based SSH client with saved hosts, tunnels and a file manager for your servers.
+developer: "Termix-SSH and contributors"
+website: https://docs.termix.site/
+repo: https://github.com/Termix-SSH/Termix/
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

@@ -1,0 +1,9 @@
+# Whoogle Search: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  whoogle-search:
+    image: benbusby/whoogle-search:latest
+    restart: unless-stopped
+    ports:
+      - "5002:5000"

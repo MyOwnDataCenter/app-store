@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: scanservjs
+name: "scanservjs"
+tagline: "Scan documents from any browser"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/scanservjs.png
+category: files
+version: "latest"
+port: 8385
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: scanservjs
+  port: 8080
+description: >-
+  scanservjs puts your scanner on the network: scan from a phone or computer and save PDFs or images.
+
+  Your scanner must be reachable from the server (a network scanner works best).
+developer: "sbs20 and contributors"
+website: https://sbs20.github.io/scanservjs/
+repo: https://github.com/sbs20/scanservjs
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

@@ -1,0 +1,14 @@
+# ConvertX: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  convertx:
+    image: ghcr.io/c4illin/convertx:latest
+    restart: unless-stopped
+    environment:
+      JWT_SECRET: "${APP_SEED:?set APP_SEED}"
+      HTTP_ALLOWED: "true"
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/data:/app/data
+    ports:
+      - "3013:3000"

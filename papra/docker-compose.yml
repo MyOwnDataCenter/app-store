@@ -1,0 +1,14 @@
+# Papra: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  papra:
+    image: ghcr.io/papra-hq/papra:latest
+    restart: unless-stopped
+    environment:
+      AUTH_SECRET: "${APP_SEED:?set APP_SEED}"
+      APP_BASE_URL: "http://${SERVER_IP:-localhost}:1221"
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/app-data:/app/app-data
+    ports:
+      - "1221:1221"

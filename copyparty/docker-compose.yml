@@ -1,0 +1,15 @@
+# copyparty: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  copyparty:
+    image: copyparty/ac:latest
+    restart: unless-stopped
+    user: "${PUID:-1000}:${PGID:-1000}"
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/config:/cfg
+      - ${DOCUMENTS_DIR:-./media/documents}:/w/Documents
+      - ${PICTURES_DIR:-./media/pictures}:/w/Pictures
+      - ${DOWNLOADS_DIR:-./downloads}:/w/Downloads
+    ports:
+      - "3923:3923"

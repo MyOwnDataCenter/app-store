@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: linkstack
+name: "LinkStack"
+tagline: "Your own link-in-bio page"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/linkstack.png
+category: social
+version: "latest"
+port: 8398
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: linkstack
+  port: 80
+description: >-
+  LinkStack builds a personal page with all your links, like Linktree, on your own server.
+developer: "LinkStackOrg and contributors"
+website: https://linkstack.org/
+repo: https://github.com/LinkStackOrg/LinkStack
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

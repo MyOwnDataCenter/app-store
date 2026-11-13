@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: element
+name: "Element"
+tagline: "A web client for Matrix chat"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/element.png
+category: social
+version: "latest"
+port: 8399
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: element
+  port: 80
+description: >-
+  Element is the best-known app for the Matrix network: encrypted chats, rooms and calls with anyone on Matrix.
+
+  Sign in with a Matrix account on any homeserver.
+developer: "vector-im and contributors"
+website: https://element.io
+repo: https://github.com/vector-im/element-web
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

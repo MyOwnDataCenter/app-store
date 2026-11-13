@@ -1,0 +1,12 @@
+# Baïkal: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  baikal:
+    image: ckulka/baikal:nginx
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/config:/var/www/baikal/config
+      - ${APP_DATA_DIR:-.}/data/specific:/var/www/baikal/Specific
+    ports:
+      - "8400:80"

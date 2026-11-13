@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: ghostfolio
+name: "Ghostfolio"
+tagline: "Track your investments and net worth"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/ghostfolio.png
+category: finance
+version: "latest"
+port: 3333
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: ghostfolio
+  port: 3333
+description: >-
+  Ghostfolio follows stocks, ETFs and crypto across accounts, showing performance, allocation and dividends.
+
+  Create the first account (it becomes the admin) the first time you open it.
+developer: "ghostfolio and contributors"
+website: https://ghostfol.io/
+repo: https://github.com/ghostfolio/ghostfolio
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

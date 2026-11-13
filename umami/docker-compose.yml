@@ -1,0 +1,24 @@
+# Umami: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  umami:
+    image: ghcr.io/umami-software/umami:latest
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: "postgresql://umami:${APP_PASSWORD:?set APP_PASSWORD}@db:5432/umami"
+      APP_SECRET: "${APP_SEED:?set APP_SEED}"
+    depends_on:
+      - db
+    ports:
+      - "3021:3000"
+
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: umami
+      POSTGRES_USER: umami
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/db:/var/lib/postgresql/data

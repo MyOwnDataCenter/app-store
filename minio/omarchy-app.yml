@@ -1,0 +1,29 @@
+manifestVersion: 1
+id: minio
+name: "MinIO"
+tagline: "S3-compatible object storage"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/minio.png
+category: developer
+version: "latest"
+port: 9011
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: minio
+  port: 9001
+# Ports that must be reachable from your network.
+openPorts: [9000]
+description: >-
+  MinIO stores files as S3-compatible object storage, for backups and apps that expect Amazon S3.
+developer: "minio and contributors"
+website: https://min.io
+repo: https://github.com/minio/minio
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: "admin"
+defaultPassword: ""
+# The password is generated per server by Omarchy Server and shown on the app’s page.
+deterministicPassword: true

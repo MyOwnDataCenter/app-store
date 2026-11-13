@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: webcheck
+name: "WebCheck"
+tagline: "Look inside any website"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/webcheck.png
+category: networking
+version: "latest"
+port: 3023
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: webcheck
+  port: 3000
+description: >-
+  Web Check analyses a website’s DNS, SSL, headers, security settings and more in one report.
+developer: "Lissy93 and contributors"
+website: https://web-check.xyz/
+repo: https://github.com/Lissy93/web-check
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

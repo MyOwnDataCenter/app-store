@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: downtify
+name: "Downtify"
+tagline: "Download music from Spotify links"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/downtify.png
+category: media
+version: "latest"
+port: 8030
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: downtify
+  port: 8000
+description: >-
+  Downtify fetches songs, albums and playlists from Spotify links as audio files into your Downloads folder.
+developer: "henriquesebastiao and contributors"
+website: https://github.com/henriquesebastiao/downtify
+repo: https://github.com/henriquesebastiao/downtify
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

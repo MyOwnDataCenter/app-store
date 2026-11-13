@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: firefox
+name: "Firefox"
+tagline: "Firefox, running on your server"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/firefox.png
+category: networking
+version: "latest"
+port: 3030
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: firefox
+  port: 3000
+description: >-
+  A full Firefox browser that runs on your server and streams to any device, keeping its profile on the server.
+
+  Works best over HTTPS; on your home network it opens over plain HTTP too.
+developer: "Firefox project"
+website: https://www.mozilla.org/en-US/firefox/
+repo: https://support.mozilla.org/en-US/contribute
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

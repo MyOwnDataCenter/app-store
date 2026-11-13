@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: baikal
+name: "Baïkal"
+tagline: "Calendar and contacts sync"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/baikal.png
+category: networking
+version: "latest"
+port: 8400
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: baikal
+  port: 80
+description: >-
+  Baïkal is a CalDAV and CardDAV server: sync calendars and contacts between your phone and computers.
+
+  A short setup page runs the first time you open it.
+developer: "sabre-io and contributors"
+website: https://sabre.io/baikal/
+repo: https://github.com/sabre-io/Baikal
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

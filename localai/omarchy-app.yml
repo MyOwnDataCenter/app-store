@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: localai
+name: "LocalAI"
+tagline: "An OpenAI-compatible API running locally"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/localai.png
+category: ai
+version: "latest"
+port: 8402
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: localai
+  port: 8080
+description: >-
+  LocalAI runs language, image and speech models on your server behind the same API as OpenAI, so existing apps
+  can use it.
+developer: "mudler and contributors"
+website: https://localai.io/
+repo: https://github.com/mudler/LocalAI
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

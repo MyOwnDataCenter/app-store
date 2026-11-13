@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: ersatztv-legacy
+name: "ErsatzTV"
+tagline: "Your own live TV channels from your media"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/ersatztv-legacy.png
+category: media
+version: "latest"
+port: 8409
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: ersatztv-legacy
+  port: 8409
+description: >-
+  ErsatzTV builds scheduled live channels from your movies and shows and serves them to Plex, Jellyfin or any
+  IPTV player.
+developer: "ErsatzTV and contributors"
+website: https://ersatztv.org
+repo: https://github.com/ErsatzTV/legacy
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

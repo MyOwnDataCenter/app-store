@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: appsmith
+name: "Appsmith"
+tagline: "Build internal tools quickly"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/appsmith.png
+category: developer
+version: "latest"
+port: 8407
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: appsmith
+  port: 80
+description: >-
+  Appsmith assembles admin panels and dashboards from drag-and-drop widgets connected to your databases and
+  APIs.
+developer: "appsmithorg and contributors"
+website: https://www.appsmith.com/
+repo: https://github.com/appsmithorg/appsmith
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

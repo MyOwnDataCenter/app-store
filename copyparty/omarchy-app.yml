@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: copyparty
+name: "copyparty"
+tagline: "A fast file server for uploads and sharing"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/copyparty.png
+category: files
+version: "latest"
+port: 3923
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: copyparty
+  port: 3923
+description: >-
+  copyparty shares folders over the web with resumable uploads, media thumbnails and search, all in one small
+  program.
+developer: "9001 and contributors"
+website: https://github.com/9001/copyparty
+repo: https://github.com/9001/copyparty
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

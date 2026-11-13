@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: papra
+name: "Papra"
+tagline: "A calm home for your documents"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/papra.png
+category: files
+version: "latest"
+port: 1221
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: papra
+  port: 1221
+description: >-
+  Papra archives your documents and receipts with tags and full-text search, simple enough for the whole family.
+developer: "papra-hq and contributors"
+website: https://papra.app
+repo: https://github.com/papra-hq/papra
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

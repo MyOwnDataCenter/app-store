@@ -1,0 +1,19 @@
+# Semaphore UI: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  semaphore:
+    image: semaphoreui/semaphore:latest
+    restart: unless-stopped
+    environment:
+      SEMAPHORE_DB_DIALECT: bolt
+      SEMAPHORE_ADMIN: admin
+      SEMAPHORE_ADMIN_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      SEMAPHORE_ADMIN_NAME: Admin
+      SEMAPHORE_ADMIN_EMAIL: "admin@localhost"
+      SEMAPHORE_ACCESS_KEY_ENCRYPTION: "${APP_SEED:?set APP_SEED}"
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/data:/var/lib/semaphore
+      - ${APP_DATA_DIR:-.}/data/config:/etc/semaphore
+    ports:
+      - "3025:3000"

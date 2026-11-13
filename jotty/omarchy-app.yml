@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: jotty
+name: "Jotty"
+tagline: "Checklists and notes for the household"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/jotty.png
+category: files
+version: "latest"
+port: 3015
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: jotty
+  port: 3000
+description: >-
+  Jotty keeps checklists and notes as files on your server, with sharing between household members.
+developer: "fccview and contributors"
+website: https://jotty.page
+repo: https://github.com/fccview/jotty
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

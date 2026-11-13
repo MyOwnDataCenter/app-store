@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: mattermost
+name: "Mattermost"
+tagline: "Team chat you run yourself"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/mattermost.png
+category: social
+version: "latest"
+port: 8065
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: mattermost
+  port: 8065
+description: >-
+  Mattermost is a Slack-style team chat with channels, threads, file sharing and integrations.
+developer: "mattermost and contributors"
+website: https://mattermost.com
+repo: https://github.com/mattermost/mattermost
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

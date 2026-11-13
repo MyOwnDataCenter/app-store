@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: langflow
+name: "Langflow"
+tagline: "Build AI workflows visually"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/langflow.png
+category: ai
+version: "latest"
+port: 7660
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: langflow
+  port: 7860
+description: >-
+  Langflow builds AI agents and pipelines by connecting components on a canvas, then serves them as an API.
+developer: "langflow-ai and contributors"
+website: https://www.langflow.org/
+repo: https://github.com/langflow-ai/langflow
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

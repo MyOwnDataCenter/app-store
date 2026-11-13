@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: bentopdf
+name: "BentoPDF"
+tagline: "PDF tools that run in your browser"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/bentopdf.png
+category: files
+version: "latest"
+port: 8381
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: bentopdf
+  port: 8080
+description: >-
+  BentoPDF merges, splits, compresses and edits PDFs; the work happens in your browser, so files never leave
+  your device.
+developer: "alam00000 and contributors"
+website: https://bentopdf.com/
+repo: https://github.com/alam00000/bentopdf
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

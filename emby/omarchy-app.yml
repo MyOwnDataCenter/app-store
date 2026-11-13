@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: emby
+name: "Emby"
+tagline: "A media server for your movies, shows and music"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/emby.png
+category: media
+version: "latest"
+port: 8920
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: emby
+  port: 8096
+description: >-
+  Emby organises your video and music collection and streams it to apps on TVs, phones and browsers, with live
+  TV and parental controls.
+developer: "MediaBrowser and contributors"
+website: https://emby.media/
+repo: https://github.com/MediaBrowser/Emby
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""
