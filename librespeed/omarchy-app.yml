@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: librespeed
+name: "LibreSpeed"
+tagline: "Test the speed between your devices and your server"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/librespeed.png
+category: networking
+version: "latest"
+port: 8095
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: librespeed
+  port: 80
+description: >-
+  LibreSpeed measures download, upload and latency between any device and your server, handy for checking Wi-Fi
+  and network cables.
+developer: "LibreSpeed contributors · image by linuxserver.io"
+website: https://librespeed.org
+repo: https://github.com/librespeed/speedtest
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

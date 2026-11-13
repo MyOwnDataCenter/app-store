@@ -1,0 +1,14 @@
+# Stirling PDF: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  stirling-pdf:
+    image: stirlingtools/stirling-pdf:latest
+    restart: unless-stopped
+    environment:
+      DOCKER_ENABLE_SECURITY: "false"
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/configs:/configs
+      - ${APP_DATA_DIR:-.}/data/logs:/logs
+    ports:
+      - "8084:8080"

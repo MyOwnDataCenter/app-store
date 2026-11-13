@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: sonarr
+name: "Sonarr"
+tagline: "Follows your TV shows and fetches new episodes"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/sonarr.png
+category: media
+version: "latest"
+port: 8989
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: sonarr
+  port: 8989
+description: >-
+  Sonarr keeps track of the shows you follow, grabs new episodes as they air through your download client, and
+  files them neatly in Videos/TV.
+developer: "Servarr team · image by linuxserver.io"
+website: https://sonarr.tv
+repo: https://github.com/Sonarr/Sonarr
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

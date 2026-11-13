@@ -1,0 +1,17 @@
+# ntfy: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  ntfy:
+    image: binwiederhier/ntfy:latest
+    restart: unless-stopped
+    command: serve
+    environment:
+      TZ: ${TZ:-UTC}
+      NTFY_BASE_URL: http://${SERVER_IP:-localhost}:8093
+      NTFY_CACHE_FILE: /var/lib/ntfy/cache.db
+      NTFY_BEHIND_PROXY: "true"
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/cache:/var/lib/ntfy
+    ports:
+      - "8093:80"

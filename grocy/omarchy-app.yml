@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: grocy
+name: "Grocy"
+tagline: "Groceries and household management"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/grocy.png
+category: files
+version: "latest"
+port: 9283
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: grocy
+  port: 80
+description: >-
+  Grocy tracks what is in your fridge and pantry, warns you before things expire, and keeps shopping lists,
+  chores and batteries in order.
+
+  Change the default password after signing in.
+developer: "Bernd Bestel · image by linuxserver.io"
+website: https://grocy.info
+repo: https://github.com/grocy/grocy
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: "admin"
+defaultPassword: "admin"

@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: node-red
+name: "Node-RED"
+tagline: "Wire up automations by drawing flows"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/node-red.png
+category: automation
+version: "latest"
+port: 1880
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: node-red
+  port: 1880
+description: >-
+  Node-RED lets you connect devices, services and APIs by dragging boxes and drawing lines between them, with
+  thousands of add-on nodes.
+developer: "OpenJS Foundation"
+website: https://nodered.org
+repo: https://github.com/node-red/node-red-docker
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

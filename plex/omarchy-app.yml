@@ -1,0 +1,29 @@
+manifestVersion: 1
+id: plex
+name: "Plex Media Server"
+tagline: "Stream your own media library with Plex"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/plex.png
+category: media
+version: "latest"
+port: 32400
+path: "/web"
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: plex
+  port: 32400
+description: >-
+  Plex organises your movies, shows and music with artwork and details, and streams them to the Plex apps on
+  your TV, phone and browser. Set it up from a device on the same network as your server.
+
+  Runs on your server’s own network (port 32400) so Plex apps can find it. A free Plex account is needed to
+  finish setup.
+developer: "Plex, Inc."
+website: https://www.plex.tv
+repo: https://github.com/plexinc/pms-docker
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

@@ -1,0 +1,22 @@
+# Open WebUI: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    restart: unless-stopped
+    environment:
+      OLLAMA_BASE_URL: http://ollama:11434
+      WEBUI_SECRET_KEY: ${APP_SEED:?set APP_SEED}
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/open-webui:/app/backend/data
+    depends_on:
+      - ollama
+    ports:
+      - "3080:8080"
+
+  ollama:
+    image: ollama/ollama:latest
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/ollama:/root/.ollama

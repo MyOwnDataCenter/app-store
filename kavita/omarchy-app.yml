@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: kavita
+name: "Kavita"
+tagline: "A reading server for books, comics and manga"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/kavita.png
+category: media
+version: "latest"
+port: 5000
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: kavita
+  port: 5000
+description: >-
+  Kavita serves your ebooks, comics and manga to any browser with a comfortable reader that remembers your
+  place. Keep your books in Documents/Books.
+
+  Create the admin account the first time you open it.
+developer: "Kareadita"
+website: https://www.kavitareader.com
+repo: https://github.com/Kareadita/Kavita
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

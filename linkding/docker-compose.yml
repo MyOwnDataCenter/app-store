@@ -1,0 +1,15 @@
+# linkding: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  linkding:
+    image: sissbruecker/linkding:latest
+    restart: unless-stopped
+    environment:
+      LD_SUPERUSER_NAME: admin
+      LD_SUPERUSER_PASSWORD: ${APP_PASSWORD:?set APP_PASSWORD}
+      LD_CSRF_TRUSTED_ORIGINS: http://${SERVER_IP:-localhost}:9090
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/data:/etc/linkding/data
+    ports:
+      - "9090:9090"

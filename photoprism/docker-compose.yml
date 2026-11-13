@@ -1,0 +1,23 @@
+# PhotoPrism: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  photoprism:
+    image: photoprism/photoprism:latest
+    restart: unless-stopped
+    working_dir: /photoprism
+    environment:
+      TZ: ${TZ:-UTC}
+      PHOTOPRISM_ADMIN_USER: admin
+      PHOTOPRISM_ADMIN_PASSWORD: ${APP_PASSWORD:?set APP_PASSWORD}
+      PHOTOPRISM_AUTH_MODE: password
+      PHOTOPRISM_DATABASE_DRIVER: sqlite
+      PHOTOPRISM_SITE_URL: http://${SERVER_IP:-localhost}:2342/
+      PHOTOPRISM_DISABLE_TLS: "true"
+      PHOTOPRISM_UID: ${PUID:-1000}
+      PHOTOPRISM_GID: ${PGID:-1000}
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/storage:/photoprism/storage
+      - ${PICTURES_DIR:-./media/pictures}:/photoprism/originals
+    ports:
+      - "2342:2342"

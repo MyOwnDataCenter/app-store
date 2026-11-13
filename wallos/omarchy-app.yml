@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: wallos
+name: "Wallos"
+tagline: "Keep track of your subscriptions"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/wallos.png
+category: finance
+version: "latest"
+port: 8282
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: wallos
+  port: 80
+description: >-
+  Wallos lists every subscription you pay for, shows what they cost each month and year, and reminds you before
+  renewals.
+
+  Create your account the first time you open it.
+developer: "Miguel Ribeiro"
+website: https://wallosapp.com
+repo: https://github.com/ellite/Wallos
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

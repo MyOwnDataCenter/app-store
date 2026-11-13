@@ -1,0 +1,29 @@
+manifestVersion: 1
+id: calibre-web
+name: "Calibre-Web"
+tagline: "Read and manage a Calibre ebook library in the browser"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/calibre-web.png
+category: media
+version: "latest"
+port: 8083
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: calibre-web
+  port: 8083
+description: >-
+  Calibre-Web gives an existing Calibre library a clean web interface for reading, searching and sending books
+  to your e-reader.
+
+  Copy your Calibre library (with its metadata.db) into Documents/Books, then point Calibre-Web at /books.
+  Change the default password after signing in.
+developer: "janeczku · image by linuxserver.io"
+website: https://github.com/janeczku/calibre-web
+repo: https://github.com/linuxserver/docker-calibre-web
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: "admin"
+defaultPassword: "admin123"

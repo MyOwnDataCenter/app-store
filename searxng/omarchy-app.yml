@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: searxng
+name: "SearXNG"
+tagline: "A private search engine"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/searxng.png
+category: networking
+version: "latest"
+port: 8888
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: searxng
+  port: 8080
+description: >-
+  SearXNG searches many engines at once and shows you the results without tracking you or building a profile.
+developer: "SearXNG contributors"
+website: https://docs.searxng.org
+repo: https://github.com/searxng/searxng
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

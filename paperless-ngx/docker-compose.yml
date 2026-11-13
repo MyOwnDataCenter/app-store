@@ -1,0 +1,31 @@
+# Paperless-ngx: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  paperless:
+    image: ghcr.io/paperless-ngx/paperless-ngx:latest
+    restart: unless-stopped
+    environment:
+      PAPERLESS_REDIS: redis://broker:6379
+      PAPERLESS_ADMIN_USER: admin
+      PAPERLESS_ADMIN_PASSWORD: ${APP_PASSWORD:?set APP_PASSWORD}
+      PAPERLESS_SECRET_KEY: ${APP_SEED:?set APP_SEED}
+      PAPERLESS_URL: http://${SERVER_IP:-localhost}:8010
+      PAPERLESS_TIME_ZONE: ${TZ:-UTC}
+      USERMAP_UID: ${PUID:-1000}
+      USERMAP_GID: ${PGID:-1000}
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/data:/usr/src/paperless/data
+      - ${APP_DATA_DIR:-.}/data/media:/usr/src/paperless/media
+      - ${APP_DATA_DIR:-.}/data/export:/usr/src/paperless/export
+      - ${DOCUMENTS_DIR:-./media/documents}/Paperless/Inbox:/usr/src/paperless/consume
+    depends_on:
+      - broker
+    ports:
+      - "8010:8000"
+
+  broker:
+    image: docker.io/library/redis:7-alpine
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/redis:/data

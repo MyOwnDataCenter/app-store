@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: audiobookshelf
+name: "Audiobookshelf"
+tagline: "Audiobooks and podcasts, with your progress synced"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/audiobookshelf.png
+category: media
+version: "latest"
+port: 13378
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: audiobookshelf
+  port: 80
+description: >-
+  Audiobookshelf plays your audiobooks and podcasts and remembers where you stopped on every device. It
+  downloads new podcast episodes by itself and has its own iPhone and Android apps.
+
+  Put audiobooks in Music/Audiobooks and podcasts in Music/Podcasts.
+developer: "advplyr and contributors"
+website: https://www.audiobookshelf.org
+repo: https://github.com/advplyr/audiobookshelf
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

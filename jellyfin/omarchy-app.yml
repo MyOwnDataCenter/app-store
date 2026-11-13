@@ -1,0 +1,29 @@
+manifestVersion: 1
+id: jellyfin
+name: "Jellyfin"
+tagline: "Your movies, shows and music, streamed to every screen"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/jellyfin.png
+category: media
+version: "latest"
+port: 8096
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: jellyfin
+  port: 8096
+description: >-
+  Jellyfin is a free media server. Point it at your Videos and Music folders and watch or listen from a browser,
+  phone, TV or game console. No account with anyone else, no tracking, no fees.
+
+  Your Videos, Music and Pictures folders appear in Jellyfin as /media/videos, /media/music and /media/pictures
+  when you add a library.
+developer: "Jellyfin project"
+website: https://jellyfin.org
+repo: https://github.com/jellyfin/jellyfin
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

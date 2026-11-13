@@ -1,0 +1,15 @@
+# n8n: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n:latest
+    restart: unless-stopped
+    environment:
+      GENERIC_TIMEZONE: ${TZ:-UTC}
+      N8N_SECURE_COOKIE: "false"
+      WEBHOOK_URL: http://${SERVER_IP:-localhost}:5678/
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/n8n:/home/node/.n8n
+    ports:
+      - "5678:5678"

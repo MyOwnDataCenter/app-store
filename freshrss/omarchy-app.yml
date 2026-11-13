@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: freshrss
+name: "FreshRSS"
+tagline: "Follow websites and blogs in one feed reader"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/freshrss.png
+category: social
+version: "latest"
+port: 8089
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: freshrss
+  port: 80
+description: >-
+  FreshRSS collects the latest posts from the sites you follow into one fast reader, and works with many RSS
+  apps on your phone.
+
+  A short setup wizard runs the first time you open it.
+developer: "FreshRSS contributors"
+website: https://freshrss.org
+repo: https://github.com/FreshRSS/FreshRSS
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

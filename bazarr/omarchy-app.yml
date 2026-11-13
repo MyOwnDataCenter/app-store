@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: bazarr
+name: "Bazarr"
+tagline: "Subtitles for your movies and shows, automatically"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/bazarr.png
+category: media
+version: "latest"
+port: 6767
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: bazarr
+  port: 6767
+description: >-
+  Bazarr works alongside Sonarr and Radarr to find and download subtitles in the languages you choose.
+developer: "morpheus65535 and contributors · image by linuxserver.io"
+website: https://www.bazarr.media
+repo: https://github.com/morpheus65535/bazarr
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

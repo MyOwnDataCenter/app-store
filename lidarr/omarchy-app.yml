@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: lidarr
+name: "Lidarr"
+tagline: "Builds and tidies your music collection"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/lidarr.png
+category: media
+version: "latest"
+port: 8686
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: lidarr
+  port: 8686
+description: >-
+  Lidarr follows the artists you like, picks up new albums through your download client and organises them in
+  your Music folder.
+developer: "Servarr team · image by linuxserver.io"
+website: https://lidarr.audio
+repo: https://github.com/Lidarr/Lidarr
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

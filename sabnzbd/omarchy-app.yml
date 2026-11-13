@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: sabnzbd
+name: "SABnzbd"
+tagline: "Usenet downloads, handled for you"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/sabnzbd.png
+category: media
+version: "latest"
+port: 8085
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: sabnzbd
+  port: 8080
+description: >-
+  SABnzbd downloads from Usenet, then checks, repairs and unpacks everything into your Downloads folder.
+
+  Open it by your server’s IP address the first time; SABnzbd only accepts names it knows.
+developer: "SABnzbd team · image by linuxserver.io"
+website: https://sabnzbd.org
+repo: https://github.com/linuxserver/docker-sabnzbd
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

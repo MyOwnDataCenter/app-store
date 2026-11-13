@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: stirling-pdf
+name: "Stirling PDF"
+tagline: "Merge, split, convert and sign PDFs"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/stirling-pdf.png
+category: files
+version: "latest"
+port: 8084
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: stirling-pdf
+  port: 8080
+description: >-
+  Stirling PDF is a toolbox for PDFs: merge, split, compress, convert, rotate, add signatures and run text
+  recognition, all on your server.
+developer: "Stirling Tools"
+website: https://www.stirlingpdf.com
+repo: https://github.com/Stirling-Tools/Stirling-PDF
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

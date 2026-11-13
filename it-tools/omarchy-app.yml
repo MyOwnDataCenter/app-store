@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: it-tools
+name: "IT Tools"
+tagline: "Handy converters and generators for developers"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/it-tools.png
+category: developer
+version: "latest"
+port: 8087
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: it-tools
+  port: 80
+description: >-
+  IT Tools bundles dozens of small utilities: encoders, hash and UUID generators, JSON and YAML formatters, cron
+  helpers and more, all running in your browser.
+developer: "Corentin Thomasset"
+website: https://it-tools.tech
+repo: https://github.com/CorentinTh/it-tools
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

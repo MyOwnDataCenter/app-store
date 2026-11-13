@@ -1,0 +1,29 @@
+manifestVersion: 1
+id: code-server
+name: "code-server"
+tagline: "VS Code in your browser"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/code-server.png
+category: developer
+version: "latest"
+port: 8443
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: code-server
+  port: 8443
+description: >-
+  code-server runs Visual Studio Code on your server so you can code from any browser, including on a tablet.
+
+  A few features, like some extensions’ previews, need HTTPS (for example through Tailscale Serve).
+developer: "Coder · image by linuxserver.io"
+website: https://coder.com/docs/code-server
+repo: https://github.com/coder/code-server
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""
+# The password is generated per server by Omarchy Server and shown on the app’s page.
+deterministicPassword: true

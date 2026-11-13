@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: tautulli
+name: "Tautulli"
+tagline: "Statistics and history for your Plex server"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/tautulli.png
+category: media
+version: "latest"
+port: 8181
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: tautulli
+  port: 8181
+description: >-
+  Tautulli watches your Plex server and shows who watched what, when and on which device, with graphs and
+  notifications.
+developer: "Tautulli team · image by linuxserver.io"
+website: https://tautulli.com
+repo: https://github.com/Tautulli/Tautulli
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

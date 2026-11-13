@@ -1,0 +1,22 @@
+# Duplicati: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  duplicati:
+    image: lscr.io/linuxserver/duplicati:latest
+    restart: unless-stopped
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-UTC}
+      SETTINGS_ENCRYPTION_KEY: ${APP_SEED:?set APP_SEED}
+      DUPLICATI__WEBSERVICE_PASSWORD: ${APP_PASSWORD:?set APP_PASSWORD}
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/config:/config
+      - ${APP_DATA_DIR:-.}/data/backups:/backups
+      - ${DOCUMENTS_DIR:-./media/documents}:/source/Documents:ro
+      - ${PICTURES_DIR:-./media/pictures}:/source/Pictures:ro
+      - ${MUSIC_DIR:-./media/music}:/source/Music:ro
+      - ${VIDEOS_DIR:-./media/videos}:/source/Videos:ro
+    ports:
+      - "8200:8200"

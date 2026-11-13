@@ -1,0 +1,17 @@
+# Mealie: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  mealie:
+    image: ghcr.io/mealie-recipes/mealie:latest
+    restart: unless-stopped
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-UTC}
+      ALLOW_SIGNUP: "false"
+      BASE_URL: http://${SERVER_IP:-localhost}:9925
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/mealie:/app/data
+    ports:
+      - "9925:9000"

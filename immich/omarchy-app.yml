@@ -1,0 +1,29 @@
+manifestVersion: 1
+id: immich
+name: "Immich"
+tagline: "Back up and browse your photos and videos"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/immich.png
+category: photography
+version: "latest"
+port: 2283
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: immich-server
+  port: 2283
+description: >-
+  Immich backs up the photos and videos from your phone automatically and gives you a fast timeline, albums,
+  sharing, a map and face and object search. It runs entirely on your server.
+
+  Create the admin account the first time you open it, then install the Immich app on your phone and point it at
+  this server. Search by faces and objects runs on your server and needs a few GB of memory.
+developer: "Immich team"
+website: https://immich.app
+repo: https://github.com/immich-app/immich
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

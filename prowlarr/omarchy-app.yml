@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: prowlarr
+name: "Prowlarr"
+tagline: "One place to manage indexers for Sonarr, Radarr and Lidarr"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/prowlarr.png
+category: media
+version: "latest"
+port: 9696
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: prowlarr
+  port: 9696
+description: >-
+  Prowlarr keeps your torrent and Usenet indexers in one list and shares them with Sonarr, Radarr and Lidarr
+  automatically.
+developer: "Servarr team · image by linuxserver.io"
+website: https://prowlarr.com
+repo: https://github.com/Prowlarr/Prowlarr
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

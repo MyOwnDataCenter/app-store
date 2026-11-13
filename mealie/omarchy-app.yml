@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: mealie
+name: "Mealie"
+tagline: "Recipes, meal plans and shopping lists"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/mealie.png
+category: files
+version: "latest"
+port: 9925
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: mealie
+  port: 9000
+description: >-
+  Mealie imports recipes from any website by link, plans your week’s meals and builds the shopping list for you.
+
+  Change the default sign-in after your first visit.
+developer: "Mealie contributors"
+website: https://mealie.io
+repo: https://github.com/mealie-recipes/mealie
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: "changeme@example.com"
+defaultPassword: "MyPassword"

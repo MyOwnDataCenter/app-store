@@ -1,0 +1,18 @@
+# Vikunja: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  vikunja:
+    image: vikunja/vikunja:latest
+    restart: unless-stopped
+    user: "${PUID:-1000}:${PGID:-1000}"
+    environment:
+      VIKUNJA_SERVICE_PUBLICURL: http://${SERVER_IP:-localhost}:3456/
+      VIKUNJA_SERVICE_JWTSECRET: ${APP_SEED:?set APP_SEED}
+      VIKUNJA_DATABASE_TYPE: sqlite
+      VIKUNJA_DATABASE_PATH: /db/vikunja.db
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/files:/app/vikunja/files
+      - ${APP_DATA_DIR:-.}/data/db:/db
+    ports:
+      - "3456:3456"

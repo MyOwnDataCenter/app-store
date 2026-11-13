@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: navidrome
+name: "Navidrome"
+tagline: "Your own music streaming service"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/navidrome.png
+category: media
+version: "latest"
+port: 4533
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: navidrome
+  port: 4533
+description: >-
+  Navidrome turns your Music folder into a personal streaming service with a fast web player. It also works with
+  dozens of Subsonic-compatible apps on iPhone and Android.
+
+  Create your admin account the first time you open it.
+developer: "Deluan Quintão and contributors"
+website: https://www.navidrome.org
+repo: https://github.com/navidrome/navidrome
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

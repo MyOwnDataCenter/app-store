@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: jellyseerr
+name: "Jellyseerr"
+tagline: "Let your household request movies and shows"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/jellyseerr.png
+category: media
+version: "latest"
+port: 5055
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: jellyseerr
+  port: 5055
+description: >-
+  Jellyseerr gives everyone a friendly page to discover and request movies and series, and passes the requests
+  to Sonarr and Radarr. Works with Jellyfin and Plex.
+developer: "Fallenbagel and contributors"
+website: https://github.com/fallenbagel/jellyseerr
+repo: https://github.com/fallenbagel/jellyseerr
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

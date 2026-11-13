@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: radarr
+name: "Radarr"
+tagline: "Finds and organises the movies you want"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/radarr.png
+category: media
+version: "latest"
+port: 7878
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: radarr
+  port: 7878
+description: >-
+  Radarr watches for the movies on your list, sends them to your download client and files them in Videos/Movies
+  with proper names.
+developer: "Servarr team · image by linuxserver.io"
+website: https://radarr.video
+repo: https://github.com/Radarr/Radarr
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

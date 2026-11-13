@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: excalidraw
+name: "Excalidraw"
+tagline: "A hand-drawn style whiteboard"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/excalidraw.png
+category: developer
+version: "latest"
+port: 8088
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: excalidraw
+  port: 80
+description: >-
+  Excalidraw is a quick, sketchy-looking whiteboard for diagrams and ideas. Drawings are kept in your browser;
+  export them as images or files to keep them.
+developer: "Excalidraw contributors"
+website: https://excalidraw.com
+repo: https://github.com/excalidraw/excalidraw
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

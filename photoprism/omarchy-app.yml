@@ -1,0 +1,30 @@
+manifestVersion: 1
+id: photoprism
+name: "PhotoPrism"
+tagline: "Browse, search and organise your Pictures folder"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/photoprism.png
+category: photography
+version: "latest"
+port: 2342
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: photoprism
+  port: 2342
+description: >-
+  PhotoPrism indexes the photos already in your Pictures folder and makes them searchable by place, date,
+  colour, people and what is in them. Your originals stay where they are.
+
+  Sign in as admin with the password Omarchy Server shows for this app.
+developer: "PhotoPrism UG"
+website: https://www.photoprism.app
+repo: https://github.com/photoprism/photoprism
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: "admin"
+defaultPassword: ""
+# The password is generated per server by Omarchy Server and shown on the app’s page.
+deterministicPassword: true

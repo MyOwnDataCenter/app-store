@@ -1,0 +1,30 @@
+manifestVersion: 1
+id: gitea
+name: "Gitea"
+tagline: "Your own Git hosting"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/gitea.png
+category: developer
+version: "latest"
+port: 3000
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: gitea
+  port: 3000
+# Ports that must be reachable from your network.
+openPorts: [2222]
+description: >-
+  Gitea hosts your Git repositories with issues, pull requests, a package registry and CI, in a light, fast
+  package.
+
+  SSH clones use port 2222. The install page shows on first visit; the defaults are already filled in.
+developer: "Gitea contributors"
+website: https://about.gitea.com
+repo: https://github.com/go-gitea/gitea
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

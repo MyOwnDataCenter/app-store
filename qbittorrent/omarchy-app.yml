@@ -1,0 +1,31 @@
+manifestVersion: 1
+id: qbittorrent
+name: "qBittorrent"
+tagline: "A torrent client with a web interface"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/qbittorrent.png
+category: media
+version: "latest"
+port: 8090
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: qbittorrent
+  port: 8090
+# Ports that must be reachable from your network.
+openPorts: [6881]
+description: >-
+  qBittorrent downloads torrents on your server, straight into your Downloads folder, and you manage it from any
+  browser.
+
+  The first sign-in password is a temporary one printed in this app’s logs (Logs on its page). Set your own
+  under Tools → Options → Web UI.
+developer: "qBittorrent project · image by linuxserver.io"
+website: https://www.qbittorrent.org
+repo: https://github.com/linuxserver/docker-qbittorrent
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: "admin"
+defaultPassword: ""

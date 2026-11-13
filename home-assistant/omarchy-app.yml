@@ -1,0 +1,29 @@
+manifestVersion: 1
+id: home-assistant
+name: "Home Assistant"
+tagline: "Run your smart home locally"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/home-assistant.png
+category: automation
+version: "latest"
+port: 8123
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: homeassistant
+  port: 8123
+description: >-
+  Home Assistant brings your lights, sensors, thermostats and thousands of other devices into one app with
+  automations that run on your server, not in someone’s cloud.
+
+  Runs on your server’s own network so it can discover devices. The first start takes a minute or two. USB
+  sticks (Zigbee, Z-Wave) may not be reachable from Omarchy Server’s rootless containers.
+developer: "Open Home Foundation"
+website: https://www.home-assistant.io
+repo: https://github.com/home-assistant/core
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

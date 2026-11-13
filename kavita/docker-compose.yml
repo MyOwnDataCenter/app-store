@@ -1,0 +1,14 @@
+# Kavita: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  kavita:
+    image: jvmilazz0/kavita:latest
+    restart: unless-stopped
+    environment:
+      TZ: ${TZ:-UTC}
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/config:/kavita/config
+      - ${DOCUMENTS_DIR:-./media/documents}/Books:/books
+    ports:
+      - "5000:5000"

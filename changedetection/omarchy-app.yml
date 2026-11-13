@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: changedetection
+name: "changedetection.io"
+tagline: "Get told when a web page changes"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/changedetection.png
+category: automation
+version: "latest"
+port: 5050
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: changedetection
+  port: 5000
+description: >-
+  changedetection.io watches web pages for changes, such as price drops, restocks or new announcements, and
+  notifies you.
+developer: "dgtlmoon and contributors"
+website: https://changedetection.io
+repo: https://github.com/dgtlmoon/changedetection.io
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""
