@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: jenkins
+name: "Jenkins"
+tagline: "Automation server for builds and deployments"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/jenkins.png
+category: developer
+version: "latest"
+port: 8428
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: jenkins
+  port: 8080
+description: >-
+  Jenkins runs build, test and deployment pipelines with thousands of plugins.
+
+  The first-start unlock password is printed in this app’s logs.
+developer: "jenkinsci and contributors"
+website: https://www.jenkins.io
+repo: https://github.com/jenkinsci/jenkins
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: frigate
+name: "Frigate"
+tagline: "A video recorder for your cameras, with object detection"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/frigate.png
+category: automation
+version: "latest"
+port: 5005
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: frigate
+  port: 5000
+description: >-
+  Frigate records your IP cameras and detects people, cars and animals, with alerts and Home Assistant
+  integration.
+
+  Add your cameras in its configuration editor. Detection runs on the CPU unless you add an accelerator.
+developer: "blakeblackshear and contributors"
+website: https://frigate.video/
+repo: https://github.com/blakeblackshear/frigate
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

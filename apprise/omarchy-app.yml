@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: apprise
+name: "Apprise"
+tagline: "One API for every notification service"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/apprise.png
+category: automation
+version: "latest"
+port: 8038
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: apprise
+  port: 8000
+description: >-
+  Apprise sends notifications to almost any service, from Telegram and Discord to email, through one simple API.
+developer: "caronc and contributors"
+website: https://github.com/caronc/apprise-api
+repo: https://github.com/caronc/apprise-api
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

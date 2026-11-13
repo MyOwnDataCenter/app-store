@@ -1,0 +1,14 @@
+# AdGuard Home: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  adguard-home:
+    image: adguard/adguardhome:latest
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/work:/opt/adguardhome/work
+      - ${APP_DATA_DIR:-.}/data/conf:/opt/adguardhome/conf
+    ports:
+      - "3003:3000"
+      - "${SERVER_IP:-localhost}:53:53/tcp"
+      - "${SERVER_IP:-localhost}:53:53/udp"

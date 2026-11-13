@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: jdownloader-2
+name: "JDownloader 2"
+tagline: "A download manager for file hosts"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/jdownloader-2.png
+category: media
+version: "latest"
+port: 5802
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: jdownloader-2
+  port: 5800
+description: >-
+  JDownloader downloads from file hosts and video sites, with link grabbing and automatic extraction.
+developer: "jlesage and contributors"
+website: https://jdownloader.org
+repo: https://github.com/jlesage/docker-jdownloader-2
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

@@ -1,0 +1,16 @@
+# Stalwart: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  stalwart:
+    image: stalwartlabs/stalwart:latest
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/data:/opt/stalwart
+    ports:
+      - "8414:8080"
+      - "25:25"
+      - "587:587"
+      - "465:465"
+      - "143:143"
+      - "993:993"

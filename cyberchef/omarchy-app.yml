@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: cyberchef
+name: "CyberChef"
+tagline: "The cyber Swiss Army knife"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/cyberchef.png
+category: developer
+version: "latest"
+port: 8418
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: cyberchef
+  port: 80
+description: >-
+  CyberChef encodes, decodes, converts and analyses data with hundreds of operations you chain together in the
+  browser.
+developer: "gchq and contributors"
+website: https://gchq.github.io/CyberChef/
+repo: https://github.com/gchq/CyberChef
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: portainer
+name: "Portainer"
+tagline: "Manage your containers in a web page"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/portainer.png
+category: developer
+version: "latest"
+port: 9007
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: portainer
+  port: 9000
+description: >-
+  Portainer shows every container, image, volume and network you run, with logs, a console and a stack editor.
+
+  Create the admin account within a few minutes of the first start (restart the app if it says the time ran
+  out).
+developer: "portainer and contributors"
+website: https://portainer.io
+repo: https://github.com/portainer/portainer
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

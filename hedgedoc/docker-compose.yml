@@ -1,0 +1,28 @@
+# HedgeDoc: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  hedgedoc:
+    image: quay.io/hedgedoc/hedgedoc:latest
+    restart: unless-stopped
+    environment:
+      CMD_DB_URL: "postgres://hedgedoc:${APP_PASSWORD:?set APP_PASSWORD}@db:5432/hedgedoc"
+      CMD_DOMAIN: "${SERVER_IP:-localhost}:3036"
+      CMD_URL_ADDPORT: "false"
+      CMD_PROTOCOL_USESSL: "false"
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/uploads:/hedgedoc/public/uploads
+    depends_on:
+      - db
+    ports:
+      - "3036:3000"
+
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: hedgedoc
+      POSTGRES_USER: hedgedoc
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/db:/var/lib/postgresql/data

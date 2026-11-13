@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: mkvtoolnix
+name: "MKVToolNix"
+tagline: "Edit and split MKV videos"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/mkvtoolnix.png
+category: media
+version: "latest"
+port: 5801
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: mkvtoolnix
+  port: 5800
+description: >-
+  MKVToolNix merges, splits and edits Matroska video files, tracks and subtitles.
+developer: "jlesage and contributors"
+website: https://mkvtoolnix.download
+repo: https://github.com/jlesage/docker-mkvtoolnix
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

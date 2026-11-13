@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: hedgedoc
+name: "HedgeDoc"
+tagline: "Collaborative Markdown notes"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/hedgedoc.png
+category: files
+version: "latest"
+port: 3036
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: hedgedoc
+  port: 3000
+description: >-
+  HedgeDoc lets several people write the same Markdown document at once, with live preview, diagrams and slides.
+developer: "hedgedoc and contributors"
+website: https://hedgedoc.org
+repo: https://github.com/hedgedoc/hedgedoc
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

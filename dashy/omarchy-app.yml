@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: dashy
+name: "Dashy"
+tagline: "A dashboard for your homelab"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/dashy.png
+category: developer
+version: "latest"
+port: 8420
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: dashy
+  port: 8080
+description: >-
+  Dashy is a highly customisable start page for your apps, with status checks, widgets and themes.
+developer: "Lissy93 and contributors"
+website: https://dashy.to
+repo: https://github.com/Lissy93/dashy
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

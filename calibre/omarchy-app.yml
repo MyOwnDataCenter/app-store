@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: calibre
+name: "Calibre"
+tagline: "The Calibre ebook manager in your browser"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/calibre.png
+category: media
+version: "latest"
+port: 3038
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: calibre
+  port: 3000
+description: >-
+  Calibre manages, converts and edits your ebook library, streamed from your server to any browser.
+developer: "linuxserver and contributors"
+website: https://calibre-ebook.com
+repo: https://github.com/linuxserver/docker-calibre
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

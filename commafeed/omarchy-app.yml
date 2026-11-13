@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: commafeed
+name: "CommaFeed"
+tagline: "A Google Reader-style feed reader"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/commafeed.png
+category: social
+version: "latest"
+port: 8082
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: commafeed
+  port: 8082
+description: >-
+  CommaFeed is a familiar three-pane RSS reader that is quick to set up and light on resources.
+
+  Change the default password after signing in.
+developer: "Athou and contributors"
+website: https://www.commafeed.com
+repo: https://github.com/Athou/commafeed
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: "admin"
+defaultPassword: "admin"

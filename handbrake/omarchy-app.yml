@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: handbrake
+name: "HandBrake"
+tagline: "Convert videos to any format"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/handbrake.png
+category: media
+version: "latest"
+port: 5800
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: handbrake
+  port: 5800
+description: >-
+  HandBrake converts videos to formats that play on phones, TVs and browsers, with presets for every device.
+developer: "jlesage and contributors"
+website: https://handbrake.fr
+repo: https://github.com/jlesage/docker-handbrake
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

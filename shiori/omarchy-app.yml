@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: shiori
+name: "Shiori"
+tagline: "A simple bookmark manager"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/shiori.png
+category: files
+version: "latest"
+port: 8421
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: shiori
+  port: 8080
+description: >-
+  Shiori saves bookmarks with a readable offline copy of each page, in a single small program.
+
+  Change the default password after signing in.
+developer: "go-shiori and contributors"
+website: https://github.com/go-shiori/shiori
+repo: https://github.com/go-shiori/shiori
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: "shiori"
+defaultPassword: "gopher"

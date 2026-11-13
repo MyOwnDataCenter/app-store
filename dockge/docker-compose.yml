@@ -1,0 +1,15 @@
+# Dockge: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  dockge:
+    image: louislam/dockge:1
+    restart: unless-stopped
+    environment:
+      DOCKGE_STACKS_DIR: "${APP_DATA_DIR:-/opt}/data/stacks"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ${APP_DATA_DIR:-.}/data/data:/app/data
+      - ${APP_DATA_DIR:-/opt}/data/stacks:${APP_DATA_DIR:-/opt}/data/stacks
+    ports:
+      - "5004:5001"

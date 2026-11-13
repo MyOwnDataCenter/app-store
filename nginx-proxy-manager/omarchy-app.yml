@@ -1,0 +1,30 @@
+manifestVersion: 1
+id: nginx-proxy-manager
+name: "Nginx Proxy Manager"
+tagline: "Give your apps addresses and HTTPS"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/nginx-proxy-manager.png
+category: networking
+version: "latest"
+port: 8412
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: nginx-proxy-manager
+  port: 81
+# Ports that must be reachable from your network.
+openPorts: [80, 443]
+description: >-
+  Nginx Proxy Manager forwards your own domain names to apps on your server and gets free HTTPS certificates for
+  them.
+
+  Uses ports 80 and 443, so it can’t run alongside another app that needs them.
+developer: "NginxProxyManager and contributors"
+website: https://nginxproxymanager.com/
+repo: https://github.com/NginxProxyManager/nginx-proxy-manager
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

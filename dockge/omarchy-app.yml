@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: dockge
+name: "Dockge"
+tagline: "Manage Docker Compose stacks"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/dockge.png
+category: developer
+version: "latest"
+port: 5004
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: dockge
+  port: 5001
+description: >-
+  Dockge edits, starts and updates Docker Compose stacks from a tidy web page, showing each stack’s logs and
+  status.
+developer: "louislam and contributors"
+website: https://dockge.kuma.pet
+repo: https://github.com/louislam/dockge
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

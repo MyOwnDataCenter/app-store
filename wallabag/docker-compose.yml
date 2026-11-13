@@ -1,0 +1,14 @@
+# wallabag: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  wallabag:
+    image: wallabag/wallabag:latest
+    restart: unless-stopped
+    environment:
+      SYMFONY__ENV__DOMAIN_NAME: "http://${SERVER_IP:-localhost}:8422"
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/images:/var/www/wallabag/web/assets/images
+      - ${APP_DATA_DIR:-.}/data/data:/var/www/wallabag/data
+    ports:
+      - "8422:80"

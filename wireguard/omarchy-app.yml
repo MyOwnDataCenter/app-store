@@ -1,0 +1,31 @@
+manifestVersion: 1
+id: wireguard
+name: "WireGuard Easy"
+tagline: "Your own VPN back home"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/wireguard.png
+category: networking
+version: "latest"
+port: 51821
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: wg-easy
+  port: 51821
+# Ports that must be reachable from your network.
+openPorts: [51820]
+description: >-
+  WireGuard Easy runs a WireGuard VPN with a web page for adding phones and laptops by QR code, so you can reach
+  home from anywhere.
+
+  Forward UDP port 51820 on your router to this server. If the VPN won’t start, run sudo modprobe wireguard on
+  the server once.
+developer: "wg-easy and contributors"
+website: https://github.com/wg-easy/wg-easy
+repo: https://github.com/wg-easy/wg-easy
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: thunderbird
+name: "Thunderbird"
+tagline: "The Thunderbird mail app in your browser"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/thunderbird.png
+category: social
+version: "latest"
+port: 5803
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: thunderbird
+  port: 5800
+description: >-
+  Thunderbird runs on your server so your mail, calendars and contacts are available from any browser.
+developer: "jlesage and contributors"
+website: https://www.thunderbird.net
+repo: https://github.com/jlesage/docker-thunderbird
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

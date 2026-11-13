@@ -1,0 +1,28 @@
+# Miniflux: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  miniflux:
+    image: miniflux/miniflux:latest
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: "postgres://miniflux:${APP_PASSWORD:?set APP_PASSWORD}@db/miniflux?sslmode=disable"
+      RUN_MIGRATIONS: "1"
+      CREATE_ADMIN: "1"
+      ADMIN_USERNAME: admin
+      ADMIN_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      BASE_URL: "http://${SERVER_IP:-localhost}:8423"
+    depends_on:
+      - db
+    ports:
+      - "8423:8080"
+
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: miniflux
+      POSTGRES_USER: miniflux
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/db:/var/lib/postgresql/data

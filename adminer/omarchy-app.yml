@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: adminer
+name: "Adminer"
+tagline: "Manage databases in one page"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/adminer.png
+category: developer
+version: "latest"
+port: 8426
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: adminer
+  port: 8080
+description: >-
+  Adminer is a single-page database manager for MySQL, PostgreSQL, SQLite and more.
+developer: "vrana and contributors"
+website: https://www.adminer.org
+repo: https://github.com/vrana/adminer
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

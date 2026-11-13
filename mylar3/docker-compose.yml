@@ -1,0 +1,17 @@
+# Mylar3: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  mylar3:
+    image: lscr.io/linuxserver/mylar3:latest
+    restart: unless-stopped
+    environment:
+      PUID: "${PUID:-1000}"
+      PGID: "${PGID:-1000}"
+      TZ: "${TZ:-UTC}"
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/config:/config
+      - ${DOCUMENTS_DIR:-./media/documents}/Comics:/comics
+      - ${DOWNLOADS_DIR:-./downloads}:/downloads
+    ports:
+      - "8430:8090"

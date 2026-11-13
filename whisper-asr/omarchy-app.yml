@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: whisper-asr
+name: "Whisper ASR"
+tagline: "Speech to text on your server"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/whisper-asr.png
+category: ai
+version: "latest"
+port: 9003
+path: "/docs"
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: whisper-asr
+  port: 9000
+description: >-
+  Whisper ASR transcribes and translates audio with OpenAI’s Whisper models through a simple web page and API.
+developer: "ahmetoner and contributors"
+website: https://ahmetoner.com/whisper-asr-webservice/
+repo: https://github.com/ahmetoner/whisper-asr-webservice
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

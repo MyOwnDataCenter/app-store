@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: lazylibrarian
+name: "LazyLibrarian"
+tagline: "Follow authors and fetch their books"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/lazylibrarian.png
+category: media
+version: "latest"
+port: 5299
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: lazylibrarian
+  port: 5299
+description: >-
+  LazyLibrarian tracks authors and downloads their ebooks and audiobooks into your library.
+developer: "linuxserver and contributors"
+website: https://lazylibrarian.gitlab.io
+repo: https://github.com/linuxserver/docker-lazylibrarian
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

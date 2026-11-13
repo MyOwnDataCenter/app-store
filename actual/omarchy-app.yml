@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: actual
+name: "Actual Budget"
+tagline: "Envelope budgeting that stays private"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/actual.png
+category: finance
+version: "latest"
+port: 5006
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: actual
+  port: 5006
+description: >-
+  Actual Budget is a fast budgeting app based on envelope budgeting, with bank sync and reports.
+
+  Browsers need HTTPS for Actual on anything but this server itself; reach it through Tailscale Serve or a
+  tunnel.
+developer: "actualbudget and contributors"
+website: https://actualbudget.org/
+repo: https://github.com/actualbudget/actual
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

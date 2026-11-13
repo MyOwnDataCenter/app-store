@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: homepage
+name: "Homepage"
+tagline: "A fast, static start page with live widgets"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/homepage.png
+category: developer
+version: "latest"
+port: 3035
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: homepage
+  port: 3000
+description: >-
+  Homepage is a quick dashboard for your services with widgets for media, downloads, weather and system stats.
+developer: "gethomepage and contributors"
+website: https://gethomepage.dev
+repo: https://github.com/gethomepage/homepage
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

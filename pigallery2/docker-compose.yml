@@ -1,0 +1,14 @@
+# PiGallery2: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  pigallery2:
+    image: bpatrik/pigallery2:latest
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/config:/app/data/config
+      - ${APP_DATA_DIR:-.}/data/db:/app/data/db
+      - ${APP_DATA_DIR:-.}/data/tmp:/app/data/tmp
+      - ${PICTURES_DIR:-./media/pictures}:/app/data/images:ro
+    ports:
+      - "8424:80"

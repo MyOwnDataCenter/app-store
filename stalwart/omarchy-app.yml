@@ -1,0 +1,30 @@
+manifestVersion: 1
+id: stalwart
+name: "Stalwart"
+tagline: "A complete mail server"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/stalwart.png
+category: social
+version: "latest"
+port: 8414
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: stalwart
+  port: 8080
+# Ports that must be reachable from your network.
+openPorts: [25, 587, 465, 143, 993]
+description: >-
+  Stalwart is an all-in-one mail server (SMTP, IMAP, JMAP) with spam filtering and a web admin page.
+
+  Its admin password is printed in this app’s logs on first start. Sending mail needs your own domain and DNS
+  records.
+developer: "stalwartlabs and contributors"
+website: https://stalw.art/
+repo: https://github.com/stalwartlabs/stalwart
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: "admin"
+defaultPassword: ""

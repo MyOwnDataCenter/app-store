@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: drawio
+name: "draw.io"
+tagline: "Diagrams and flowcharts"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/drawio.png
+category: files
+version: "latest"
+port: 8419
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: drawio
+  port: 8080
+description: >-
+  draw.io makes flowcharts, network diagrams and wireframes in the browser, saving files to your device.
+developer: "jgraph and contributors"
+website: https://www.drawio.com
+repo: https://github.com/jgraph/docker-drawio
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

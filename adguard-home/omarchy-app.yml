@@ -1,0 +1,30 @@
+manifestVersion: 1
+id: adguard-home
+name: "AdGuard Home"
+tagline: "Network-wide ad and tracker blocking"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/adguard-home.png
+category: networking
+version: "latest"
+port: 3003
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: adguard-home
+  port: 3000
+# Ports that must be reachable from your network.
+openPorts: [53]
+description: >-
+  AdGuard Home blocks ads and trackers for your whole network through DNS, with per-device rules and encrypted
+  DNS.
+
+  In the setup wizard, keep the admin web interface on port 3000. Then point your router’s DNS at this server.
+developer: "AdguardTeam and contributors"
+website: https://adguard.com/fr/adguard-home/overview.html
+repo: https://github.com/AdguardTeam/AdGuardHome
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

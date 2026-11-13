@@ -1,0 +1,13 @@
+# RStudio: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  rstudio:
+    image: rocker/rstudio:latest
+    restart: unless-stopped
+    environment:
+      PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - ${DOCUMENTS_DIR:-./media/documents}/R:/home/rstudio/work
+    ports:
+      - "8429:8787"

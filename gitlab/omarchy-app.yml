@@ -1,0 +1,32 @@
+manifestVersion: 1
+id: gitlab
+name: "GitLab"
+tagline: "Code, reviews and CI/CD in one place"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/gitlab.png
+category: developer
+version: "latest"
+port: 8416
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: gitlab
+  port: 80
+# Ports that must be reachable from your network.
+openPorts: [2224]
+description: >-
+  GitLab Community Edition hosts code with merge requests, issues, CI/CD pipelines, a container registry and
+  wikis.
+
+  Needs at least 4 GB of memory, and the first start takes several minutes.
+developer: "GitLab project"
+website: https://about.gitlab.com
+repo: https://gitlab.com/gitlab-org/omnibus-gitlab/tree/master/docker
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: "root"
+defaultPassword: ""
+# The password is generated per server by Omarchy Server and shown on the app’s page.
+deterministicPassword: true

@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: filezilla
+name: "FileZilla"
+tagline: "Transfer files over FTP and SFTP"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/filezilla.png
+category: networking
+version: "latest"
+port: 3041
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: filezilla
+  port: 3000
+description: >-
+  FileZilla moves files to and from FTP and SFTP servers, streamed from your server to your browser.
+developer: "linuxserver and contributors"
+website: https://filezilla-project.org
+repo: https://github.com/linuxserver/docker-filezilla
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

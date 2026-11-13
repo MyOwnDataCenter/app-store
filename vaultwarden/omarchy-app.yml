@@ -1,0 +1,29 @@
+manifestVersion: 1
+id: vaultwarden
+name: "Vaultwarden"
+tagline: "A password manager compatible with Bitwarden"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/vaultwarden.png
+category: files
+version: "latest"
+port: 8415
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: vaultwarden
+  port: 80
+description: >-
+  Vaultwarden is a light Bitwarden-compatible server: use the Bitwarden apps and browser extensions with your
+  own server.
+
+  Browsers only let the web vault work over HTTPS, so reach it through Tailscale Serve, a Cloudflare tunnel or
+  Nginx Proxy Manager.
+developer: "dani-garcia and contributors"
+website: https://github.com/dani-garcia
+repo: https://github.com/dani-garcia/vaultwarden
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

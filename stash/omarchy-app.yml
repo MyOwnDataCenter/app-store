@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: stash
+name: "Stash"
+tagline: "Organise and stream your video library"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/stash.png
+category: media
+version: "latest"
+port: 9999
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: stash
+  port: 9999
+description: >-
+  Stash catalogues a video collection with tags, performers and scenes, and streams it from a web page.
+developer: "savewithstash and contributors"
+website: https://github.com/savewithstash/stash
+repo: https://github.com/savewithstash/stash
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

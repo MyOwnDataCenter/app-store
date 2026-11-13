@@ -1,0 +1,17 @@
+# GitLab: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  gitlab:
+    image: gitlab/gitlab-ce:latest
+    restart: unless-stopped
+    environment:
+      GITLAB_OMNIBUS_CONFIG: "external_url 'http://${SERVER_IP:-localhost}:8416'; nginx['listen_port'] = 80; gitlab_rails['gitlab_shell_ssh_port'] = 2224"
+      GITLAB_ROOT_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/config:/etc/gitlab
+      - ${APP_DATA_DIR:-.}/data/logs:/var/log/gitlab
+      - ${APP_DATA_DIR:-.}/data/data:/var/opt/gitlab
+    ports:
+      - "8416:80"
+      - "2224:22"

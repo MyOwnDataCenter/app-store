@@ -1,0 +1,29 @@
+manifestVersion: 1
+id: technitium-dns
+name: "Technitium DNS Server"
+tagline: "A full DNS server for your network"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/technitium-dns.png
+category: networking
+version: "latest"
+port: 5380
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: technitium-dns
+  port: 5380
+# Ports that must be reachable from your network.
+openPorts: [53]
+description: >-
+  Technitium DNS Server blocks ads, caches lookups, runs your own local domains and supports encrypted DNS.
+developer: "TechnitiumSoftware and contributors"
+website: https://technitium.com/dns/
+repo: https://github.com/TechnitiumSoftware/DnsServer
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: "admin"
+defaultPassword: ""
+# The password is generated per server by Omarchy Server and shown on the app’s page.
+deterministicPassword: true

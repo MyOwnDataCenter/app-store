@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: digikam
+name: "digiKam"
+tagline: "Professional photo management in your browser"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/digikam.png
+category: photography
+version: "latest"
+port: 3039
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: digikam
+  port: 3000
+description: >-
+  digiKam organises, tags and edits large photo collections, streamed from your server.
+developer: "linuxserver and contributors"
+website: https://www.digikam.org
+repo: https://github.com/linuxserver/docker-digikam
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

@@ -1,0 +1,30 @@
+manifestVersion: 1
+id: zoraxy
+name: "Zoraxy"
+tagline: "A reverse proxy with a friendly dashboard"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/zoraxy.png
+category: networking
+version: "latest"
+port: 8413
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: zoraxy
+  port: 8000
+# Ports that must be reachable from your network.
+openPorts: [80, 443]
+description: >-
+  Zoraxy routes domains to your apps, handles HTTPS certificates and shows traffic, all configured from a web
+  page.
+
+  Uses ports 80 and 443, so it can’t run alongside another app that needs them.
+developer: "tobychui and contributors"
+website: https://zoraxy.aroz.org/
+repo: https://github.com/tobychui/zoraxy
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""
