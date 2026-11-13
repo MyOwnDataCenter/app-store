@@ -1,0 +1,34 @@
+# Prisme Analytics: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  prisme:
+    image: docker.io/prismelabs/analytics:v0.17.0
+    restart: unless-stopped
+    environment:
+      PRISME_ACCESS_LOG: /dev/stdout
+      PRISME_DEBUG: "false"
+      PRISME_PORT: "8000"
+      PRISME_TRUST_PROXY: "false"
+      PRISME_CLICKHOUSE_TLS: "false"
+      PRISME_CLICKHOUSE_HOSTPORT: "clickhouse.localhost:9000"
+      PRISME_CLICKHOUSE_USER: default
+      PRISME_CLICKHOUSE_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      PRISME_CLICKHOUSE_DB: prisme
+      PRISME_SOURCE_REGISTRY_SOURCES: "localhost,mywebsite.localhost,foo.mywebsite.localhost"
+      PRISME_GRAFANA_URL: "http://grafana.localhost:3000"
+      PRISME_GRAFANA_USER: admin
+      PRISME_GRAFANA_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    depends_on:
+      - clickhouse
+    ports:
+      - "10090:8000"
+  clickhouse:
+    image: clickhouse/clickhouse-server:25.8.1.5101-alpine
+    restart: unless-stopped
+    environment:
+      CLICKHOUSE_USER: default
+      CLICKHOUSE_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      CLICKHOUSE_DB: prisme
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/clickhouse_data:/var/lib/clickhouse"

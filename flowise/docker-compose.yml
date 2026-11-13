@@ -1,0 +1,26 @@
+# Flowise AI: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  flowise:
+    image: flowiseai/flowise:3.1.4
+    restart: unless-stopped
+    entrypoint: "/bin/sh -c \"sleep 3; flowise start\""
+    environment:
+      PORT: "8009"
+      FLOWISE_USERNAME: admin
+      FLOWISE_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      FLOWISE_SECRETKEY_OVERWRITE: "${APP_SEED:?set APP_SEED}"
+      LANGCHAIN_ENDPOINT: "http://${SERVER_IP:-localhost}"
+      LANGCHAIN_API_KEY: "${APP_PASSWORD:?set APP_PASSWORD}"
+      LANGCHAIN_PROJECT: ""
+      LANGCHAIN_TRACING_V2: "false"
+      DISABLE_FLOWISE_TELEMETRY: "false"
+      DATABASE_PATH: /root/.flowise
+      APIKEY_PATH: /root/.flowise
+      SECRETKEY_PATH: /root/.flowise
+      LOG_PATH: /root/.flowise/logs
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/flowise:/root/.flowise"
+    ports:
+      - "8009:8009"

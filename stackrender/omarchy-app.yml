@@ -1,0 +1,29 @@
+manifestVersion: 1
+id: stackrender
+name: "StackRender"
+tagline: "Database schema design and SQL migration generator supporting"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/stackrender.png
+category: developer
+version: "latest"
+port: 10131
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: stackrender
+  port: 80
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Database schema design and SQL migration generator supporting PostgreSQL, MySQL, MariaDB, SQLite, SQL Server,
+  and Oracle.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "stackrender and contributors"
+website: https://stackrender.io/
+repo: https://github.com/stackrender/stackrender
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

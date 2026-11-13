@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: speedtest-tracker
+name: "Speedtest Tracker"
+tagline: "Monitor the performance and uptime of your internet connection"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/speedtest-tracker.webp
+category: files
+version: "latest"
+port: 8211
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: speedtest-tracker
+  port: 80
+# Ports that must be reachable from your network.
+openPorts: [8212]
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Monitor the performance and uptime of your internet connection.
+developer: "alexjustesen and contributors"
+website: https://docs.speedtest-tracker.dev/
+repo: https://github.com/alexjustesen/speedtest-tracker
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: plausible
+name: "Plausible Analytics"
+tagline: "Simple, lightweight (< 1 KB) and privacy-friendly web analytics"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/plausible.png
+category: developer
+version: "latest"
+port: 9093
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: plausible
+  port: 8000
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Simple, lightweight (< 1 KB) and privacy-friendly web analytics.
+developer: "plausible and contributors"
+website: https://plausible.io/
+repo: https://github.com/plausible/analytics/
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

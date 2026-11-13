@@ -1,0 +1,29 @@
+manifestVersion: 1
+id: tolgee
+name: "Tolgee"
+tagline: "Developer & translator friendly web-based localization platform"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/tolgee.webp
+category: developer
+version: "latest"
+port: 10085
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: app
+  port: 8080
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Developer & translator friendly web-based localization platform enabling users to translate directly in the
+  app they develop.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "tolgee and contributors"
+website: https://tolgee.io
+repo: https://github.com/tolgee/tolgee-platform
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

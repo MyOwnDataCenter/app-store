@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: nostr-relay
+name: "Nostr Relay"
+tagline: "Beautiful personal server OS for self-hosting"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/umbrel.webp
+category: social
+version: "latest"
+port: 4848
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: web
+  port: 3000
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Beautiful personal server OS for self-hosting. Install on a Raspberry Pi 4 or Ubuntu/Debian.
+developer: "getumbrel and contributors"
+website: https://umbrel.com/
+repo: https://github.com/getumbrel/umbrel
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

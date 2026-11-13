@@ -1,0 +1,73 @@
+# MediaCMS: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  migrations:
+    image: mediacms/mediacms:latest
+    restart: unless-stopped
+    command: ./deploy/docker/prestart.sh
+    environment:
+      ENABLE_UWSGI: "no"
+      ENABLE_NGINX: "no"
+      ENABLE_CELERY_SHORT: "no"
+      ENABLE_CELERY_LONG: "no"
+      ENABLE_CELERY_BEAT: "no"
+      ADMIN_USER: admin
+      ADMIN_EMAIL: "admin@localhost"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/migrations:/home/mediacms.io/mediacms/"
+    depends_on:
+      - redis
+      - db
+  web:
+    image: mediacms/mediacms:latest
+    restart: unless-stopped
+    environment:
+      ENABLE_CELERY_BEAT: "no"
+      ENABLE_CELERY_SHORT: "no"
+      ENABLE_CELERY_LONG: "no"
+      ENABLE_MIGRATIONS: "no"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/web:/home/mediacms.io/mediacms/"
+    depends_on:
+      - migrations
+    ports:
+      - "10056:80"
+  celery_beat:
+    image: mediacms/mediacms:latest
+    restart: unless-stopped
+    environment:
+      ENABLE_UWSGI: "no"
+      ENABLE_NGINX: "no"
+      ENABLE_CELERY_SHORT: "no"
+      ENABLE_CELERY_LONG: "no"
+      ENABLE_MIGRATIONS: "no"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/celery_beat:/home/mediacms.io/mediacms/"
+    depends_on:
+      - redis
+  celery_worker:
+    image: mediacms/mediacms:latest
+    restart: unless-stopped
+    environment:
+      ENABLE_UWSGI: "no"
+      ENABLE_NGINX: "no"
+      ENABLE_CELERY_BEAT: "no"
+      ENABLE_MIGRATIONS: "no"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/celery_worker:/home/mediacms.io/mediacms/"
+    depends_on:
+      - migrations
+  db:
+    image: postgres:17.2-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: mediacms
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      POSTGRES_DB: mediacms
+      TZ: Europe/London
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/../postgres_data:/var/lib/postgresql/data/"
+  redis:
+    image: redis:alpine
+    restart: unless-stopped

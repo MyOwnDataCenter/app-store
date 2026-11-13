@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: starbase-80
+name: "Starbase 80"
+tagline: "Simple homepage with an iPad-style application grid, for mobile and"
+icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/starbase-80.webp
+category: files
+version: "latest"
+port: 4173
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: homepage
+  port: 4173
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Simple homepage with an iPad-style application grid, for mobile and desktop. One JSON configuration file.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "notclickable-jordan and contributors"
+website: https://github.com/notclickable-jordan/starbase-80
+repo: https://github.com/notclickable-jordan/starbase-80
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

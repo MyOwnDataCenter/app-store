@@ -1,0 +1,33 @@
+manifestVersion: 1
+id: flowctl
+name: "flowctl"
+tagline: "Self-service workflow execution platform with approvals, remote"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/flowctl.png
+category: automation
+version: "latest"
+port: 10127
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: flowctl
+  port: 7000
+# Ports that must be reachable from your network.
+openPorts: [5556]
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Self-service workflow execution platform with approvals, remote execution and scheduling.
+
+  Packaged from the compose file in the project’s own repository. It manages containers, so Omarchy Server asks
+  before installing it.
+developer: "cvhariharan and contributors"
+website: https://flowctl.net
+repo: https://github.com/cvhariharan/flowctl
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: "flowctl_admin"
+defaultPassword: ""
+# The password is generated per server by Omarchy Server and shown on the app’s page.
+deterministicPassword: true

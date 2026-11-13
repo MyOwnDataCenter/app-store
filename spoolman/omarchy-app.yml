@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: spoolman
+name: "Spoolman"
+tagline: "Keep track of your inventory of 3D-printer filament spools"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/spoolman.webp
+category: files
+version: "latest"
+port: 10021
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: spoolman
+  port: 8000
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Keep track of your inventory of 3D-printer filament spools.
+developer: "Donkie and contributors"
+website: https://github.com/Donkie/Spoolman
+repo: https://github.com/Donkie/Spoolman
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

@@ -1,0 +1,58 @@
+# Twenty: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  server:
+    image: twentycrm/twenty:v2.58.0@sha256:3f1b5140a2d0ce590462c7636c109ec30fd4008d6f31dd5e7f3149b4f8a0dbb4
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      NODE_PORT: "3000"
+      PG_DATABASE_URL: "postgres://postgres:${APP_PASSWORD:?set APP_PASSWORD}@db:5432/default"
+      SERVER_URL: "http://${SERVER_IP:-localhost}:2020"
+      FRONT_AUTO_BASE_URL: "true"
+      REDIS_URL: "redis://redis:6379"
+      APP_SECRET: "${APP_SEED:?set APP_SEED}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/server-local-data:/app/packages/twenty-server/.local-storage"
+      - "${APP_DATA_DIR:-.}/data/docker-data:/app/docker-data"
+    depends_on:
+      - db
+      - redis
+    ports:
+      - "2020:3000"
+  worker:
+    image: twentycrm/twenty:v2.58.0@sha256:3f1b5140a2d0ce590462c7636c109ec30fd4008d6f31dd5e7f3149b4f8a0dbb4
+    restart: unless-stopped
+    user: "1000:1000"
+    command:
+      - yarn
+      - "worker:prod"
+    environment:
+      PG_DATABASE_URL: "postgres://postgres:${APP_PASSWORD:?set APP_PASSWORD}@db:5432/default"
+      SERVER_URL: "http://${SERVER_IP:-localhost}:2020"
+      REDIS_URL: "redis://redis:6379"
+      DISABLE_DB_MIGRATIONS: "true"
+      DISABLE_CRON_JOBS_REGISTRATION: "true"
+      APP_SECRET: "${APP_SEED:?set APP_SEED}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/server-local-data:/app/packages/twenty-server/.local-storage"
+    depends_on:
+      - db
+      - server
+  db:
+    image: postgres:16.8@sha256:74e7a26f7db1d5bbce23b4132fb4855ed0987ec9dc44f6d078ba8800892dc927
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      POSTGRES_DB: default
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/db-data:/var/lib/postgresql/data"
+  redis:
+    image: redis:7.4.2@sha256:bd41d55aae1ecff61b2fafd0d66761223fe94a60373eb6bb781cfbb570a84079
+    restart: unless-stopped
+    user: "1000:1000"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/redis:/data"

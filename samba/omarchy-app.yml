@@ -1,0 +1,33 @@
+manifestVersion: 1
+id: samba
+name: "Samba"
+tagline: "Standard Windows interoperability suite of programs for Linux and Unix"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/samba.png
+category: networking
+version: "latest"
+port: 9445
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: homepage
+  port: 80
+# Ports that must be reachable from your network.
+openPorts: [446]
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Standard Windows interoperability suite of programs for Linux and Unix. It provides secure, stable and fast
+  file and print services for all clients using the SMB/CIFS protocol.
+
+  Where the app asks for a password it hasn’t shown you, use the one on this app’s page.
+developer: "Samba project"
+website: https://www.samba.org/
+repo: https://git.samba.org/samba.git/
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""
+# The password is generated per server by Omarchy Server and shown on the app’s page.
+deterministicPassword: true

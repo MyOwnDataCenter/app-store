@@ -23,3 +23,5 @@ gallery: []
 dependencies: []
 defaultUsername: ""
 defaultPassword: ""
+# The password is generated per server by Omarchy Server and shown on the app’s page.
+deterministicPassword: true

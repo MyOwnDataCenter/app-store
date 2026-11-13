@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: threadfin
+name: "Threadfin"
+tagline: "IPTV proxy for Plex and Jellyfin"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/threadfin.png
+category: media
+version: "latest"
+port: 34400
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: threadfin
+  port: 34400
+description: >-
+  Threadfin turns IPTV playlists into a tuner that Plex, Jellyfin and Emby can use for live TV.
+developer: "Threadfin project"
+website: https://hub.docker.com/r/fyb3roptik/threadfin
+repo: https://hub.docker.com/r/fyb3roptik/threadfin
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

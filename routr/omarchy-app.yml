@@ -1,0 +1,30 @@
+manifestVersion: 1
+id: routr
+name: "Routr"
+tagline: "Lightweight SIP proxy, location server, and registrar for a reliable"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/routr.png
+category: social
+version: "latest"
+port: 5060
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: edgeport01
+  port: 5060
+# Ports that must be reachable from your network.
+openPorts: [5061, 5062, 5063, 6061, 6062]
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Lightweight SIP proxy, location server, and registrar for a reliable and scalable SIP infrastructure.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "fonoster and contributors"
+website: https://routr.io
+repo: https://github.com/fonoster/routr
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

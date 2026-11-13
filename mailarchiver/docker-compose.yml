@@ -1,0 +1,24 @@
+# Mail Archiver: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  app:
+    image: ghcr.io/s1t5/mailarchiver:2611.2@sha256:4baca9cb9dc6f97f2824f62489ba649ededc1095c4555f4d8b87da71349f7ebc
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data-protection-keys:/app/DataProtection-Keys"
+      - "${APP_DATA_DIR:-.}/data/appsettings.json:/app/appsettings.json"
+    depends_on:
+      - postgres
+    ports:
+      - "10004:5000"
+  postgres:
+    image: postgres:18.3-alpine3.23@sha256:4da1a4828be12604092fa55311276f08f9224a74a62dcb4708bd7439e2a03911
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      POSTGRES_DB: mailarchiver
+      POSTGRES_USER: mailarchiver
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/database:/var/lib/postgresql"

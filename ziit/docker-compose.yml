@@ -1,0 +1,31 @@
+# Ziit: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  app:
+    image: ghcr.io/0pandadev/ziit:v1.2.2
+    restart: unless-stopped
+    environment:
+      NUXT_DATABASE_URL: "postgresql://postgres:${APP_PASSWORD:?set APP_PASSWORD}@postgres:5432/ziit"
+      NUXT_PASETO_KEY: ""
+      NUXT_ADMIN_KEY: ""
+      NUXT_HOST: ""
+      NUXT_DISABLE_REGISTRATION: "False"
+      NUXT_GITHUB_CLIENT_ID: ""
+      NUXT_GITHUB_CLIENT_SECRET: ""
+      NUXT_EPILOGUE_APP_ID: ""
+      NUXT_EPILOGUE_APP_SECRET: ""
+    depends_on:
+      - postgres
+    ports:
+      - "10147:3000"
+  postgres:
+    image: timescale/timescaledb-ha:pg17
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      POSTGRES_DB: ziit
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/postgres:/var/lib/postgresql/data"

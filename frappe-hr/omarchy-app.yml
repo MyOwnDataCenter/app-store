@@ -1,0 +1,29 @@
+manifestVersion: 1
+id: frappe-hr
+name: "Frappe HR"
+tagline: "Complete HRMS solution with over 13 different modules right from"
+icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/frappe-hr.webp
+category: files
+version: "latest"
+port: 10096
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: frappe
+  port: 8000
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Complete HRMS solution with over 13 different modules right from employee management, onboarding, leaves, to
+  payroll, taxation, and more.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "frappe and contributors"
+website: https://frappe.io/hr
+repo: https://github.com/frappe/hrms
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

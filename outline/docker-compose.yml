@@ -1,0 +1,65 @@
+# Outline: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  web:
+    image: outlinewiki/outline:1.12.0@sha256:25d6a2ced2f1f0cf03c09abd776d87ba31941ed96d3a99992aa84b3bd0afc074
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      NODE_ENV: production
+      SECRET_KEY: "${APP_SEED:?set APP_SEED}"
+      UTILS_SECRET: "${APP_SEED:?set APP_SEED}"
+      DATABASE_URL: "postgres://outline:${APP_PASSWORD:?set APP_PASSWORD}@db:5432/outline"
+      PGSSLMODE: disable
+      REDIS_URL: "redis://redis:6379"
+      URL: "https://${SERVER_IP:-localhost}:8942"
+      PORT: "3000"
+      FILE_STORAGE: local
+      FILE_STORAGE_LOCAL_ROOT_DIR: /var/lib/outline/data
+      FILE_STORAGE_UPLOAD_MAX_SIZE: "262144000"
+      OIDC_CLIENT_ID: outline
+      OIDC_CLIENT_SECRET: "${APP_SEED:?set APP_SEED}"
+      OIDC_AUTH_URI: "http://${SERVER_IP:-localhost}:8943/dex/auth"
+      OIDC_TOKEN_URI: "http://dex:5556/dex/token"
+      OIDC_USERINFO_URI: "http://dex:5556/dex/userinfo"
+      OIDC_USERNAME_CLAIM: preferred_username
+      OIDC_DISPLAY_NAME: Dex
+      OIDC_SCOPES: openid profile email
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/app:/var/lib/outline/data"
+    depends_on:
+      - db
+      - redis
+      - dex
+    ports:
+      - "8942:3000"
+  db:
+    image: postgres:17.9-alpine@sha256:778d0b486d6daa02b77434d0358ec57a1b21fd8b6d22ac2eef56a33e816928f6
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      POSTGRES_USER: outline
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      POSTGRES_DB: outline
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/db:/var/lib/postgresql/data"
+  redis:
+    image: redis:8.4.2-alpine@sha256:812a2556fa70318d980d248a65f62a3bdb72c0882e90d96e50d5c8cf2bed438d
+    restart: unless-stopped
+    user: "1000:1000"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/redis:/data"
+  dex:
+    image: dexidp/dex:v2.45.1@sha256:8499afd690c437f52301efd2b05b2455da5bd2dfc20332cd697dc9937f808462
+    restart: unless-stopped
+    user: "1000:1000"
+    command:
+      - dex
+      - serve
+      - /etc/dex/config.yaml
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/config:/etc/dex"
+      - "${APP_DATA_DIR:-.}/data/dex:/var/dex"
+    ports:
+      - "8943:5556"

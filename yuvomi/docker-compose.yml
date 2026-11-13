@@ -1,0 +1,21 @@
+# Yuvomi: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  web:
+    image: ghcr.io/ulsklyc/yuvomi:2.89.1@sha256:da12fa2236985424428d81f7f75b175a2863ab3537fd20e3c2aae547cf151352
+    restart: unless-stopped
+    stop_grace_period: 1m
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+      DB_PATH: /data/yuvomi.db
+      BACKUP_DIR: /backups
+      SESSION_SECRET: "${APP_SEED:?set APP_SEED}"
+      DB_ENCRYPTION_KEY: "${APP_SEED:?set APP_SEED}"
+      SESSION_SECURE: "false"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/app:/data"
+      - "${APP_DATA_DIR:-.}/data/backups:/backups"
+    ports:
+      - "10006:3000"

@@ -1,0 +1,11 @@
+# Tyk: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  tyk:
+    image: internal/tyk-gateway
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/tyk.conf.example:/opt/tyk-gateway/tyk.conf"
+    ports:
+      - "10061:8080"

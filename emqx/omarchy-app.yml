@@ -1,0 +1,29 @@
+manifestVersion: 1
+id: emqx
+name: "EMQX Open Source"
+tagline: "Scalable MQTT broker"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/emqx.webp
+category: files
+version: "latest"
+port: 18083
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: emqx
+  port: 18083
+# Ports that must be reachable from your network.
+openPorts: [8883]
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Scalable MQTT broker. Connect 100M+ IoT devices in one single cluster, move and process real-time IoT data
+  with 1M msg/s throughput at 1ms latency.
+developer: "emqx and contributors"
+website: https://www.emqx.com/
+repo: https://github.com/emqx/emqx
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

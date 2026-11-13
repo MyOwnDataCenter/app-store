@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: gameap
+name: "GameAP"
+tagline: "Game Administration Panel for managing game servers on Linux and Windows"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/gameap.png
+category: gaming
+version: "latest"
+port: 10065
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: gameap
+  port: 8025
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Game Administration Panel for managing game servers on Linux and Windows.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "gameap and contributors"
+website: https://gameap.com/
+repo: https://github.com/gameap/gameap
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

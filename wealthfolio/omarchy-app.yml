@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: wealthfolio
+name: "Wealthfolio"
+tagline: "A private investment tracker"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/wealthfolio.png
+category: finance
+version: "latest"
+port: 10005
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: server
+  port: 8088
+description: >-
+  Wealthfolio tracks your investment accounts, holdings and performance over time, keeping every number on your
+  own server.
+developer: "wealthfolio and contributors"
+website: https://wealthfolio.app/
+repo: https://github.com/wealthfolio/wealthfolio
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: bitboard
+name: "bitBoard"
+tagline: "A customisable crypto price board"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/bitboard.png
+category: finance
+version: "latest"
+port: 3711
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: app
+  port: 3711
+description: >-
+  bitBoard shows live cryptocurrency prices on a dashboard where you build and order your own watchlist.
+developer: "egzola and contributors"
+website: https://github.com/egzola/bitboard
+repo: https://github.com/egzola/bitboard
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

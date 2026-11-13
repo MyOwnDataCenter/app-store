@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: labelstudio
+name: "Label Studio"
+tagline: "Label data for machine learning"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/labelstudio.png
+category: ai
+version: "latest"
+port: 10049
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: label-studio
+  port: 8080
+description: >-
+  Label Studio annotates text, images, audio and video to build training data for AI models.
+developer: "Label Studio project"
+website: https://hub.docker.com/r/heartexlabs/label-studio
+repo: https://hub.docker.com/r/heartexlabs/label-studio
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

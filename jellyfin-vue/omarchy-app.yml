@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: jellyfin-vue
+name: "Jellyfin Vue (Beta)"
+tagline: "A modern interface for Jellyfin"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/jellyfin-vue.png
+category: media
+version: "latest"
+port: 8202
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: jellyfin-vue
+  port: 80
+description: >-
+  Jellyfin Vue is a new web interface for your Jellyfin server.
+developer: "jellyfin and contributors"
+website: https://github.com/jellyfin/jellyfin-vue
+repo: https://github.com/jellyfin/jellyfin-vue
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

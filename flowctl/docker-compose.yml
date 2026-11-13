@@ -1,0 +1,128 @@
+# flowctl: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  postgres:
+    image: docker.io/postgres:17.0-alpine3.20
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      POSTGRES_USER: flowctl
+      POSTGRES_DB: flowctl
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/flowctl-db-data:/var/lib/postgresql/data"
+  dex:
+    image: dexidp/dex:v2.44.0-alpine
+    restart: unless-stopped
+    command:
+      - dex
+      - serve
+      - /etc/dex/config.yml
+    ports:
+      - "5556:5556"
+  flowctl-migrate:
+    image: ghcr.io/cvhariharan/flowctl:latest
+    restart: unless-stopped
+    command:
+      - install
+    environment:
+      FLOWCTL_DB__HOST: postgres
+      FLOWCTL_DB__PORT: "5432"
+      FLOWCTL_DB__USER: flowctl
+      FLOWCTL_DB__PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      FLOWCTL_DB__DBNAME: flowctl
+      FLOWCTL_APP__ADMIN_USERNAME: flowctl_admin
+      FLOWCTL_APP__ADMIN_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      FLOWCTL_APP__FLOWS_DIRECTORY: /app/flows
+      FLOWCTL_APP__ROOT_URL: "http://localhost:7000"
+      FLOWCTL_APP__ADDRESS: ":7000"
+      FLOWCTL_APP__USE_TLS: "false"
+      FLOWCTL_APP__MAX_FILE_UPLOAD_SIZE: "104857600"
+      FLOWCTL_KEYSTORE__KEEPER_URL: "base64key://2M-MkchieLohxn0jlmSfbuh4KE4EZz9tWrhcY9DZ8bE="
+      FLOWCTL_OIDC__NAME: oidc
+      FLOWCTL_OIDC__CLIENT_ID: flowctl
+      FLOWCTL_OIDC__CLIENT_SECRET: "${APP_SEED:?set APP_SEED}"
+      FLOWCTL_OIDC__ISSUER: "http://dex:5556/dex"
+      FLOWCTL_OIDC__AUTH_URL: "http://localhost:5556/dex/auth"
+      FLOWCTL_OIDC__TOKEN_URL: "http://dex:5556/dex/token"
+      FLOWCTL_OIDC__REDIRECT_URL: "http://localhost:7000/auth/callback"
+      FLOWCTL_SCHEDULER__BACKEND: ""
+      FLOWCTL_SCHEDULER__CRON_SYNC_INTERVAL: 5m0s
+      FLOWCTL_SCHEDULER__WORKERS: "20"
+      FLOWCTL_SCHEDULER__FLOW_EXECUTION_TIMEOUT: 1h
+      FLOWCTL_SCHEDULER__DEFAULT_TIMEZONE: UTC
+      FLOWCTL_LOGGER__BACKEND: file
+      FLOWCTL_LOGGER__LOG_DIRECTORY: /var/log/flowctl
+      FLOWCTL_LOGGER__MAX_SIZE_BYTES: "0"
+      FLOWCTL_LOGGER__RETENTION_TIME: 0s
+      FLOWCTL_LOGGER__SCAN_INTERVAL: 1h0m0s
+      FLOWCTL_METRICS__ENABLED: "true"
+      FLOWCTL_METRICS__PATH: /metrics
+      FLOWCTL_MESSENGERS__EMAIL__ENABLED: "false"
+      FLOWCTL_MESSENGERS__EMAIL__HOST: localhost
+      FLOWCTL_MESSENGERS__EMAIL__PORT: "587"
+      FLOWCTL_MESSENGERS__EMAIL__USERNAME: ""
+      FLOWCTL_MESSENGERS__EMAIL__PASSWORD: ""
+      FLOWCTL_MESSENGERS__EMAIL__FROM_ADDRESS: "flowctl@flowctl.internal"
+      FLOWCTL_MESSENGERS__EMAIL__FROM_NAME: ""
+      FLOWCTL_MESSENGERS__EMAIL__MAX_CONNS: "10"
+      FLOWCTL_MESSENGERS__EMAIL__SSL: none
+      DEBUG_LOG: "false"
+    depends_on:
+      - postgres
+      - dex
+  flowctl:
+    image: ghcr.io/cvhariharan/flowctl:latest
+    restart: unless-stopped
+    command:
+      - start
+    environment:
+      FLOWCTL_DB__HOST: postgres
+      FLOWCTL_DB__PORT: "5432"
+      FLOWCTL_DB__USER: flowctl
+      FLOWCTL_DB__PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      FLOWCTL_DB__DBNAME: flowctl
+      FLOWCTL_APP__ADMIN_USERNAME: flowctl_admin
+      FLOWCTL_APP__ADMIN_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      FLOWCTL_APP__FLOWS_DIRECTORY: /app/flows
+      FLOWCTL_APP__ROOT_URL: "http://localhost:7000"
+      FLOWCTL_APP__ADDRESS: ":7000"
+      FLOWCTL_APP__USE_TLS: "false"
+      FLOWCTL_APP__MAX_FILE_UPLOAD_SIZE: "104857600"
+      FLOWCTL_KEYSTORE__KEEPER_URL: "base64key://2M-MkchieLohxn0jlmSfbuh4KE4EZz9tWrhcY9DZ8bE="
+      FLOWCTL_OIDC__NAME: oidc
+      FLOWCTL_OIDC__CLIENT_ID: flowctl
+      FLOWCTL_OIDC__CLIENT_SECRET: "${APP_SEED:?set APP_SEED}"
+      FLOWCTL_OIDC__ISSUER: "http://dex:5556/dex"
+      FLOWCTL_OIDC__AUTH_URL: "http://localhost:5556/dex/auth"
+      FLOWCTL_OIDC__TOKEN_URL: "http://dex:5556/dex/token"
+      FLOWCTL_OIDC__REDIRECT_URL: "http://localhost:7000/auth/callback"
+      FLOWCTL_SCHEDULER__BACKEND: ""
+      FLOWCTL_SCHEDULER__CRON_SYNC_INTERVAL: 5m0s
+      FLOWCTL_SCHEDULER__WORKERS: "20"
+      FLOWCTL_SCHEDULER__FLOW_EXECUTION_TIMEOUT: 1h
+      FLOWCTL_SCHEDULER__DEFAULT_TIMEZONE: UTC
+      FLOWCTL_LOGGER__BACKEND: file
+      FLOWCTL_LOGGER__LOG_DIRECTORY: /var/log/flowctl
+      FLOWCTL_LOGGER__MAX_SIZE_BYTES: "0"
+      FLOWCTL_LOGGER__RETENTION_TIME: 0s
+      FLOWCTL_LOGGER__SCAN_INTERVAL: 1h0m0s
+      FLOWCTL_METRICS__ENABLED: "true"
+      FLOWCTL_METRICS__PATH: /metrics
+      FLOWCTL_MESSENGERS__EMAIL__ENABLED: "false"
+      FLOWCTL_MESSENGERS__EMAIL__HOST: localhost
+      FLOWCTL_MESSENGERS__EMAIL__PORT: "587"
+      FLOWCTL_MESSENGERS__EMAIL__USERNAME: ""
+      FLOWCTL_MESSENGERS__EMAIL__PASSWORD: ""
+      FLOWCTL_MESSENGERS__EMAIL__FROM_ADDRESS: "flowctl@flowctl.internal"
+      FLOWCTL_MESSENGERS__EMAIL__FROM_NAME: ""
+      FLOWCTL_MESSENGERS__EMAIL__MAX_CONNS: "10"
+      FLOWCTL_MESSENGERS__EMAIL__SSL: none
+      DEBUG_LOG: "false"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/flowctl-flows:/app/flows"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    depends_on:
+      - flowctl-migrate
+    ports:
+      - "10127:7000"

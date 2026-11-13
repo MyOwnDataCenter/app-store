@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: sikka
+name: "Sikka"
+tagline: "A node for the Sikka cryptocurrency"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/sikka.png
+category: crypto
+version: "latest"
+port: 64552
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: web
+  port: 64552
+description: >-
+  Sikka runs a lightweight node for a feeless cryptocurrency that uses a DAG instead of blocks.
+developer: "sikkalabs and contributors"
+website: https://github.com/sikkalabs
+repo: https://github.com/sikkalabs/sikka
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

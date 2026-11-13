@@ -1,0 +1,22 @@
+# Umami Analytics: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  umami-analytics:
+    image: ghcr.io/umami-software/umami:3.5.0
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: "postgresql://umami:${APP_SEED:?set APP_SEED}@umami-analytics-db:5432/umami-analytics-db"
+      DATABASE_TYPE: postgresql
+      APP_SECRET: "${APP_SEED:?set APP_SEED}"
+    ports:
+      - "8153:3000"
+  umami-analytics-db:
+    image: postgres:15-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: umami-analytics-db
+      POSTGRES_USER: umami
+      POSTGRES_PASSWORD: "${APP_SEED:?set APP_SEED}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/db:/var/lib/postgresql/data"

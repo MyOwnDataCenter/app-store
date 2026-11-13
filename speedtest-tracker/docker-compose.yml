@@ -1,0 +1,38 @@
+# Speedtest Tracker: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  speedtest-tracker:
+    image: lscr.io/linuxserver/speedtest-tracker:1.15.1
+    restart: unless-stopped
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      DB_CONNECTION: pgsql
+      DB_HOST: speedtest-tracker-db
+      DB_PORT: "5432"
+      DB_DATABASE: speedtest-tracker
+      DB_USERNAME: tipi
+      DB_PASSWORD: "${APP_SEED:?set APP_SEED}"
+      SPEEDTEST_SCHEDULE: "30 * * * *"
+      SPEEDTEST_SERVERS: ""
+      TZ: "${TZ:-UTC}"
+      APP_TIMEZONE: "${TZ:-UTC}"
+      DISPLAY_TIMEZONE: "${TZ:-UTC}"
+      APP_KEY: "${APP_SEED_32:?set APP_SEED_32}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/speedtest-tracker/config:/config"
+    depends_on:
+      - speedtest-tracker-db
+    ports:
+      - "8211:80"
+      - "8212:443"
+  speedtest-tracker-db:
+    image: postgres:15
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: tipi
+      POSTGRES_PASSWORD: "${APP_SEED:?set APP_SEED}"
+      POSTGRES_DB: speedtest-tracker
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/postgres:/var/lib/postgresql/data"

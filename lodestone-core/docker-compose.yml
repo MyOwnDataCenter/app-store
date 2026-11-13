@@ -1,0 +1,12 @@
+# Lodestone Core: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  lodestone-core:
+    image: ghcr.io/lodestone-team/lodestone_core:0.5.1
+    restart: unless-stopped
+    user: "0:0"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/lodestone-data:/root/.lodestone"
+    ports:
+      - "16662:16662"

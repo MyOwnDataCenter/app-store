@@ -1,0 +1,30 @@
+manifestVersion: 1
+id: arcane
+name: "Arcane"
+tagline: "A modern Docker manager"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/arcane.png
+category: developer
+version: "latest"
+port: 3552
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: arcane
+  port: 3552
+description: >-
+  Arcane manages containers, images, volumes and Compose projects from a clean, fast web page.
+
+  Where the app asks for a password it hasn’t shown you, use the one on this app’s page. It manages containers,
+  so Omarchy Server asks before installing it.
+developer: "getarcaneapp and contributors"
+website: https://getarcane.app/
+repo: https://github.com/getarcaneapp/arcane
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""
+# The password is generated per server by Omarchy Server and shown on the app’s page.
+deterministicPassword: true

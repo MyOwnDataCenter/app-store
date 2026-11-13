@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: dtan-server
+name: "DTAN Server"
+tagline: "Share torrents over Nostr"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/dtan-server.png
+category: networking
+version: "latest"
+port: 8022
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: web
+  port: 8000
+description: >-
+  DTAN Server is a Nostr relay for publishing and discovering torrents, combined with DHT peer discovery.
+developer: "v0l and contributors"
+website: https://github.com/v0l/dtan-server
+repo: https://github.com/v0l/dtan-server
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

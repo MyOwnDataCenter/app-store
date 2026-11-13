@@ -1,0 +1,15 @@
+# Obsidian LiveSync: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  obsidian-livesync:
+    image: couchdb:3.5.3
+    restart: unless-stopped
+    environment:
+      COUCHDB_USER: admin
+      COUCHDB_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/couchdb:/opt/couchdb/data"
+      - "${APP_DATA_DIR:-.}/data/local.ini:/opt/couchdb/etc/local.ini"
+    ports:
+      - "5984:5984"

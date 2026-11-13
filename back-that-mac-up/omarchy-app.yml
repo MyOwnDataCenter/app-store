@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: back-that-mac-up
+name: "Back That Mac Up"
+tagline: "Beautiful personal server OS for self-hosting"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/umbrel.webp
+category: files
+version: "latest"
+port: 10001
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: server
+  port: 80
+# Ports that must be reachable from your network.
+openPorts: [137, 138, 139, 445]
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Beautiful personal server OS for self-hosting. Install on a Raspberry Pi 4 or Ubuntu/Debian.
+developer: "getumbrel and contributors"
+website: https://umbrel.com/
+repo: https://github.com/getumbrel/umbrel
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

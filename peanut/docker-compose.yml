@@ -1,0 +1,13 @@
+# PeaNUT: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  peanut:
+    image: brandawg93/peanut:6.0.0
+    restart: unless-stopped
+    environment:
+      WEB_PORT: "8080"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/config:/config"
+    ports:
+      - "10048:8080"

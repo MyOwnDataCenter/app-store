@@ -1,0 +1,32 @@
+# Odoo: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  odoodb:
+    image: postgres:15
+    restart: unless-stopped
+    user: root
+    environment:
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: "${APP_SEED:?set APP_SEED}"
+      POSTGRES_DB: postgres
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/postgresql:/var/lib/postgresql/data"
+  odoo:
+    image: odoo:20
+    restart: unless-stopped
+    user: root
+    command: "--"
+    environment:
+      HOST: odoodb
+      USER: odoo
+      PASSWORD: "${APP_SEED:?set APP_SEED}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/addons:/mnt/extra-addons"
+      - "${APP_DATA_DIR:-.}/data/etc:/etc/odoo"
+      - "${APP_DATA_DIR:-.}/data/odoo-web-data:/var/lib/odoo"
+      - "${APP_DATA_DIR:-.}/data/filestore:/root/.local/share"
+    depends_on:
+      - odoodb
+    ports:
+      - "8017:8069"

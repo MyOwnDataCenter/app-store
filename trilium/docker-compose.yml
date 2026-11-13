@@ -1,0 +1,13 @@
+# Trilium: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  trilium:
+    image: ghcr.io/triliumnext/trilium:v0.107.0
+    restart: unless-stopped
+    environment:
+      TRILIUM_DATA_DIR: /home/node/trilium-data
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data:/home/node/trilium-data"
+    ports:
+      - "8267:8080"

@@ -1,0 +1,22 @@
+# SLSKD: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  slskd:
+    image: slskd/slskd:0.26.2
+    restart: unless-stopped
+    environment:
+      SLSKD_WEB_USER: admin
+      SLSKD_WEB_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      SLSKD_USER: admin
+      SLSKD_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      SLSKD_REMOTE_CONFIGURATION: "false"
+      SLSKD_CONFIG: /app/data/slskd.yml
+      SLSKD_SHARED_DIR: /shared
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/slskd:/app"
+      - "${DOWNLOADS_DIR}:/downloads"
+      - "${DOWNLOADS_DIR}:/incomplete"
+      - "${VIDEOS_DIR}:/shared"
+    ports:
+      - "5030:5030"

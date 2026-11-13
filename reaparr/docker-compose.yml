@@ -1,0 +1,24 @@
+# Reaparr: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  reaparr:
+    image: reaparr/reaparr:latest
+    restart: unless-stopped
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      UMASK: "002"
+      TZ: America/New_York
+      LOG_LEVEL: INFORMATION
+      LOG_ENV_VARS: "false"
+      UNMASKED: "false"
+      SEQ_URL: "http://localhost:5341"
+      SEQ_API_KEY: ""
+    volumes:
+      - "${DOCUMENTS_DIR}:/Config"
+      - "${DOWNLOADS_DIR}:/Downloads"
+      - "${VIDEOS_DIR}:/Movies"
+      - "${VIDEOS_DIR}:/TvShows"
+    ports:
+      - "10094:7000"

@@ -1,0 +1,53 @@
+# Khoj: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  database:
+    image: docker.io/pgvector/pgvector:pg15
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      POSTGRES_DB: postgres
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/khoj_db:/var/lib/postgresql/data/"
+  sandbox:
+    image: ghcr.io/khoj-ai/terrarium:latest
+    restart: unless-stopped
+  search:
+    image: docker.io/searxng/searxng:latest
+    restart: unless-stopped
+    environment:
+      SEARXNG_BASE_URL: "http://localhost:8080/"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/khoj_search:/etc/searxng"
+  computer:
+    image: ghcr.io/khoj-ai/khoj-computer:latest
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/khoj_computer:/home/operator"
+    ports:
+      - "10104:5900"
+  server:
+    image: ghcr.io/khoj-ai/khoj:latest
+    restart: unless-stopped
+    command: "--host=\"0.0.0.0\" --port=42110 -vv --anonymous-mode --non-interactive"
+    working_dir: /app
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      POSTGRES_HOST: database
+      POSTGRES_PORT: "5432"
+      KHOJ_DJANGO_SECRET_KEY: "${APP_SEED:?set APP_SEED}"
+      KHOJ_DEBUG: "False"
+      KHOJ_ADMIN_EMAIL: "username@example.com"
+      KHOJ_ADMIN_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      KHOJ_TERRARIUM_URL: "http://sandbox:8080"
+      KHOJ_SEARXNG_URL: "http://search:8080"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/khoj_config:/root/.khoj/"
+      - "${APP_DATA_DIR:-.}/data/khoj_models:/root/.cache/torch/sentence_transformers"
+      - "${APP_DATA_DIR:-.}/data/khoj_models:/root/.cache/huggingface"
+    depends_on:
+      - database

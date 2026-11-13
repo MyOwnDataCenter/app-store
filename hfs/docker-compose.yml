@@ -1,0 +1,15 @@
+# HFS: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  hfs:
+    image: rejetto/hfs:v3.3.4
+    restart: unless-stopped
+    environment:
+      HFS_PORT: "80"
+      HFS_INITIAL_ADMIN_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/config:/data"
+      - "${APP_DATA_DIR:-.}/data/shares:/shares"
+    ports:
+      - "10051:80"

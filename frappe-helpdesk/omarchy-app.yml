@@ -1,0 +1,29 @@
+manifestVersion: 1
+id: frappe-helpdesk
+name: "Frappe Helpdesk"
+tagline: "Helpdesk software which helps you streamline your company's support"
+icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/frappe-helpdesk.webp
+category: files
+version: "latest"
+port: 10140
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: frappe
+  port: 8000
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Helpdesk software which helps you streamline your company's support, offers an easy setup, clean user
+  interface, and automation tools to resolve customer queries efficiently.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "frappe and contributors"
+website: https://frappe.io/helpdesk
+repo: https://github.com/frappe/helpdesk
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

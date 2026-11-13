@@ -1,0 +1,23 @@
+# Ekko Studio: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  server:
+    image: ekkoye8888/hermes-web-ui:v0.8.21@sha256:547559855f006b29b69a8050ddda4a94836aa4bed9015e88670fe18033c070d5
+    restart: unless-stopped
+    user: "1000:1000"
+    init: true
+    environment:
+      PORT: "6060"
+      HOME: /home/agent
+      WORKSPACE_BASE: /opt/data
+      HERMES_HOME: /home/agent/.hermes
+      HERMES_BIN: /opt/hermes/.venv/bin/hermes
+      HERMES_WEB_UI_MANAGED_GATEWAY: "1"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/home:/home/agent"
+      - "${APP_DATA_DIR:-.}/data/hermes:/home/agent/.hermes"
+      - "${APP_DATA_DIR:-.}/data/studio:/home/agent/.hermes-web-ui"
+      - "${APP_DATA_DIR:-.}/data/workspace:/opt/data"
+    ports:
+      - "6063:6060"

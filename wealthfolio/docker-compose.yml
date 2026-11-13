@@ -1,0 +1,23 @@
+# Wealthfolio: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  server:
+    image: wealthfolio/wealthfolio:3.13.0@sha256:6600feaa06910a35854bc07a4cdf943a29b4a7a443190912e3d3c02288533ed2
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      WF_LISTEN_ADDR: "0.0.0.0:8088"
+      WF_DB_PATH: /data/wealthfolio.db
+      WF_AUTH_REQUIRED: "false"
+      WF_AUTH_PASSWORD_HASH: ""
+      WF_AUTH_TOKEN_TTL_MINUTES: "60"
+      WF_CORS_ALLOW_ORIGINS: ""
+      WF_REQUEST_TIMEOUT_MS: "30000"
+      WF_SECRET_KEY: "${APP_SEED:?set APP_SEED}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data:/data"
+    tmpfs:
+      - "/tmp:size=64M"
+    ports:
+      - "10005:8088"

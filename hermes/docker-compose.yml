@@ -1,0 +1,18 @@
+# Hermes: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  hermes:
+    image: nousresearch/hermes-agent:v2026.6.5
+    restart: unless-stopped
+    command:
+      - gateway
+      - run
+    environment:
+      HERMES_DASHBOARD: "1"
+      HERMES_DASHBOARD_INSECURE: "1"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/hermes:/opt/data"
+    ports:
+      - "9119:9119"
+      - "8642:8642"

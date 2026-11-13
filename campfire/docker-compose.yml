@@ -1,0 +1,29 @@
+# Campfire: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  server:
+    image: ghcr.io/basecamp/once-campfire:1.5.8@sha256:4d92aad32f0a284d0a91d476e33a15be7f73d18a5e3fe2bd061ac891c351594e
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      RAILS_ENV: production
+      SECRET_KEY_BASE: "${APP_SEED:?set APP_SEED}"
+      REDIS_URL: "redis://redis:6379"
+      DISABLE_SSL: "true"
+      VAPID_PUBLIC_KEY: ""
+      VAPID_PRIVATE_KEY: ""
+      SENTRY_DSN: ""
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/app:/rails/storage"
+    depends_on:
+      - redis
+    ports:
+      - "8004:80"
+  redis:
+    image: redis:7-alpine@sha256:ee64a64eaab618d88051c3ade8f6352d11531fcf79d9a4818b9b183d8c1d18ba
+    restart: unless-stopped
+    user: "1000:1000"
+    command: redis-server --save 60 1 --save 300 10 --save 900 100 --appendonly yes --loglevel warning
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/redis:/data"

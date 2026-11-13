@@ -1,0 +1,15 @@
+# SimpleX SMP: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  simplex-smp:
+    image: simplexchat/smp-server:v7.0.1
+    restart: unless-stopped
+    environment:
+      PASS: "${APP_PASSWORD:?set APP_PASSWORD}"
+      ADDR: "${SERVER_IP:-localhost}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/simplex/logs:/var/opt/simplex"
+      - "${APP_DATA_DIR:-.}/data/simplex/config:/etc/opt/simplex"
+    ports:
+      - "5223:5223"

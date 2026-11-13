@@ -1,0 +1,28 @@
+# Zipline: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  zipline-1:
+    image: ghcr.io/diced/zipline:4.8.3
+    restart: unless-stopped
+    environment:
+      CORE_RETURN_HTTPS: "false"
+      CORE_SECRET: "${APP_SEED:?set APP_SEED}"
+      CORE_HOST: "0.0.0.0"
+      CORE_PORT: "3000"
+      DATABASE_URL: "postgres://tipi:${APP_SEED:?set APP_SEED}@zipline-1-db/zipline"
+      CORE_LOGGER: "true"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/uploads:/zipline/uploads"
+      - "${APP_DATA_DIR:-.}/data/public:/zipline/public"
+    ports:
+      - "9318:3000"
+  zipline-1-db:
+    image: postgres:18
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: tipi
+      POSTGRES_PASSWORD: "${APP_SEED:?set APP_SEED}"
+      POSTGRES_DB: zipline
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/postgres:/var/lib/postgresql"

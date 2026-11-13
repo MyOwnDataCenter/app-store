@@ -1,0 +1,19 @@
+# Kaneo: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: kaneo
+      POSTGRES_DB: kaneo
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/postgres_data:/var/lib/postgresql/data"
+  kaneo:
+    image: ghcr.io/usekaneo/kaneo:latest
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    ports:
+      - "10122:5173"

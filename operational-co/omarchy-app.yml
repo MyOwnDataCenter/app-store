@@ -1,0 +1,30 @@
+manifestVersion: 1
+id: operational-co
+name: "Operational.co"
+tagline: "Receive alerts in a live timeline from your product"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/operational-co.png
+category: files
+version: "latest"
+port: 10120
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: operational
+  port: 80
+# Ports that must be reachable from your network.
+openPorts: [3307, 4337]
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Receive alerts in a live timeline from your product.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "operational-co and contributors"
+website: https://operational.co
+repo: https://github.com/operational-co/operational.co
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

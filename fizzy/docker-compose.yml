@@ -1,0 +1,20 @@
+# Fizzy: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  server:
+    image: ghcr.io/mauricewipf/fizzy-umbrel:5f45e54@sha256:2d7a493a8933aa784b4d06cc96bd8b047beaf19173d1eec04c767e9dd7f4c28b
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      RAILS_ENV: production
+      SECRET_KEY_BASE: "${APP_SEED:?set APP_SEED}"
+      DATABASE_ADAPTER: sqlite
+      ACTIVE_STORAGE_SERVICE: local
+      SOLID_QUEUE_IN_PUMA: "true"
+      FORCE_SSL: "false"
+      ASSUME_SSL: "false"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/app:/rails/storage"
+    ports:
+      - "8005:80"

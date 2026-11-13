@@ -1,0 +1,30 @@
+manifestVersion: 1
+id: influxdb
+name: "InfluxDB"
+tagline: "A database for time-series data"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/influxdb.png
+category: developer
+version: "latest"
+port: 10003
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: chronograf
+  port: 8888
+description: >-
+  InfluxDB stores metrics and events with timestamps and queries them quickly, with a built-in web interface for
+  dashboards.
+
+  Where the app asks for a password it hasn’t shown you, use the one on this app’s page.
+developer: "influxdata and contributors"
+website: https://www.influxdata.com/
+repo: https://github.com/influxdata/influxdb
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""
+# The password is generated per server by Omarchy Server and shown on the app’s page.
+deterministicPassword: true

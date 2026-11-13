@@ -1,0 +1,22 @@
+# Claper: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  db:
+    image: postgres:15
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      POSTGRES_USER: claper
+      POSTGRES_DB: claper
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/claper-db:/var/lib/postgresql/data"
+  app:
+    image: ghcr.io/claperco/claper:latest
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/claper-uploads:/app/uploads"
+    depends_on:
+      - db
+    ports:
+      - "4000:4000"

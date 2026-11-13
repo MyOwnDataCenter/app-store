@@ -1,0 +1,17 @@
+# OpenClaw: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  gateway:
+    image: ghcr.io/getumbrel/openclaw-umbrel:2026.9.36@sha256:28d23a27bce7fc8ee2ad815ca26ee548ab14b56ff66c0c136f74c717d013a3c0
+    restart: unless-stopped
+    user: "1000:1000"
+    init: true
+    stop_grace_period: 1m
+    environment:
+      APP_SEED: "${APP_SEED:?set APP_SEED}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data:/data"
+      - "${APP_DATA_DIR:-.}/data/linuxbrew:/home/linuxbrew"
+    ports:
+      - "18789:18789"

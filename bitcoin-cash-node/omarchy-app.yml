@@ -1,0 +1,31 @@
+manifestVersion: 1
+id: bitcoin-cash-node
+name: "Bitcoin Cash Node"
+tagline: "A Bitcoin Cash full node"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/bitcoin-cash-node.png
+category: crypto
+version: "latest"
+port: 3330
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: web
+  port: 3000
+# Ports that must be reachable from your network.
+openPorts: [8335]
+description: >-
+  Bitcoin Cash Node runs a full node for the Bitcoin Cash network.
+
+  Where the app asks for a password it hasn’t shown you, use the one on this app’s page.
+developer: "danhaus93-ops and contributors"
+website: https://bitcoincashnode.org
+repo: https://github.com/danhaus93-ops/umbrel-bch-apps
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""
+# The password is generated per server by Omarchy Server and shown on the app’s page.
+deterministicPassword: true

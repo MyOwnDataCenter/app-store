@@ -1,0 +1,15 @@
+# Spacebot: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  server:
+    image: ghcr.io/spacedriveapp/spacebot:v0.5.0@sha256:ccd9411f72def62b192e44aed23446b94e6e4774d55d7100a94de1531029f6ed
+    restart: unless-stopped
+    user: "1000:1000"
+    stop_grace_period: 1m
+    environment:
+      TZ: "${TZ:-UTC}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data:/data"
+    ports:
+      - "19898:19898"

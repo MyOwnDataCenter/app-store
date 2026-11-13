@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: valorgrid
+name: "ValorGrid"
+tagline: "A private, auditable portfolio tracker"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/valorgrid.png
+category: finance
+version: "latest"
+port: 1325
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: app
+  port: 1325
+description: >-
+  ValorGrid records and imports investment transactions and analyses your portfolio, with local backups.
+developer: "aivm23 and contributors"
+website: https://valorgrid.app
+repo: https://github.com/aivm23/ValorGrid
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

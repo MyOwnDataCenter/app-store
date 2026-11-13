@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: notemark
+name: "Notemark"
+tagline: "Minimal web-based Markdown notes app"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/note-mark.webp
+category: files
+version: "latest"
+port: 10022
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: notemark-proxy
+  port: 80
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Minimal web-based Markdown notes app.
+developer: "enchant97 and contributors"
+website: https://notemark.docs.enchantedcode.co.uk/
+repo: https://github.com/enchant97/note-mark
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

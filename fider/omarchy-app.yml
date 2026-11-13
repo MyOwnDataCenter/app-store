@@ -1,0 +1,30 @@
+manifestVersion: 1
+id: fider
+name: "Fider"
+tagline: "Open platform to collect and prioritize feedback (alternative to"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/fider.webp
+category: files
+version: "latest"
+port: 10125
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: smtp
+  port: 8025
+# Ports that must be reachable from your network.
+openPorts: [5555, 5566]
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Open platform to collect and prioritize feedback (alternative to UserVoice).
+
+  Packaged from the compose file in the project’s own repository.
+developer: "getfider and contributors"
+website: https://fider.io
+repo: https://github.com/getfider/fider
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

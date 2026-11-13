@@ -1,0 +1,14 @@
+# Kapowarr: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  kapowarr:
+    image: mrcas/kapowarr:v1.3.2
+    restart: unless-stopped
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+      - "${APP_DATA_DIR:-.}/data/kapowarr-db:/app/db"
+      - "${DOWNLOADS_DIR}:/app/temp_downloads"
+      - "${VIDEOS_DIR}:/media"
+    ports:
+      - "8194:5656"

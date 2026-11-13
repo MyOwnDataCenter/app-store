@@ -1,0 +1,35 @@
+# RomM: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  server:
+    image: rommapp/romm:5.4.1@sha256:8677fb7b81b1d3db20b849e989a1dadc2a11159e51eb34a2acdcb01102274edf
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      DB_HOST: db
+      DB_NAME: romm
+      DB_USER: romm-user
+      DB_PASSWD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      ROMM_AUTH_SECRET_KEY: "${APP_SEED:?set APP_SEED}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/resources:/romm/resources"
+      - "${APP_DATA_DIR:-.}/data/redis:/redis-data"
+      - "${APP_DATA_DIR:-.}/data/library:/romm/library"
+      - "${APP_DATA_DIR:-.}/data/assets:/romm/assets"
+      - "${APP_DATA_DIR:-.}/data/config:/romm/config"
+    depends_on:
+      - db
+    ports:
+      - "4002:8080"
+  db:
+    image: mariadb:11.4.5@sha256:5dfb3093333fa0ea53194ddef0a2bfa21d3b1e1353bd228b22610cd6fc0c04da
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      MARIADB_ROOT_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      MARIADB_DATABASE: romm
+      MARIADB_USER: romm-user
+      MARIADB_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/db:/var/lib/mysql"

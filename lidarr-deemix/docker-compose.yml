@@ -1,0 +1,17 @@
+# Lidarr on Steroids: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  lidarr-deemix:
+    image: youegraillot/lidarr-on-steroids:1.5.2
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/config:/config"
+      - "${APP_DATA_DIR:-.}/data/config-deemix:/config_deemix"
+      - "${DOWNLOADS_DIR}:/downloads"
+      - "${MUSIC_DIR}:/music"
+      - "${DOWNLOADS_DIR}:/downloads/completed"
+      - "${VIDEOS_DIR}:/media"
+    ports:
+      - "8186:8686"
+      - "8187:6595"

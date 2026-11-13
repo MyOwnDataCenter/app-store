@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: paaster
+name: "paaster"
+tagline: "End-to-end encrypted pastebin built with the objective of simplicity"
+icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/paaster.webp
+category: files
+version: "latest"
+port: 10092
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: paaster
+  port: 3000
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  End-to-end encrypted pastebin built with the objective of simplicity.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "WardPearce and contributors"
+website: https://paaster.io
+repo: https://github.com/WardPearce/paaster
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

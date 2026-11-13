@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: stalwart-mail
+name: "Stalwart Mail"
+tagline: "All-in-one mail server with JMAP, IMAP4, and SMTP support and a wide"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/stalwart-mail-server.webp
+category: media
+version: "latest"
+port: 8677
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: stalwart-mail
+  port: 8080
+# Ports that must be reachable from your network.
+openPorts: [4190]
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  All-in-one mail server with JMAP, IMAP4, and SMTP support and a wide range of modern features.
+developer: "stalwartlabs and contributors"
+website: https://stalw.art
+repo: https://github.com/stalwartlabs/stalwart
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

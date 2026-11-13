@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: openbooks
+name: "openbooks"
+tagline: "Search and download ebooks from IRC"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/openbooks.png
+category: media
+version: "latest"
+port: 8152
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: openbooks
+  port: 80
+description: >-
+  openbooks searches IRC ebook channels and downloads results through a simple web page.
+developer: "evan-buss and contributors"
+website: https://evan-buss.github.io/openbooks/
+repo: https://github.com/evan-buss/openbooks
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

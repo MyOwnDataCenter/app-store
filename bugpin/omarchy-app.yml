@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: bugpin
+name: "BugPin"
+tagline: "Visual bug reporting and ticketing tool for web applications"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/bugpin.png
+category: files
+version: "latest"
+port: 7300
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: bugpin
+  port: 7300
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Visual bug reporting and ticketing tool for web applications.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "aranticlabs and contributors"
+website: https://bugpin.io
+repo: https://github.com/aranticlabs/bugpin
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

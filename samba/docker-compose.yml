@@ -1,0 +1,25 @@
+# Samba: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  homepage:
+    image: loficafe/static-web-server-samba:1.0.1@sha256:783667f052d9535bb75946ff9bc807989b041e25437ef10c30b291589d041e6e
+    restart: unless-stopped
+    user: "1000:1000"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/samba/smb.conf:/public/smb.conf:ro"
+    ports:
+      - "9445:80"
+  server:
+    image: dockurr/samba:4.23.5@sha256:63428d1cb6c1ace60cfa782c1d6c9e4b3686044fc47600c97055e6b62e9bb5fa
+    restart: unless-stopped
+    environment:
+      USER: umbrel
+      PASS: "${APP_PASSWORD:?set APP_PASSWORD}"
+      UID: "1000"
+      GID: "1000"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/samba/smb.conf:/etc/samba/smb.conf"
+      - "${VIDEOS_DIR}:/storage"
+    ports:
+      - "446:445"

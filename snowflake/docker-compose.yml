@@ -1,0 +1,20 @@
+# Tor Snowflake Proxy: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  proxy:
+    image: thetorproject/snowflake-proxy:v2.15.3@sha256:045186c89b7b97e2a6c5d0f463583750ece9ccdf3461ed4f92f063f5ad65e958
+    restart: unless-stopped
+    command: "-log /data/snowflake.log -verbose"
+    stop_grace_period: 1m
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data:/data"
+  web:
+    image: sorenisanerd/gotty:v1.6.0@sha256:23b4669973e96d8d7d37b3bfd9e6566bdd701aa1a56eee2dc0e0362bd927ed88
+    restart: unless-stopped
+    command: "gotty --port 3800 --index \"/snowflake/index.html\" --title-format \"Tor Snowflake Proxy\" bash -c 'tail -n 10000 -f /snowflake/snowflake.log | grep \"Traffic Relayed\"'"
+    stop_grace_period: 1m
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data:/snowflake"
+    ports:
+      - "3800:3800"

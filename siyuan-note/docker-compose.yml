@@ -1,0 +1,15 @@
+# SiYuan Note: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  siyuan-note:
+    image: b3log/siyuan:v3.6.5
+    restart: unless-stopped
+    command: "--accessAuthCode=casaos --workspace=/siyuan/workspace/"
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/workspace:/siyuan/workspace"
+    ports:
+      - "10030:6806"

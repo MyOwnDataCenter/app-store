@@ -1,0 +1,11 @@
+# Homer: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  homer:
+    image: b4bz/homer:v26.11.2
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data:/www/assets"
+    ports:
+      - "8562:8080"

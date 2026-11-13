@@ -1,0 +1,26 @@
+# 015: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  app:
+    image: fudaoyuanicu/015-app:latest
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/uploads:/uploads"
+      - "${APP_DATA_DIR:-.}/data/config.yaml:/app/config.yaml"
+    depends_on:
+      - redis
+    ports:
+      - "10083:80"
+  worker:
+    image: fudaoyuanicu/015-worker:latest
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/uploads:/uploads"
+      - "${APP_DATA_DIR:-.}/data/config.yaml:/config.yaml"
+    depends_on:
+      - app
+      - redis
+  redis:
+    image: redis:7
+    restart: unless-stopped

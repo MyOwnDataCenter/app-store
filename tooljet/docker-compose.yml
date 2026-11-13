@@ -1,0 +1,40 @@
+# Tooljet: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  tooljet:
+    image: tooljet/tooljet-client-ce:v2.4.2
+    restart: unless-stopped
+    command: "openresty -g \"daemon off;\""
+    environment:
+      SERVER_HOST: tooljet-server
+    depends_on:
+      - tooljet-server
+    ports:
+      - "9876:80"
+  tooljet-server:
+    image: tooljet/tooljet-server-ce:v2.24.0
+    restart: unless-stopped
+    command: "npm run start:prod"
+    environment:
+      SERVE_CLIENT: "false"
+      SERVER_HOST: tooljet-server
+      TOOLJET_HOST: "https://${SERVER_IP:-localhost}"
+      LOCKBOX_MASTER_KEY: "${APP_SEED:?set APP_SEED}"
+      SECRET_KEY_BASE: "${APP_SEED:?set APP_SEED}"
+      PG_DB: tooljet
+      PG_USER: tooljet
+      PG_HOST: db-tooljet
+      PG_PASS: "${APP_SEED:?set APP_SEED}"
+      CHECK_FOR_UPDATES: check_if_updates_are_available
+      DEFAULT_FROM_EMAIL: "hello@tooljet.io"
+  db-tooljet:
+    image: postgres:11
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: tooljet
+      POSTGRES_PASSWORD: "${APP_SEED:?set APP_SEED}"
+      POSTGRES_DB: tooljet
+      PGDATA: /data/postgres
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/db:/var/lib/postgresql/data"

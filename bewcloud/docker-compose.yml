@@ -1,0 +1,33 @@
+# bewCloud: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  website:
+    image: ghcr.io/bewcloud/bewcloud:v4.23.1
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data-files:/app/data-files"
+      - "${APP_DATA_DIR:-.}/data/bewcloud.config.ts:/app/bewcloud.config.ts"
+    ports:
+      - "10117:8000"
+  postgresql:
+    image: postgres:18.6
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      POSTGRES_DB: bewcloud
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/bewcloud-db:/var/lib/postgresql/18/docker"
+  radicale:
+    image: tomsquest/docker-radicale:3.7.8.0
+    restart: unless-stopped
+    init: true
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data-radicale:/data"
+      - "${APP_DATA_DIR:-.}/data/radicale-config:/config:ro"
+    cap_add:
+      - SETUID
+      - SETGID
+      - CHOWN
+      - KILL

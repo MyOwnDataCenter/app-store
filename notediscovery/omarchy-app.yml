@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: notediscovery
+name: "NoteDiscovery"
+tagline: "Markdown note-taking app with plain-file storage, graph view, and MCP"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/notediscovery.webp
+category: files
+version: "latest"
+port: 8736
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: web
+  port: 8000
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Markdown note-taking app with plain-file storage, graph view, and MCP integration (alternative to Obsidian,
+  Notion).
+developer: "gamosoft and contributors"
+website: https://www.notediscovery.com/
+repo: https://github.com/gamosoft/NoteDiscovery
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

@@ -1,0 +1,14 @@
+# NeonLink: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  neonlink:
+    image: neonlink:latest
+    restart: unless-stopped
+    environment:
+      FASTIFY_PLUGIN_TIMEOUT: "120000"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data:/app/data"
+      - "${APP_DATA_DIR:-.}/data/background:/app/public/static/media/background"
+    ports:
+      - "10143:3333"

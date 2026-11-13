@@ -1,0 +1,38 @@
+# Hoarder (karakeep): a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  hoarder:
+    image: ghcr.io/hoarder-app/hoarder:0.34.1
+    restart: unless-stopped
+    environment:
+      MEILI_ADDR: "http://hoarder-meilisearch:7700"
+      BROWSER_WEB_URL: "http://hoarder-chrome:9222"
+      DATA_DIR: /data
+      HOARDER_VERSION: "0.16.0"
+      OPENAI_API_KEY: ""
+      NEXTAUTH_SECRET: "${APP_SEED:?set APP_SEED}"
+      MEILI_MASTER_KEY: "${APP_SEED:?set APP_SEED}"
+      NEXTAUTH_URL: "http://${SERVER_IP:-localhost}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/app:/data"
+    ports:
+      - "8685:3000"
+  hoarder-chrome:
+    image: ghcr.io/karakeep-app/karakeep-chrome:release
+    restart: unless-stopped
+    command:
+      - "--disable-gpu"
+      - "--disable-dev-shm-usage"
+      - "--hide-scrollbars"
+      - "--disable-blink-features=AutomationControlled"
+      - "--window-size=1440,900"
+  hoarder-meilisearch:
+    image: getmeili/meilisearch:v1.55
+    restart: unless-stopped
+    environment:
+      MEILI_NO_ANALYTICS: "true"
+      MEILI_MASTER_KEY: "${APP_SEED:?set APP_SEED}"
+      MEILI_UPGRADE_DB: "true"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/melli_data:/meili_data"

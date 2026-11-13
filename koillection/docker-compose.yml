@@ -1,0 +1,39 @@
+# Koillection: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  koillection:
+    image: koillection/koillection:1.8.5
+    restart: unless-stopped
+    environment:
+      APP_DEBUG: "0"
+      APP_ENV: prod
+      HTTPS_ENABLED: "{APP_EXPOSED}"
+      UPLOAD_MAX_FILESIZE: 20M
+      PHP_MEMORY_LIMIT: 512M
+      PHP_TZ: "${TZ:-UTC}"
+      CORS_ALLOW_ORIGIN: "*"
+      JWT_SECRET_KEY: "${APP_SEED:?set APP_SEED}"
+      JWT_PUBLIC_KEY: "%kernel.project_dir%/config/jwt/public.pem"
+      DB_DRIVER: pdo_pgsql
+      DB_NAME: koillection
+      DB_HOST: koillection-db
+      DB_PORT: "5432"
+      DB_USER: "{KOILLECTION_DB_USER}"
+      DB_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      DB_VERSION: "15"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/uploads:/uploads"
+    depends_on:
+      - koillection-db
+    ports:
+      - "8050:80"
+  koillection-db:
+    image: postgres:15
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: koillection
+      POSTGRES_USER: "{KOILLECTION_DB_USER}"
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/volumes/postgresql:/var/lib/postgresql/data"

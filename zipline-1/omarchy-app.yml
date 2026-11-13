@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: zipline-1
+name: "Zipline"
+tagline: "Lightweight, fast and reliable file sharing server that is commonly"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/zipline.webp
+category: media
+version: "latest"
+port: 9318
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: zipline-1
+  port: 3000
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Lightweight, fast and reliable file sharing server that is commonly used with ShareX, offering a react-based
+  Web UI and fast API.
+developer: "diced and contributors"
+website: https://github.com/diced/zipline
+repo: https://github.com/diced/zipline
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

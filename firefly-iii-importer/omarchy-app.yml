@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: firefly-iii-importer
+name: "Firefly III Importer"
+tagline: "Import bank data into Firefly III"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/firefly-iii-importer.png
+category: finance
+version: "latest"
+port: 30010
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: importer
+  port: 8080
+description: >-
+  The Firefly III data importer brings transactions into Firefly III from CSV files and bank connection
+  services.
+developer: "firefly-iii and contributors"
+website: https://www.firefly-iii.org/
+repo: https://github.com/firefly-iii/data-importer
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

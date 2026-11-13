@@ -1,0 +1,20 @@
+# Canary Tokens: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  latest:
+    image: thinkst/opencanary
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/.opencanary.conf:/root/.opencanary.conf"
+    tmpfs:
+      - /run
+  stable:
+    image: opencanary
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/.opencanary.conf:/root/.opencanary.conf"
+    tmpfs:
+      - /run

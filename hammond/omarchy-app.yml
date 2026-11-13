@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: hammond
+name: "Hammond"
+tagline: "Track fuel and vehicle costs"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/hammond.png
+category: files
+version: "latest"
+port: 8185
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: hammond
+  port: 3000
+description: >-
+  Hammond logs fuel-ups and expenses for your vehicles and shows mileage and cost trends.
+developer: "alfhou and contributors"
+website: https://github.com/alfhou/hammond
+repo: https://github.com/alfhou/hammond
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

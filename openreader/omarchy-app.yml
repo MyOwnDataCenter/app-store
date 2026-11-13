@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: openreader
+name: "OpenReader"
+tagline: "EPUB, PDF, DOCX, MD, and TXT file text to speech document reader"
+icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/openreader.webp
+category: ai
+version: "latest"
+port: 3391
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: gateway
+  port: 8080
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  EPUB, PDF, DOCX, MD, and TXT file text to speech document reader. Read documents in realtime with high-quality
+  TTS; or extract audiobooks.
+developer: "richardr1126 and contributors"
+website: https://docs.openreader.richardr.dev/
+repo: https://github.com/richardr1126/openreader
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

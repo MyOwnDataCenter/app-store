@@ -1,0 +1,14 @@
+# BugPin: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  bugpin:
+    image: registry.arantic.cloud/bugpin/bugpin:latest
+    restart: unless-stopped
+    environment:
+      LOG_LEVEL: info
+      TRUST_PROXY: "false"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data:/data"
+    ports:
+      - "7300:7300"

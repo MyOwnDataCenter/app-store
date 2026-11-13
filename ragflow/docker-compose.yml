@@ -1,0 +1,140 @@
+# RagFlow: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  ragflow:
+    image: icewhaletech/ragflow:v0.21.1
+    restart: unless-stopped
+    environment:
+      ES_HOST: ragflow-es01
+      INFINITY_HOST: ragflow-infinity
+      MINIO_HOST: ragflow-minio
+      MYSQL_HOST: ragflow-mysql
+      OS_HOST: ragflow-opensearch01
+      REDIS_HOST: ragflow-redis
+      TZ: "${TZ:-UTC}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/ragflow-logs:/ragflow/logs"
+      - "${APP_DATA_DIR:-.}/data/history_data_agent:/ragflow/history_data_agent"
+    depends_on:
+      - ragflow-mysql
+    ports:
+      - "30080:80"
+      - "9380:9380"
+      - "10443:443"
+      - "5679:5679"
+      - "9382:9382"
+  ragflow-es01:
+    image: elasticsearch:8.11.3
+    restart: unless-stopped
+    environment:
+      ELASTIC_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      TZ: "${TZ:-UTC}"
+      bootstrap.memory_lock: "false"
+      cluster.routing.allocation.disk.watermark.flood_stage: 2gb
+      cluster.routing.allocation.disk.watermark.high: 3gb
+      cluster.routing.allocation.disk.watermark.low: 5gb
+      discovery.type: single-node
+      node.name: es01
+      xpack.security.enabled: "true"
+      xpack.security.http.ssl.enabled: "false"
+      xpack.security.transport.ssl.enabled: "false"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/es01:/usr/share/elasticsearch/data"
+    ports:
+      - "9200:9200"
+  ragflow-infinity:
+    image: icewhaletech/ragflow-infinity:v0.6.1
+    restart: unless-stopped
+    environment:
+      TZ: "${TZ:-UTC}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/infinity:/var/infinity"
+    ports:
+      - "23817:23817"
+      - "23820:23820"
+      - "15432:5432"
+  ragflow-minio:
+    image: quay.io/minio/minio:RELEASE.2025-06-13T11-33-47Z
+    restart: unless-stopped
+    command:
+      - server
+      - "--console-address"
+      - ":9001"
+      - /data
+    environment:
+      MINIO_ROOT_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      MINIO_ROOT_USER: rag_flow
+      TZ: "${TZ:-UTC}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/minio:/data"
+  ragflow-mysql:
+    image: icewhaletech/ragflow-mysql:8.0.39
+    restart: unless-stopped
+    command:
+      - "--max_connections=1000"
+      - "--character-set-server=utf8mb4"
+      - "--collation-server=utf8mb4_unicode_ci"
+      - "--default-authentication-plugin=mysql_native_password"
+      - "--tls_version=TLSv1.2,TLSv1.3"
+      - "--binlog_expire_logs_seconds=604800"
+    environment:
+      MYSQL_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      MYSQL_ROOT_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      TZ: "${TZ:-UTC}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/mysql:/var/lib/mysql"
+    ports:
+      - "5455:3306"
+  ragflow-opensearch01:
+    image: opensearchproject/opensearch:2.19.1
+    restart: unless-stopped
+    environment:
+      OPENSEARCH_INITIAL_ADMIN_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      OPENSEARCH_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      TZ: "${TZ:-UTC}"
+      bootstrap.memory_lock: "false"
+      cluster.routing.allocation.disk.watermark.flood_stage: 2gb
+      cluster.routing.allocation.disk.watermark.high: 3gb
+      cluster.routing.allocation.disk.watermark.low: 5gb
+      discovery.type: single-node
+      http.port: "9201"
+      node.name: opensearch01
+      plugins.security.disabled: "false"
+      plugins.security.ssl.http.enabled: "false"
+      plugins.security.ssl.transport.enabled: "true"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/opensearch01:/usr/share/opensearch/data"
+    ports:
+      - "9201:9201"
+  ragflow-redis:
+    image: valkey/valkey:8
+    restart: unless-stopped
+    command:
+      - redis-server
+      - "--requirepass"
+      - infini_rag_flow
+      - "--maxmemory"
+      - 128mb
+      - "--maxmemory-policy"
+      - allkeys-lru
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/redis:/data"
+    ports:
+      - "6379:6379"
+  ragflow-sandbox-executor-manager:
+    image: infiniflow/sandbox-executor-manager:latest
+    restart: unless-stopped
+    privileged: true
+    environment:
+      SANDBOX_BASE_NODEJS_IMAGE: "infiniflow/sandbox-base-nodejs:latest"
+      SANDBOX_BASE_PYTHON_IMAGE: "infiniflow/sandbox-base-python:latest"
+      SANDBOX_ENABLE_SECCOMP: "false"
+      SANDBOX_EXECUTOR_MANAGER_POOL_SIZE: "3"
+      SANDBOX_MAX_MEMORY: 256m
+      SANDBOX_TIMEOUT: 10s
+      TZ: "${TZ:-UTC}"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    ports:
+      - "9385:9385"

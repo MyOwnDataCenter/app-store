@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: cloudbeaver
+name: "CloudBeaver"
+tagline: "Manage databases, supports PostgreSQL, MySQL, SQLite and more"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/cloudbeaver.webp
+category: developer
+version: "latest"
+port: 8978
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: cloudbeaver
+  port: 8978
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Manage databases, supports PostgreSQL, MySQL, SQLite and more. A web/hosted version of DBeaver.
+developer: "dbeaver and contributors"
+website: https://dbeaver.com/
+repo: https://github.com/dbeaver/cloudbeaver
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

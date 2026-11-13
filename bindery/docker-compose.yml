@@ -1,0 +1,19 @@
+# Bindery: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  bindery:
+    image: dinkeyes/bindery:latest
+    restart: unless-stopped
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/config:/app/config"
+      - "${APP_DATA_DIR:-.}/data/books_in:/Books_in"
+      - "${APP_DATA_DIR:-.}/data/books_out:/Books_out"
+      - "${APP_DATA_DIR:-.}/data/comics_in:/Comics_in"
+      - "${APP_DATA_DIR:-.}/data/comics_out:/Comics_out"
+      - "${APP_DATA_DIR:-.}/data/comics_raw:/Comics_raw"
+    ports:
+      - "10087:5000"

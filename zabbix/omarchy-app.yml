@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: zabbix
+name: "Zabbix"
+tagline: "Enterprise-grade monitoring"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/zabbix.png
+category: networking
+version: "latest"
+port: 10052
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: zabbix-frontend
+  port: 8080
+# Ports that must be reachable from your network.
+openPorts: [10050]
+description: >-
+  Zabbix monitors servers, networks and applications, with graphs, triggers and alerting.
+developer: "zabbix and contributors"
+website: https://www.zabbix.com/
+repo: https://github.com/zabbix/zabbix
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

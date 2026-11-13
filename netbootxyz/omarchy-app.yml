@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: netbootxyz
+name: "Netboot.xyz"
+tagline: "Boot operating system installers over the network"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/netbootxyz.png
+category: files
+version: "latest"
+port: 10016
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: netbootxyz
+  port: 3000
+# Ports that must be reachable from your network.
+openPorts: [69]
+description: >-
+  netboot.xyz lets computers on your network start installers and live systems over PXE without a USB stick.
+developer: "netbootxyz and contributors"
+website: https://netboot.xyz/
+repo: https://github.com/netbootxyz/netboot.xyz
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

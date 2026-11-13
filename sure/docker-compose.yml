@@ -1,0 +1,66 @@
+# Sure: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  web:
+    image: ghcr.io/we-promise/sure:0.7.6@sha256:61cd4c1fa9917200f8db4434b45d968235f375c52cdbdc81bf4a4df555a2f090
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      POSTGRES_USER: sure_user
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      POSTGRES_DB: sure_production
+      SECRET_KEY_BASE: "${APP_SEED:?set APP_SEED}"
+      SELF_HOSTED: "true"
+      POSTHOG_FEEDBACK_ENABLED: "false"
+      RAILS_FORCE_SSL: "false"
+      RAILS_ASSUME_SSL: "false"
+      DB_HOST: db
+      DB_PORT: "5432"
+      REDIS_URL: "redis://redis:6379/1"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/rails:/rails/storage"
+    depends_on:
+      - db
+      - redis
+    ports:
+      - "3064:3000"
+  worker:
+    image: ghcr.io/we-promise/sure:0.7.6@sha256:61cd4c1fa9917200f8db4434b45d968235f375c52cdbdc81bf4a4df555a2f090
+    restart: unless-stopped
+    user: "1000:1000"
+    command: bundle exec sidekiq
+    environment:
+      POSTGRES_USER: sure_user
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      POSTGRES_DB: sure_production
+      SECRET_KEY_BASE: "${APP_SEED:?set APP_SEED}"
+      SELF_HOSTED: "true"
+      POSTHOG_FEEDBACK_ENABLED: "false"
+      RAILS_FORCE_SSL: "false"
+      RAILS_ASSUME_SSL: "false"
+      DB_HOST: db
+      DB_PORT: "5432"
+      REDIS_URL: "redis://redis:6379/1"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/rails:/rails/storage"
+    depends_on:
+      - db
+      - redis
+  db:
+    image: postgres:18.3-alpine@sha256:52098013b4b64a746626437d38afc03cabff6cdeb4d3d92e2342aa95f0ce56ea
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      POSTGRES_USER: sure_user
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      POSTGRES_DB: sure_production
+      PGDATA: /data/pgdata
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/postgres:/data"
+  redis:
+    image: redis:8.4.2@sha256:4b0ab81cf4d84e610215d0159dcc218d4ec6180f869a9bc83c33a1945d6f3e42
+    restart: unless-stopped
+    user: "1000:1000"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/redis:/data"

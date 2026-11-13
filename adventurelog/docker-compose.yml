@@ -1,0 +1,47 @@
+# AdventureLog: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  web:
+    image: ghcr.io/seanmorley15/adventurelog-frontend:v0.13.1@sha256:568b1be1c42f456df066a8bb55be8ce0046b2c6fc96b1650db5d2162eb4f1ce9
+    restart: unless-stopped
+    environment:
+      PUBLIC_SERVER_URL: "http://server:8000"
+      PROTOCOL_HEADER: x-forwarded-proto
+      HOST_HEADER: x-forwarded-host
+      BODY_SIZE_LIMIT: Infinity
+    depends_on:
+      - server
+    ports:
+      - "8015:3000"
+  db:
+    image: ghcr.io/baosystems/postgis:15-3.5@sha256:ac619116c8ee81a386eb878956950d798b57c502985c12eb6e7be1598aa8d02f
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: database
+      POSTGRES_USER: adventure
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/db:/var/lib/postgresql/data/"
+  server:
+    image: ghcr.io/seanmorley15/adventurelog-backend:v0.13.1@sha256:8c45e21f95875ccd35a6e68f7da72504df9e837d6ee703379512cb8de6a67082
+    restart: unless-stopped
+    environment:
+      PGHOST: db
+      PGDATABASE: database
+      PGUSER: adventure
+      PGPASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      SECRET_KEY: "${APP_PASSWORD:?set APP_PASSWORD}"
+      DJANGO_ADMIN_USERNAME: admin
+      DJANGO_ADMIN_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      DJANGO_ADMIN_EMAIL: "admin@example.com"
+      PUBLIC_URL: "http://${SERVER_IP:-localhost}:8016"
+      CSRF_TRUSTED_ORIGINS: "http://${SERVER_IP:-localhost}:8015,https://${SERVER_IP:-localhost}:8015,http://${SERVER_IP:-localhost}:8015,https://${SERVER_IP:-localhost}:8015,http://${SERVER_IP:-localhost}:8015"
+      DEBUG: "False"
+      FRONTEND_URL: "http://${SERVER_IP:-localhost}:8015"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/app:/code/media/"
+    depends_on:
+      - db
+    ports:
+      - "8016:80"

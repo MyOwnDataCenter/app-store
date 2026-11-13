@@ -1,0 +1,30 @@
+manifestVersion: 1
+id: hortusfox
+name: "HortusFox"
+tagline: "Collaborative plant management and tracking system for plant enthusiasts"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/hortusfox.webp
+category: files
+version: "latest"
+port: 8838
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: app
+  port: 80
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Collaborative plant management and tracking system for plant enthusiasts.
+
+  Where the app asks for a password it hasn’t shown you, use the one on this app’s page.
+developer: "danielbrendel and contributors"
+website: https://hortusfox.github.io
+repo: https://github.com/danielbrendel/hortusfox-web
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""
+# The password is generated per server by Omarchy Server and shown on the app’s page.
+deterministicPassword: true

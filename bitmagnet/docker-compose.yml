@@ -1,0 +1,41 @@
+# Bitmagnet: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  bitmagnet:
+    image: ghcr.io/bitmagnet-io/bitmagnet:v0.10.0@sha256:cf2c16fac5b51f1c18e630b4710175d35d7e44b83012cfd05a2b43712feec05e
+    restart: unless-stopped
+    user: "1000:1000"
+    command:
+      - worker
+      - run
+      - "--keys=http_server"
+      - "--keys=queue_server"
+      - "--keys=dht_crawler"
+    stop_grace_period: 1m
+    environment:
+      HOME: /tmp
+      XDG_CONFIG_HOME: /config
+      POSTGRES_HOST: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      POSTGRES_NAME: bitmagnet
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/config:/config/bitmagnet"
+    depends_on:
+      - postgres
+    ports:
+      - "3335:3333"
+      - "3336:3334"
+  postgres:
+    image: postgres:16-alpine@sha256:23e88eb049fd5d54894d70100df61d38a49ed97909263f79d4ff4c30a5d5fca2
+    restart: unless-stopped
+    user: "1000:1000"
+    shm_size: 1g
+    environment:
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      POSTGRES_DB: bitmagnet
+      POSTGRES_USER: postgres
+      PGUSER: postgres
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/postgres:/var/lib/postgresql/data"

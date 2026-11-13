@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: monica
+name: "Monica"
+tagline: "A personal CRM for friends and family"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/monica.png
+category: files
+version: "latest"
+port: 3291
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: monica
+  port: 80
+description: >-
+  Monica helps you remember the people in your life: birthdays, conversations, gifts and things to follow up on.
+developer: "monicahq and contributors"
+website: https://monicahq.com/
+repo: https://github.com/monicahq/monica
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

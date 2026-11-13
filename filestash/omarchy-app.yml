@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: filestash
+name: "Filestash"
+tagline: "Web file manager that lets you manage your data anywhere it is located"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/filestash.webp
+category: files
+version: "latest"
+port: 8189
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: filestash
+  port: 8334
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Web file manager that lets you manage your data anywhere it is located: FTP, SFTP, WebDAV, Git, S3, Minio,
+  Dropbox, or Google Drive.
+developer: "mickael-kerjean and contributors"
+website: https://www.filestash.app/
+repo: https://github.com/mickael-kerjean/filestash
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

@@ -1,0 +1,35 @@
+# Libredesk: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  app:
+    image: libredesk/libredesk:latest
+    restart: unless-stopped
+    command:
+      - sh
+      - "-c"
+      - "./libredesk --install --idempotent-install --yes --config /libredesk/config.toml && ./libredesk --upgrade --yes --config /libredesk/config.toml && ./libredesk --config /libredesk/config.toml"
+    environment:
+      LIBREDESK_SYSTEM_USER_PASSWORD: ""
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/uploads:/libredesk/uploads:rw"
+      - "${APP_DATA_DIR:-.}/data/config.toml:/libredesk/config.toml"
+    depends_on:
+      - db
+      - redis
+    ports:
+      - "10115:9000"
+  db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: libredesk
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      POSTGRES_DB: libredesk
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/postgres-data:/var/lib/postgresql/data"
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/redis-data:/data"

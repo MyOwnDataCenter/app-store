@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: bffless
+name: "BFFless"
+tagline: "Host static websites from your server"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/bffless.png
+category: developer
+version: "latest"
+port: 5537
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: nginx
+  port: 5537
+description: >-
+  BFFless publishes static sites and CI build output from the command line, an API or GitHub Actions, with
+  instant deploys and previews.
+developer: "bffless and contributors"
+website: https://docs.bffless.app/deployment/umbrel/
+repo: https://github.com/bffless/ce
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

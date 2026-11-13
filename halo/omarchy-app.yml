@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: halo
+name: "Halo"
+tagline: "Powerful and easy-to-use website building tool (documentation in"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/halo.png
+category: social
+version: "latest"
+port: 8092
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: halo
+  port: 8090
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Powerful and easy-to-use website building tool (documentation in Chinese).
+developer: "halo-dev and contributors"
+website: https://www.halo.run
+repo: https://github.com/halo-dev/halo
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

@@ -1,0 +1,32 @@
+# Pastefy: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  db:
+    image: mariadb:11.4.5@sha256:5dfb3093333fa0ea53194ddef0a2bfa21d3b1e1353bd228b22610cd6fc0c04da
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      MYSQL_ROOT_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      MYSQL_DATABASE: pastefy
+      MYSQL_USER: pastefy
+      MYSQL_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/db:/var/lib/mysql:rw"
+  app:
+    image: interaapps/pastefy:7.1.6@sha256:353ce246ccf24ab1dec42e3c387744b47925065c207699f0bf1ce8e560619ca9
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      HTTP_SERVER_CORS: "*"
+      DATABASE_DRIVER: mysql
+      DATABASE_NAME: pastefy
+      DATABASE_USER: pastefy
+      DATABASE_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      DATABASE_HOST: db
+      DATABASE_PORT: "3306"
+      SERVER_NAME: "http://${SERVER_IP:-localhost}:9900"
+    depends_on:
+      - db
+    ports:
+      - "9900:80"

@@ -1,0 +1,15 @@
+# OpenList: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  openlist:
+    image: openlistteam/openlist:v4.2.2
+    restart: unless-stopped
+    user: "999:1000"
+    environment:
+      UMASK: "022"
+      OPENLIST_ADMIN_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data:/opt/openlist/data"
+    ports:
+      - "10044:5244"

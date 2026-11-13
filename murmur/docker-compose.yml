@@ -1,0 +1,37 @@
+# Murmur: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  web:
+    image: ghcr.io/getumbrel/murmur:v0.14.1@sha256:db92921008c24f09f8d78f7fb138ffac6d6faf1040e4cca6c850776f908c46f1
+    restart: unless-stopped
+    user: "1000:1000"
+    init: true
+    environment:
+      MURMUR_BUILTIN_HERMES_URL: "http://hermes:9119"
+      MURMUR_BUILTIN_HERMES_USERNAME: murmur
+      MURMUR_BUILTIN_HERMES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      MURMUR_FIND_HERMES: "Hermes Agent=http://hermes-agent_web_1:18789"
+      MURMUR_ALLOWED_HOSTS: "*"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/murmur:/data"
+    ports:
+      - "18793:3000"
+  hermes:
+    image: ghcr.io/getumbrel/hermes-agent-umbrel:v0.23.1@sha256:b7976dc05ed1348011c82bff15f04064eee53e307839337c9eec0b47af79b4f1
+    restart: unless-stopped
+    command:
+      - gateway
+      - run
+    stop_grace_period: 1m
+    environment:
+      HERMES_UID: "1000"
+      HERMES_GID: "1000"
+      HERMES_DASHBOARD: "1"
+      HERMES_DASHBOARD_BASIC_AUTH_USERNAME: murmur
+      HERMES_DASHBOARD_BASIC_AUTH_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      HERMES_DASHBOARD_BASIC_AUTH_SECRET: "${APP_SEED:?set APP_SEED}"
+      HERMES_GATEWAY_BOOTSTRAP_STATE: running
+      UMBREL_APP_NAME: Murmur
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/hermes:/opt/data"

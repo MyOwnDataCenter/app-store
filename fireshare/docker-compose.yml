@@ -1,0 +1,21 @@
+# Fireshare: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  fireshare:
+    image: shaneisrael/fireshare:1.9.0
+    restart: unless-stopped
+    environment:
+      ADMIN_USERNAME: admin
+      ADMIN_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      SECRET_KEY: "${APP_SEED:?set APP_SEED}"
+      MINUTES_BETWEEN_VIDEO_SCANS: "5"
+      PUID: "1000"
+      PGID: "1000"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/fireshare_data:/data"
+      - "${APP_DATA_DIR:-.}/data/fireshare_processed:/processed"
+      - "${VIDEOS_DIR}:/videos"
+      - "${PICTURES_DIR}:/images"
+    ports:
+      - "8140:80"

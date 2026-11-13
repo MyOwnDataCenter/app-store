@@ -1,0 +1,29 @@
+manifestVersion: 1
+id: kept-notes
+name: "Kept Notes"
+tagline: "A notes app built for quick capture: text notes, checklists, images"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/kept-notes.png
+category: files
+version: "latest"
+port: 10152
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: kept
+  port: 6767
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  A notes app built for quick capture: text notes, checklists, images, drawings, links, attachments, labels,
+  colors, and reminders (alternative to Google Keep).
+
+  Packaged from the compose file in the project’s own repository.
+developer: "ericerkz and contributors"
+website: https://keepitkept.xyz
+repo: https://github.com/ericerkz/kept
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

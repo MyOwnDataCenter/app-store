@@ -1,0 +1,16 @@
+# Artalk: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  artalk:
+    image: artalk/artalk-go
+    restart: unless-stopped
+    environment:
+      TZ: Asia/Shanghai
+      ATK_LOCALE: zh-CN
+      ATK_SITE_DEFAULT: Artalk 的博客
+      ATK_SITE_URL: "https://example.com"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data:/data"
+    ports:
+      - "10074:23366"

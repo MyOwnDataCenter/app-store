@@ -1,0 +1,13 @@
+# multi-scrobbler: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  multi-scrobbler:
+    image: foxxmd/multi-scrobbler
+    restart: unless-stopped
+    environment:
+      TZ: Etc/GMT
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/config:/config"
+    ports:
+      - "9078:9078"

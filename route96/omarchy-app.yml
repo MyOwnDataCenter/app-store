@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: route96
+name: "Route96"
+tagline: "A media server for Nostr"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/route96.png
+category: social
+version: "latest"
+port: 8002
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: server
+  port: 8002
+description: >-
+  Route96 stores and serves images and video for Nostr using the Blossom and NIP-96 standards.
+developer: "v0l and contributors"
+website: https://github.com/v0l/route96
+repo: https://github.com/v0l/route96
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

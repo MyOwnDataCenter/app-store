@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: uploadassistant
+name: "Upload Assistant"
+tagline: "Prepare releases for private trackers"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/uploadassistant.png
+category: media
+version: "latest"
+port: 10042
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: upload-assistant
+  port: 5000
+description: >-
+  Upload Assistant gathers media info, screenshots and descriptions and uploads releases to private trackers.
+developer: "Upload Assistant project"
+website: https://github.com/wastaken7/upload-assistant
+repo: https://github.com/wastaken7/upload-assistant
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

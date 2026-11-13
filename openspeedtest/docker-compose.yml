@@ -1,0 +1,9 @@
+# OpenSpeedTest: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  openspeedtest:
+    image: openspeedtest/latest:v2.0.6
+    restart: unless-stopped
+    ports:
+      - "3004:3000"

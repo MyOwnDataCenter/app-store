@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: domain-locker
+name: "Domain Locker"
+tagline: "Domain name portfolio management and tracker"
+icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/domain-locker.webp
+category: networking
+version: "latest"
+port: 8839
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: app
+  port: 3000
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Domain name portfolio management and tracker.
+developer: "lissy93 and contributors"
+website: https://domain-locker.com
+repo: https://github.com/lissy93/domain-locker
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: "postgres"
+defaultPassword: ""
+# The password is generated per server by Omarchy Server and shown on the app’s page.
+deterministicPassword: true

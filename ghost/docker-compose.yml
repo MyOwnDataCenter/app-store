@@ -1,0 +1,28 @@
+# Ghost: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  web:
+    image: ghost:6.77.0@sha256:2e3ca97643ea2a8cde6d0c97fae15ff39bfb60714f5abaab3f65263a2ed7c2a7
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      database__client: mysql
+      database__connection__host: db
+      database__connection__user: root
+      database__connection__password: "${APP_PASSWORD:?set APP_PASSWORD}"
+      database__connection__database: ghost
+      url: "http://${SERVER_IP:-localhost}:3368"
+      security__staffDeviceVerification: "false"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/content:/var/lib/ghost/content:rw"
+    ports:
+      - "3368:2368"
+  db:
+    image: mysql:8.4.4@sha256:339598fe066c73daa4120f2d9dfefd3146c3519cd324748e1d3f9d2b6c71d10b
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      MYSQL_ROOT_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/db:/var/lib/mysql:rw"

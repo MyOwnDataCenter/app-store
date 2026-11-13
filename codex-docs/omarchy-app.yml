@@ -1,0 +1,29 @@
+manifestVersion: 1
+id: codex-docs
+name: "CodeX.docs"
+tagline: "Documentation that is easy to write"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/codex-docs.png
+category: media
+version: "latest"
+port: 8101
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: codex-docs
+  port: 3000
+description: >-
+  CodeX Docs is a simple documentation site with a block editor, ideal for project and team docs.
+
+  Where the app asks for a password it hasn’t shown you, use the one on this app’s page.
+developer: "codex-team and contributors"
+website: https://github.com/codex-team/codex.docs
+repo: https://github.com/codex-team/codex.docs
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""
+# The password is generated per server by Omarchy Server and shown on the app’s page.
+deterministicPassword: true

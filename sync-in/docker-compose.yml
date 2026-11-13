@@ -1,0 +1,35 @@
+# Sync-in: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  sync_in:
+    image: syncin/server:2
+    restart: unless-stopped
+    environment:
+      INIT_ADMIN: ""
+      INIT_ADMIN_PASSWORD: ""
+      INIT_ADMIN_LOGIN: ""
+      PUID: "${PUID:-1000}"
+      PGID: "${PGID:-1000}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/environment.yaml:/app/environment/environment.yaml"
+      - "${APP_DATA_DIR:-.}/data/data:/app/data"
+      - "${APP_DATA_DIR:-.}/data/desktop_releases:/app/static/releases:ro"
+    depends_on:
+      - mariadb
+    ports:
+      - "10064:8080"
+  mariadb:
+    image: mariadb:11
+    restart: unless-stopped
+    command:
+      - "--event-scheduler=ON"
+      - "--innodb_ft_cache_size=16000000"
+      - "--max-allowed-packet=1G"
+      - "--character-set-server=utf8mb4"
+      - "--collation-server=utf8mb4_uca1400_ai_ci"
+    environment:
+      MYSQL_ROOT_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      MYSQL_DATABASE: sync_in
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/mariadb_data:/var/lib/mysql"

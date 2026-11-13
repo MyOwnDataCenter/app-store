@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: ollama-amd
+name: "Ollama - AMD"
+tagline: "Get up and running with Llama 3.3, DeepSeek-R1, Phi-4, Gemma 3, and"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/ollama.webp
+category: ai
+version: "latest"
+port: 10026
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: ollama-amd
+  port: 11434
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Get up and running with Llama 3.3, DeepSeek-R1, Phi-4, Gemma 3, and other large language models.
+developer: "ollama and contributors"
+website: https://ollama.com/
+repo: https://github.com/ollama/ollama
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

@@ -1,0 +1,14 @@
+# Silverbullet: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  silverbullet:
+    image: zefhemel/silverbullet:2.12.1
+    restart: unless-stopped
+    environment:
+      SB_USER: "admin:${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+      - "${APP_DATA_DIR:-.}/data/space:/space"
+    ports:
+      - "8214:3000"

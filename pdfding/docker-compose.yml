@@ -1,0 +1,18 @@
+# PdfDing: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  pdfding:
+    image: mrmn/pdfding:v1.7.2
+    restart: unless-stopped
+    environment:
+      HOST_NAME: "*"
+      SECRET_KEY: "${APP_SEED:?set APP_SEED}"
+      CSRF_COOKIE_SECURE: "FALSE"
+      SESSION_COOKIE_SECURE: "FALSE"
+      DEBUG: "FALSE"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/db:/home/nonroot/pdfding/db"
+      - "${APP_DATA_DIR:-.}/data/media:/home/nonroot/pdfding/media"
+    ports:
+      - "10053:8000"

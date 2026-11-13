@@ -1,0 +1,15 @@
+# SeedSync: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  seedsync:
+    image: ipsingh06/seedsync:0.8.6
+    restart: unless-stopped
+    user: ":"
+    environment:
+      TZ: "${TZ:-UTC}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/config:/config"
+      - "${DOWNLOADS_DIR}:/downloads"
+    ports:
+      - "8800:8800"

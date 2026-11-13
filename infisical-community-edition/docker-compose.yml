@@ -1,0 +1,26 @@
+# Infisical Community Edition: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  backend:
+    image: infisical/infisical:latest
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+    depends_on:
+      - db
+      - redis
+    ports:
+      - "10086:8080"
+  redis:
+    image: redis
+    restart: unless-stopped
+    environment:
+      ALLOW_EMPTY_PASSWORD: "yes"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/redis_data:/data"
+  db:
+    image: postgres:14-alpine
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/pg_data:/var/lib/postgresql/data"

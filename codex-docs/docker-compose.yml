@@ -1,0 +1,24 @@
+# CodeX.docs: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  codex-docs:
+    image: ghcr.io/codex-team/codex.docs:v2.3
+    restart: unless-stopped
+    environment:
+      APP_CONFIG_auth_password: "${APP_PASSWORD:?set APP_PASSWORD}"
+      APP_CONFIG_auth_secret: "${APP_SEED:?set APP_SEED}"
+      APP_CONFIG_database_driver: mongodb
+      APP_CONFIG_database_mongodb_uri: "mongodb://tipi:${APP_SEED:?set APP_SEED}@codex-db:27017"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/uploads:/usr/src/app/uploads"
+      - "${APP_DATA_DIR:-.}/data/db:/usr/src/app/db"
+      - "${APP_DATA_DIR:-.}/data/docs-config.yaml:/usr/src/app/docs-config.yaml"
+    ports:
+      - "8101:3000"
+  codex-db:
+    image: mongo:latest
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: tipi
+      MONGO_INITDB_ROOT_PASSWORD: "${APP_SEED:?set APP_SEED}"

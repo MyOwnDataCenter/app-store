@@ -1,0 +1,38 @@
+# BookStack: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  server:
+    image: linuxserver/bookstack:version-v26.09.3@sha256:42d8c8a5b74e2fd8613547ce14a1c011293765ceb3cd50ef4e751597b457798b
+    restart: unless-stopped
+    stop_grace_period: 1m
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: Etc/UTC
+      APP_URL: "http://bookstack.dev"
+      APP_PROXIES: "${GATEWAY_IP}"
+      APP_KEY: "${APP_SEED_32:?set APP_SEED_32}"
+      DB_HOST: db
+      DB_PORT: "3306"
+      DB_USERNAME: bookstack
+      DB_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      DB_DATABASE: bookstack
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/config:/config"
+    depends_on:
+      - db
+    ports:
+      - "6875:80"
+  db:
+    image: mariadb:11.4.5@sha256:49117dcc565cf51aa57ac5fca59ab31213402ff0eae6ffc13c46a37b938f7e4b
+    restart: unless-stopped
+    user: "1000:1000"
+    stop_grace_period: 1m
+    environment:
+      MARIADB_DATABASE: bookstack
+      MARIADB_USER: bookstack
+      MARIADB_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      MARIADB_ROOT_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/db:/var/lib/mysql"

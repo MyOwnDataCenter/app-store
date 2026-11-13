@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: koillection
+name: "Koillection"
+tagline: "Service allowing users to manage any kind of collections"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/koillection.webp
+category: files
+version: "latest"
+port: 8050
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: koillection
+  port: 80
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Service allowing users to manage any kind of collections.
+developer: "benjaminjonard and contributors"
+website: https://koillection.github.io/
+repo: https://github.com/benjaminjonard/koillection
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

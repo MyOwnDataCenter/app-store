@@ -1,0 +1,56 @@
+# Affine: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  web:
+    image: ghcr.io/toeverything/affine:0.27.4@sha256:b649f5ce2384ffdf13c23bccf81d759e15973d59d0b0058af65d895a84373099
+    restart: unless-stopped
+    environment:
+      AFFINE_CONFIG_PATH: /root/.affine/config
+      REDIS_SERVER_HOST: redis
+      DATABASE_URL: "postgres://affine:${APP_PASSWORD:?set APP_PASSWORD}@db:5432/affine"
+      AFFINE_INDEXER_ENABLED: "false"
+      NODE_ENV: production
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/config:/root/.affine/config"
+      - "${APP_DATA_DIR:-.}/data/storage/blob:/root/.affine/storage"
+    depends_on:
+      - redis
+      - db
+      - migration
+    ports:
+      - "10009:3010"
+  migration:
+    image: ghcr.io/toeverything/affine:0.27.4@sha256:b649f5ce2384ffdf13c23bccf81d759e15973d59d0b0058af65d895a84373099
+    restart: unless-stopped
+    command:
+      - sh
+      - "-c"
+      - node ./scripts/self-host-predeploy.js
+    environment:
+      AFFINE_CONFIG_PATH: /root/.affine/config
+      REDIS_SERVER_HOST: redis
+      DATABASE_URL: "postgres://affine:${APP_PASSWORD:?set APP_PASSWORD}@db:5432/affine"
+      AFFINE_INDEXER_ENABLED: "false"
+      NODE_ENV: production
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/config:/root/.affine/config"
+      - "${APP_DATA_DIR:-.}/data/storage/blob:/root/.affine/storage"
+    depends_on:
+      - redis
+      - db
+  redis:
+    image: redis:7.2.4@sha256:e647cfe134bf5e8e74e620f66346f93418acfc240b71dd85640325cb7cd01402
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/storage/redis:/data"
+  db:
+    image: postgres:16.2@sha256:f58300ac8d393b2e3b09d36ea12d7d24ee9440440e421472a300e929ddb63460
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: affine
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      POSTGRES_DB: affine
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/storage/postgres:/var/lib/postgresql/data"

@@ -1,0 +1,35 @@
+# Toshi Moto: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  api_web:
+    image: toshimoto821/toshi-moto-api:1.8.4@sha256:750927ef2d0b0bbcffcbb57632d861e567a8b7243381c0285b2b2660dc31244a
+    restart: unless-stopped
+    user: "1000:1000"
+    stop_grace_period: 1m
+    environment:
+      PORT: "8121"
+      MONGODB_URI: "mongodb://mongodb:27017/toshi-moto"
+    depends_on:
+      - mongodb
+  web:
+    image: toshimoto821/toshi-moto:1.37.3@sha256:e2d7270473dda60c34afac9ed28b267540fd4ca0d6aabf12fa37a7d0c597634e
+    restart: unless-stopped
+    user: "1000:1000"
+    stop_grace_period: 1m
+    environment:
+      PORT: "8021"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/proxy/nginx.conf:/etc/nginx/conf.d/default.conf:ro"
+    depends_on:
+      - api_web
+    ports:
+      - "8021:8021"
+  mongodb:
+    image: mongo:8.0.10@sha256:15fb53a5160ebabff5ecade8f8b5d48721b68ea190957a7f35b5b38e8340e62b
+    restart: unless-stopped
+    user: "1000:1000"
+    command: mongod --noauth
+    stop_grace_period: 1m
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/db:/data/db"

@@ -1,0 +1,30 @@
+manifestVersion: 1
+id: haven
+name: "Haven"
+tagline: "Private blogging system with markdown editing and built in RSS reader"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/haven.webp
+category: social
+version: "latest"
+port: 8130
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: haven
+  port: 3000
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Private blogging system with markdown editing and built in RSS reader.
+
+  Where the app asks for a password it hasn’t shown you, use the one on this app’s page.
+developer: "havenweb and contributors"
+website: https://havenweb.org/
+repo: https://github.com/havenweb/haven
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""
+# The password is generated per server by Omarchy Server and shown on the app’s page.
+deterministicPassword: true

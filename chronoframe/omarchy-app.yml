@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: chronoframe
+name: "ChronoFrame"
+tagline: "Personal gallery application with online photo management, supporting"
+icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/chronoframe.webp
+category: photography
+version: "latest"
+port: 10136
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: chronoframe
+  port: 3000
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Personal gallery application with online photo management, supporting Live/Motion Photos, and explore map.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "HoshinoSuzumi and contributors"
+website: https://chronoframe.bh8.ga/
+repo: https://github.com/HoshinoSuzumi/chronoframe
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

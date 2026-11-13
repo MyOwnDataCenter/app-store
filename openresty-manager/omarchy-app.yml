@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: openresty-manager
+name: "OpenResty Manager"
+tagline: "Manage OpenResty sites and certificates"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/openresty-manager.png
+category: networking
+version: "latest"
+port: 34567
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: web
+  port: 34567
+# Ports that must be reachable from your network.
+openPorts: [3443]
+description: >-
+  OpenResty Manager configures websites, reverse proxies and HTTPS certificates for the OpenResty web server
+  from a web page.
+developer: "Safe3 and contributors"
+website: https://om.uusec.com/
+repo: https://github.com/Safe3/openresty-manager
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

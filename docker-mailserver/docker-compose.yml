@@ -1,0 +1,16 @@
+# docker-mailserver: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  mailserver:
+    image: ghcr.io/docker-mailserver/docker-mailserver:latest
+    restart: unless-stopped
+    stop_grace_period: 1m
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/docker-data/dms/mail-data/:/var/mail/"
+      - "${APP_DATA_DIR:-.}/data/docker-data/dms/mail-state/:/var/mail-state/"
+      - "${APP_DATA_DIR:-.}/data/docker-data/dms/mail-logs/:/var/log/mail/"
+      - "${APP_DATA_DIR:-.}/data/docker-data/dms/config/:/tmp/docker-mailserver/"
+      - "/etc/localtime:/etc/localtime:ro"
+    ports:
+      - "10095:25"

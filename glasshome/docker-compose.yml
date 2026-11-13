@@ -1,0 +1,15 @@
+# GlassHome: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  server:
+    image: ghcr.io/glasshome/dash:1.4.5@sha256:173777a0d0f575907486448f339e33c8268ff8497d8292c59989bb8294540307
+    restart: unless-stopped
+    environment:
+      PORT: "3123"
+      DATA_DIR: /data
+      TRUSTED_PROXIES: "127.0.0.0/8,::1,${GATEWAY_IP}/32"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data:/data"
+    ports:
+      - "3123:3123"

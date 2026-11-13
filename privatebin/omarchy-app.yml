@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: privatebin
+name: "PrivateBin"
+tagline: "Minimalist pastebin/discussion board where the server has zero"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/privatebin.webp
+category: files
+version: "latest"
+port: 3070
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: server
+  port: 8080
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Minimalist pastebin/discussion board where the server has zero knowledge of hosted data.
+developer: "PrivateBin and contributors"
+website: https://privatebin.info/
+repo: https://github.com/PrivateBin/PrivateBin
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

@@ -1,0 +1,16 @@
+# Write-Freely: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  write-freely:
+    image: nephatrine/write-freely:0.17
+    restart: unless-stopped
+    environment:
+      TZ: "${TZ:-UTC}"
+      PUID: "1000"
+      PGID: "1000"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/config:/mnt/config"
+    ports:
+      - "8574:8080"
+      - "70:70"

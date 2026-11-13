@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: pdfding
+name: "PdfDing"
+tagline: "PDF manager, viewer and editor offering a seamless user experience on"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/pdfding.webp
+category: files
+version: "latest"
+port: 10053
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: pdfding
+  port: 8000
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  PDF manager, viewer and editor offering a seamless user experience on multiple devices. It's designed to be
+  minimal, fast, and easy to set up using Docker.
+developer: "mrmn and contributors"
+website: https://www.pdfding.com
+repo: https://codeberg.org/mrmn/PdfDing
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

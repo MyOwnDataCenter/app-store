@@ -1,0 +1,11 @@
+# Strix: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  web:
+    image: eduard256/strix:2.2.0@sha256:c000c723b985a5f4a98e8d738dc1b04294e6b7343fcf2576031c2732abb82789
+    restart: unless-stopped
+    user: "1000:1000"
+    stop_grace_period: 1m
+    ports:
+      - "4567:4567"

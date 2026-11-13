@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: passky-client
+name: "Passky Client"
+tagline: "The Passky password manager in your browser"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/passky-client.png
+category: files
+version: "latest"
+port: 5052
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: web
+  port: 80
+description: >-
+  Passky Client is the web vault for a Passky Server, for reading and editing your passwords from any browser.
+developer: "Rabbit-Company and contributors"
+website: https://passky.org
+repo: https://github.com/Rabbit-Company/Passky-Website
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

@@ -1,0 +1,36 @@
+# Typebot: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  typebot-db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: typebot
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/db-data:/var/lib/postgresql/data"
+  typebot-redis:
+    image: redis:alpine
+    restart: unless-stopped
+    command: "--save 60 1 --loglevel warning"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/redis-data:/data"
+  typebot-builder:
+    image: baptistearno/typebot-builder:latest
+    restart: unless-stopped
+    environment:
+      REDIS_URL: "redis://typebot-redis:6379"
+    depends_on:
+      - typebot-redis
+      - typebot-db
+    ports:
+      - "10099:3000"
+  typebot-viewer:
+    image: baptistearno/typebot-viewer:latest
+    restart: unless-stopped
+    environment:
+      REDIS_URL: "redis://typebot-redis:6379"
+    depends_on:
+      - typebot-redis
+      - typebot-db

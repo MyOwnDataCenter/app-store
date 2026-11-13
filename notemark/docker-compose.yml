@@ -1,0 +1,22 @@
+# Notemark: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  notemark:
+    image: ghcr.io/enchant97/note-mark-frontend:0.19.5
+    restart: unless-stopped
+  notemark-backend:
+    image: ghcr.io/enchant97/note-mark-backend:0.19.5
+    restart: unless-stopped
+    environment:
+      JWT_SECRET: "${APP_SEED:?set APP_SEED}"
+      CORS_ORIGINS: "*"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data:/data"
+  notemark-proxy:
+    image: nginx:alpine
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/proxy/nginx.conf:/etc/nginx/conf.d/default.conf:ro"
+    ports:
+      - "10022:80"

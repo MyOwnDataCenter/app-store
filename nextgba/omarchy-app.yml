@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: nextgba
+name: "NextGBA"
+tagline: "Play Game Boy Advance games in the browser"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/nextgba.png
+category: gaming
+version: "latest"
+port: 8435
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: nextgba
+  port: 3000
+description: >-
+  NextGBA is a Game Boy Advance emulator in the browser, with your games and saves stored on your server.
+developer: "nicotsx and contributors"
+website: https://github.com/nicotsx/nextgba
+repo: https://github.com/nicotsx/nextgba
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

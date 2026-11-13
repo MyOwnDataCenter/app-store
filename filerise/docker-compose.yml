@@ -1,0 +1,24 @@
+# FileRise: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  filerise:
+    image: error311/filerise-docker:latest
+    restart: unless-stopped
+    environment:
+      TIMEZONE: "${TZ:-UTC}"
+      DATE_TIME_FORMAT: "m/d/y  h:iA"
+      TOTAL_UPLOAD_SIZE: 5G
+      SECURE: "false"
+      PERSISTENT_TOKENS_KEY: ""
+      PUID: "${PUID:-1000}"
+      PGID: "${PGID:-1000}"
+      CHOWN_ON_START: "true"
+      SCAN_ON_START: "true"
+      SHARE_URL: ""
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/uploads:/var/www/uploads"
+      - "${APP_DATA_DIR:-.}/data/users:/var/www/users"
+      - "${APP_DATA_DIR:-.}/data/metadata:/var/www/metadata"
+    ports:
+      - "10078:80"

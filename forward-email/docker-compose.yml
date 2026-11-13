@@ -1,0 +1,32 @@
+# Forward Email: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  forwardemail:
+    image: forwardemail/forwardemail
+    restart: unless-stopped
+    environment:
+      CMD_ARGS: "--dbs.mongo=mongodb://mongo:27017/forwardemail --dbs.redis=redis://redis:6379/"
+    tmpfs:
+      - /tmp
+    depends_on:
+      - redis
+      - mongo
+    ports:
+      - "10111:3000"
+      - "6000:6000"
+      - "2432:2432"
+      - "2465:2465"
+      - "2587:2587"
+      - "2993:2993"
+      - "2995:2995"
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/redis-data:/data"
+  mongo:
+    image: mongo:8
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/mongo-data-db:/data/db"

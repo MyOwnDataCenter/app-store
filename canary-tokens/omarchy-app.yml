@@ -1,0 +1,30 @@
+manifestVersion: 1
+id: canary-tokens
+name: "Canary Tokens"
+tagline: "Generates lightweight, embedded honeypot triggers called canary tokens"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/canary-tokens.png
+category: networking
+version: "latest"
+port: 10126
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: latest
+  port: 80
+# Ports that must be reachable from your network.
+openPorts: [21]
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Generates lightweight, embedded honeypot triggers called canary tokens for detecting unauthorized access.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "thinkst and contributors"
+website: https://canarytokens.org
+repo: https://github.com/thinkst/opencanary
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

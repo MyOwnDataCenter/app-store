@@ -1,0 +1,57 @@
+# Plausible CE: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  plausible-ce:
+    image: ghcr.io/plausible/community-edition:v2.1.5
+    restart: unless-stopped
+    command: "sh -c \"sleep 10 && /entrypoint.sh db createdb && /entrypoint.sh db migrate && /entrypoint.sh run\""
+    environment:
+      BASE_URL: "http://${SERVER_IP:-localhost}"
+      SECRET_KEY_BASE: "${APP_SEED:?set APP_SEED}"
+      DATABASE_URL: "postgres://tipi:${APP_SEED:?set APP_SEED}@plausible-db:5432/plausible-db"
+      CLICKHOUSE_DATABASE_URL: "http://plausible-events-db:8123/plausible_events_db"
+      DISABLE_REGISTRATION: "true"
+      ENABLE_EMAIL_VERIFICATION: "False"
+      TOTP_VAULT_KEY: "${APP_SEED:?set APP_SEED}"
+      GOOGLE_CLIENT_ID: ""
+      GOOGLE_CLIENT_SECRET: ""
+      MAXMIND_LICENSE_KEY: ""
+      MAXMIND_EDITION: GeoLite2-City
+      MAILER_ADAPTER: Bamboo.SMTPAdapter
+      MAILER_EMAIL: "hello@plausible.local}"
+      MAILER_NAME: Plausible
+      SMTP_HOST_ADDR: ""
+      SMTP_HOST_PORT: "25"
+      SMTP_USER_NAME: admin
+      SMTP_USER_PWD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      SMTP_HOST_SSL_ENABLED: "False"
+      SMTP_RETRIES: "2"
+      POSTMARK_API_KEY: ""
+      MAILGUN_API_KEY: ""
+      MAILGUN_DOMAIN: ""
+      MAILGUN_BASE_URI: "https://api.mailgun.net/v3"
+      MANDRILL_API_KEY: ""
+      SENDGRID_API_KEY: ""
+    depends_on:
+      - plausible-db
+      - plausible-events-db
+    ports:
+      - "8193:8000"
+  plausible-db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: "${APP_SEED:?set APP_SEED}"
+      POSTGRES_USER: tipi
+      POSTGRES_DB: plausible-db
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/database:/var/lib/postgresql/data"
+  plausible-events-db:
+    image: clickhouse/clickhouse-server:26.10.3.7
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/event-data:/var/lib/clickhouse"
+      - "${APP_DATA_DIR:-.}/data/event-logs:/var/log/clickhouse-server"
+      - "${APP_DATA_DIR:-.}/data/clickhouse/clickhouse-config.xml:/etc/clickhouse-server/config.d/logging.xml:ro"
+      - "${APP_DATA_DIR:-.}/data/clickhouse/clickhouse-user-config.xml:/etc/clickhouse-server/users.d/logging.xml:ro"

@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: mailflow
+name: "MailFlow"
+tagline: "All your mail accounts in one webmail"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/mailflow.png
+category: networking
+version: "latest"
+port: 3395
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: frontend
+  port: 80
+description: >-
+  MailFlow connects several IMAP and SMTP accounts, such as Gmail and Outlook, and shows them in one unified
+  inbox.
+developer: "maathimself and contributors"
+website: https://mailflow.sh
+repo: https://github.com/maathimself/mailflow
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

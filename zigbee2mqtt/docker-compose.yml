@@ -1,0 +1,17 @@
+# Zigbee2MQTT: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  app:
+    image: koenkk/zigbee2mqtt:2.14.3@sha256:fb4a6b0f6868ad1cd6a9996479802b2420e599c3463b62bbff8c8cd9a908f43a
+    restart: unless-stopped
+    privileged: true
+    environment:
+      ZIGBEE2MQTT_CONFIG_FRONTEND_ENABLED: "true"
+      ZIGBEE2MQTT_CONFIG_FRONTEND_PORT: "8080"
+      ZIGBEE2MQTT_CONFIG_MQTT_SERVER: "mqtt://mosquitto_broker_1:1883"
+      Z2M_ONBOARD_NO_REDIRECT: "1"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data:/app/data:rw"
+    ports:
+      - "60082:8080"

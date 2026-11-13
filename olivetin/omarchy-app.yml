@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: olivetin
+name: "Olivetin"
+tagline: "Web interface for running Linux shell commands"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/olivetin.webp
+category: files
+version: "latest"
+port: 10025
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: olivetin
+  port: 1337
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Web interface for running Linux shell commands.
+developer: "OliveTin and contributors"
+website: https://www.olivetin.app/
+repo: https://github.com/OliveTin/OliveTin
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

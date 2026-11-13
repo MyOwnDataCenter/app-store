@@ -1,0 +1,45 @@
+# GameAP: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  gameap:
+    image: gameap/gameap:latest
+    restart: unless-stopped
+    entrypoint:
+      - /bin/sh
+      - "-c"
+      - "mkdir -p /var/lib/gameap/files && /usr/bin/gameap"
+    environment:
+      HTTP_HOST: "0.0.0.0"
+      HTTP_PORT: "8025"
+      DATABASE_DRIVER: postgres
+      DATABASE_URL: "postgres://gameap:${APP_PASSWORD:?set APP_PASSWORD}@postgres:5432/gameap?sslmode=disable"
+      ENCRYPTION_KEY: "${APP_SEED:?set APP_SEED}"
+      AUTH_SECRET: "${APP_SEED:?set APP_SEED}"
+      CACHE_DRIVER: redis
+      CACHE_REDIS_ADDR: "redis:6379"
+      FILES_DRIVER: local
+      FILES_LOCAL_BASE_PATH: /var/lib/gameap/files
+      LOGGER_LEVEL: info
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/gameap-storage:/var/lib/gameap"
+    depends_on:
+      - postgres
+      - redis
+    ports:
+      - "10065:8025"
+  postgres:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: gameap
+      POSTGRES_USER: gameap
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/gameap-postgres-data:/var/lib/postgresql/data"
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/gameap-redis-data:/data"

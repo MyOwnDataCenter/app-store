@@ -1,0 +1,9 @@
+# IT-Tools by sharevb: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  it-tools:
+    image: sharevb/it-tools:latest
+    restart: unless-stopped
+    ports:
+      - "10073:8080"

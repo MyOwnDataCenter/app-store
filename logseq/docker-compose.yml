@@ -1,0 +1,17 @@
+# Logseq: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  logseq:
+    image: correctroad/logseq:v0.10.10
+    restart: unless-stopped
+    privileged: true
+    environment:
+      PGID: "0"
+      PUID: "0"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/config:/config"
+      - "${DOCUMENTS_DIR}:/notes"
+    ports:
+      - "3325:3000"
+      - "12315:12315"

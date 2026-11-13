@@ -1,0 +1,22 @@
+# Discount Bandit: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  discount-bandit:
+    image: cybrarist/discount-bandit:v4
+    restart: unless-stopped
+    environment:
+      DB_CONNECTION: sqlite
+      DB_DATABASE: /app/database/sqlite/database.sqlite
+      APP_TIMEZONE: UTC
+      THEME_COLOR: Red
+      APP_URL: "http://localhost:8080"
+      ASSET_URL: "http://localhost:8080"
+      EXCHANGE_RATE_API_KEY: ""
+      CRON: "*/5 * * * *"
+      APP_KEY: "${APP_SEED_32:?set APP_SEED_32}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/database/sqlite:/app/database/sqlite"
+      - "${APP_DATA_DIR:-.}/data/logs:/logs"
+    ports:
+      - "10119:80"

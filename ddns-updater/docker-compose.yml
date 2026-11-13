@@ -1,0 +1,11 @@
+# DDNS Updater: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  ddns-updater:
+    image: qmcgaw/ddns-updater:v2.10.0
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/config:/updater/data"
+    ports:
+      - "8356:8000"

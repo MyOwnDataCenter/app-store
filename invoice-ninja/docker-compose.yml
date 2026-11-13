@@ -1,0 +1,63 @@
+# Invoice Ninja: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  nginx:
+    image: nginx:1.21-alpine@sha256:686aac2769fd6e7bab67663fd38750c135b72d993d0bb0a942ab02ef647fc9c3
+    restart: unless-stopped
+    init: true
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/config/nginx.conf:/etc/nginx/conf.d/nginx.conf:ro"
+      - "${APP_DATA_DIR:-.}/data/public:/var/www/html/public:ro"
+      - "${APP_DATA_DIR:-.}/data/fake/../storage:/var/www/html/storage:ro"
+    depends_on:
+      - app
+    ports:
+      - "8676:80"
+  app:
+    image: invoiceninja/invoiceninja-debian:5.13.53@sha256:217a0f2d45403b9562f90af51762cdd22bc6d9728c9a8751571ff6bfefc51f64
+    restart: unless-stopped
+    environment:
+      APP_URL: "http://${SERVER_IP:-localhost}:8676"
+      APP_KEY: "${APP_SEED_32:?set APP_SEED_32}"
+      APP_ENV: production
+      APP_DEBUG: "false"
+      REQUIRE_HTTPS: "false"
+      DB_HOST: db
+      DB_DATABASE: invoiceninja
+      DB_USERNAME: invoiceninja
+      DB_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      IN_USER_EMAIL: "admin@example.com"
+      IN_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      IS_DOCKER: "true"
+      CACHE_DRIVER: redis
+      QUEUE_CONNECTION: redis
+      SESSION_DRIVER: redis
+      REDIS_HOST: redis
+      REDIS_PASSWORD: ""
+      REDIS_PORT: "6379"
+      FILESYSTEM_DISK: debian_docker
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/public:/var/www/html/public"
+      - "${APP_DATA_DIR:-.}/data/fake/../storage:/var/www/html/storage"
+    depends_on:
+      - db
+      - redis
+  db:
+    image: mariadb:11.4.5@sha256:5dfb3093333fa0ea53194ddef0a2bfa21d3b1e1353bd228b22610cd6fc0c04da
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      MYSQL_ROOT_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      MYSQL_USER: invoiceninja
+      MYSQL_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      MYSQL_DATABASE: invoiceninja
+      MARIADB_AUTO_UPGRADE: "true"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/db:/var/lib/mysql"
+  redis:
+    image: redis:7.4.3@sha256:ee8ec723c831b815c3e2f2c6fbd1c145c68d1c04ba284f044ec1434fbca0fee8
+    restart: unless-stopped
+    user: "1000:1000"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/redis:/data"

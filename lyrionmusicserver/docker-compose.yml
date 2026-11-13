@@ -1,0 +1,17 @@
+# LyrionMusicServer: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  lyrionmusicserver:
+    image: lmscommunity/lyrionmusicserver:9.1.1
+    restart: unless-stopped
+    environment:
+      HTTP_PORT: "9000"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/config:/config"
+      - "${MUSIC_DIR}:/music"
+      - "${APP_DATA_DIR:-.}/data/playlists:/playlist"
+      - "/etc/localtime:/etc/localtime"
+    ports:
+      - "10039:9000"
+      - "3483:3483"

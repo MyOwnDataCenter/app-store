@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: strix
+name: "Strix"
+tagline: "Auto-discovers working stream URLs for IP cameras and generates"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/strix.png
+category: automation
+version: "latest"
+port: 4567
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: web
+  port: 4567
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Auto-discovers working stream URLs for IP cameras and generates ready-to-use Frigate and go2rtc configs.
+developer: "eduard256 and contributors"
+website: https://github.com/eduard256/Strix
+repo: https://github.com/eduard256/Strix
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

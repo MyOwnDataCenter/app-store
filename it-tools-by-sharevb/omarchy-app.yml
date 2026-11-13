@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: it-tools-by-sharevb
+name: "IT-Tools by sharevb"
+tagline: "Collection of handy online tools for developers (fork of it-tools)"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/it-tools-by-sharevb.png
+category: files
+version: "latest"
+port: 10073
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: it-tools
+  port: 8080
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Collection of handy online tools for developers (fork of it-tools).
+
+  Packaged from the compose file in the project’s own repository.
+developer: "sharevb and contributors"
+website: https://github.com/sharevb/it-tools
+repo: https://github.com/sharevb/it-tools
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

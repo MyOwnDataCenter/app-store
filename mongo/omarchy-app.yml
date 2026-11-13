@@ -1,0 +1,29 @@
+manifestVersion: 1
+id: mongo
+name: "MongoDB"
+tagline: "The MongoDB document database"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/mongo.png
+category: developer
+version: "latest"
+port: 27017
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: mongo
+  port: 27017
+description: >-
+  MongoDB stores data as flexible JSON-like documents, for apps and development.
+
+  Where the app asks for a password it hasn’t shown you, use the one on this app’s page.
+developer: "mongodb and contributors"
+website: https://www.mongodb.com/
+repo: https://github.com/mongodb/mongo
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""
+# The password is generated per server by Omarchy Server and shown on the app’s page.
+deterministicPassword: true

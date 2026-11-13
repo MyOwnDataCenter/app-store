@@ -1,0 +1,29 @@
+manifestVersion: 1
+id: myip
+name: "MyIP"
+tagline: "All in one IP Toolbox"
+icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/myip.webp
+category: networking
+version: "latest"
+port: 18966
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: myip
+  port: 18966
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  All in one IP Toolbox. Easy to check what's your IPs, IP geolocation, check for DNS leaks, examine WebRTC
+  connections, speed test, ping test, MTR test, check website availability and more.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "jason5ng32 and contributors"
+website: https://ipcheck.ing
+repo: https://github.com/jason5ng32/MyIP
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

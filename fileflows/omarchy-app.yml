@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: fileflows
+name: "FileFlows"
+tagline: "Process media files automatically"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/fileflows.png
+category: media
+version: "latest"
+port: 19200
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: fileflows
+  port: 5000
+description: >-
+  FileFlows watches folders and runs flows that convert, tag and move your video and audio files.
+
+  It manages containers, so Omarchy Server asks before installing it.
+developer: "FileFlows project"
+website: https://hub.docker.com/r/revenz/fileflows
+repo: https://hub.docker.com/r/revenz/fileflows
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

@@ -1,0 +1,30 @@
+manifestVersion: 1
+id: dayglance
+name: "dayGLANCE"
+tagline: "Day planner with drag-and-drop time blocking, inbox, recurring tasks"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/dayglance.png
+category: files
+version: "latest"
+port: 10141
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: dayglance
+  port: 80
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Day planner with drag-and-drop time blocking, inbox, recurring tasks, habits, routines, goals, projects and
+  Pomodoro focus mode, plus iCal and CalDAV calendar sync. Data stays in the browser, with optional WebDAV or
+  GLANCEvault sync.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "krelltunez and contributors"
+website: https://dayglance.app
+repo: https://github.com/krelltunez/dayGLANCE
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

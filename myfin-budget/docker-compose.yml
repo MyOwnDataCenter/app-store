@@ -1,0 +1,47 @@
+# MyFin Budget: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  db:
+    image: mysql:8.4
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      MYSQL_DATABASE: myfin
+      MYSQL_USER: myfin
+      MYSQL_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/db_data:/var/lib/mysql"
+    ports:
+      - "3306:3306"
+  myfin-api:
+    image: ghcr.io/afaneca/myfin-api:latest
+    restart: unless-stopped
+    environment:
+      DB_NAME: myfin
+      DB_USER: myfin
+      DB_PW: myfinpassword
+      DB_PORT: "3306"
+      DB_HOST: db
+      SMTP_HOST: ""
+      SMTP_PORT: ""
+      SMTP_SECURE: ""
+      SMTP_USER: ""
+      SMTP_PASSWORD: ""
+      SMTP_FROM: ""
+      PORT: "3001"
+      LOGGING: "false"
+      BYPASS_SESSION_CHECK: "false"
+      ENABLE_USER_SIGNUP: "false"
+      TRUST_PROXY: "1"
+    depends_on:
+      - db
+  myfin-frontend:
+    image: ghcr.io/afaneca/myfin:latest
+    restart: unless-stopped
+    environment:
+      VITE_MYFIN_BASE_API_URL: "https://myfin.domain.tld:3001"
+    depends_on:
+      - myfin-api
+    ports:
+      - "10097:80"

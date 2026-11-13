@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: beaverhabittracker
+name: "BeaverHabitTracker"
+tagline: "Habit tracking app to save your precious moments in your fleeting life"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/beaver-habit-tracker.webp
+category: files
+version: "latest"
+port: 15580
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: beaverhabittracker
+  port: 8080
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Habit tracking app to save your precious moments in your fleeting life.
+developer: "daya0576 and contributors"
+website: https://github.com/daya0576/beaverhabits
+repo: https://github.com/daya0576/beaverhabits
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

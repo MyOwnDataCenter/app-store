@@ -1,0 +1,30 @@
+# Open-Meteo: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  open-meteo-sync:
+    image: ghcr.io/open-meteo/open-meteo
+    restart: unless-stopped
+    command: sync dwd_icon temperature_2m --past-days 2 --repeat-interval 1 --concurrent 1
+    environment:
+      LOG_LEVEL: info
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/open_meteo_database:/app/data"
+  open-meteo:
+    image: ghcr.io/open-meteo/open-meteo
+    restart: unless-stopped
+    user: "0"
+    command:
+      - serve
+      - "--env"
+      - production
+      - "--hostname"
+      - "0.0.0.0"
+      - "--port"
+      - "8080"
+    environment:
+      LOG_LEVEL: info
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/open_meteo_database:/app/data"
+    ports:
+      - "8080:8080"

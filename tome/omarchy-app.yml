@@ -1,0 +1,29 @@
+manifestVersion: 1
+id: tome
+name: "Tome"
+tagline: "Ebook and manga library server with web reader, OPDS and metadata"
+icon: https://raw.githubusercontent.com/bndct-devops/tome/main/frontend/public/pwa-512x512.png
+category: media
+version: "latest"
+port: 10123
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: tome
+  port: 8080
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Ebook and manga library server with web reader, OPDS and metadata fetching. A KOReader plugin records every
+  reading session and syncs positions both ways, powering streaks, pace, heatmaps and per-book stats.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "bndct-devops and contributors"
+website: https://tome.bndct.sh
+repo: https://github.com/bndct-devops/tome
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

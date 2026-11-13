@@ -1,0 +1,20 @@
+# SnapOtter: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  snapotter:
+    image: snapotter/snapotter:2.2.0
+    restart: unless-stopped
+    environment:
+      AUTH_ENABLED: "true"
+      DEFAULT_USERNAME: admin
+      DEFAULT_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      MAX_UPLOAD_SIZE_MB: "0"
+      MAX_BATCH_SIZE: "0"
+      CONCURRENT_JOBS: "0"
+      REDIS_MAXMEMORY: 512mb
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data:/data"
+      - "${APP_DATA_DIR:-.}/data/workspace:/tmp/workspace"
+    ports:
+      - "1349:1349"

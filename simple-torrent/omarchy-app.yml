@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: simple-torrent
+name: "SimpleTorrent"
+tagline: "A small torrent client with a web page"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/simple-torrent.png
+category: networking
+version: "latest"
+port: 10000
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: server
+  port: 8086
+description: >-
+  SimpleTorrent downloads torrents and magnet links from a minimal web page and lets you browse and fetch the
+  finished files.
+developer: "boypt and contributors"
+website: https://github.com/boypt
+repo: https://github.com/boypt/simple-torrent
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

@@ -1,0 +1,26 @@
+# Slink: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  web:
+    image: anirdev/slink:v1.14.6@sha256:7f7cab180971caeb83ce8818a676be04a7923dff6bf6e201ae0a9ce4f64be593
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      TZ: UTC
+      ORIGIN: "http://${SERVER_IP:-localhost}:8811"
+      PROTOCOL_HEADER: x-forwarded-proto
+      REQUIRE_SSL: "false"
+      USER_APPROVAL_REQUIRED: "false"
+      USER_PASSWORD_MIN_LENGTH: "8"
+      USER_PASSWORD_REQUIREMENTS: "15"
+      IMAGE_MAX_SIZE: 15M
+      IMAGE_STRIP_EXIF_METADATA: "true"
+      IMAGE_COMPRESSION_QUALITY: "80"
+      STORAGE_PROVIDER: local
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/server.js:/services/client/svelte-kit/server.js:ro"
+      - "${APP_DATA_DIR:-.}/data/var:/app/var/data"
+      - "${APP_DATA_DIR:-.}/data/images:/app/slink/images"
+    ports:
+      - "8811:3000"

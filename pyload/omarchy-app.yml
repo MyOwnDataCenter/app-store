@@ -1,0 +1,29 @@
+manifestVersion: 1
+id: pyload
+name: "PyLoad"
+tagline: "Lightweight, customizable and remotely manageable downloader for"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/pyload.webp
+category: media
+version: "latest"
+port: 10028
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: pyload
+  port: 8000
+# Ports that must be reachable from your network.
+openPorts: [9666]
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Lightweight, customizable and remotely manageable downloader for 1-click-hosting sites like rapidshare.com or
+  uploaded.to.
+developer: "pyload and contributors"
+website: https://pyload.net/
+repo: https://github.com/pyload/pyload
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

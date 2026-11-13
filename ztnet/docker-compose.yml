@@ -1,0 +1,31 @@
+# ZTnet: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  ztnet:
+    image: sinamics/ztnet:0.7.18
+    restart: unless-stopped
+    working_dir: /app
+    environment:
+      ZT_ADDR: "http://172.17.0.1:9993"
+      POSTGRES_HOST: ztnet-postgres
+      POSTGRES_PORT: "5432"
+      POSTGRES_USER: ztnet
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      POSTGRES_DB: ztnet
+      NEXTAUTH_URL: "http://0.0.0.0:3050"
+      NEXTAUTH_SECRET: "${APP_SEED:?set APP_SEED}"
+      NEXTAUTH_URL_INTERNAL: "http://ztnet:3000"
+    depends_on:
+      - ztnet-postgres
+    ports:
+      - "3050:3000"
+  ztnet-postgres:
+    image: postgres:15.2-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ztnet
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      POSTGRES_DB: ztnet
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/postgres-data:/var/lib/postgresql/data"

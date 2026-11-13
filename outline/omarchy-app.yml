@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: outline
+name: "Outline"
+tagline: "Extensible wiki for your team"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/outline.webp
+category: files
+version: "latest"
+port: 8942
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: web
+  port: 3000
+# Ports that must be reachable from your network.
+openPorts: [8943]
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Extensible wiki for your team.
+developer: "outline and contributors"
+website: https://www.getoutline.com/
+repo: https://github.com/outline/outline
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

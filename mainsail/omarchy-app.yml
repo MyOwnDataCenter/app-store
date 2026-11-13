@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: mainsail
+name: "Mainsail"
+tagline: "Modern and responsive user interface for the Klipper 3D printer firmware"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/mainsail.webp
+category: files
+version: "latest"
+port: 8070
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: web
+  port: 80
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Modern and responsive user interface for the Klipper 3D printer firmware. Control and monitor your printer
+  from everywhere, from any device.
+developer: "mainsail-crew and contributors"
+website: https://docs.mainsail.xyz/
+repo: https://github.com/mainsail-crew/mainsail
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

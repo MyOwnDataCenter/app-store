@@ -1,0 +1,14 @@
+# Glances: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  glances:
+    image: nicolargo/glances:4.5.3.2
+    restart: unless-stopped
+    environment:
+      TZ: "${TZ:-UTC}"
+      GLANCES_OPT: "-w"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    ports:
+      - "10023:61208"

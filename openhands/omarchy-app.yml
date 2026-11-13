@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: openhands
+name: "OpenHands"
+tagline: "An AI agent that writes code"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/openhands.png
+category: ai
+version: "latest"
+port: 3993
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: web
+  port: 3000
+description: >-
+  OpenHands is an AI software engineer that edits code, runs commands and browses the web in a sandbox you
+  watch.
+
+  It manages containers, so Omarchy Server asks before installing it.
+developer: "All-Hands-AI and contributors"
+website: https://www.all-hands.dev/
+repo: https://github.com/All-Hands-AI/OpenHands
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

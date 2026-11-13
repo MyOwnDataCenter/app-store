@@ -1,0 +1,29 @@
+manifestVersion: 1
+id: elengrab
+name: "Elengrab"
+tagline: "Fast cross-platform video and audio downloader and media viewer with"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/elengrab.png
+category: media
+version: "latest"
+port: 10116
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: server
+  port: 8080
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Fast cross-platform video and audio downloader and media viewer with flexible format and quality options.
+  Supports 1000+ websites including YouTube, Instagram, TikTok, Twitch and more.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "neosy and contributors"
+website: https://github.com/neosy/elengrab
+repo: https://github.com/neosy/elengrab
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

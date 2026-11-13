@@ -1,0 +1,14 @@
+# Fredy: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  fredy:
+    image: ghcr.io/orangecoding/fredy
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/conf:/conf"
+      - "${APP_DATA_DIR:-.}/data/db:/db"
+    ports:
+      - "10139:9998"

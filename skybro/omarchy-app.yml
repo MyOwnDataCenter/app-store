@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: skybro
+name: "SkyBro"
+tagline: "Track planes, satellites and the sky overhead"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/skybro.png
+category: networking
+version: "latest"
+port: 7437
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: web
+  port: 5000
+description: >-
+  SkyBro follows aircraft, satellites, weather and astronomy events above you and alerts you to interesting
+  ones.
+developer: "xDeeKay and contributors"
+website: https://github.com/xDeeKay/SkyBro
+repo: https://github.com/xDeeKay/SkyBro
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

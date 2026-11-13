@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: clumoove
+name: "Clumoove"
+tagline: "Move data between cloud services"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/clumoove.png
+category: files
+version: "latest"
+port: 10040
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: frontend
+  port: 3000
+description: >-
+  Clumoove migrates and syncs files between cloud storage services on a schedule.
+developer: "Clumoove project"
+website: https://github.com/xxroxxerxx/clumoove-frontend
+repo: https://github.com/xxroxxerxx/clumoove-frontend
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

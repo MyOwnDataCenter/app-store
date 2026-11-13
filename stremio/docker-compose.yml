@@ -1,0 +1,15 @@
+# Stremio: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  stremio:
+    image: tsaridas/stremio-docker:v1.3.4
+    restart: unless-stopped
+    environment:
+      NO_CORS: "1"
+      AUTO_SERVER_URL: "1"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/config:/root/.stremio-server"
+    ports:
+      - "8100:8080"
+      - "11470:11470"

@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: petio
+name: "Petio"
+tagline: "Let people request films and shows"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/petio.png
+category: media
+version: "latest"
+port: 10033
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: petio
+  port: 7777
+description: >-
+  Petio lets the people who use your Plex server request and review films and series.
+developer: "Petio project"
+website: https://github.com/petio-team/petio
+repo: https://github.com/petio-team/petio
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

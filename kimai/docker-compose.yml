@@ -1,0 +1,29 @@
+# Kimai: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  app:
+    image: kimai/kimai2:2.71.0@sha256:19b34043e7631b122c5e5aca27c3f3caa0bb37d2bce1478342c666bcdfe84f48
+    restart: unless-stopped
+    environment:
+      ADMINMAIL: "umbrel@umbrel.local"
+      ADMINPASS: changeme
+      DATABASE_URL: "mysql://kimaiuser:${APP_PASSWORD:?set APP_PASSWORD}@db/kimai?charset=utf8mb4&serverVersion=8.3.0"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/app:/opt/kimai/var/data"
+      - "${APP_DATA_DIR:-.}/data/app/plugins:/opt/kimai/var/plugins"
+    depends_on:
+      - db
+    ports:
+      - "8734:8001"
+  db:
+    image: mariadb:11.4.5@sha256:5dfb3093333fa0ea53194ddef0a2bfa21d3b1e1353bd228b22610cd6fc0c04da
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      MYSQL_DATABASE: kimai
+      MYSQL_USER: kimaiuser
+      MYSQL_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      MYSQL_ROOT_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/db:/var/lib/mysql"

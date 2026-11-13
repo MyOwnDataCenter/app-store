@@ -1,0 +1,29 @@
+manifestVersion: 1
+id: imgcompress
+name: "ImgCompress"
+tagline: "Image processing tool that runs entirely in Docker"
+icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/imgcompress.webp
+category: files
+version: "latest"
+port: 10069
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: imgcompress
+  port: 5000
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Image processing tool that runs entirely in Docker. Compress, convert, resize, batch-process images, and
+  remove backgrounds using local AI without cloud dependencies.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "karimz1 and contributors"
+website: https://imgcompress.karimzouine.com
+repo: https://github.com/karimz1/imgcompress
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: maintainerr
+name: "Maintainerr"
+tagline: "Clean up unwatched media automatically"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/maintainerr.png
+category: media
+version: "latest"
+port: 10020
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: maintainerr
+  port: 6246
+description: >-
+  Maintainerr finds media nobody watches in Plex or Jellyfin and removes it after a grace period, using rules
+  you set.
+developer: "Maintainerr and contributors"
+website: https://maintainerr.info/
+repo: https://github.com/Maintainerr/Maintainerr
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

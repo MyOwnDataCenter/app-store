@@ -1,0 +1,17 @@
+# PearCircle Seeder: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  app:
+    image: ghcr.io/peerloomllc/pearcircle-seeder:1.1.4@sha256:ad80eaa9156c19f13c02c19f0d70602724ec2bec8002dfb25cb580e18f35f400
+    restart: unless-stopped
+    stop_grace_period: 1m
+    environment:
+      SEEDER_HOST: "0.0.0.0"
+      SEEDER_PORT: "8730"
+      SEEDER_NO_AUTH: "1"
+      SEEDER_NO_UPDATE_CHECK: "1"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data:/data"
+    ports:
+      - "8731:8730"

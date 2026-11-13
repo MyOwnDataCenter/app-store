@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: peanut
+name: "PeaNUT"
+tagline: "A dashboard for your UPS"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/peanut.png
+category: automation
+version: "latest"
+port: 10048
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: peanut
+  port: 8080
+description: >-
+  PeaNUT shows the status of your uninterruptible power supply through Network UPS Tools.
+developer: "PeaNUT project"
+website: https://hub.docker.com/r/brandawg93/peanut
+repo: https://hub.docker.com/r/brandawg93/peanut
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

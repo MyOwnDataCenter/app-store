@@ -1,0 +1,31 @@
+manifestVersion: 1
+id: syslog-ng
+name: "Syslog-ng"
+tagline: "Collect logs from your network"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/syslog-ng.png
+category: networking
+version: "latest"
+port: 5142
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: web
+  port: 8080
+# Ports that must be reachable from your network.
+openPorts: [514, 601]
+description: >-
+  syslog-ng receives and stores logs sent by routers, servers and other devices on your network.
+
+  Where the app asks for a password it hasn’t shown you, use the one on this app’s page.
+developer: "syslog-ng and contributors"
+website: https://www.syslog-ng.com/
+repo: https://github.com/syslog-ng/syslog-ng
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""
+# The password is generated per server by Omarchy Server and shown on the app’s page.
+deterministicPassword: true

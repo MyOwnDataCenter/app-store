@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: telegrapho
+name: "Telegrapho"
+tagline: "Private copy and paste between devices"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/telegrapho.png
+category: networking
+version: "latest"
+port: 3712
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: app
+  port: 3712
+description: >-
+  Telegrapho creates private, real-time text channels between your devices for passing text without third-party
+  apps.
+developer: "egzola and contributors"
+website: https://github.com/egzola/telegrapho
+repo: https://github.com/egzola/telegrapho
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

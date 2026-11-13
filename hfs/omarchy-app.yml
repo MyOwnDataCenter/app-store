@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: hfs
+name: "HFS"
+tagline: "Share files from a web page"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/hfs.png
+category: files
+version: "latest"
+port: 10051
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: hfs
+  port: 80
+description: >-
+  HFS (HTTP File Server) shares folders through a simple web page with uploads and accounts.
+developer: "HFS project"
+website: https://hub.docker.com/r/rejetto/hfs
+repo: https://hub.docker.com/r/rejetto/hfs
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""
+# The password is generated per server by Omarchy Server and shown on the app’s page.
+deterministicPassword: true

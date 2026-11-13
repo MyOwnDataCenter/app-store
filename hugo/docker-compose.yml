@@ -1,0 +1,16 @@
+# Hugo: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  hugo:
+    image: ghcr.io/gohugoio/hugo:v0.161.1
+    restart: unless-stopped
+    user: "0:0"
+    command:
+      - server
+      - "--bind=0.0.0.0"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/project:/project"
+      - "${APP_DATA_DIR:-.}/data/cache:/cache"
+    ports:
+      - "1313:1313"

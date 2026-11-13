@@ -1,0 +1,61 @@
+# Decred Pulse: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  dcrd:
+    image: ghcr.io/karamble/dcrpulse-dcrd:2.1.3@sha256:d5c6c04af574d949db5b32181e3d8f223707e019c7745b45424634f3af6714a3
+    restart: unless-stopped
+    user: "1000:1000"
+    command: "--rpcuser=${APP_SEED:?set APP_SEED} --rpcpass=${APP_SEED:?set APP_SEED} --rpclisten=0.0.0.0:9109 --rpccert=/app-data/dcrd/rpc.cert --rpckey=/app-data/dcrd/rpc.key\n"
+    stop_grace_period: 5m
+    environment:
+      DCRD_RPC_USER: "${APP_SEED:?set APP_SEED}"
+      DCRD_RPC_PASS: "${APP_SEED:?set APP_SEED}"
+      DCRD_EXTRA_ARGS: "--txindex"
+      TOR_PROXY_IP: "${TOR_PROXY_IP}"
+      TOR_PROXY_PORT: "${TOR_PROXY_PORT}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data:/app-data"
+  dcrwallet:
+    image: ghcr.io/karamble/dcrpulse-dcrwallet:2.1.3@sha256:94caf7a6c57d49083dd73003f94e4dec804a85ed18c5413f489e4550ffb2f395
+    restart: unless-stopped
+    user: "1000:1000"
+    command: "--gaplimit=400\n"
+    stop_grace_period: 1m
+    environment:
+      DCRWALLET_RPC_USER: "${APP_SEED:?set APP_SEED}"
+      DCRWALLET_RPC_PASS: "${APP_SEED:?set APP_SEED}"
+      DCRD_RPC_USER: "${APP_SEED:?set APP_SEED}"
+      DCRD_RPC_PASS: "${APP_SEED:?set APP_SEED}"
+      DCRD_RPC_HOST: dcrd
+      DCRWALLET_GAP_LIMIT: "400"
+      TOR_PROXY_IP: "${TOR_PROXY_IP}"
+      TOR_PROXY_PORT: "${TOR_PROXY_PORT}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data:/app-data"
+    depends_on:
+      - dcrd
+  dashboard:
+    image: ghcr.io/karamble/dcrpulse-dashboard:1.0.3@sha256:d6d991150e570b3c473873f350a122f2cfc3ffd43e50b87e15821777c28d70dc
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      PORT: "8735"
+      DCRD_RPC_HOST: dcrd
+      DCRD_RPC_PORT: "9109"
+      DCRD_RPC_USER: "${APP_SEED:?set APP_SEED}"
+      DCRD_RPC_PASS: "${APP_SEED:?set APP_SEED}"
+      DCRD_RPC_CERT: /app-data/dcrd/rpc.cert
+      DCRWALLET_RPC_HOST: dcrwallet
+      DCRWALLET_RPC_PORT: "9110"
+      DCRWALLET_GRPC_PORT: "9111"
+      DCRWALLET_RPC_USER: "${APP_SEED:?set APP_SEED}"
+      DCRWALLET_RPC_PASS: "${APP_SEED:?set APP_SEED}"
+      DCRWALLET_RPC_CERT: /app-data/dcrd/rpc.cert
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data:/app-data:ro"
+    depends_on:
+      - dcrd
+      - dcrwallet
+    ports:
+      - "8735:8735"

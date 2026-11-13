@@ -1,0 +1,29 @@
+manifestVersion: 1
+id: faved
+name: "Faved"
+tagline: "Handcrafted bookmark manager combining powerful tagging, instant"
+icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/faved.webp
+category: media
+version: "latest"
+port: 10133
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: apache-php
+  port: 80
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Handcrafted bookmark manager combining powerful tagging, instant search, and a clean, distraction-free
+  interface. Built for large collections and advanced workflows, optimized for efficiency and ease-of-use.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "denho and contributors"
+website: https://faved.to/
+repo: https://github.com/denho/faved
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: opnform
+name: "OpnForm"
+tagline: "Beautiful form builder"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/opnform.webp
+category: files
+version: "latest"
+port: 10108
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: ingress
+  port: 80
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Beautiful form builder.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "OpnForm and contributors"
+website: https://opnform.com
+repo: https://github.com/OpnForm/OpnForm
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

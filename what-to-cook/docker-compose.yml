@@ -1,0 +1,22 @@
+# What To Cook?: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  app:
+    image: ghcr.io/kassner/whattocook:0.4.3
+    restart: unless-stopped
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres:5432/whattocook"
+      SPRING_DATASOURCE_USERNAME: whattocook
+      SPRING_DATASOURCE_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    ports:
+      - "12393:8080"
+  postgres:
+    image: docker.io/library/postgres:17
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: whattocook
+      POSTGRES_USER: whattocook
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/pgdata:/var/lib/postgres/data"

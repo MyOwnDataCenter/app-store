@@ -1,0 +1,24 @@
+# Hermes Agent: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  web:
+    image: ghcr.io/getumbrel/hermes-agent-umbrel:v0.23.1@sha256:b7976dc05ed1348011c82bff15f04064eee53e307839337c9eec0b47af79b4f1
+    restart: unless-stopped
+    command:
+      - gateway
+      - run
+    stop_grace_period: 1m
+    environment:
+      HERMES_UID: "1000"
+      HERMES_GID: "1000"
+      HERMES_DASHBOARD: "1"
+      HERMES_DASHBOARD_PORT: "18789"
+      HERMES_UMBREL_APP_PROXY_AUTH: "1"
+      HERMES_TUI_DIR: /app/umbrel-tui
+      HERMES_UPSTREAM_TUI_ENTRY: /opt/hermes/ui-tui/dist/entry.js
+      HERMES_GATEWAY_BOOTSTRAP_STATE: running
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/hermes:/opt/data"
+    ports:
+      - "18790:18789"

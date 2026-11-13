@@ -1,0 +1,35 @@
+# OpenHands: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  docker:
+    image: docker:28.0.4-dind@sha256:ddb0033088b4fab74881ade341a582e3c6c8021b82377703ba1a6106bd3ded44
+    restart: unless-stopped
+    network_mode: host
+    privileged: true
+    command: "dockerd\n  --bridge dind0\n  --data-root /data/data\n  --exec-root /data/exec\n  --host unix:///data/docker.sock\n  --iptables=false\n  --pidfile /data/docker.pid\n"
+    entrypoint: /entrypoint.sh
+    stop_grace_period: 1m
+    environment:
+      DOCKER_ENSURE_BRIDGE: "dind0:10.32.0.1/16"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/entrypoint.sh:/entrypoint.sh"
+      - "${APP_DATA_DIR:-.}/data/docker:/data"
+  web:
+    image: ghcr.io/openhands/openhands:1.10.0@sha256:1e5c81b0ccfc4fd33a3524ba2a561f594879e238117c024a1b60edfee0412dc8
+    restart: unless-stopped
+    environment:
+      AGENT_SERVER_IMAGE_REPOSITORY: ghcr.io/openhands/agent-server
+      AGENT_SERVER_IMAGE_TAG: 1.33.0-python
+      SANDBOX_HOST_PORT: "3994"
+      SANDBOX_CONTAINER_URL_PATTERN: "http://localhost:{port}"
+      WORKSPACE_MOUNT_PATH: /opt/workspace_base
+      LOG_ALL_EVENTS: "true"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/docker:/var/run:rw"
+      - "${APP_DATA_DIR:-.}/data/openhands:/.openhands:rw"
+      - "${APP_DATA_DIR:-.}/data/workspace:/opt/workspace_base:rw"
+    depends_on:
+      - docker
+    ports:
+      - "3993:3000"

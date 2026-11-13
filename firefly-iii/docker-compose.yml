@@ -1,0 +1,32 @@
+# Firefly III: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  server:
+    image: fireflyiii/core:version-6.7.9@sha256:4409f9f0f87378ba95d40811352f4f49338d276bb638c1e6d18a5579f332fbe8
+    restart: unless-stopped
+    environment:
+      APP_KEY: "${APP_SEED_32:?set APP_SEED_32}"
+      DB_HOST: db
+      DB_PORT: "3306"
+      DB_CONNECTION: mysql
+      DB_DATABASE: fireflyiii
+      DB_USERNAME: fireflyiii
+      DB_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/upload:/var/www/html/storage/upload"
+      - "${APP_DATA_DIR:-.}/data/logs:/var/www/html/storage/logs"
+    ports:
+      - "30009:8080"
+  db:
+    image: mariadb:10.9.4@sha256:f5146e2e0999a6afcf2a9134bb415ad068bf80ec29704f374f6f7dabb145738d
+    restart: unless-stopped
+    user: "1000:1000"
+    stop_grace_period: 1m
+    environment:
+      MYSQL_DATABASE: fireflyiii
+      MYSQL_USER: fireflyiii
+      MYSQL_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      MYSQL_ROOT_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/mysql:/var/lib/mysql"

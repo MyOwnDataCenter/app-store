@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: dispatcharr
+name: "Dispatcharr"
+tagline: "Manage IPTV streams and guides"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/dispatcharr.png
+category: media
+version: "latest"
+port: 9191
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: dispatcharr
+  port: 9191
+description: >-
+  Dispatcharr organises IPTV channels and programme guides and serves them to Plex, Jellyfin and players.
+developer: "Dispatcharr project"
+website: https://github.com/dispatcharr/dispatcharr
+repo: https://github.com/dispatcharr/dispatcharr
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

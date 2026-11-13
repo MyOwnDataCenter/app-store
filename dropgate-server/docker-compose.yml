@@ -1,0 +1,24 @@
+# Dropgate Server: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  web:
+    image: willtda/dropgate-server:3.0.13@sha256:43698790fe341ea3fb0094bbdca701ecdf875a9c4b9c92b67f86c34c887c132b
+    restart: unless-stopped
+    stop_grace_period: 1m
+    environment:
+      SERVER_PORT: "52443"
+      SERVER_NAME: Dropgate Server
+      ENABLE_WEB_UI: "true"
+      ENABLE_UPLOAD: "true"
+      UPLOAD_ENABLE_E2EE: "true"
+      UPLOAD_PRESERVE_UPLOADS: "false"
+      UPLOAD_MAX_FILE_SIZE_MB: "100"
+      UPLOAD_MAX_STORAGE_GB: "10"
+      UPLOAD_MAX_FILE_LIFETIME_HOURS: "24"
+      UPLOAD_MAX_FILE_DOWNLOADS: "1"
+      ENABLE_P2P: "true"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/uploads:/usr/src/app/uploads"
+    ports:
+      - "52443:52443"

@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: rsshub
+name: "RSSHub"
+tagline: "Easy to use, and extensible RSS feed aggregator capable of generating"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/rsshub.webp
+category: files
+version: "latest"
+port: 8223
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: rsshub
+  port: 1200
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Easy to use, and extensible RSS feed aggregator capable of generating RSS feeds from pretty much everything
+  ranging from social media to university departments.
+developer: "DIYgod and contributors"
+website: https://docs.rsshub.app
+repo: https://github.com/DIYgod/RSSHub
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

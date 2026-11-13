@@ -1,0 +1,18 @@
+# WebDAV: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  webdav:
+    image: ugeek/webdav:amd64
+    restart: unless-stopped
+    command:
+    environment:
+      GID: "1000"
+      PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      TZ: Europe/Madrid
+      UDI: "1000"
+      USERNAME: casaos
+    volumes:
+      - "${VIDEOS_DIR}:/media"
+    ports:
+      - "10038:80"

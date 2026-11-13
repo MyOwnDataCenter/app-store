@@ -1,0 +1,35 @@
+# Endurain: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  app:
+    image: ghcr.io/endurain-project/endurain:v0.20.2@sha256:045af8835f82df64203b4e025baa2c603512da9c2e17babd0044533452cc20d6
+    restart: unless-stopped
+    environment:
+      DB_TYPE: postgres
+      DB_HOST: db
+      DB_PORT: "5432"
+      DB_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      SECRET_KEY: "${APP_PASSWORD:?set APP_PASSWORD}"
+      BEHIND_PROXY: "true"
+      TRUSTED_PROXIES: "${SERVER_IP:-localhost}/16"
+      DEPLOYMENT_PROFILE: local
+      WEB_WORKERS: "1"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/app:/app/backend/data"
+      - "${APP_DATA_DIR:-.}/data/logs:/app/backend/logs"
+    depends_on:
+      - db
+    ports:
+      - "8865:8080"
+  db:
+    image: postgres:17.4@sha256:4aed4b0525233308fc5de1b8d47f92326460d598dc5f004d14b41f183360b4e9
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      POSTGRES_DB: endurain
+      POSTGRES_USER: endurain
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/db:/var/lib/postgresql/data"

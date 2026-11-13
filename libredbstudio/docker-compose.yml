@@ -1,0 +1,18 @@
+# LibreDB Studio: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  libredb-studio:
+    image: libredb/libredb-studio:1.2.0
+    restart: unless-stopped
+    environment:
+      ADMIN_EMAIL: "admin@libredb.org"
+      ADMIN_PASSWORD: ""
+      JWT_SECRET: ""
+      STORAGE_PROVIDER: sqlite
+      STORAGE_SQLITE_PATH: /app/data/libredb-storage.db
+      AUTH_COOKIE_SECURE: "false"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data:/app/data"
+    ports:
+      - "10045:3000"

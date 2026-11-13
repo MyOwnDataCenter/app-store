@@ -1,0 +1,40 @@
+# Listmonk: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  app:
+    image: listmonk/listmonk:latest
+    restart: unless-stopped
+    command:
+      - sh
+      - "-c"
+      - "./listmonk --install --idempotent --yes --config '' && ./listmonk --upgrade --yes --config '' && ./listmonk --config ''"
+    environment:
+      LISTMONK_app__address: "0.0.0.0:9000"
+      LISTMONK_db__user: listmonk
+      LISTMONK_db__password: "${APP_PASSWORD:?set APP_PASSWORD}"
+      LISTMONK_db__database: listmonk
+      LISTMONK_db__host: db
+      LISTMONK_db__port: "5432"
+      LISTMONK_db__ssl_mode: disable
+      LISTMONK_db__max_open: "25"
+      LISTMONK_db__max_idle: "25"
+      LISTMONK_db__max_lifetime: 300s
+      TZ: Etc/UTC
+      LISTMONK_ADMIN_USER: ""
+      LISTMONK_ADMIN_PASSWORD: ""
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/uploads:/listmonk/uploads:rw"
+    depends_on:
+      - db
+    ports:
+      - "10102:9000"
+  db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: listmonk
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      POSTGRES_DB: listmonk
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/listmonk-data:/var/lib/postgresql/data"

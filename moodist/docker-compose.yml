@@ -1,0 +1,11 @@
+# Moodist: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  moodist:
+    image: ghcr.io/remvze/moodist:v3.1.1
+    restart: unless-stopped
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+    ports:
+      - "8221:8080"

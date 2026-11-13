@@ -1,0 +1,28 @@
+# Shlink: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  shlink:
+    image: ghcr.io/shlinkio/shlink:5.1.8
+    restart: unless-stopped
+    environment:
+      DEFAULT_DOMAIN: "${SERVER_IP:-localhost}"
+      IS_HTTPS_ENABLED: "true"
+      DB_DRIVER: postgres
+      DB_HOST: shlink-db
+      DB_NAME: shlink
+      DB_USER: shlink
+      DB_PASSWORD: "${APP_SEED:?set APP_SEED}"
+    depends_on:
+      - shlink-db
+    ports:
+      - "8207:8080"
+  shlink-db:
+    image: postgres:17.2-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: "${APP_SEED:?set APP_SEED}"
+      POSTGRES_USER: shlink
+      POSTGRES_DB: shlink
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/db:/var/lib/postgresql/data"

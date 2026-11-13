@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: campfire
+name: "Campfire"
+tagline: "Group chat from 37signals"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/campfire.png
+category: social
+version: "latest"
+port: 8004
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: server
+  port: 80
+description: >-
+  Campfire is a simple, self-contained group chat with rooms, direct messages, file sharing and bots.
+developer: "basecamp and contributors"
+website: https://once.com/campfire
+repo: https://github.com/basecamp/once-campfire
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

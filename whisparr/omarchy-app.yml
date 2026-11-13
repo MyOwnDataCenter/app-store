@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: whisparr
+name: "Whisparr"
+tagline: "Adult content automation for the arr stack"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/whisparr.png
+category: media
+version: "latest"
+port: 6969
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: whisparr
+  port: 6969
+description: >-
+  Whisparr monitors and downloads adult content through your download clients, in the style of Sonarr and
+  Radarr.
+developer: "Whisparr and contributors"
+website: https://github.com/Whisparr/Whisparr
+repo: https://github.com/Whisparr/Whisparr
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

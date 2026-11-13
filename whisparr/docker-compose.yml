@@ -1,0 +1,18 @@
+# Whisparr: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  whisparr:
+    image: ghcr.io/hotio/whisparr:latest
+    restart: unless-stopped
+    environment:
+      PUID: ""
+      PGID: ""
+      UMASK: ""
+      TZ: "${TZ:-UTC}"
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+      - "${APP_DATA_DIR:-.}/data/data:/config"
+      - "${VIDEOS_DIR}:/media"
+    ports:
+      - "6969:6969"

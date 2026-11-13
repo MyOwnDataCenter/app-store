@@ -1,0 +1,29 @@
+manifestVersion: 1
+id: 4ga-boards
+name: "4ga Boards"
+tagline: "Straightforward realtime kanban boards management for intuitive task"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/4ga-boards.png
+category: developer
+version: "latest"
+port: 10128
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: 4gaBoards
+  port: 1337
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Straightforward realtime kanban boards management for intuitive task tracking. Featuring an elegant dark mode,
+  collapsible todo lists, and multitasking tools to supercharge your team's productivity.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "RARgames and contributors"
+website: https://4gaboards.com
+repo: https://github.com/RARgames/4gaBoards
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

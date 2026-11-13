@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: hugo
+name: "Hugo"
+tagline: "Build fast static websites"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/hugo.png
+category: developer
+version: "latest"
+port: 1313
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: hugo
+  port: 1313
+description: >-
+  Hugo turns Markdown into fast static websites, with live preview while you write.
+developer: "Hugo project"
+website: https://github.com/gohugoio/hugo
+repo: https://github.com/gohugoio/hugo
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

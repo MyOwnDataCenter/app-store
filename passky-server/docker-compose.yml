@@ -1,0 +1,46 @@
+# Passky Server: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  server:
+    image: rabbitcompany/passky-server:9.0.0@sha256:c5229f4b88a47aaddd4e25eadea8a47331af3a8cae6b7a0bb176ef906849afd6
+    restart: unless-stopped
+    stop_grace_period: 1m
+    environment:
+      SERVER_LOCATION: US
+      SERVER_CORES: "1"
+      ADMIN_USERNAME: admin
+      ADMIN_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      CF_TURNSTILE_SITE_KEY: "${APP_SEED:?set APP_SEED}"
+      CF_TURNSTILE_SECRET_KEY: "${APP_SEED:?set APP_SEED}"
+      DATABASE_ENGINE: sqlite
+      DATABASE_FILE: passky
+      MAIL_ENABLED: "false"
+      ACCOUNT_MAX: "100"
+      ACCOUNT_MAX_PASSWORDS: "1000"
+      ACCOUNT_PREMIUM: "-1"
+      YUBI_CLOUD: "https://api.yubico.com/wsapi/2.0/verify"
+      YUBI_ID: "67857"
+      LIMITER_ENABLED: "true"
+      LIMITER_GET_INFO: "-1"
+      LIMITER_GET_STATS: "-1"
+      LIMITER_GET_TOKEN: "3"
+      LIMITER_GET_PASSWORDS: "2"
+      LIMITER_SAVE_PASSWORD: "2"
+      LIMITER_EDIT_PASSWORD: "2"
+      LIMITER_DELETE_PASSWORD: "2"
+      LIMITER_DELETE_PASSWORDS: "10"
+      LIMITER_CREATE_ACCOUNT: "10"
+      LIMITER_DELETE_ACCOUNT: "10"
+      LIMITER_IMPORT_PASSWORDS: "10"
+      LIMITER_FORGOT_USERNAME: "60"
+      LIMITER_ENABLE_2FA: "10"
+      LIMITER_DISABLE_2FA: "10"
+      LIMITER_ADD_YUBIKEY: "10"
+      LIMITER_REMOVE_YUBIKEY: "10"
+      LIMITER_UPGRADE_ACCOUNT: "10"
+      LIMITER_GET_REPORT: "-1"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/passky:/app/databases"
+    ports:
+      - "10007:80"

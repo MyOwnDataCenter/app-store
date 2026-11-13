@@ -1,0 +1,29 @@
+manifestVersion: 1
+id: answer
+name: "Answer"
+tagline: "Knowledge-based community software"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/apache-answer.webp
+category: social
+version: "latest"
+port: 9080
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: answer
+  port: 80
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Knowledge-based community software. You can use it to quickly build your Q&A community for product technical
+  support, customer support, user communication, and more.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "apache and contributors"
+website: https://answer.apache.org
+repo: https://github.com/apache/answer
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

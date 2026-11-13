@@ -1,0 +1,44 @@
+# Tube Archivist: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  server:
+    image: bbilly1/tubearchivist:v0.6.0@sha256:0cbc18aa953c72ec7dfdd6f8fa7c2fe89b5d04489857d7baa354fecbd6181e69
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      ES_URL: "http://elasticsearch:9200"
+      REDIS_CON: "redis://redis:6379"
+      TA_HOST: "http://${SERVER_IP:-localhost}:8079"
+      TA_USERNAME: admin
+      TA_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      ELASTIC_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      TZ: UTC
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/media:/youtube"
+      - "${APP_DATA_DIR:-.}/data/cache:/cache"
+    depends_on:
+      - elasticsearch
+      - redis
+    ports:
+      - "8079:8000"
+  redis:
+    image: redis:8.2.2-bookworm@sha256:4521b581dbddea6e7d81f8fe95ede93f5648aaa66a9dacd581611bf6fe7527bd
+    restart: unless-stopped
+    user: "1000:1000"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/redis:/data"
+    depends_on:
+      - elasticsearch
+  elasticsearch:
+    image: elasticsearch:8.19.6@sha256:e2d7e20893ad820bcad241bf47b89958787f6b38225478dfe100b66937840b0f
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      ELASTIC_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      ES_JAVA_OPTS: "-Xms1g -Xmx1g"
+      xpack.security.enabled: "true"
+      discovery.type: single-node
+      path.repo: /usr/share/elasticsearch/data/snapshot
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/elasticsearch:/usr/share/elasticsearch/data"

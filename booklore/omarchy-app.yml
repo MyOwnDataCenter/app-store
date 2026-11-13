@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: booklore
+name: "BookLore"
+tagline: "Organise and read your ebook library"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/booklore.png
+category: files
+version: "latest"
+port: 6060
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: web
+  port: 6060
+description: >-
+  BookLore catalogues your ebooks with metadata and covers, and lets you read them in the browser.
+developer: "booklore-app and contributors"
+website: https://demo.booklore.dev/login
+repo: https://github.com/booklore-app/booklore
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

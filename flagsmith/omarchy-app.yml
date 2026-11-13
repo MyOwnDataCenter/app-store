@@ -1,0 +1,30 @@
+manifestVersion: 1
+id: flagsmith
+name: "Flagsmith"
+tagline: "Dashboard, API and SDKs for adding Feature Flags to your applications"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/flagsmith.png
+category: developer
+version: "latest"
+port: 10066
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: flagsmith
+  port: 8000
+# Ports that must be reachable from your network.
+openPorts: [8001]
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Dashboard, API and SDKs for adding Feature Flags to your applications (alternative to LaunchDarkly).
+
+  Packaged from the compose file in the project’s own repository.
+developer: "flagsmith and contributors"
+website: https://flagsmith.com
+repo: https://github.com/flagsmith/flagsmith
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

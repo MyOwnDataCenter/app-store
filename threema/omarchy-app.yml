@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: threema
+name: "Threema Web"
+tagline: "Threema in your browser"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/threema.png
+category: files
+version: "latest"
+port: 8855
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: web
+  port: 80
+description: >-
+  Threema Web pairs with the Threema app on your phone so you can read and send your encrypted messages from a
+  computer.
+developer: "threema-ch and contributors"
+website: https://threema.ch/
+repo: https://github.com/threema-ch/threema-web
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

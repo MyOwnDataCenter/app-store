@@ -1,0 +1,31 @@
+# paaster: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  paaster:
+    image: wardpearce/paaster:latest
+    restart: unless-stopped
+    environment:
+      S3_ENDPOINT: ""
+      S3_REGION: ""
+      S3_ACCESS_KEY_ID: ""
+      S3_SECRET_ACCESS_KEY: ""
+      S3_BUCKET: ""
+      MONGO_DB: paasterv3
+      MONGO_URL: "mongodb://paaster_mongodb:27017"
+    ports:
+      - "10092:3000"
+  paaster_mongodb:
+    image: mongo
+    restart: unless-stopped
+    environment:
+      MONGODB_DATA_DIR: /data/db
+      MONDODB_LOG_DIR: /dev/null
+  paaster_garage:
+    image: dxflrs/garage:v1.0.1
+    restart: unless-stopped
+    environment:
+      GARAGE_API_PORT: "3900"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/garage_data:/var/lib/garage/data"
+      - "${APP_DATA_DIR:-.}/data/garage_meta:/var/lib/garage/meta"

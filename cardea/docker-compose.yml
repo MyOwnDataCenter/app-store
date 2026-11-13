@@ -1,0 +1,61 @@
+# Cardea: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  cardea:
+    image: cardea
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      CARDEA_NODE_ID: "$${HOSTNAME}"
+      CARDEA_KEY_STRATEGY: file
+      CARDEA_PRIVATE_KEY_PASSPHRASE: ""
+      CARDEA_TPM_PARENT_HANDLE: ""
+      CARDEA_TPM_PARENT_AUTH: ""
+      CARDEA_TPM_KEY_AUTH: ""
+      CARDEA_UNKNOWN_HOSTS_POLICY: tofu
+      CARDEA_LOG_LEVEL: debug
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/cardea:/data/"
+      - "${APP_DATA_DIR:-.}/data/cardea-run:/run/"
+      - "${APP_DATA_DIR:-.}/data/cardea-tmp:/tmp/"
+  prometheus:
+    image: docker.io/prom/prometheus:v3.15.1
+    restart: unless-stopped
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/prometheus/"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/prometheus-data:/prometheus/"
+      - "${APP_DATA_DIR:-.}/data/prometheus-run:/run/"
+      - "${APP_DATA_DIR:-.}/data/prometheus-tmp:/tmp/"
+  grafana:
+    image: docker.io/grafana/grafana:13.3.0
+    restart: unless-stopped
+    environment:
+      GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH: /var/lib/grafana/dashboards/cardea.json
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      GF_AUTH_ANONYMOUS_ORG_ROLE: Viewer
+      GF_AUTH_BASIC_ENABLED: "false"
+      GF_AUTH_DISABLE_LOGIN_FORM: "true"
+      GF_USERS_ALLOW_SIGN_UP: "false"
+      GF_USERS_ALLOW_ORG_CREATE: "false"
+      GF_SECURITY_DISABLE_GRAVATAR: "true"
+      GF_EXPLORE_ENABLED: "false"
+      GF_PROFILE_ENABLED: "false"
+      GF_SNAPSHOTS_ENABLED: "false"
+      GF_UNIFIED_ALERTING_ENABLED: "false"
+      GF_HELP_ENABLED: "false"
+      GF_NEWS_NEWS_FEED_ENABLED: "false"
+      GF_ANALYTICS_ENABLED: "false"
+      GF_ANALYTICS_REPORTING_ENABLED: "false"
+      GF_ANALYTICS_CHECK_FOR_UPDATES: "false"
+      GF_ANALYTICS_CHECK_FOR_PLUGIN_UPDATES: "false"
+      GF_ANALYTICS_FEEDBACK_LINKS_ENABLED: "false"
+      GF_PLUGINS_PLUGIN_ADMIN_ENABLED: "false"
+      GF_PLUGINS_PUBLIC_KEY_RETRIEVAL_DISABLED: "true"
+      GF_PLUGINS_PUBLIC_KEY_RETRIEVAL_ON_STARTUP: "false"
+      GF_PLUGINS_PREINSTALL: ""
+      GF_PLUGINS_DISABLE_PLUGINS: "elasticsearch, grafana-exploretraces-app, grafana-lokiexplore-app, grafana-metricsdrilldown-app, grafana-pyroscope-app, zipkin"
+    ports:
+      - "10118:3000"

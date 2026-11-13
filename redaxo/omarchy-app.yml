@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: redaxo
+name: "REDAXO"
+tagline: "Simple, flexible and useful content management system (documentation in"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/redaxo.png
+category: files
+version: "latest"
+port: 10077
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: redaxo
+  port: 80
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Simple, flexible and useful content management system (documentation in German).
+
+  Packaged from the compose file in the project’s own repository.
+developer: "redaxo and contributors"
+website: https://www.redaxo.org
+repo: https://github.com/redaxo/core
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

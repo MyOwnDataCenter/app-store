@@ -1,0 +1,40 @@
+# Operational.co: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  mysql:
+    image: mysql:8.2
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      MYSQL_DATABASE: operational
+      MYSQL_USER: operational_user
+      MYSQL_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/mysql-data:/var/lib/mysql"
+    ports:
+      - "3307:3306"
+  operational:
+    image: ghcr.io/operational-co/operational.co:0.1.7
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: "mysql://operational_user:${APP_PASSWORD:?set APP_PASSWORD}@mysql:3306/operational"
+      APP_URL: "http://localhost:3000"
+      VAPID_EMAIL: ""
+      VAPID_PUBLIC_KEY: ""
+      VAPID_PRIVATE_KEY: ""
+      PORT: ""
+      SECRET: ""
+      REMOVE_TEST_EVENTS_AFTER: ""
+      CORS: "*"
+      RESEND: ""
+      ADMIN_EMAIL: "admin@email.com"
+      SMTP_HOST: ""
+      SMTP_PORT: ""
+      SMTP_USERNAME: ""
+      SMTP_PASSWORD: ""
+    depends_on:
+      - mysql
+    ports:
+      - "10120:80"
+      - "4337:4337"

@@ -1,0 +1,29 @@
+# Monica: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  monica:
+    image: monica:4.1.2
+    restart: unless-stopped
+    environment:
+      APP_KEY: "${APP_SEED_32:?set APP_SEED_32}"
+      DB_HOST: monica-db
+      DB_USERNAME: usermonica
+      DB_PASSWORD: "${APP_SEED:?set APP_SEED}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data:/var/www/html/storage"
+    depends_on:
+      - monica-db
+    ports:
+      - "3291:80"
+  monica-db:
+    image: mariadb:10.6.11
+    restart: unless-stopped
+    environment:
+      TZ: "${TZ:-UTC}"
+      MARIADB_RANDOM_ROOT_PASSWORD: "true"
+      MARIADB_DATABASE: monica
+      MARIADB_USER: usermonica
+      MARIADB_PASSWORD: "${APP_SEED:?set APP_SEED}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/mysql:/var/lib/mysql"

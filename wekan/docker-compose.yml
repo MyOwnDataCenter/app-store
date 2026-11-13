@@ -1,0 +1,27 @@
+# Wekan: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  wekan:
+    image: ghcr.io/wekan/wekan:v13.10
+    restart: unless-stopped
+    environment:
+      MONGO_URL: "mongodb://wekan-db:27017/wekan"
+      ROOT_URL: "https://${SERVER_IP:-localhost}"
+      MAIL_URL: "smtp://admin@example.com:${APP_PASSWORD:?set APP_PASSWORD}@smtp.gmail.com:587"
+      MAIL_FROM: "Wekan Notifications <noreply.wekan@${SERVER_IP:-localhost}>"
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+      - "${APP_DATA_DIR:-.}/data/wekan:/data"
+    depends_on:
+      - wekan-db
+    ports:
+      - "8678:8080"
+  wekan-db:
+    image: mongo:6
+    restart: unless-stopped
+    command: mongod --logpath /dev/null --oplogSize 128 --quiet
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+      - "${APP_DATA_DIR:-.}/data/mongo:/data/db"
+      - "${APP_DATA_DIR:-.}/data/dump:/dump"

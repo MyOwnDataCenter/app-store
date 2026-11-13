@@ -1,0 +1,35 @@
+# Invidious: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  web:
+    image: ceramicwhite/invidious:latest-amd64@sha256:ba09cf7b5c749472c3ccc814e6d3efe929243952077ae4dfd7d77ef74fbc9ec5
+    restart: unless-stopped
+    user: "1000:1000"
+    stop_grace_period: 1m
+    environment:
+      INVIDIOUS_CONFIG: "db:\n  dbname: invidious\n  user: umbrel\n  password: ${APP_PASSWORD:?set APP_PASSWORD}\n  host: postgres\n  port: 5432\ncheck_tables: true\ninvidious_companion:\n- private_url: \"http://companion:8282/companion\"\ninvidious_companion_key: ${APP_SEED:?set APP_SEED}\nhmac_key: ${APP_SEED:?set APP_SEED}\ndefault_user_preferences:\n  feed_menu: [\"Trending\", \"Subscriptions\", \"Playlists\"]\n  default_home: Trending\n"
+    depends_on:
+      - postgres
+    ports:
+      - "3420:3000"
+  postgres:
+    image: postgres:13.7@sha256:03652c675ae177af98ddd50f9f4b4b2cf8ad38d0e116aa68fe670fbc2cf250fc
+    restart: unless-stopped
+    user: "1000:1000"
+    init: true
+    stop_grace_period: 1m
+    environment:
+      POSTGRES_DB: invidious
+      POSTGRES_USER: umbrel
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/db:/var/lib/postgresql/data"
+  companion:
+    image: quay.io/invidious/invidious-companion:master-6c76cab@sha256:aaec4e18b3cffb5457633f427c834299677f2c2a7e27b598404ab815643c3747
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      SERVER_SECRET_KEY: "${APP_SEED:?set APP_SEED}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/companioncache:/var/tmp/youtubei.js:rw"

@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: just-download
+name: "Just. Download."
+tagline: "Search indexers and download in one step"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/just-download.png
+category: media
+version: "latest"
+port: 3684
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: web
+  port: 5000
+description: >-
+  Just. Download. searches your Torznab indexers and sends the result straight to Transmission.
+developer: "highghlow and contributors"
+website: https://codeberg.org/highghlow/just-download
+repo: https://codeberg.org/highghlow/just-download/
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

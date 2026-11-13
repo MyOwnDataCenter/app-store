@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: mosquitto
+name: "Mosquitto"
+tagline: "A lightweight MQTT message broker"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/mosquitto.png
+category: automation
+version: "latest"
+port: 9021
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: web
+  port: 80
+# Ports that must be reachable from your network.
+openPorts: [1883]
+description: >-
+  Mosquitto relays MQTT messages between sensors, smart-home devices and apps such as Home Assistant.
+developer: "eclipse-mosquitto and contributors"
+website: https://mosquitto.org/
+repo: https://github.com/eclipse-mosquitto/mosquitto
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

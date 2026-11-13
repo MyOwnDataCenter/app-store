@@ -1,0 +1,42 @@
+# Mixpost: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  mixpost:
+    image: inovector/mixpost:v2.6.0
+    restart: unless-stopped
+    environment:
+      APP_NAME: "'Mixpost'"
+      APP_KEY: "${APP_SEED_32:?set APP_SEED_32}"
+      APP_URL: "'http://${SERVER_IP:-localhost}'"
+      DB_HOST: mixpost-mysql
+      DB_DATABASE: mixpost
+      DB_USERNAME: tipi
+      DB_PASSWORD: "${APP_SEED:?set APP_SEED}"
+      REDIS_HOST: mixpost-redis
+      REDIS_PASSWORD: "${APP_SEED:?set APP_SEED}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/mixpost-storage:/var/www/html/storage/app"
+      - "${APP_DATA_DIR:-.}/data/mixpost-logs:/var/www/html/storage/logs"
+      - "${APP_DATA_DIR:-.}/data/nginx/nginx.conf:/etc/nginx/sites-enabled/default"
+    depends_on:
+      - mixpost-mysql
+      - mixpost-redis
+    ports:
+      - "8167:80"
+  mixpost-mysql:
+    image: mysql/mysql-server:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: "${APP_SEED:?set APP_SEED}"
+      MYSQL_USER: tipi
+      MYSQL_PASSWORD: "${APP_SEED:?set APP_SEED}"
+      MYSQL_DATABASE: mixpost
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/mysql:/var/lib/mysql"
+  mixpost-redis:
+    image: redis:latest
+    restart: unless-stopped
+    command: "redis-server --appendonly yes --replica-read-only no --requirepass \"${APP_SEED:?set APP_SEED}\""
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/redis:/data"

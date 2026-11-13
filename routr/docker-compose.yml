@@ -1,0 +1,51 @@
+# Routr: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  edgeport01:
+    image: fonoster/routr-edgeport
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/config/edgeport.yaml:/etc/routr/edgeport.yaml"
+    ports:
+      - "5060:5060"
+      - "5061:5061"
+      - "5062:5062"
+      - "5063:5063"
+  edgeport02:
+    image: fonoster/routr-edgeport
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/config/edgeport.alt.yaml:/etc/routr/edgeport.yaml"
+    ports:
+      - "6061:6061"
+      - "6062:6062"
+  dispatcher:
+    image: fonoster/routr-dispatcher
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/config/dispatcher.yaml:/etc/routr/dispatcher.yaml"
+  location:
+    image: fonoster/routr-location
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/config/location.yaml:/etc/routr/location.yaml"
+  connect:
+    image: fonoster/routr-connect
+    restart: unless-stopped
+    environment:
+      LOCATION_ADDR: "location:51902"
+      API_ADDR: "apiserver:51907"
+  apiserver:
+    image: fonoster/routr-simpledata
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/config/resources:/etc/routr/resources"
+  requester:
+    image: fonoster/routr-requester
+    restart: unless-stopped
+  registry:
+    image: fonoster/routr-registry
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/config/registry.yaml:/etc/routr/registry.yaml"

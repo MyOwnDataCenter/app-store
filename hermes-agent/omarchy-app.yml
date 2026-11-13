@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: hermes-agent
+name: "Hermes Agent"
+tagline: "An AI agent that learns from you"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/hermes-agent.png
+category: ai
+version: "latest"
+port: 18790
+path: "/chat"
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: web
+  port: 18789
+description: >-
+  Hermes Agent builds its own skills and memory as you use it, and can browse, edit files and run commands.
+developer: "NousResearch and contributors"
+website: https://hermes-agent.nousresearch.com
+repo: https://github.com/NousResearch/hermes-agent
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

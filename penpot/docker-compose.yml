@@ -1,0 +1,80 @@
+# Penpot: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  penpot-frontend:
+    image: penpotapp/frontend:2.19.1@sha256:b5b363a4bd38bf2aa781c6255e5208b4b305fa3f12fae1170abeb705ce510032
+    restart: unless-stopped
+    environment:
+      PENPOT_FLAGS: enable-registration enable-login-with-password
+      PENPOT_ADMIN_CONSOLE_URI: "http://penpot-admin-console:3000"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/assets:/opt/data/assets"
+    depends_on:
+      - penpot-backend
+      - penpot-exporter
+      - penpot-mcp
+      - penpot-admin-console
+    ports:
+      - "10010:8080"
+  penpot-backend:
+    image: penpotapp/backend:2.19.1@sha256:bc26c263b33f107a63868ed298bebd9089f252c3799872c31ec1266fef321d29
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      PENPOT_FLAGS: enable-registration enable-login-with-password disable-email-verification disable-smtp enable-prepl-server disable-secure-session-cookies
+      PENPOT_SECRET_KEY: "${APP_SEED:?set APP_SEED}"
+      PENPOT_ADMIN_CONSOLE_URI: "http://penpot-admin-console:3000"
+      PENPOT_DATABASE_URI: "postgresql://penpot-postgres/penpot"
+      PENPOT_DATABASE_USERNAME: penpot
+      PENPOT_DATABASE_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      PENPOT_REDIS_URI: "redis://penpot-valkey/0"
+      PENPOT_OBJECTS_STORAGE_BACKEND: fs
+      PENPOT_OBJECTS_STORAGE_FS_DIRECTORY: /opt/data/assets
+      PENPOT_TELEMETRY_ENABLED: "false"
+      PENPOT_PUBLIC_URI: "http://${SERVER_IP:-localhost}:9001"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/assets:/opt/data/assets"
+    depends_on:
+      - penpot-postgres
+      - penpot-valkey
+  penpot-exporter:
+    image: penpotapp/exporter:2.19.1@sha256:bb25e0ee63ec37228848c714c7b60998d9c9d07f998ab7aebe2e3281d39b2962
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      PENPOT_SECRET_KEY: "${APP_SEED:?set APP_SEED}"
+      PENPOT_PUBLIC_URI: "http://${SERVER_IP:-localhost}:9001"
+      PENPOT_INTERNAL_URI: "http://penpot-frontend:8080"
+      PENPOT_REDIS_URI: "redis://penpot-valkey/0"
+  penpot-mcp:
+    image: penpotapp/mcp:2.19.1@sha256:ebcd8f119d46e706a94bfae678a0d1a05f713080a9565f310de39c246667dbd1
+    restart: unless-stopped
+    user: "1000:1000"
+  penpot-admin-console:
+    image: penpotapp/admin-console:2.19.1@sha256:27c7ae5d7c061f2e07ddbad393316fa50e3d1d6873f1c5c807740316f29f3715
+    restart: unless-stopped
+    environment:
+      PENPOT_PUBLIC_URI: "http://${SERVER_IP:-localhost}:9001"
+      PENPOT_INTERNAL_URI: "http://penpot-frontend:8080"
+      PENPOT_SECRET_KEY: "${APP_SEED:?set APP_SEED}"
+      PENPOT_DATABASE_URI: "postgresql://penpot-postgres/penpot"
+      PENPOT_DATABASE_USERNAME: penpot
+      PENPOT_DATABASE_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    depends_on:
+      - penpot-postgres
+  penpot-postgres:
+    image: postgres:15@sha256:546445ad21cb5893c0997080b831ee45945e798c4359270e16413c8bd93575db
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      POSTGRES_INITDB_ARGS: "--data-checksums"
+      POSTGRES_DB: penpot
+      POSTGRES_USER: penpot
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/postgres:/var/lib/postgresql/data"
+  penpot-valkey:
+    image: valkey/valkey:8.1.3@sha256:facc1d2c3462975c34e10fccb167bfa92b0e0dbd992fc282c29a61c3243afb11
+    restart: unless-stopped
+    user: "1000:1000"

@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: reaparr
+name: "Reaparr"
+tagline: "Cross-platform Plex media downloader that seamlessly adds media from"
+icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/reaparr.webp
+category: media
+version: "latest"
+port: 10094
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: reaparr
+  port: 7000
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Cross-platform Plex media downloader that seamlessly adds media from other Plex servers to your own.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "Reaparr and contributors"
+website: https://www.reaparr.rocks/
+repo: https://github.com/Reaparr/Reaparr
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

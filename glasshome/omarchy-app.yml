@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: glasshome
+name: "GlassHome"
+tagline: "A drag-and-drop Home Assistant dashboard"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/glasshome.png
+category: automation
+version: "latest"
+port: 3123
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: server
+  port: 3123
+description: >-
+  GlassHome lets you design a Home Assistant dashboard by dragging widgets around, with no YAML to write.
+developer: "glasshome and contributors"
+website: https://glasshome.app
+repo: https://github.com/glasshome/homeassistant-addon
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

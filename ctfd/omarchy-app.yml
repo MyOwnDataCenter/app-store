@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: ctfd
+name: "CTFd"
+tagline: "Run capture-the-flag competitions"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/ctfd.png
+category: files
+version: "latest"
+port: 8546
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: ctfd
+  port: 8000
+description: >-
+  CTFd hosts security capture-the-flag events, with challenges, teams, scoring and a scoreboard.
+developer: "CTFd and contributors"
+website: https://ctfd.io/
+repo: https://github.com/CTFd/CTFd
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

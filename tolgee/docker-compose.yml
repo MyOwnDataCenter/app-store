@@ -1,0 +1,21 @@
+# Tolgee: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  db:
+    image: postgres:11
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/../build/db-data:/var/lib/postgresql/data/"
+  app:
+    image: tolgee/tolgee
+    restart: unless-stopped
+    depends_on:
+      - db
+    ports:
+      - "10085:8080"
+  smtp:
+    image: namshi/smtp
+    restart: unless-stopped

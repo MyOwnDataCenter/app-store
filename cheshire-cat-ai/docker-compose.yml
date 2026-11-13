@@ -1,0 +1,16 @@
+# Cheshire Cat AI: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  cheshire-cat-ai:
+    image: ghcr.io/cheshire-cat-ai/core:1.9.2
+    restart: unless-stopped
+    environment:
+      PYTHONUNBUFFERED: "1"
+      WATCHFILES_FORCE_POLLING: "true"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/static:/app/cat/static"
+      - "${APP_DATA_DIR:-.}/data/plugins:/app/cat/plugins"
+      - "${APP_DATA_DIR:-.}/data/data:/app/cat/data"
+    ports:
+      - "1865:80"

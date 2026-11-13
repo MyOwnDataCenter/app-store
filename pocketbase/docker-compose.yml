@@ -1,0 +1,15 @@
+# PocketBase: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  app:
+    image: ghcr.io/muchobien/pocketbase:0.40.6@sha256:9a0be68a80ca1348ba8d15f217b3f983be4c094b3c571a09b3ebdeb357259338
+    restart: unless-stopped
+    stop_grace_period: 1m
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data:/pb_data"
+      - "${APP_DATA_DIR:-.}/data/public:/pb_public"
+      - "${APP_DATA_DIR:-.}/data/hooks:/pb_hooks"
+      - "${APP_DATA_DIR:-.}/data/migrations:/pb_migrations"
+    ports:
+      - "5400:8090"

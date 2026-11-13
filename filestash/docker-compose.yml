@@ -1,0 +1,22 @@
+# Filestash: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  filestash:
+    image: machines/filestash:latest
+    restart: unless-stopped
+    environment:
+      APPLICATION_URL: "${SERVER_IP:-localhost}"
+      GDRIVE_CLIENT_ID: ""
+      GDRIVE_CLIENT_SECRET: ""
+      DROPBOX_CLIENT_ID: ""
+      ONLYOFFICE_URL: "http://filestash-onlyoffice"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data:/app/data/state/"
+    depends_on:
+      - filestash-onlyoffice
+    ports:
+      - "8189:8334"
+  filestash-onlyoffice:
+    image: onlyoffice/documentserver:10.0.0.1
+    restart: unless-stopped

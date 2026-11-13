@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: opodsync
+name: "oPodSync"
+tagline: "Sync podcasts between apps"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/opodsync.png
+category: media
+version: "latest"
+port: 10041
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: opodsync
+  port: 8080
+description: >-
+  oPodSync is a podcast sync server compatible with gPodder, keeping subscriptions and progress in step.
+developer: "oPodSync project"
+website: https://hub.docker.com/r/ganeshlab/opodsync
+repo: https://hub.docker.com/r/ganeshlab/opodsync
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

@@ -1,0 +1,29 @@
+manifestVersion: 1
+id: bindery
+name: "Bindery"
+tagline: "Folder-watching converter for e-books and comics"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/bindery.webp
+category: media
+version: "latest"
+port: 10087
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: bindery
+  port: 5000
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Folder-watching converter for e-books and comics. EPUB to Kobo KEPUB via kepubify, CBZ/CBR/PDF via Kindle
+  Comic Converter, with per-device profiles, ComicInfo.xml naming, chapter-to-volume bundling and a web UI.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "jarynclouatre and contributors"
+website: https://github.com/jarynclouatre/bindery
+repo: https://github.com/jarynclouatre/bindery
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

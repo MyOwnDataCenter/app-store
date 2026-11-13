@@ -1,0 +1,24 @@
+# Send: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  send:
+    image: registry.gitlab.com/timvisee/send:latest
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      BASE_URL: "http://${SERVER_IP:-localhost}"
+      REDIS_HOST: send-redis
+      MAX_FILE_SIZE: "2147483648"
+      FILE_DIR: /uploads
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/uploads:/uploads"
+    depends_on:
+      - send-redis
+    ports:
+      - "8126:1443"
+  send-redis:
+    image: redis:alpine
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/redis:/data"

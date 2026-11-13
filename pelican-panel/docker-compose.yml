@@ -1,0 +1,20 @@
+# Pelican Panel: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  panel:
+    image: ghcr.io/pelican/panel:latest
+    restart: unless-stopped
+    environment:
+      MAIL_DRIVER: log
+      APP_URL: "http://localhost"
+      LE_EMAIL: "USEYOUROWNEMAILHERE@example.com"
+      APP_DEBUG: "false"
+      APP_ENV: production
+      XDG_DATA_HOME: /pelican-data
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/pelican-data:/pelican-data"
+      - "${APP_DATA_DIR:-.}/data/pelican-logs:/var/www/html/storage/logs"
+      - "${APP_DATA_DIR:-.}/data/pelican-data:/var/www/html/plugins"
+    ports:
+      - "10151:80"

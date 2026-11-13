@@ -1,0 +1,17 @@
+# Donetick: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  app:
+    image: donetick/donetick:v0.1.86@sha256:66253a32a8e8ed8c49c49418b43abe1181db23e07defe97748d2cb7508c487cd
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      DT_ENV: selfhosted
+      DT_JWT_SECRET: "${APP_SEED:?set APP_SEED}"
+      DT_SQLITE_PATH: /donetick-data/donetick.db
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/app:/donetick-data"
+      - "${APP_DATA_DIR:-.}/data/config:/config"
+    ports:
+      - "8121:2021"

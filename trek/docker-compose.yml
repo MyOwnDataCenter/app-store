@@ -1,0 +1,26 @@
+# TREK: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  app:
+    image: mauriceboe/trek:latest
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+      ENCRYPTION_KEY: ""
+      TZ: "${TZ:-UTC}"
+      LOG_LEVEL: info
+      ALLOWED_ORIGINS: ""
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data:/app/data"
+      - "${APP_DATA_DIR:-.}/data/uploads:/app/uploads"
+    tmpfs:
+      - "/tmp:noexec,nosuid,size=128m"
+    ports:
+      - "10142:3000"
+    cap_add:
+      - CHOWN
+      - SETUID
+      - SETGID
+      - KILL

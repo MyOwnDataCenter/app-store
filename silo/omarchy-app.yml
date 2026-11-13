@@ -1,0 +1,31 @@
+manifestVersion: 1
+id: silo
+name: "Silo"
+tagline: "S3-compatible object storage with a web console"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/silo.png
+category: files
+version: "latest"
+port: 9130
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: server
+  port: 9001
+# Ports that must be reachable from your network.
+openPorts: [9131]
+description: >-
+  Silo stores files in buckets through an S3-compatible API, with a web console for uploads, keys and policies.
+
+  Where the app asks for a password it hasn’t shown you, use the one on this app’s page.
+developer: "pgsty and contributors"
+website: https://silo.pgsty.com
+repo: https://github.com/pgsty/silo
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""
+# The password is generated per server by Omarchy Server and shown on the app’s page.
+deterministicPassword: true

@@ -1,0 +1,47 @@
+# Nostr VPN: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  daemon:
+    image: ghcr.io/mmalmi/nostr-vpn-umbrel:v4.1.20@sha256:efd210787468120fbec95586cb9dc11c3642ced1c104cd7a15c044995530e45f
+    restart: unless-stopped
+    network_mode: host
+    command:
+      - daemon
+      - "--config"
+      - /data/config/nvpn/config.toml
+    entrypoint:
+      - /usr/local/bin/nvpn
+    stop_grace_period: 1m
+    environment:
+      HOME: /data/home
+      XDG_CONFIG_HOME: /data/config
+      RUST_LOG: info
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data:/data"
+      - "${APP_DATA_DIR:-.}/data/egress-state:/var/lib/nvpn/egress"
+    cap_add:
+      - NET_ADMIN
+  web:
+    image: ghcr.io/mmalmi/nostr-vpn-umbrel:v4.1.20@sha256:efd210787468120fbec95586cb9dc11c3642ced1c104cd7a15c044995530e45f
+    restart: unless-stopped
+    command:
+      - "--listen"
+      - "0.0.0.0:38080"
+      - "--behind-trusted-proxy"
+      - "--config"
+      - /data/config/nvpn/config.toml
+    stop_grace_period: 1m
+    environment:
+      HOME: /data/home
+      XDG_CONFIG_HOME: /data/config
+      NVPN_CLI_PATH: /usr/local/bin/nvpn
+      NVPN_DAEMON_STATUS_MODE: state-file
+      NVPN_EXTERNAL_DAEMON: "true"
+      RUST_LOG: info
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data:/data"
+    depends_on:
+      - daemon
+    ports:
+      - "38180:38080"

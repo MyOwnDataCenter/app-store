@@ -1,0 +1,22 @@
+# RSSHub: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  rsshub:
+    image: diygod/rsshub:2026-04-17
+    restart: unless-stopped
+    environment:
+      TZ: "${TZ:-UTC}"
+    depends_on:
+      - redis
+      - browserless
+    ports:
+      - "8223:1200"
+  browserless:
+    image: browserless/chrome
+    restart: unless-stopped
+  redis:
+    image: redis:alpine
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/redis:/data"

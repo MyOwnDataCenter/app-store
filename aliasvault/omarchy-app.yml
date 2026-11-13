@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: aliasvault
+name: "AliasVault"
+tagline: "End-to-end encrypted password manager with a built-in email alias"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/aliasvault.webp
+category: files
+version: "latest"
+port: 10148
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: reverse-proxy
+  port: 80
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  End-to-end encrypted password manager with a built-in email alias generator and server.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "aliasvault and contributors"
+website: https://www.aliasvault.net
+repo: https://github.com/aliasvault/aliasvault
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

@@ -1,0 +1,12 @@
+# Telegrapho: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  app:
+    image: ghcr.io/egzola/telegrapho:1.0.1@sha256:9486b185b993398cc651158a9292c2fa54eb83254c83d610759988fb20b413b8
+    restart: unless-stopped
+    stop_grace_period: 1m
+    environment:
+      PORT: "3712"
+    ports:
+      - "3712:3712"

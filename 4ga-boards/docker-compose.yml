@@ -1,0 +1,43 @@
+# 4ga Boards: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  db:
+    image: postgres:18-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: 4gaBoards
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      POSTGRES_INITDB_ARGS: "-A scram-sha-256"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/db-data-18:/var/lib/postgresql"
+  redis:
+    image: redis:8-alpine
+    restart: unless-stopped
+    command:
+      - redis-server
+      - "--appendonly"
+      - "yes"
+      - "--requirepass"
+      - notredispassword
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/redis-data-8:/data"
+  4gaBoards:
+    image: ghcr.io/rargames/4gaboards:latest
+    restart: unless-stopped
+    environment:
+      BASE_URL: "http://localhost:3000"
+      SECRET_KEY: "${APP_SEED:?set APP_SEED}"
+      DATABASE_URL: "postgresql://postgres:${APP_PASSWORD:?set APP_PASSWORD}@db/4gaBoards"
+      NODE_ENV: production
+      UPLOAD_RATE_LIMIT_STORE: redis
+      UPLOAD_RATE_LIMIT_REDIS_URL: "redis://:notredispassword@redis:6379/0"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/user-avatars:/app/public/user-avatars"
+      - "${APP_DATA_DIR:-.}/data/project-background-images:/app/public/project-background-images"
+      - "${APP_DATA_DIR:-.}/data/attachments:/app/private/attachments"
+    depends_on:
+      - db
+      - redis
+    ports:
+      - "10128:1337"

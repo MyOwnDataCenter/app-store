@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: rss-bridge
+name: "RSS-Bridge"
+tagline: "Generate RSS/ATOM feeds for websites which don't have one"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/rss-bridge.webp
+category: social
+version: "latest"
+port: 10080
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: rss-bridge
+  port: 80
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Generate RSS/ATOM feeds for websites which don't have one.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "RSS-Bridge and contributors"
+website: https://github.com/RSS-Bridge/rss-bridge
+repo: https://github.com/RSS-Bridge/rss-bridge
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

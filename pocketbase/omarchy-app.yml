@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: pocketbase
+name: "PocketBase"
+tagline: "Backend for your next SaaS and Mobile app in one file"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/pocketbase.webp
+category: developer
+version: "latest"
+port: 5400
+path: "/_/"
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: app
+  port: 8090
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Backend for your next SaaS and Mobile app in one file.
+developer: "PocketBase project"
+website: https://pocketbase.io/
+repo: https://ganigeorgiev.com/pocketbase/pocketbase
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

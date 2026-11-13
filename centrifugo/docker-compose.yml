@@ -1,0 +1,97 @@
+# Centrifugo: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  nats:
+    image: nats:2.10-alpine
+    restart: unless-stopped
+    command:
+      - "-js"
+    ports:
+      - "4222:4222"
+  postgres:
+    image: postgres:16
+    restart: unless-stopped
+    command:
+      - postgres
+      - "-c"
+      - wal_level=logical
+      - "-c"
+      - max_wal_senders=4
+      - "-c"
+      - hot_standby=on
+      - "-c"
+      - wal_writer_delay=10ms
+      - "-c"
+      - max_connections=500
+      - "-c"
+      - fsync=off
+      - "-c"
+      - synchronous_commit=off
+      - "-c"
+      - full_page_writes=off
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      POSTGRES_DB: test
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/postgres_data:/var/lib/postgresql/data"
+      - "${APP_DATA_DIR:-.}/data/misc/postgres/init-replication.sh:/docker-entrypoint-initdb.d/init-replication.sh"
+  postgres-replica:
+    image: postgres:16
+    restart: unless-stopped
+    entrypoint: "bash -c '\n# Test/Demo only: wipe and re-basebackup on every restart.\n# In production, use persistent volumes and proper replica management.\nrm -rf /var/lib/postgresql/data/*\nuntil pg_isready -h postgres -U test; do sleep 1; done\nchown postgres:postgres /var/lib/postgresql/data\nchmod 700 /var/lib/postgresql/data\ngosu postgres pg_basebackup -h postgres -U test -D /var/lib/postgresql/data -Fp -Xs -R\n# A hot standby needs max_connections >= the primary one.\nexec gosu postgres postgres -c max_connections=500\n'\n"
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    depends_on:
+      - postgres
+    ports:
+      - "5433:5432"
+  google-pubsub-emulator:
+    image: gcr.io/google.com/cloudsdktool/google-cloud-cli:572.0.0-emulators
+    restart: unless-stopped
+    command: "gcloud beta emulators pubsub start --host-port=0.0.0.0:8085"
+    ports:
+      - "10089:8085"
+  aws-localstack:
+    image: localstack/localstack:4.14
+    restart: unless-stopped
+    environment:
+      SERVICES: "sqs,sns"
+      DEFAULT_REGION: us-east-1
+      DATA_DIR: /tmp/aws-localstack/data
+    ports:
+      - "4566:4566"
+  redpanda:
+    image: redpandadata/redpanda:latest
+    restart: unless-stopped
+    command:
+      - redpanda start
+      - "--smp 1"
+      - "--memory 1G"
+      - "--overprovisioned"
+      - "--node-id 0"
+      - "--check=false"
+      - "--kafka-addr PLAINTEXT://0.0.0.0:29092"
+      - "--advertise-kafka-addr PLAINTEXT://localhost:29092"
+    ports:
+      - "29092:29092"
+      - "9644:9644"
+  kafka:
+    image: confluentinc/cp-kafka:8.0.0
+    restart: unless-stopped
+    environment:
+      KAFKA_NODE_ID: "1"
+      KAFKA_LISTENERS: "PLAINTEXT://0.0.0.0:29092,CONTROLLER://kafka:9093"
+      KAFKA_ADVERTISED_LISTENERS: "PLAINTEXT://localhost:29092"
+      KAFKA_CONTROLLER_QUORUM_VOTERS: "1@kafka:9093"
+      KAFKA_PROCESS_ROLES: "broker,controller"
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: "1"
+      CLUSTER_ID: kafka
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: "0"
+  redis:
+    image: redis:${REDIS_VERSION:-7}-alpine
+    restart: unless-stopped

@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: ipfs-podcasting
+name: "IPFS Podcasting"
+tagline: "Help host podcasts on IPFS"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/ipfs-podcasting.png
+category: files
+version: "latest"
+port: 8675
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: web
+  port: 8675
+# Ports that must be reachable from your network.
+openPorts: [4001]
+description: >-
+  IPFS Podcasting runs a node that stores and serves podcast episodes over IPFS, helping shows stay online.
+developer: "Cameron-IPFSPodcasting and contributors"
+website: https://IPFSPodcasting.net
+repo: https://github.com/Cameron-IPFSPodcasting/podcastnode
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

@@ -1,0 +1,30 @@
+manifestVersion: 1
+id: slskd
+name: "SLSKD"
+tagline: "Modern client-server application for the Soulseek file sharing network"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/slskd.webp
+category: files
+version: "latest"
+port: 5030
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: slskd
+  port: 5030
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Modern client-server application for the Soulseek file sharing network.
+
+  Where the app asks for a password it hasn’t shown you, use the one on this app’s page.
+developer: "slskd and contributors"
+website: https://github.com/slskd/slskd
+repo: https://github.com/slskd/slskd
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""
+# The password is generated per server by Omarchy Server and shown on the app’s page.
+deterministicPassword: true

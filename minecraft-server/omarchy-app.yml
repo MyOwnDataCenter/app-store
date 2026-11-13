@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: minecraft-server
+name: "Minecraft Server"
+tagline: "Your own Minecraft server"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/minecraft-server.png
+category: gaming
+version: "latest"
+port: 25565
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: minecraft-server
+  port: 25565
+description: >-
+  Runs a Minecraft Java Edition server for you and your friends, with automatic setup and updates.
+developer: "itzg and contributors"
+website: https://docker-minecraft-server.readthedocs.io/en/latest/
+repo: https://github.com/itzg/docker-minecraft-server
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

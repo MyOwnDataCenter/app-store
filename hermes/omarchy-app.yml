@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: hermes
+name: "Hermes"
+tagline: "A self-improving AI agent"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/hermes.png
+category: ai
+version: "latest"
+port: 9119
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: hermes
+  port: 9119
+# Ports that must be reachable from your network.
+openPorts: [8642]
+description: >-
+  Hermes is an AI agent with memory, skills and messaging, managed from a web dashboard.
+developer: "Hermes project"
+website: https://hub.docker.com/r/nousresearch/hermes-agent
+repo: https://hub.docker.com/r/nousresearch/hermes-agent
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

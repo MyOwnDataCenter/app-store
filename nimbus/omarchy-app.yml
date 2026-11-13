@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: nimbus
+name: "Nimbus"
+tagline: "Modern drag-and-drop homelab dashboard with visual editor and simple"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/nimbus.png
+category: files
+version: "latest"
+port: 10138
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: nimbus
+  port: 3000
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Modern drag-and-drop homelab dashboard with visual editor and simple configuration.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "Turbootzz and contributors"
+website: https://nimbus.turboot.com/
+repo: https://github.com/Turbootzz/Nimbus
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

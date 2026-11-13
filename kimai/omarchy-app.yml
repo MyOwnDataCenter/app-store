@@ -1,0 +1,30 @@
+manifestVersion: 1
+id: kimai
+name: "Kimai"
+tagline: "Track work time and print out a summary of your activities on demand"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/kimai.webp
+category: files
+version: "latest"
+port: 8734
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: app
+  port: 8001
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Track work time and print out a summary of your activities on demand.
+
+  Where the app asks for a password it hasn’t shown you, use the one on this app’s page.
+developer: "kimai and contributors"
+website: https://www.kimai.org/
+repo: https://github.com/kimai/kimai
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""
+# The password is generated per server by Omarchy Server and shown on the app’s page.
+deterministicPassword: true

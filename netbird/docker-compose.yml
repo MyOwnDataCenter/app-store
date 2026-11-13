@@ -1,0 +1,34 @@
+# NetBird: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  app:
+    image: ghcr.io/netbirdio/netbird:0.83.0-rootless@sha256:c8bc0eb582d58b75855400145bfbf453d032e58bd80c046981156614ba1acb46
+    restart: unless-stopped
+    network_mode: host
+    user: "1000:1000"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/app_data:/var/lib/netbird:rw"
+    cap_add:
+      - NET_ADMIN
+      - SYS_ADMIN
+      - SYS_RESOURCE
+  status:
+    image: ghcr.io/netbirdio/netbird:0.83.0-rootless@sha256:c8bc0eb582d58b75855400145bfbf453d032e58bd80c046981156614ba1acb46
+    restart: unless-stopped
+    user: "1000:1000"
+    command:
+      - "trap 'exit 0' TERM INT\nwhile true; do\n  if netbird status --json 2>/dev/null | grep -q '\"daemonStatus\": *\"Connected\"' \\\n    && ! grep -q '\"status\":\"connected\"' /www/status.json 2>/dev/null; then\n    echo '{\"status\":\"connected\",\"message\":\"Connected to NetBird\"}' > /www/status.json.tmp\n    mv -f /www/status.json.tmp /www/status.json\n  fi\n  sleep 5 & wait $$!\ndone\n"
+    entrypoint:
+      - /bin/bash
+      - "-c"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/app_data:/var/lib/netbird:ro"
+      - "${APP_DATA_DIR:-.}/data/www:/www"
+  web:
+    image: nginx:1.27@sha256:124b44bfc9ccd1f3cedf4b592d4d1e8bddb78b51ec2ed5056c52d3692baebc19
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/www:/usr/share/nginx/html:ro"
+    ports:
+      - "8479:80"

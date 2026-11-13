@@ -1,0 +1,15 @@
+# Threadfin: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  threadfin:
+    image: fyb3roptik/threadfin:1.2.37
+    restart: unless-stopped
+    environment:
+      THREADFIN_BRANCH: main
+      THREADFIN_DEBUG: "0"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/config:/home/threadfin/conf/data"
+      - "${APP_DATA_DIR:-.}/data/backup:/home/threadfin/conf/backup"
+    ports:
+      - "34400:34400"

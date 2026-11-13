@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: openspeedtest
+name: "OpenSpeedTest"
+tagline: "Test your network speed"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/openspeedtest.png
+category: networking
+version: "latest"
+port: 3004
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: openspeedtest
+  port: 3000
+description: >-
+  OpenSpeedTest measures download and upload speeds between your devices and your server.
+developer: "OpenSpeedTest project"
+website: https://hub.docker.com/r/openspeedtest/latest
+repo: https://hub.docker.com/r/openspeedtest/latest
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

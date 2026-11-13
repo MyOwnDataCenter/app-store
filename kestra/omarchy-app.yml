@@ -1,0 +1,32 @@
+manifestVersion: 1
+id: kestra
+name: "Kestra"
+tagline: "Event-driven, language-agnostic platform to create, schedule, and"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/kestra.webp
+category: automation
+version: "latest"
+port: 10071
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: kestra
+  port: 8080
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Event-driven, language-agnostic platform to create, schedule, and monitor workflows. In code. Coordinate data
+  pipelines and tasks such as ETL and ELT.
+
+  Packaged from the compose file in the project’s own repository. It manages containers, so Omarchy Server asks
+  before installing it.
+developer: "kestra-io and contributors"
+website: https://kestra.io
+repo: https://github.com/kestra-io/kestra
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""
+# The password is generated per server by Omarchy Server and shown on the app’s page.
+deterministicPassword: true

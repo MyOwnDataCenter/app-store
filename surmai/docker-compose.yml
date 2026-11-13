@@ -1,0 +1,15 @@
+# Surmai: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  surmai_server:
+    image: ghcr.io/rohitkumbhar/surmai:main
+    restart: unless-stopped
+    environment:
+      SURMAI_ADMIN_EMAIL: "admin@example.com"
+      SURMAI_ADMIN_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      PB_DATA_DIRECTORY: /pb_data
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/surmai_data:/pb_data"
+    ports:
+      - "10130:8080"

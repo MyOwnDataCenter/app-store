@@ -1,0 +1,14 @@
+# llama.cpp: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  llamacpp:
+    image: ghcr.io/ggml-org/llama.cpp:server
+    restart: unless-stopped
+    environment:
+      LLAMA_ARG_N_GPU_LAYERS: "999"
+      LLAMA_ARG_CONTEXT_SIZE: "8192"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/models:/models"
+    ports:
+      - "10037:8080"

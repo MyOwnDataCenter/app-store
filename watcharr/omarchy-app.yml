@@ -1,0 +1,29 @@
+manifestVersion: 1
+id: watcharr
+name: "Watcharr"
+tagline: "Add and track all the shows and movies you are watching"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/watcharr.webp
+category: media
+version: "latest"
+port: 10112
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: watcharr
+  port: 3080
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Add and track all the shows and movies you are watching. Comes with user authentication, modern and clean UI
+  and a very simple setup.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "sbondCo and contributors"
+website: https://github.com/sbondCo/Watcharr
+repo: https://github.com/sbondCo/Watcharr
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

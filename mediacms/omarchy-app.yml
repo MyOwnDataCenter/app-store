@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: mediacms
+name: "MediaCMS"
+tagline: "Modern, fully featured video and media CMS, written in"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/mediacms.png
+category: media
+version: "latest"
+port: 10056
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: web
+  port: 80
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Modern, fully featured video and media CMS, written in Python/Django/React, featuring a REST API.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "mediacms-io and contributors"
+website: https://mediacms.io
+repo: https://github.com/mediacms-io/mediacms
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

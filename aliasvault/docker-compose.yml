@@ -1,0 +1,68 @@
+# AliasVault: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  postgres:
+    image: ghcr.io/aliasvault/postgres:latest
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: aliasvault
+      POSTGRES_USER: aliasvault
+      POSTGRES_PASSWORD_FILE: /secrets/postgres_password
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/database/postgres:/var/lib/postgresql/data:rw"
+      - "${APP_DATA_DIR:-.}/data/secrets:/secrets:ro"
+  client:
+    image: ghcr.io/aliasvault/client:latest
+    restart: unless-stopped
+  api:
+    image: ghcr.io/aliasvault/api:latest
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/database:/database:rw"
+      - "${APP_DATA_DIR:-.}/data/logs:/logs:rw"
+      - "${APP_DATA_DIR:-.}/data/secrets:/secrets:ro"
+    depends_on:
+      - postgres
+  admin:
+    image: ghcr.io/aliasvault/admin:latest
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/database:/database:rw"
+      - "${APP_DATA_DIR:-.}/data/logs:/logs:rw"
+      - "${APP_DATA_DIR:-.}/data/secrets:/secrets:ro"
+    depends_on:
+      - postgres
+  reverse-proxy:
+    image: ghcr.io/aliasvault/reverse-proxy:latest
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/certificates/ssl:/etc/nginx/ssl:rw"
+      - "${APP_DATA_DIR:-.}/data/certificates/letsencrypt:/etc/nginx/ssl-letsencrypt:rw"
+      - "${APP_DATA_DIR:-.}/data/certificates/letsencrypt/www:/var/www/certbot:rw"
+    depends_on:
+      - admin
+      - client
+      - api
+      - smtp
+    ports:
+      - "10148:80"
+  smtp:
+    image: ghcr.io/aliasvault/smtp:latest
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/database:/database:rw"
+      - "${APP_DATA_DIR:-.}/data/logs:/logs:rw"
+      - "${APP_DATA_DIR:-.}/data/secrets:/secrets:ro"
+      - "${APP_DATA_DIR:-.}/data/certificates/smtp:/certificates/smtp:ro"
+    depends_on:
+      - postgres
+  task-runner:
+    image: ghcr.io/aliasvault/task-runner:latest
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/database:/database:rw"
+      - "${APP_DATA_DIR:-.}/data/logs:/logs:rw"
+      - "${APP_DATA_DIR:-.}/data/secrets:/secrets:ro"
+    depends_on:
+      - postgres

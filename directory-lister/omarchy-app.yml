@@ -1,0 +1,31 @@
+manifestVersion: 1
+id: directory-lister
+name: "Directory Lister"
+tagline: "Simple PHP based directory lister that lists a directory and all its"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/directory-lister.png
+category: files
+version: "latest"
+port: 10063
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: app
+  port: 80
+# Ports that must be reachable from your network.
+openPorts: [11211]
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Simple PHP based directory lister that lists a directory and all its sub-directories and allows you to
+  navigate there within.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "DirectoryLister and contributors"
+website: https://www.directorylister.com/
+repo: https://github.com/DirectoryLister/DirectoryLister
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

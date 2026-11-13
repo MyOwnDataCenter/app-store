@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: alist
+name: "Alist"
+tagline: "One file list for many storage services"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/alist.png
+category: files
+version: "latest"
+port: 5244
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: alist
+  port: 5244
+description: >-
+  AList shows files from local disks and many cloud drives in one web file manager with WebDAV.
+developer: "Alist project"
+website: https://hub.docker.com/r/xhofe/alist
+repo: https://hub.docker.com/r/xhofe/alist
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

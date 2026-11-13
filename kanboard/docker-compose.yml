@@ -1,0 +1,14 @@
+# Kanboard: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  kanboard:
+    image: kanboard/kanboard:v1.2.57
+    restart: unless-stopped
+    environment:
+      PLUGIN_INSTALLER: "false"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/kanboard_data:/var/www/app/data"
+      - "${APP_DATA_DIR:-.}/data/kanboard_plugins:/var/www/app/plugins"
+    ports:
+      - "10019:80"

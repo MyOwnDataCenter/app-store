@@ -1,0 +1,16 @@
+# Dispatcharr: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  dispatcharr:
+    image: ghcr.io/dispatcharr/dispatcharr:0.29.0
+    restart: unless-stopped
+    environment:
+      DISPATCHARR_ENV: aio
+      REDIS_HOST: localhost
+      CELERY_BROKER_URL: "redis://localhost:6379/0"
+      DISPATCHARR_LOG_LEVEL: info
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data:/data"
+    ports:
+      - "9191:9191"

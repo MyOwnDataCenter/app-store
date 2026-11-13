@@ -1,0 +1,31 @@
+manifestVersion: 1
+id: teamspeak
+name: "TeamSpeak"
+tagline: "Voice chat for groups and gaming"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/teamspeak.png
+category: social
+version: "latest"
+port: 50371
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: ui
+  port: 8080
+# Ports that must be reachable from your network.
+openPorts: [9987, 10011, 30033]
+description: >-
+  TeamSpeak Server hosts low-latency voice channels that friends join from the TeamSpeak app.
+
+  Where the app asks for a password it hasn’t shown you, use the one on this app’s page.
+developer: "TeamSpeak project"
+website: https://www.teamspeak.com
+repo: https://www.teamspeak.com
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""
+# The password is generated per server by Omarchy Server and shown on the app’s page.
+deterministicPassword: true

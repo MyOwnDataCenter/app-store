@@ -1,0 +1,22 @@
+# CryptPad: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  cryptpad:
+    image: cryptpad/cryptpad:latest
+    restart: unless-stopped
+    environment:
+      CPAD_MAIN_DOMAIN: "https://your-main-domain.com"
+      CPAD_SANDBOX_DOMAIN: "https://your-sandbox-domain.com"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/blob:/cryptpad/blob"
+      - "${APP_DATA_DIR:-.}/data/block:/cryptpad/block"
+      - "${APP_DATA_DIR:-.}/data/customize:/cryptpad/customize"
+      - "${APP_DATA_DIR:-.}/data/data:/cryptpad/data"
+      - "${APP_DATA_DIR:-.}/data/files:/cryptpad/datastore"
+      - "${APP_DATA_DIR:-.}/data/onlyoffice-dist:/cryptpad/www/common/onlyoffice/dist"
+      - "${APP_DATA_DIR:-.}/data/onlyoffice-conf:/cryptpad/onlyoffice-conf"
+      - "${APP_DATA_DIR:-.}/data/config:/cryptpad/config"
+      - "${APP_DATA_DIR:-.}/data/cryptpad-tmp:/tmp"
+    ports:
+      - "10129:3000"

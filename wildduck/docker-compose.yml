@@ -1,0 +1,29 @@
+# wildduck: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  wildduck:
+    image: ghcr.io/zone-eu/wildduck
+    restart: unless-stopped
+    environment:
+      APPCONF_dbs_mongo: "mongodb://mongo:27017/wildduck"
+      APPCONF_dbs_redis: "redis://redis:6379/3"
+      APPCONF_api_host: "0.0.0.0"
+      APPCONF_api_accessToken: "${APP_SEED:?set APP_SEED}"
+    depends_on:
+      - redis
+      - mongo
+    ports:
+      - "10150:8080"
+      - "110:110"
+      - "995:995"
+  redis:
+    image: redis:alpine
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/redis-data:/data"
+  mongo:
+    image: mongo
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/mongo-data-db:/data/db"

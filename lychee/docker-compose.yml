@@ -1,0 +1,175 @@
+# Lychee: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  lychee_api:
+    image: ghcr.io/lycheeorg/lychee:latest
+    restart: unless-stopped
+    environment:
+      PUID: "${PUID:-1000}"
+      PGID: "${PGID:-1000}"
+      APP_KEY: "${APP_SEED_32:?set APP_SEED_32}"
+      APP_NAME: Lychee
+      APP_ENV: production
+      APP_DEBUG: "false"
+      APP_TIMEZONE: "${TZ:-UTC}"
+      APP_URL: "http://localhost:8000"
+      APP_FORCE_HTTPS: "false"
+      APP_MAINTENANCE_DRIVER: file
+      LOG_VIEWER_ENABLED: "true"
+      LOG_404_ERRORS: "true"
+      CLOCKWORK_ENABLE: "false"
+      DB_CONNECTION: mysql
+      DB_HOST: lychee_db
+      DB_PORT: "3306"
+      DB_DATABASE: lychee
+      DB_USERNAME: lychee
+      DB_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      KEYGEN_API_KEY: ""
+      SESSION_DRIVER: file
+      SESSION_LIFETIME: "120"
+      CACHE_STORE: "${CACHE_DRIVER:-file}"
+      CACHE_PREFIX: lychee_cache
+      LOG_VIEWER_CACHE_DRIVER: file
+      QUEUE_CONNECTION: database
+      AI_VISION_FACE_URL: "http://lychee_facial_recognition:8000"
+      AI_VISION_FACE_API_KEY: ""
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/lychee/uploads:/app/public/uploads"
+      - "${APP_DATA_DIR:-.}/data/lychee/logs:/app/storage/logs"
+      - "${APP_DATA_DIR:-.}/data/lychee/tmp:/app/storage/tmp"
+    tmpfs:
+      - "/tmp:noexec,nosuid,nodev,size=100m"
+    depends_on:
+      - lychee_db
+    cap_add:
+      - CHOWN
+      - SETGID
+      - SETUID
+      - DAC_OVERRIDE
+      - NET_BIND_SERVICE
+  lychee_worker:
+    image: ghcr.io/lycheeorg/lychee:latest
+    restart: unless-stopped
+    environment:
+      PUID: "${PUID:-1000}"
+      PGID: "${PGID:-1000}"
+      APP_KEY: "${APP_SEED_32:?set APP_SEED_32}"
+      APP_NAME: Lychee
+      APP_ENV: production
+      APP_DEBUG: "false"
+      APP_TIMEZONE: "${TZ:-UTC}"
+      APP_URL: "http://localhost:8000"
+      APP_FORCE_HTTPS: "false"
+      APP_MAINTENANCE_DRIVER: file
+      LOG_VIEWER_ENABLED: "true"
+      LOG_404_ERRORS: "true"
+      CLOCKWORK_ENABLE: "false"
+      DB_CONNECTION: mysql
+      DB_HOST: lychee_db
+      DB_PORT: "3306"
+      DB_DATABASE: lychee
+      DB_USERNAME: lychee
+      DB_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      KEYGEN_API_KEY: ""
+      SESSION_DRIVER: file
+      SESSION_LIFETIME: "120"
+      CACHE_STORE: "${CACHE_DRIVER:-file}"
+      CACHE_PREFIX: lychee_cache
+      LOG_VIEWER_CACHE_DRIVER: file
+      QUEUE_CONNECTION: database
+      AI_VISION_FACE_URL: "http://lychee_facial_recognition:8000"
+      AI_VISION_FACE_API_KEY: ""
+      LYCHEE_MODE: worker
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/lychee/uploads:/app/public/uploads"
+      - "${APP_DATA_DIR:-.}/data/lychee/logs:/app/storage/logs"
+      - "${APP_DATA_DIR:-.}/data/lychee/tmp:/app/storage/tmp"
+    tmpfs:
+      - "/tmp:noexec,nosuid,nodev,size=100m"
+    depends_on:
+      - lychee_db
+      - lychee_api
+    cap_add:
+      - CHOWN
+      - SETGID
+      - SETUID
+      - DAC_OVERRIDE
+      - NET_BIND_SERVICE
+  phpmyadmin:
+    image: phpmyadmin
+    restart: unless-stopped
+    environment:
+      PMA_HOST: lychee_db
+      PMA_PORT: "3306"
+    depends_on:
+      - lychee_db
+    ports:
+      - "10109:80"
+  lychee_db:
+    image: mariadb:11
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      MYSQL_DATABASE: lychee
+      MYSQL_USER: lychee
+      MYSQL_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/mysql:/var/lib/mysql"
+    tmpfs:
+      - "/tmp:noexec,nosuid,nodev,size=200m"
+      - "/var/run/mysqld:noexec,nosuid,nodev,size=10m"
+    cap_add:
+      - SETGID
+      - SETUID
+      - DAC_OVERRIDE
+      - CHOWN
+  lychee_facial_recognition:
+    image: ghcr.io/lycheeorg/lychee-facial-recognition:latest
+    restart: unless-stopped
+    environment:
+      VISION_FACE_LYCHEE_API_URL: "http://lychee_api:8000"
+      VISION_FACE_API_KEY: ""
+      VISION_FACE_VERIFY_SSL: "true"
+      VISION_FACE_SKIP_LYCHEE_CHECK: "false"
+      VISION_FACE_LOG_LEVEL: info
+      VISION_FACE_CLUSTER_EPS: "0.6"
+      VISION_FACE_PHOTOS_PATH: /data/photos
+      VISION_FACE_STORAGE_BACKEND: sqlite
+      VISION_FACE_STORAGE_PATH: /data/embeddings
+      VISION_FACE_THREAD_POOL_SIZE: "1"
+      VISION_FACE_WORKERS: "1"
+      VISION_FACE_QUEUE_BACKEND: database
+      VISION_FACE_QUEUE_MAX_SIZE: "0"
+      VISION_FACE_DETECTION_THRESHOLD: "0.5"
+      VISION_FACE_MATCH_THRESHOLD: "0.5"
+      VISION_FACE_RESCAN_IOU_THRESHOLD: "0.5"
+      VISION_FACE_MAX_FACES_PER_PHOTO: "10"
+      VISION_FACE_MIN_FACE_SIZE_PIXELS: "0"
+      VISION_FACE_BLUR_THRESHOLD: "0.5"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/lychee/uploads:/data/photos:ro"
+      - "${APP_DATA_DIR:-.}/data/ai_vision_embeddings:/data/embeddings"
+    depends_on:
+      - lychee_api
+  lychee_nsfw_classification:
+    image: ghcr.io/lycheeorg/lychee-nsfw-classification:latest
+    restart: unless-stopped
+    environment:
+      VISION_NSFW_LYCHEE_API_URL: "http://lychee_api:8000"
+      VISION_NSFW_API_KEY: ""
+      VISION_NSFW_VERIFY_SSL: "true"
+      VISION_NSFW_SKIP_LYCHEE_CHECK: "false"
+      VISION_NSFW_PHOTOS_PATH: /data/photos
+      VISION_NSFW_STORAGE_PATH: /data/queue
+      VISION_NSFW_LOG_LEVEL: info
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/lychee/uploads:/data/photos:ro"
+      - "${APP_DATA_DIR:-.}/data/nsfw_queue:/data/queue"
+    depends_on:
+      - lychee_api
+  lychee_geo_decoding:
+    image: ghcr.io/lycheeorg/lychee-reverse-geo-coding:latest
+    restart: unless-stopped
+    ports:
+      - "8003:8080"

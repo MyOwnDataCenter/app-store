@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: cloudflared
+name: "Cloudflare Tunnel"
+tagline: "Reach your apps through a Cloudflare tunnel"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/cloudflared.png
+category: networking
+version: "latest"
+port: 4499
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: web
+  port: 3000
+description: >-
+  Cloudflare Tunnel publishes apps on your server through Cloudflare without opening ports on your router.
+developer: "Radiokot and contributors"
+website: https://www.cloudflare.com/products/tunnel/
+repo: https://github.com/Radiokot/umbrel-cloudflared
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

@@ -1,0 +1,29 @@
+manifestVersion: 1
+id: artalk
+name: "Artalk"
+tagline: "Comment system built in Golang, providing a lightweight and highly"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/artalk.png
+category: social
+version: "latest"
+port: 10074
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: artalk
+  port: 23366
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Comment system built in Golang, providing a lightweight and highly customizable solution for adding comments
+  to your website.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "ArtalkJS and contributors"
+website: https://artalk.js.org/
+repo: https://github.com/ArtalkJS/Artalk
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

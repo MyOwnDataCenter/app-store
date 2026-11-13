@@ -1,0 +1,25 @@
+# Qui: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  qui:
+    image: ghcr.io/autobrr/qui:v1.28.0
+    restart: unless-stopped
+    environment:
+      QUI__DATABASE_ENGINE: postgres
+      QUI__DATABASE_DSN: "postgres://qui:qui@postgres:5432/qui?sslmode=disable"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/qui:/config"
+    depends_on:
+      - postgres
+    ports:
+      - "7476:7476"
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: qui
+      POSTGRES_PASSWORD: qui
+      POSTGRES_DB: qui
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/postgres:/var/lib/postgresql/data"

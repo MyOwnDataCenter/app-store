@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: bewcloud
+name: "bewCloud"
+tagline: "File sharing + sync, notes, and photos (alternative to Nextcloud and"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/bewcloud.webp
+category: photography
+version: "latest"
+port: 10117
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: website
+  port: 8000
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  File sharing + sync, notes, and photos (alternative to Nextcloud and ownCloud's RSS reader).
+
+  Packaged from the compose file in the project’s own repository.
+developer: "bewcloud and contributors"
+website: https://bewcloud.com
+repo: https://github.com/bewcloud/bewcloud
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

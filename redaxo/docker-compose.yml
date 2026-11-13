@@ -1,0 +1,21 @@
+# REDAXO: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  redaxo:
+    image: friendsofredaxo/redaxo:5
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/.:/var/www/html:cached"
+    ports:
+      - "10077:80"
+  db:
+    image: mysql:8
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: redaxo
+      MYSQL_USER: redaxo
+      MYSQL_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/.docker/db:/var/lib/mysql:cached"

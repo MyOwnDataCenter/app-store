@@ -1,0 +1,23 @@
+# Rusty Kaspad: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  frontend:
+    image: elldee/kaspa-frontend:v0.4.1@sha256:a77573dfbc706b632ba24b9087685dc0b44d588c60b5399e2c2df2a19bd38a93
+    restart: unless-stopped
+    stop_grace_period: 1m
+    depends_on:
+      - kaspad
+    ports:
+      - "10013:4321"
+  kaspad:
+    image: kaspanet/rusty-kaspad:v2.1.0@sha256:f85da74b9514584451f83a2cbea3aa93f700248302fe7e3e0ab17288f93c905b
+    restart: unless-stopped
+    stop_grace_period: 3m
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/app:/app/data"
+    ports:
+      - "16110:16110"
+      - "16111:16111"
+      - "17110:17110"
+      - "18110:18110"

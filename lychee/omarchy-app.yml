@@ -1,0 +1,30 @@
+manifestVersion: 1
+id: lychee
+name: "Lychee"
+tagline: "Grid and album based photo-management-system"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/lychee.webp
+category: photography
+version: "latest"
+port: 10109
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: phpmyadmin
+  port: 80
+# Ports that must be reachable from your network.
+openPorts: [8003]
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Grid and album based photo-management-system.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "LycheeOrg and contributors"
+website: https://lycheeorg.github.io/
+repo: https://github.com/LycheeOrg/Lychee
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

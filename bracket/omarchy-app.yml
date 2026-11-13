@@ -1,0 +1,31 @@
+manifestVersion: 1
+id: bracket
+name: "Bracket"
+tagline: "Flexible tournament system to build a tournament setup, add teams"
+icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/bracket.webp
+category: files
+version: "latest"
+port: 10098
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: bracket
+  port: 8400
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Flexible tournament system to build a tournament setup, add teams, schedule matches, keep track of scores and
+  present ranking live to the public.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "evroon and contributors"
+website: https://docs.bracketapp.nl/
+repo: https://github.com/evroon/bracket
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""
+# The password is generated per server by Omarchy Server and shown on the app’s page.
+deterministicPassword: true

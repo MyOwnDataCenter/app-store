@@ -1,0 +1,52 @@
+# Piler: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  mysql:
+    image: mariadb:12.0.2
+    restart: unless-stopped
+    command: "--character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci"
+    environment:
+      MYSQL_DATABASE: piler
+      MYSQL_USER: piler
+      MYSQL_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/db_data:/var/lib/mysql"
+      - "${APP_DATA_DIR:-.}/data/piler.cnf:/etc/mysql/conf.d/piler.cnf:ro"
+    cap_add:
+      - dac_override
+      - setuid
+      - setgid
+  manticore:
+    image: manticoresearch/manticore:29.9.0
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/manticore.conf:/etc/manticoresearch/manticore.conf"
+      - "${APP_DATA_DIR:-.}/data/piler_manticore:/var/lib/manticore"
+  piler:
+    image: sutoj/piler:${VERSION:-1.4.9}
+    restart: unless-stopped
+    init: true
+    environment:
+      MANTICORE_HOSTNAME: manticore
+      MEMCACHED_HOSTNAME: memcached
+      MYSQL_HOSTNAME: mysql
+      MYSQL_DATABASE: piler
+      MYSQL_USER: piler
+      MYSQL_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      PILER_HOSTNAME: archive.example.com
+      RT: "1"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/piler_etc:/etc/piler"
+      - "${APP_DATA_DIR:-.}/data/piler_store:/var/piler/store"
+    depends_on:
+      - mysql
+      - memcached
+      - manticore
+    ports:
+      - "10144:80"
+  memcached:
+    image: memcached
+    restart: unless-stopped
+    command: "-m 64"

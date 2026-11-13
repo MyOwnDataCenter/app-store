@@ -1,0 +1,25 @@
+# Isso: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  isso-server:
+    image: isso
+    restart: unless-stopped
+    environment:
+      ISSO_SETTINGS: /config/isso-dev.cfg
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/db:/db/"
+      - "${APP_DATA_DIR:-.}/data/contrib/isso-dev.cfg:/config/isso-dev.cfg"
+    ports:
+      - "10070:8080"
+  isso-client:
+    image: isso-js-testbed
+    restart: unless-stopped
+    environment:
+      ISSO_ENDPOINT: "http://isso-dev.local:8080"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/package.json:/src/package.json"
+      - "${APP_DATA_DIR:-.}/data/isso/js/:/src/isso/js/"
+      - "${APP_DATA_DIR:-.}/data/isso/js/tests/screenshots/reference/:/src/isso/js/tests/screenshots/reference/"
+    depends_on:
+      - isso-server

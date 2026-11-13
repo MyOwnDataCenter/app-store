@@ -1,0 +1,50 @@
+# MailFlow: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  frontend:
+    image: ghcr.io/maathimself/mailflow-frontend:4.4.0@sha256:74be6c108479985214fe54ac30c14fabe64c7a80a54100f80ad2b89b45fa6f43
+    restart: unless-stopped
+    stop_grace_period: 1m
+    environment:
+      TLS_MODE: "off"
+      BACKEND_HOST: backend
+    depends_on:
+      - backend
+    ports:
+      - "3395:80"
+  backend:
+    image: ghcr.io/maathimself/mailflow-backend:4.4.0@sha256:db540d4bc86da0de6e3c8fe86b0b0b79b42caeb245beb8231d7a4b4428306e5d
+    restart: unless-stopped
+    stop_grace_period: 1m
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+      APP_URL: "http://${SERVER_IP:-localhost}:3395"
+      FRONTEND_URL: "http://${SERVER_IP:-localhost}:3395"
+      SESSION_SECRET: "${APP_SEED:?set APP_SEED}"
+      ENCRYPTION_KEY: "${APP_SEED:?set APP_SEED}"
+      DB_HOST: postgres
+      DB_PORT: "5432"
+      DB_NAME: mailflow
+      DB_USER: mailflow
+      DB_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      GOOGLE_CLIENT_ID: ""
+      GOOGLE_CLIENT_SECRET: ""
+      VAPID_PUBLIC_KEY: ""
+      VAPID_PRIVATE_KEY: ""
+      VAPID_SUBJECT: ""
+      IMAP_MAX_PERSISTENT_PER_HOST: ""
+      TRUST_PROXY_HOPS: "2"
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:16-alpine@sha256:16bc17c64a573ef34162af9298258d1aec548232985b33ed7b1eac33ba35c229
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      POSTGRES_DB: mailflow
+      POSTGRES_USER: mailflow
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/postgres:/var/lib/postgresql/data"

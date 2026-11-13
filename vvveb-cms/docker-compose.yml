@@ -1,0 +1,42 @@
+# Vvveb CMS: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  db:
+    image: mysql:latest
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      MYSQL_DATABASE: vvveb
+      MYSQL_USER: vvveb
+      MYSQL_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/db:/var/lib/mysql"
+  php:
+    image: vvveb/vvvebcms:latest
+    restart: unless-stopped
+    environment:
+      VVVEB_HOST: db
+      VVVEB_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      DB_HOST: db
+      DB_DATABASE: vvveb
+      DB_USER: vvveb
+      DB_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      DB_ENGINE: mysqli
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/php:/var/www/html/"
+    depends_on:
+      - db
+    ports:
+      - "10067:80"
+  phpmyadmin:
+    image: phpmyadmin:latest
+    restart: unless-stopped
+    environment:
+      PMA_ARBITRARY: "1"
+      PMA_USER: vvveb
+      PMA_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      PMA_HOST: db
+      PMA_PORT: "3306"
+    depends_on:
+      - db

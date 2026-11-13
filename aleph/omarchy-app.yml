@@ -1,0 +1,31 @@
+manifestVersion: 1
+id: aleph
+name: "Aleph"
+tagline: "Tool for indexing large amounts of both documents (PDF, Word, HTML) and"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/aleph.png
+category: files
+version: "latest"
+port: 10072
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: ui
+  port: 8080
+# Ports that must be reachable from your network.
+openPorts: [5672, 15672]
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Tool for indexing large amounts of both documents (PDF, Word, HTML) and structured (CSV, XLS, SQL) data for
+  easy browsing and search. It is built with investigative reporting as a primary use case.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "alephdata and contributors"
+website: https://aleph.occrp.org/
+repo: https://github.com/alephdata/aleph
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: owncast
+name: "Owncast"
+tagline: "Decentralized single-user live video streaming and chat server for"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/owncast.webp
+category: media
+version: "latest"
+port: 8198
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: owncast
+  port: 8080
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Decentralized single-user live video streaming and chat server for running your own live streams similar in
+  style to the large mainstream options.
+developer: "owncast and contributors"
+website: https://owncast.online/
+repo: https://github.com/owncast/owncast
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

@@ -1,0 +1,13 @@
+# Zen: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  app:
+    image: ghcr.io/sheshbabu/zen/zen:2.0.0@sha256:3ec9c007b194ca0873c358b9306b1c5f11d75261cbde4e78bbfce94bef00c17c
+    restart: unless-stopped
+    user: "1000:1000"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/app:/data"
+      - "${APP_DATA_DIR:-.}/data/images:/images"
+    ports:
+      - "8894:8080"

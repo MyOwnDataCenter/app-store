@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: chiyogami
+name: "Chiyogami"
+tagline: "Pastebin with API, client-side encryption, user accounts, syntax"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/chiyogami.png
+category: files
+version: "latest"
+port: 10114
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: chiyogami
+  port: 8000
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Pastebin with API, client-side encryption, user accounts, syntax highlighting, markdown rendering, and more.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "rhee876527 and contributors"
+website: https://github.com/rhee876527/chiyogami
+repo: https://github.com/rhee876527/chiyogami
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

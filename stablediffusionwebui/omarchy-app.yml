@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: stablediffusionwebui
+name: "Stable Diffusion"
+tagline: "Create images with Stable Diffusion"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/stablediffusionwebui.png
+category: ai
+version: "latest"
+port: 10034
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: icewhale-stable-diffusion-webui
+  port: 7860
+description: >-
+  Runs the Stable Diffusion web interface for generating images from text. Very slow without a GPU.
+developer: "Stable Diffusion project"
+website: https://hub.docker.com/r/johnguan/stable-diffusion-webui
+repo: https://hub.docker.com/r/johnguan/stable-diffusion-webui
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

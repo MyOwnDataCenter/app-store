@@ -1,0 +1,30 @@
+manifestVersion: 1
+id: invoice-ninja
+name: "Invoice Ninja"
+tagline: "Powerful tool to invoice clients online"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/invoice-ninja.webp
+category: finance
+version: "latest"
+port: 8676
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: nginx
+  port: 80
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Powerful tool to invoice clients online.
+
+  Where the app asks for a password it hasn’t shown you, use the one on this app’s page.
+developer: "invoiceninja and contributors"
+website: https://www.invoiceninja.org/
+repo: https://github.com/invoiceninja/invoiceninja
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""
+# The password is generated per server by Omarchy Server and shown on the app’s page.
+deterministicPassword: true

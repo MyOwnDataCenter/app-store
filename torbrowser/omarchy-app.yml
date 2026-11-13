@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: torbrowser
+name: "Tor Browser"
+tagline: "Tor Browser on your server"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/torbrowser.png
+category: networking
+version: "latest"
+port: 5832
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: web
+  port: 5800
+description: >-
+  Runs the Tor Browser on your server and streams it to your own browser, for private browsing over Tor.
+developer: "torproject and contributors"
+website: https://www.torproject.org/
+repo: https://github.com/torproject/tor
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

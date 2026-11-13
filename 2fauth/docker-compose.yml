@@ -1,0 +1,13 @@
+# 2FAuth: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  2fauth:
+    image: 2fauth/2fauth:6.1.3
+    restart: unless-stopped
+    environment:
+      APP_KEY: "${APP_SEED_32:?set APP_SEED_32}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/2fauth:/2fauth"
+    ports:
+      - "10036:8000"

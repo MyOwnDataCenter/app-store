@@ -1,0 +1,14 @@
+# Suwayomi: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  suwayomi:
+    image: ghcr.io/suwayomi/tachidesk:v2.4.2490
+    restart: unless-stopped
+    environment:
+      TZ: "${TZ:-UTC}"
+      BIND_IP: "0.0.0.0"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data:/home/suwayomi/.local/share/Tachidesk"
+    ports:
+      - "10018:4567"

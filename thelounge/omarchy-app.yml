@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: thelounge
+name: "The Lounge"
+tagline: "Web IRC client"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/thelounge.webp
+category: social
+version: "latest"
+port: 10008
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: web
+  port: 9000
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Web IRC client.
+developer: "thelounge and contributors"
+website: https://thelounge.chat/
+repo: https://github.com/thelounge/thelounge
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

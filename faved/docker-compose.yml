@@ -1,0 +1,15 @@
+# Faved: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  apache-php:
+    image: denho/faved
+    restart: unless-stopped
+    working_dir: /var/www/html
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/temp-data:/tmp/"
+      - "${APP_DATA_DIR:-.}/data/storage:/var/www/html/storage/"
+      - "${APP_DATA_DIR:-.}/data/apache-conf:/etc/apache2/sites-enabled/"
+      - "${APP_DATA_DIR:-.}/data/certbot-conf:/etc/letsencrypt/"
+    ports:
+      - "10133:80"

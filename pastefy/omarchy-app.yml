@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: pastefy
+name: "Pastefy"
+tagline: "Beautiful, simple and easy to deploy Pastebin with optional client"
+icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/pastefy.webp
+category: developer
+version: "latest"
+port: 9900
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: app
+  port: 80
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Beautiful, simple and easy to deploy Pastebin with optional client encryption, multitab pastes, an API, a
+  highlighted editor and more.
+developer: "interaapps and contributors"
+website: https://pastefy.app/
+repo: https://github.com/interaapps/pastefy
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

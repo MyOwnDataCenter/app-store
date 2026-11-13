@@ -1,0 +1,11 @@
+# Planning Poker: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  planning-poker:
+    image: axeleroy/self-host-planning-poker:1.2.1
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data:/data"
+    ports:
+      - "10017:8000"

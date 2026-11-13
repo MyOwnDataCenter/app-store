@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: nzbfast
+name: "nzbfast"
+tagline: "A fast Usenet downloader"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/nzbfast.png
+category: media
+version: "latest"
+port: 6790
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: nzbfast
+  port: 6789
+description: >-
+  nzbfast downloads from Usenet and offers a SABnzbd-compatible API for the arr apps.
+developer: "nzbfast project"
+website: https://hub.docker.com/r/nzbfast/nzbfast
+repo: https://hub.docker.com/r/nzbfast/nzbfast
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

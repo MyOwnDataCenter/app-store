@@ -1,0 +1,16 @@
+# Stable Diffusion: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  icewhale-stable-diffusion-webui:
+    image: johnguan/stable-diffusion-webui:latest
+    restart: unless-stopped
+    environment:
+      NVIDIA_VISIBLE_DEVICES: all
+      CPU_FALLBACK: "true"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/models:/data/models"
+      - "${APP_DATA_DIR:-.}/data/outputs:/data/outputs"
+      - "${APP_DATA_DIR:-.}/data/config:/data/config"
+    ports:
+      - "10034:7860"

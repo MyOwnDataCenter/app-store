@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: 2fauth
+name: "2FAuth"
+tagline: "Manage your Two-Factor Authentication (2FA) accounts and generate their"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/2fauth.webp
+category: files
+version: "latest"
+port: 10036
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: 2fauth
+  port: 8000
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Manage your Two-Factor Authentication (2FA) accounts and generate their security codes.
+developer: "Bubka and contributors"
+website: https://github.com/Bubka/2FAuth
+repo: https://github.com/Bubka/2FAuth
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

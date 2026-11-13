@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: odoo
+name: "Odoo"
+tagline: "Suite of web based business apps for ERP"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/odoo.webp
+category: files
+version: "latest"
+port: 8017
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: odoo
+  port: 8069
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Suite of web based business apps for ERP.
+developer: "odoo and contributors"
+website: https://www.odoo.com
+repo: https://github.com/odoo/odoo
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

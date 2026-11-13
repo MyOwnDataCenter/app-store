@@ -1,0 +1,30 @@
+manifestVersion: 1
+id: ovenmediaengine
+name: "OvenMediaEngine"
+tagline: "Streaming Server with Sub-Second Latency"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/ovenmediaengine.png
+category: media
+version: "latest"
+port: 10054
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: origin
+  port: 9000
+# Ports that must be reachable from your network.
+openPorts: [3334, 3478, 3479, 4333]
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Streaming Server with Sub-Second Latency.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "OvenMediaLabs and contributors"
+website: https://github.com/OvenMediaLabs/OvenMediaEngine
+repo: https://github.com/OvenMediaLabs/OvenMediaEngine
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

@@ -1,0 +1,18 @@
+# Neko: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  web:
+    image: ghcr.io/m1k1o/neko/firefox:3.2.0@sha256:415730ef9e3c35d850fdbbb95aa150cb9eda0b9c260c61d1974fb3af39cb71c3
+    restart: unless-stopped
+    shm_size: 2gb
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      NEKO_DESKTOP_SCREEN: "1920x1080@30"
+      NEKO_MEMBER_MULTIUSER_USER_PASSWORD: neko
+      NEKO_MEMBER_MULTIUSER_ADMIN_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      NEKO_WEBRTC_EPR: "52000-52100"
+      NEKO_WEBRTC_ICELITE: "0"
+    ports:
+      - "3880:8080"

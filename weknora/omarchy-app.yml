@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: weknora
+name: "WeKnora"
+tagline: "Understand and search documents with AI"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/weknora.png
+category: ai
+version: "latest"
+port: 1080
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: weknora
+  port: 80
+# Ports that must be reachable from your network.
+openPorts: [14250, 14268, 16686, 19000, 19001]
+description: >-
+  WeKnora uses AI models to read complex documents and answer questions about them.
+developer: "WeKnora project"
+website: https://hub.docker.com/r/wechatopenai/weknora-ui
+repo: https://hub.docker.com/r/wechatopenai/weknora-ui
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

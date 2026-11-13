@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: snowflake
+name: "Tor Snowflake Proxy"
+tagline: "Help people get around censorship"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/snowflake.png
+category: networking
+version: "latest"
+port: 3800
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: web
+  port: 3800
+description: >-
+  Runs a Tor Snowflake proxy so people in censored countries can reach the Tor network through your connection.
+developer: "Tor Snowflake Proxy project"
+website: https://snowflake.torproject.org/
+repo: https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/-/tree/main
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

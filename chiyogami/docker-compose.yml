@@ -1,0 +1,17 @@
+# Chiyogami: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  chiyogami:
+    image: ghcr.io/rhee876527/chiyogami
+    restart: unless-stopped
+    environment:
+      SECRET_KEY: "${APP_SEED:?set APP_SEED}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/pastes:/pastes"
+    ports:
+      - "10114:8000"
+    cap_add:
+      - SETGID
+      - SETUID
+      - CHOWN

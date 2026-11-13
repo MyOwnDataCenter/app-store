@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: openclaw
+name: "OpenClaw"
+tagline: "A personal AI assistant on your own server"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/openclaw.png
+category: ai
+version: "latest"
+port: 18789
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: gateway
+  port: 18789
+description: >-
+  OpenClaw is a personal AI assistant that connects to chat apps and tools and runs on your own server.
+developer: "openclaw and contributors"
+website: https://openclaw.ai
+repo: https://github.com/openclaw/openclaw
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

@@ -1,0 +1,19 @@
+# Elengrab: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  server:
+    image: neosy/elengrab
+    restart: unless-stopped
+    environment:
+      TZ: Europe/Moscow
+      ELENGRAB_DOWNLOAD_WORKERS: "3"
+      ELENGRAB_MODE: public
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/db:/app_n/sqlite/data"
+      - "${APP_DATA_DIR:-.}/data/db_backups:/app_n/sqlite/backups"
+      - "${APP_DATA_DIR:-.}/data/downloads:/app_n/downloads"
+      - "${APP_DATA_DIR:-.}/data/cookies:/app_n/cookies"
+      - "${APP_DATA_DIR:-.}/data/media:/app_n/media"
+    ports:
+      - "10116:8080"

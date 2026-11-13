@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: lidarr-deemix
+name: "Lidarr on Steroids"
+tagline: "Lidarr with Deezer downloads built in"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/lidarr-deemix.png
+category: media
+version: "latest"
+port: 8186
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: lidarr-deemix
+  port: 8686
+# Ports that must be reachable from your network.
+openPorts: [8187]
+description: >-
+  Lidarr on Steroids combines Lidarr with deemix, so missing albums can be fetched from Deezer.
+developer: "youegraillot and contributors"
+website: https://github.com/youegraillot/lidarr-on-steroids
+repo: https://github.com/youegraillot/lidarr-on-steroids
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

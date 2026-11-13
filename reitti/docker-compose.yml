@@ -1,0 +1,41 @@
+# Reitti: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  app:
+    image: dedicatedcode/reitti:5.10.1@sha256:b141afd3e36399151d0c4211d9717a3d8509fe5ce65f8638dc7c9710607fa235
+    restart: unless-stopped
+    environment:
+      POSTGIS_USER: reitti
+      POSTGIS_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      POSTGIS_DB: reittidb
+      POSTGIS_HOST: postgis
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/app:/data"
+    depends_on:
+      - postgis
+      - redis
+      - tile-cache
+    ports:
+      - "8744:8080"
+  postgis:
+    image: imresamu/postgis:17-3.5-alpine@sha256:ba5f5012ffe7a01a78e85404d3e081ed7e961013161bb09d39ff09c867ada17b
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      POSTGRES_USER: reitti
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      POSTGRES_DB: reittidb
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/postgis:/var/lib/postgresql/data"
+  redis:
+    image: redis:7.4.9-alpine@sha256:6ab0b6e7381779332f97b8ca76193e45b0756f38d4c0dcda72dbb3c32061ab99
+    restart: unless-stopped
+    user: "1000:1000"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/redis:/data"
+  tile-cache:
+    image: dedicatedcode/reitti-tile-cache:5.10.1@sha256:7107dcd921bc514f3b579f33e25cf3be1d0e809f1295de4c7f283dd811b51051
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/title-cache:/var/cache/nginx"

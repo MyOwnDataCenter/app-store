@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: lodestone-core
+name: "Lodestone Core"
+tagline: "Manage game servers"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/lodestone-core.png
+category: gaming
+version: "latest"
+port: 16662
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: lodestone-core
+  port: 16662
+description: >-
+  Lodestone Core runs and manages game servers such as Minecraft from one dashboard.
+developer: "Lodestone-Team and contributors"
+website: https://lodestone.cc
+repo: https://github.com/Lodestone-Team/lodestone_core
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

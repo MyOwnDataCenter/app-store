@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: multi-scrobbler
+name: "multi-scrobbler"
+tagline: "Scrobble plays from multiple sources to multiple scrobbling services"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/multi-scrobbler.webp
+category: media
+version: "latest"
+port: 9078
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: multi-scrobbler
+  port: 9078
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Scrobble plays from multiple sources to multiple scrobbling services.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "FoxxMD and contributors"
+website: https://foxxmd.github.io/multi-scrobbler
+repo: https://github.com/FoxxMD/multi-scrobbler
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

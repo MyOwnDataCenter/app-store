@@ -1,0 +1,32 @@
+# Directory Lister: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  app:
+    image: phlak/directory-lister:dev
+    restart: unless-stopped
+    user: "1000:1000"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/app:/var/www/html"
+      - "${APP_DATA_DIR:-.}/data/.docker/php/config/php.dev.ini:/usr/local/etc/php/php.ini"
+      - "${APP_DATA_DIR:-.}/data/.docker/apache2/config/000-default.dev.conf:/etc/apache2/sites-available/000-default.conf"
+    depends_on:
+      - memcached
+      - redis
+    ports:
+      - "10063:80"
+  memcached:
+    image: memcached:1.6
+    restart: unless-stopped
+    ports:
+      - "11211:11211"
+  redis:
+    image: redis:8.0
+    restart: unless-stopped
+  npm:
+    image: phlak/directory-lister:dev
+    restart: unless-stopped
+    user: "1000:1000"
+    command: npm run dev
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/npm:/var/www/html"

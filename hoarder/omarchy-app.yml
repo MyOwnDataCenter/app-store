@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: hoarder
+name: "Hoarder (karakeep)"
+tagline: "Save links, notes and images with AI tagging"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/hoarder.png
+category: files
+version: "latest"
+port: 8685
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: hoarder
+  port: 3000
+description: >-
+  Karakeep (formerly Hoarder) bookmarks links, notes and images, and tags them automatically with AI.
+developer: "hoarder-app and contributors"
+website: https://karakeep.com/
+repo: https://github.com/hoarder-app/hoarder
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

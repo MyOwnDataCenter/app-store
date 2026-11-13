@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: wordpress
+name: "WordPress"
+tagline: "World's most-used blogging and CMS engine"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/wordpress.webp
+category: social
+version: "latest"
+port: 8567
+path: "/wp-admin"
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: app
+  port: 80
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  World's most-used blogging and CMS engine.
+developer: "WordPress and contributors"
+website: https://wordpress.org/
+repo: https://github.com/WordPress/WordPress
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

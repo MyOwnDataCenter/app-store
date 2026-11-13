@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: donetick
+name: "Donetick"
+tagline: "Task and chore management tool for personal and family use, with"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/donetick.webp
+category: files
+version: "latest"
+port: 8121
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: app
+  port: 2021
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Task and chore management tool for personal and family use, with advanced scheduling, flexible assignment, and
+  group sharing capabilities, detailed history, automation via API, simple and modern design.
+developer: "donetick and contributors"
+website: https://donetick.com
+repo: https://github.com/donetick/donetick
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

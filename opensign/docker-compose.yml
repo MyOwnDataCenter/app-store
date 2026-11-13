@@ -1,0 +1,38 @@
+# OpenSign: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  server:
+    image: opensign/opensignserver:main
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      SERVER_URL: "https://localhost:3001/api/app"
+      PUBLIC_URL: "https://localhost:3001"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/opensign-files:/usr/src/app/files"
+    depends_on:
+      - mongo
+    ports:
+      - "10093:8080"
+  mongo:
+    image: mongo:latest
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data-volume:/data/db"
+    ports:
+      - "27018:27017"
+  client:
+    image: opensign/opensign:main
+    restart: unless-stopped
+    depends_on:
+      - server
+  caddy:
+    image: caddy:latest
+    restart: unless-stopped
+    environment:
+      HOST_URL: "localhost:3001"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/Caddyfile:/etc/caddy/Caddyfile"
+      - "${APP_DATA_DIR:-.}/data/caddy_data:/data"
+      - "${APP_DATA_DIR:-.}/data/caddy_config:/config"

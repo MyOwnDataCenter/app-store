@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: toshi-moto
+name: "Toshi Moto"
+tagline: "Watch your Bitcoin wallets privately"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/toshi-moto.png
+category: finance
+version: "latest"
+port: 8021
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: web
+  port: 8021
+description: >-
+  Toshi Moto is a watch-only wallet: add extended public keys to follow balances and transactions without
+  exposing keys.
+developer: "toshimoto821 and contributors"
+website: https://toshimoto.app
+repo: https://github.com/toshimoto821/toshi-moto
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

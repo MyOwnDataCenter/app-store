@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: wger
+name: "wger"
+tagline: "Web-based personal workout, fitness and weight logger/tracker"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/wger.webp
+category: files
+version: "latest"
+port: 8450
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: nginx
+  port: 80
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Web-based personal workout, fitness and weight logger/tracker. It can also be used as a simple gym management
+  utility and offers a full REST API as well.
+developer: "wger-project and contributors"
+website: https://wger.de/
+repo: https://github.com/wger-project/wger
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

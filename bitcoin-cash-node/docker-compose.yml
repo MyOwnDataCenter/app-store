@@ -1,0 +1,61 @@
+# Bitcoin Cash Node: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  tor:
+    image: ghcr.io/getumbrel/tor:0.4.9.11@sha256:e382b8629c0dfef6ceb396b062622d4e4e955b19d6f16b883fd2c0723ad5671a
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      HOME: /tmp
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/torrc:/etc/tor/torrc:ro"
+      - "${APP_DATA_DIR:-.}/data/tor:/data"
+  bitcoind:
+    image: mainnet/bitcoin-cash-node:v29.0.0@sha256:5144a579369cbab859119b04c86e4e078cf8ef830a1cb721be96bdc0b7498a35
+    restart: unless-stopped
+    user: "1000:1000"
+    command:
+      - "-datadir=/data"
+      - "-printtoconsole"
+      - "-server=1"
+      - "-listen=1"
+      - "-port=8335"
+      - "-rpcbind=0.0.0.0"
+      - "-rpcallowip=0.0.0.0/0"
+      - "-rpcuser=admin"
+      - "-rpcpassword=${APP_PASSWORD:?set APP_PASSWORD}"
+      - "-rpcworkqueue=512"
+      - "-rpcthreads=64"
+      - "-dbcache=512"
+      - "-maxmempool=300"
+      - "-txindex=1"
+      - "-disablewallet=1"
+      - "-maxconnections=64"
+      - "-zmqpubhashblock=tcp://0.0.0.0:28332"
+    entrypoint:
+      - bitcoind
+    stop_grace_period: 1m
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/bitcoind:/data"
+    ports:
+      - "8335:8335"
+  web:
+    image: ghcr.io/danhaus93-ops/bchn-dashboard:8bb17f3689d837dbd370ac0d35e4a158ea12b75a@sha256:7c292722411525908ddb80ac56915db88213e245ac0e3e8a683a3d4ebcd2ae24
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      PORT: "3000"
+      APP_VERSION: v29.1.37
+      TOR_IP: tor
+      RPC_HOST: bitcoind
+      RPC_PORT: "8332"
+      RPC_USER: admin
+      RPC_PASS: "${APP_PASSWORD:?set APP_PASSWORD}"
+      PUBLIC_HOST: "${SERVER_IP:-localhost}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/bitcoind:/nodedata"
+    depends_on:
+      - bitcoind
+    ports:
+      - "3330:3000"

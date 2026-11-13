@@ -1,0 +1,30 @@
+manifestVersion: 1
+id: nextcloud-mini
+name: "Nextcloud Mini"
+tagline: "Access and share your files, calendars, contacts, mail and more from"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/nextcloud.webp
+category: files
+version: "latest"
+port: 8564
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: nextcloud-mini
+  port: 80
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Access and share your files, calendars, contacts, mail and more from any device, on your terms.
+
+  Where the app asks for a password it hasn’t shown you, use the one on this app’s page.
+developer: "nextcloud and contributors"
+website: https://nextcloud.com/
+repo: https://github.com/nextcloud/server
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""
+# The password is generated per server by Omarchy Server and shown on the app’s page.
+deterministicPassword: true

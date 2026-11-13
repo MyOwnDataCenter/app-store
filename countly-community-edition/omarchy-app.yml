@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: countly-community-edition
+name: "Countly Community Edition"
+tagline: "Real time mobile and web analytics, crash reporting and push"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/countly-community-edition.png
+category: developer
+version: "latest"
+port: 10149
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: nginx
+  port: 8080
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Real time mobile and web analytics, crash reporting and push notifications platform.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "Countly and contributors"
+website: https://count.ly
+repo: https://github.com/Countly/countly-server
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

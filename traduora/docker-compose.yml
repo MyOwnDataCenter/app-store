@@ -1,0 +1,17 @@
+# Traduora: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  traduora:
+    image: everco/ever-traduora:latest
+    restart: unless-stopped
+    entrypoint: ./docker-entrypoint.compose.sh
+    environment:
+      TR_SECRET: ""
+      TR_DB_TYPE: better-sqlite3
+      TR_DB_SQLITE_PATH: api/data/tr_dev.sqlite3
+      NODE_ENV: development
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/traduora_sqlite_data:/app/api/data"
+    ports:
+      - "10135:8080"

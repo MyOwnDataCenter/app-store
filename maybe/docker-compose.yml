@@ -1,0 +1,62 @@
+# Maybe: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  web:
+    image: ghcr.io/maybe-finance/maybe:0.6.0@sha256:1e791e88ecc4d124d05142d943bcec5b5a172e889f648c97d334363133384f01
+    restart: unless-stopped
+    stop_grace_period: 1m
+    environment:
+      SELF_HOSTING_ENABLED: "true"
+      PORT: "3063"
+      DATABASE_URL: "postgresql://maybe:${APP_PASSWORD:?set APP_PASSWORD}@maybe%5Fdb%5F1:5432/maybe"
+      RAILS_FORCE_SSL: "false"
+      RAILS_ASSUME_SSL: "false"
+      POSTGRES_DB: maybe
+      POSTGRES_USER: maybe
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      GOOD_JOB_EXECUTION_MODE: async
+      SECRET_KEY_BASE: "${APP_SEED:?set APP_SEED}"
+      REDIS_URL: "redis://redis:6379/1"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/rails:/rails/storage"
+    depends_on:
+      - db
+      - redis
+    ports:
+      - "3063:3063"
+  worker:
+    image: ghcr.io/maybe-finance/maybe:0.6.0@sha256:1e791e88ecc4d124d05142d943bcec5b5a172e889f648c97d334363133384f01
+    restart: unless-stopped
+    command: bundle exec sidekiq
+    environment:
+      SELF_HOSTING_ENABLED: "true"
+      PORT: "3063"
+      DATABASE_URL: "postgresql://maybe:${APP_PASSWORD:?set APP_PASSWORD}@maybe%5Fdb%5F1:5432/maybe"
+      RAILS_FORCE_SSL: "false"
+      RAILS_ASSUME_SSL: "false"
+      POSTGRES_DB: maybe
+      POSTGRES_USER: maybe
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      GOOD_JOB_EXECUTION_MODE: async
+      SECRET_KEY_BASE: "${APP_SEED:?set APP_SEED}"
+      REDIS_URL: "redis://redis:6379/1"
+    depends_on:
+      - redis
+  db:
+    image: postgres:16@sha256:1bf73ccae25238fa555100080042f0b2f9be08eb757e200fe6afc1fc413a1b3c
+    restart: unless-stopped
+    stop_grace_period: 1m
+    environment:
+      POSTGRES_DB: maybe
+      POSTGRES_USER: maybe
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/postgres:/var/lib/postgresql/data"
+  redis:
+    image: redis:7.4.2@sha256:fbdbaea47b9ae4ecc2082ecdb4e1cea81e32176ffb1dcf643d422ad07427e5d9
+    restart: unless-stopped
+    user: "1000:1000"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/redis:/data"

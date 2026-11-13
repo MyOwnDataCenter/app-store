@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: stremio
+name: "Stremio"
+tagline: "Stream films and series with add-ons"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/stremio.png
+category: media
+version: "latest"
+port: 8100
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: stremio
+  port: 8080
+# Ports that must be reachable from your network.
+openPorts: [11470]
+description: >-
+  Runs the Stremio streaming server and web player, which finds content through add-ons.
+developer: "Stremio project"
+website: https://hub.docker.com/r/tsaridas/stremio-docker
+repo: https://hub.docker.com/r/tsaridas/stremio-docker
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

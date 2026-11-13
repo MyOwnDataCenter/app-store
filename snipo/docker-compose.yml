@@ -1,0 +1,26 @@
+# Snipo: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  snipo:
+    image: ghcr.io/mohamedelashri/snipo:latest
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      SNIPO_MASTER_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      SNIPO_SESSION_SECRET: "${APP_SEED:?set APP_SEED}"
+      SNIPO_HOST: "0.0.0.0"
+      SNIPO_PORT: "8080"
+      SNIPO_LOG_LEVEL: info
+      SNIPO_LOG_FORMAT: json
+      SNIPO_RATE_LIMIT_READ: "1000"
+      SNIPO_RATE_LIMIT_WRITE: "500"
+      SNIPO_RATE_LIMIT_ADMIN: "100"
+      SNIPO_ENABLE_PUBLIC_SNIPPETS: "true"
+      SNIPO_ENABLE_API_TOKENS: "true"
+      SNIPO_ENABLE_BACKUP_RESTORE: "true"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/snipo_data:/data"
+      - "${APP_DATA_DIR:-.}/data/snipo-tmp:/tmp"
+    ports:
+      - "10100:8080"

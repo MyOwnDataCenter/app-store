@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: holoplay
+name: "HoloPlay"
+tagline: "Listen to YouTube as audio"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/holoplay.png
+category: media
+version: "latest"
+port: 10031
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: holoplay
+  port: 3000
+description: >-
+  HoloPlay plays YouTube as audio only, with playlists and a music-player interface.
+developer: "HoloPlay project"
+website: https://hub.docker.com/r/spout8301/holoplay
+repo: https://hub.docker.com/r/spout8301/holoplay
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

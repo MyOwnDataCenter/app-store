@@ -1,0 +1,97 @@
+# Aleph: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  postgres:
+    image: postgres:10.0
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: aleph
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      POSTGRES_DATABASE: aleph
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/postgres-data:/var/lib/postgresql/data"
+  elasticsearch:
+    image: ghcr.io/alephdata/aleph-elasticsearch:3bb5dbed97cfdb9955324d11e5c623a5c5bbc410
+    restart: unless-stopped
+    environment:
+      discovery.type: single-node
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/elasticsearch-data:/usr/share/elasticsearch/data"
+  redis:
+    image: redis:alpine
+    restart: unless-stopped
+    command:
+      - redis-server
+      - "--save"
+      - "3600"
+      - "10"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/redis-data:/data"
+  rabbitmq:
+    image: rabbitmq:3.9-management-alpine
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/rabbitmq-data:/var/lib/rabbitmq/"
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+  ingest-file:
+    image: ghcr.io/alephdata/ingest-file:4.1.2
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/archive-data:/data"
+    tmpfs:
+      - "/tmp:mode=777"
+    depends_on:
+      - postgres
+      - redis
+  worker:
+    image: ghcr.io/alephdata/aleph:${ALEPH_TAG:-4.1.7}
+    restart: unless-stopped
+    command: aleph worker
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/archive-data:/data"
+    tmpfs:
+      - /tmp
+    depends_on:
+      - postgres
+      - elasticsearch
+      - redis
+      - ingest-file
+  shell:
+    image: ghcr.io/alephdata/aleph:${ALEPH_TAG:-4.1.7}
+    restart: unless-stopped
+    command: /bin/bash
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/archive-data:/data"
+      - "${APP_DATA_DIR:-.}/data/mappings:/aleph/mappings"
+      - "${APP_DATA_DIR:-.}/data/~:/host"
+    tmpfs:
+      - /tmp
+    depends_on:
+      - postgres
+      - elasticsearch
+      - redis
+      - ingest-file
+      - worker
+  api:
+    image: ghcr.io/alephdata/aleph:${ALEPH_TAG:-4.1.7}
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/archive-data:/data"
+    tmpfs:
+      - /tmp
+    depends_on:
+      - postgres
+      - elasticsearch
+      - redis
+      - worker
+      - ingest-file
+  ui:
+    image: ghcr.io/alephdata/aleph-ui-production:${ALEPH_TAG:-4.1.7}
+    restart: unless-stopped
+    depends_on:
+      - api
+    ports:
+      - "10072:8080"

@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: smallweb
+name: "Smallweb"
+tagline: "Host small websites from folders"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/smallweb.png
+category: developer
+version: "latest"
+port: 7777
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: smallweb
+  port: 7777
+description: >-
+  Smallweb turns each folder into its own website or app, so publishing is as simple as creating a folder.
+developer: "pomdtr and contributors"
+website: https://smallweb.run
+repo: https://github.com/pomdtr/smallweb
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

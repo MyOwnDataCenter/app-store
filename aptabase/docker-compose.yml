@@ -1,0 +1,25 @@
+# Aptabase: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  pgdev:
+    image: postgres:15
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: aptabase
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/pgdev-data:/var/lib/postgresql/data"
+  clickhousedev:
+    image: clickhouse/clickhouse-server:26.8.36.3
+    restart: unless-stopped
+    environment:
+      CLICKHOUSE_USER: aptabase
+      CLICKHOUSE_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/clickhousedev-data:/var/lib/clickhouse"
+  mailcatcher:
+    image: dockage/mailcatcher:0.8.2
+    restart: unless-stopped
+    ports:
+      - "10106:1025"

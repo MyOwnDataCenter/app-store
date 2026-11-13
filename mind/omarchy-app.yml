@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: mind
+name: "Mind"
+tagline: "Reminders sent to any notification service"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/mind.png
+category: files
+version: "latest"
+port: 8143
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: mind
+  port: 8080
+description: >-
+  MIND schedules reminders and delivers them to apps such as Telegram, Discord or email through Apprise.
+developer: "Casvt and contributors"
+website: https://casvt.github.io/MIND/
+repo: https://github.com/Casvt/MIND
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

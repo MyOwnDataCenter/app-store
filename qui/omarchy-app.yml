@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: qui
+name: "Qui"
+tagline: "A fast interface for qBittorrent"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/qui.png
+category: media
+version: "latest"
+port: 7476
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: qui
+  port: 7476
+description: >-
+  qui is a modern web interface for managing one or more qBittorrent instances.
+developer: "Qui project"
+website: https://github.com/autobrr/qui
+repo: https://github.com/autobrr/qui
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

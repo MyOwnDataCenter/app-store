@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: inspircd
+name: "Inspircd"
+tagline: "Modular IRC server written in C++ for Linux, BSD, Windows, and macOS"
+icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/inspircd.webp
+category: social
+version: "latest"
+port: 6697
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: inspircd
+  port: 6697
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Modular IRC server written in C++ for Linux, BSD, Windows, and macOS.
+developer: "inspircd and contributors"
+website: https://www.inspircd.org/
+repo: https://github.com/inspircd/inspircd
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

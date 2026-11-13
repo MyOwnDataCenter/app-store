@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: mailarchiver
+name: "Mail Archiver"
+tagline: "Web application for archiving, searching, and exporting emails from"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/mail-archiver.webp
+category: files
+version: "latest"
+port: 10004
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: app
+  port: 5000
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Web application for archiving, searching, and exporting emails from multiple accounts (IMAP, M365 or Import).
+  Featuring folder sync, attachment support, mailbox migration and a dashboard.
+developer: "s1t5 and contributors"
+website: https://github.com/s1t5/mail-archiver
+repo: https://github.com/s1t5/mail-archiver
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

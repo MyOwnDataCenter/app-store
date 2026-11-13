@@ -1,0 +1,39 @@
+# Countly Community Edition: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  mongodb:
+    image: bitnami/mongodb:latest
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/mongodb_data:/bitnami"
+  countly-api:
+    image: countly/api:latest
+    restart: unless-stopped
+    environment:
+      COUNTLY_PLUGINS: "mobile,web,desktop,plugins,density,locale,browser,sources,views,logger,systemlogs,populator,reports,crashes,push,star-rating,slipping-away-users,compare,server-stats,dbviewer,times-of-day,compliance-hub,alerts,onboarding,consolidate,remote-config,hooks,dashboards,sdk,data-manager"
+      COUNTLY_CONFIG__MONGODB_HOST: mongodb
+      COUNTLY_CONFIG_API_API_WORKERS: "4"
+      COUNTLY_CONFIG__FILESTORAGE: "\"gridfs\""
+      NODE_OPTIONS: "--max-old-space-size=2048 --no-node-snapshot"
+    depends_on:
+      - mongodb
+  countly-frontend:
+    image: countly/frontend:latest
+    restart: unless-stopped
+    environment:
+      COUNTLY_PLUGINS: "mobile,web,desktop,plugins,density,locale,browser,sources,views,logger,systemlogs,populator,reports,crashes,push,star-rating,slipping-away-users,compare,server-stats,dbviewer,times-of-day,compliance-hub,alerts,onboarding,consolidate,remote-config,hooks,dashboards,sdk,data-manager"
+      COUNTLY_CONFIG__MONGODB_HOST: mongodb
+      NODE_OPTIONS: "--max-old-space-size=2048 --no-node-snapshot"
+    depends_on:
+      - mongodb
+  nginx:
+    image: bitnami/nginx
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/bin/docker/nginx.server.conf:/opt/bitnami/nginx/conf/server_blocks/countly.conf:ro"
+    depends_on:
+      - countly-api
+      - countly-frontend
+    ports:
+      - "10149:8080"

@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: ddns-go
+name: "ddns-go"
+tagline: "Dynamic DNS for many providers"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/ddns-go.png
+category: networking
+version: "latest"
+port: 10029
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: ddns-go
+  port: 9876
+description: >-
+  ddns-go keeps DNS records at providers such as Cloudflare up to date with your home IP address.
+developer: "ddns-go project"
+website: https://hub.docker.com/r/jeessy/ddns-go
+repo: https://hub.docker.com/r/jeessy/ddns-go
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

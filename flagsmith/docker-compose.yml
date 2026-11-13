@@ -1,0 +1,69 @@
+# Flagsmith: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  postgres:
+    image: postgres:15.5-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      POSTGRES_DB: flagsmith
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/pgdata:/var/lib/postgresql/data"
+  migrate-db:
+    image: docker.flagsmith.com/flagsmith/flagsmith:latest
+    restart: unless-stopped
+    command:
+      - migrate
+    environment:
+      DATABASE_URL: "postgresql://postgres:${APP_PASSWORD:?set APP_PASSWORD}@postgres:5432/flagsmith"
+      USE_POSTGRES_FOR_ANALYTICS: "true"
+      ENVIRONMENT: production
+      DJANGO_ALLOWED_HOSTS: "*"
+      FLAGSMITH_DOMAIN: "localhost:8000"
+      DJANGO_SECRET_KEY: "${APP_SEED:?set APP_SEED}"
+      WAREHOUSE_CREDENTIALS_SECRET: "${APP_SEED:?set APP_SEED}"
+      TASK_RUN_METHOD: TASK_PROCESSOR
+      PROMETHEUS_ENABLED: "true"
+      EXPERIMENTATION_ENABLED: "true"
+    depends_on:
+      - postgres
+  flagsmith:
+    image: docker.flagsmith.com/flagsmith/flagsmith:latest
+    restart: unless-stopped
+    command:
+      - serve
+    environment:
+      DATABASE_URL: "postgresql://postgres:${APP_PASSWORD:?set APP_PASSWORD}@postgres:5432/flagsmith"
+      USE_POSTGRES_FOR_ANALYTICS: "true"
+      ENVIRONMENT: production
+      DJANGO_ALLOWED_HOSTS: "*"
+      FLAGSMITH_DOMAIN: "localhost:8000"
+      DJANGO_SECRET_KEY: "${APP_SEED:?set APP_SEED}"
+      WAREHOUSE_CREDENTIALS_SECRET: "${APP_SEED:?set APP_SEED}"
+      TASK_RUN_METHOD: TASK_PROCESSOR
+      PROMETHEUS_ENABLED: "true"
+      EXPERIMENTATION_ENABLED: "true"
+    depends_on:
+      - migrate-db
+    ports:
+      - "10066:8000"
+  flagsmith-task-processor:
+    image: docker.flagsmith.com/flagsmith/flagsmith:latest
+    restart: unless-stopped
+    command: run-task-processor
+    environment:
+      DATABASE_URL: "postgresql://postgres:${APP_PASSWORD:?set APP_PASSWORD}@postgres:5432/flagsmith"
+      USE_POSTGRES_FOR_ANALYTICS: "true"
+      ENVIRONMENT: production
+      DJANGO_ALLOWED_HOSTS: "*"
+      FLAGSMITH_DOMAIN: "localhost:8000"
+      DJANGO_SECRET_KEY: "${APP_SEED:?set APP_SEED}"
+      WAREHOUSE_CREDENTIALS_SECRET: "${APP_SEED:?set APP_SEED}"
+      TASK_RUN_METHOD: TASK_PROCESSOR
+      PROMETHEUS_ENABLED: "true"
+      EXPERIMENTATION_ENABLED: "true"
+    depends_on:
+      - migrate-db
+    ports:
+      - "8001:8000"

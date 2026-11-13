@@ -1,0 +1,12 @@
+# Monero Daemon: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  monerod:
+    image: sethsimmons/simple-monerod:v0.18.3.4
+    restart: unless-stopped
+    command: "--rpc-restricted-bind-ip=0.0.0.0 --rpc-restricted-bind-port=18089 --public-node --no-igd --enable-dns-blocklist --prune-blockchain --zmq-pub=tcp://0.0.0.0:18083"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data:/home/monero/.bitmonero"
+    ports:
+      - "18080:18080"

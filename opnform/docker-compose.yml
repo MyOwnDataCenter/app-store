@@ -1,0 +1,103 @@
+# OpnForm: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  api:
+    image: jhumanj/opnform-api:latest
+    restart: unless-stopped
+    environment:
+      APP_ENV: production
+      DB_HOST: db
+      REDIS_HOST: redis
+      DB_DATABASE: forge
+      DB_USERNAME: forge
+      DB_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      DB_CONNECTION: pgsql
+      PHP_MEMORY_LIMIT: 1G
+      PHP_MAX_EXECUTION_TIME: "600"
+      PHP_UPLOAD_MAX_FILESIZE: 64M
+      PHP_POST_MAX_SIZE: 64M
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/opnform_storage:/usr/share/nginx/html/storage"
+    depends_on:
+      - db
+      - redis
+  api-worker:
+    image: jhumanj/opnform-api:latest
+    restart: unless-stopped
+    command:
+      - php
+      - artisan
+      - "queue:work"
+    environment:
+      APP_ENV: production
+      DB_HOST: db
+      REDIS_HOST: redis
+      DB_DATABASE: forge
+      DB_USERNAME: forge
+      DB_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      DB_CONNECTION: pgsql
+      PHP_MEMORY_LIMIT: 1G
+      PHP_MAX_EXECUTION_TIME: "600"
+      PHP_UPLOAD_MAX_FILESIZE: 64M
+      PHP_POST_MAX_SIZE: 64M
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/opnform_storage:/usr/share/nginx/html/storage"
+    depends_on:
+      - db
+      - redis
+  api-scheduler:
+    image: jhumanj/opnform-api:latest
+    restart: unless-stopped
+    command:
+      - php
+      - artisan
+      - "schedule:work"
+    environment:
+      APP_ENV: production
+      DB_HOST: db
+      REDIS_HOST: redis
+      DB_DATABASE: forge
+      DB_USERNAME: forge
+      DB_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      DB_CONNECTION: pgsql
+      PHP_MEMORY_LIMIT: 1G
+      PHP_MAX_EXECUTION_TIME: "600"
+      PHP_UPLOAD_MAX_FILESIZE: 64M
+      PHP_POST_MAX_SIZE: 64M
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/opnform_storage:/usr/share/nginx/html/storage"
+    depends_on:
+      - db
+      - redis
+  ui:
+    image: jhumanj/opnform-client:latest
+    restart: unless-stopped
+    depends_on:
+      - api
+  redis:
+    image: redis:7
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/redis-data:/data"
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: forge
+      POSTGRES_USER: forge
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/postgres-data:/var/lib/postgresql/data"
+  ingress:
+    image: nginx:1
+    restart: unless-stopped
+    environment:
+      NGINX_MAX_BODY_SIZE: 64m
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/docker/nginx.conf:/etc/nginx/templates/default.conf.template"
+    depends_on:
+      - api
+      - ui
+    ports:
+      - "10108:80"

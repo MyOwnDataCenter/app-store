@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: filerise
+name: "FileRise"
+tagline: "Web file manager with uploads, tagging, share links, gallery/table"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/filerise.webp
+category: files
+version: "latest"
+port: 10078
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: filerise
+  port: 80
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Web file manager with uploads, tagging, share links, gallery/table views, and an in-browser editor.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "error311 and contributors"
+website: https://github.com/error311/FileRise
+repo: https://github.com/error311/FileRise
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

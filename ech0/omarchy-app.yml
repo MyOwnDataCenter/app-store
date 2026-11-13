@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: ech0
+name: "Ech0"
+tagline: "Lightweight federated publishing platform focused on personal idea"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/ech0.png
+category: social
+version: "latest"
+port: 6277
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: ech0
+  port: 6277
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Lightweight federated publishing platform focused on personal idea sharing (documentation in Chinese).
+
+  Packaged from the compose file in the project’s own repository.
+developer: "lin-snow and contributors"
+website: https://ech0.app/
+repo: https://github.com/lin-snow/Ech0
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

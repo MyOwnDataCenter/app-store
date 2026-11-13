@@ -1,0 +1,29 @@
+manifestVersion: 1
+id: drawdb
+name: "drawDB"
+tagline: "Browser-based visual and DBML database diagram editor and SQL generator"
+icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/drawdb.webp
+category: developer
+version: "latest"
+port: 5173
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: drawdb
+  port: 5173
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Browser-based visual and DBML database diagram editor and SQL generator for MySQL, PostgreSQL, SQLite,
+  MariaDB, MSSQL and Oracle.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "drawdb-io and contributors"
+website: https://www.drawdb.app
+repo: https://github.com/drawdb-io/drawdb
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

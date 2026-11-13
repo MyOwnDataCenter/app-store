@@ -1,0 +1,143 @@
+# Solidtime: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  app:
+    image: solidtime/solidtime:0.22.1@sha256:ea8cbb7aab29646098bcdcf050e6864e421907c6f5c36307a79bd7a6e34587c0
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      CONTAINER_MODE: http
+      AUTO_DB_MIGRATE: "true"
+      APP_NAME: solidtime
+      VITE_APP_NAME: solidtime
+      APP_ENV: production
+      APP_DEBUG: "false"
+      APP_URL: "http://${SERVER_IP:-localhost}:8770"
+      APP_FORCE_HTTPS: "false"
+      TRUSTED_PROXIES: "0.0.0.0/0,2000:0:0:0:0:0:0:0/3"
+      TRUSTED_HOSTS: "${SERVER_IP:-localhost},${SERVER_IP:-localhost},${SERVER_IP:-localhost},${APP_HIDDEN_SERVICE},http://${SERVER_IP:-localhost}:8770"
+      SUPER_ADMINS: "umbrel@umbrel.local"
+      LOG_CHANNEL: stderr_daily
+      LOG_LEVEL: debug
+      DB_CONNECTION: pgsql
+      DB_HOST: db
+      DB_PORT: "5432"
+      DB_SSL_MODE: prefer
+      DB_DATABASE: solidtime
+      DB_USERNAME: solidtime
+      DB_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      MAIL_MAILER: smtp
+      MAIL_HOST: ""
+      MAIL_PORT: ""
+      MAIL_ENCRYPTION: tls
+      MAIL_FROM_ADDRESS: "no-reply@your-domain.com"
+      MAIL_FROM_NAME: solidtime
+      MAIL_USERNAME: ""
+      MAIL_PASSWORD: ""
+      QUEUE_CONNECTION: database
+      FILESYSTEM_DISK: local
+      PUBLIC_FILESYSTEM_DISK: public
+      GOTENBERG_URL: "http://gotenberg:3000"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/app:/var/www/html/storage"
+    depends_on:
+      - db
+    ports:
+      - "8770:8000"
+  scheduler:
+    image: solidtime/solidtime:0.22.1@sha256:ea8cbb7aab29646098bcdcf050e6864e421907c6f5c36307a79bd7a6e34587c0
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      CONTAINER_MODE: scheduler
+      APP_NAME: solidtime
+      VITE_APP_NAME: solidtime
+      APP_ENV: production
+      APP_DEBUG: "false"
+      APP_URL: "http://${SERVER_IP:-localhost}:8770"
+      APP_FORCE_HTTPS: "false"
+      TRUSTED_PROXIES: "0.0.0.0/0,2000:0:0:0:0:0:0:0/3"
+      TRUSTED_HOSTS: "${SERVER_IP:-localhost},${SERVER_IP:-localhost},${SERVER_IP:-localhost},${APP_HIDDEN_SERVICE},http://${SERVER_IP:-localhost}:8770"
+      SUPER_ADMINS: "umbrel@umbrel.local"
+      LOG_CHANNEL: stderr_daily
+      LOG_LEVEL: debug
+      DB_CONNECTION: pgsql
+      DB_HOST: db
+      DB_PORT: "5432"
+      DB_SSL_MODE: prefer
+      DB_DATABASE: solidtime
+      DB_USERNAME: solidtime
+      DB_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      MAIL_MAILER: smtp
+      MAIL_HOST: ""
+      MAIL_PORT: ""
+      MAIL_ENCRYPTION: tls
+      MAIL_FROM_ADDRESS: "no-reply@your-domain.com"
+      MAIL_FROM_NAME: solidtime
+      MAIL_USERNAME: ""
+      MAIL_PASSWORD: ""
+      QUEUE_CONNECTION: database
+      FILESYSTEM_DISK: local
+      PUBLIC_FILESYSTEM_DISK: public
+      GOTENBERG_URL: "http://gotenberg:3000"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/app:/var/www/html/storage"
+    depends_on:
+      - db
+  queue:
+    image: solidtime/solidtime:0.22.1@sha256:ea8cbb7aab29646098bcdcf050e6864e421907c6f5c36307a79bd7a6e34587c0
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      CONTAINER_MODE: worker
+      WORKER_COMMAND: "php /var/www/html/artisan queue:work"
+      APP_NAME: solidtime
+      VITE_APP_NAME: solidtime
+      APP_ENV: production
+      APP_DEBUG: "false"
+      APP_URL: "http://${SERVER_IP:-localhost}:8770"
+      APP_FORCE_HTTPS: "false"
+      TRUSTED_PROXIES: "0.0.0.0/0,2000:0:0:0:0:0:0:0/3"
+      TRUSTED_HOSTS: "${SERVER_IP:-localhost},${SERVER_IP:-localhost},${SERVER_IP:-localhost},${APP_HIDDEN_SERVICE},http://${SERVER_IP:-localhost}:8770"
+      SUPER_ADMINS: "umbrel@umbrel.local"
+      LOG_CHANNEL: stderr_daily
+      LOG_LEVEL: debug
+      DB_CONNECTION: pgsql
+      DB_HOST: db
+      DB_PORT: "5432"
+      DB_SSL_MODE: prefer
+      DB_DATABASE: solidtime
+      DB_USERNAME: solidtime
+      DB_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      MAIL_MAILER: smtp
+      MAIL_HOST: ""
+      MAIL_PORT: ""
+      MAIL_ENCRYPTION: tls
+      MAIL_FROM_ADDRESS: "no-reply@your-domain.com"
+      MAIL_FROM_NAME: solidtime
+      MAIL_USERNAME: ""
+      MAIL_PASSWORD: ""
+      QUEUE_CONNECTION: database
+      FILESYSTEM_DISK: local
+      PUBLIC_FILESYSTEM_DISK: public
+      GOTENBERG_URL: "http://gotenberg:3000"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/app:/var/www/html/storage"
+    depends_on:
+      - db
+  db:
+    image: postgres:17.3@sha256:0321e2252ebfeecb8bc1a899755084d29bce872953e1a5a3e25ec0860b739098
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      PGPASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      POSTGRES_DB: solidtime
+      POSTGRES_USER: solidtime
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/db:/var/lib/postgresql/data"
+  gotenberg:
+    image: gotenberg/gotenberg:8.17.1@sha256:46e7b68adeadda1794a9ab194f1e2939f5b09ff21aadef6000e84102c9af6dd5
+    restart: unless-stopped
+    user: "1000:1000"

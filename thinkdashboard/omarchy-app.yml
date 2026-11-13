@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: thinkdashboard
+name: "ThinkDashboard"
+tagline: "A bookmark start page with keyboard shortcuts"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/thinkdashboard.png
+category: files
+version: "latest"
+port: 8229
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: server
+  port: 8080
+description: >-
+  ThinkDashboard is a minimal, text-based start page where every bookmark can be opened with a keyboard
+  shortcut.
+developer: "MatiasDesuu and contributors"
+website: https://github.com/MatiasDesuu/ThinkDashboard
+repo: https://github.com/MatiasDesuu/ThinkDashboard
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

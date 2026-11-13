@@ -1,0 +1,31 @@
+manifestVersion: 1
+id: myfin-budget
+name: "MyFin Budget"
+tagline: "Personal finances platform (web + REST API + Android) that'll help you"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/myfin-budget.png
+category: finance
+version: "latest"
+port: 10097
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: myfin-frontend
+  port: 80
+# Ports that must be reachable from your network.
+openPorts: [3306]
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Personal finances platform (web + REST API + Android) that'll help you budget, keep track of your
+  income/spending and forecast your financial future.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "afaneca and contributors"
+website: https://myfinbudget.com
+repo: https://github.com/afaneca/myfin
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

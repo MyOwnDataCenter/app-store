@@ -1,0 +1,58 @@
+# Nametag: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  nametag:
+    image: ghcr.io/mattogodoy/nametag:0.64.0
+    restart: unless-stopped
+    command:
+      - "set -a\n. /app/data/secrets.env\nset +a\nexec docker-entrypoint.sh node server.js\n"
+    entrypoint:
+      - /bin/sh
+      - "-c"
+    environment:
+      DB_HOST: nametag-db
+      DB_PORT: "5432"
+      DB_NAME: nametag
+      DB_USER: nametag
+      NEXTAUTH_URL: "http://localhost:10300"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data:/app/data"
+    depends_on:
+      - nametag-init
+      - nametag-db
+    ports:
+      - "10300:3000"
+  nametag-init:
+    image: alpine:3.20
+    restart: unless-stopped
+    command:
+      - /bin/sh
+      - "-c"
+      - "set -e\ncd /data\nif [ ! -f secrets.env ]; then\n  umask 077\n  {\n    printf 'NEXTAUTH_SECRET='\n    head -c 32 /dev/urandom | od -An -tx1 | tr -d ' \\n'\n    printf '\\nCRON_SECRET='\n    head -c 24 /dev/urandom | od -An -tx1 | tr -d ' \\n'\n    printf '\\nDB_PASSWORD='\n    # Keep the database password if Postgres already has one.\n    if [ -s /db-secret/password ]; then\n      tr -d '\\n' < /db-secret/password\n    else\n      head -c 24 /dev/urandom | od -An -tx1 | tr -d ' \\n'\n    fi\n    printf '\\n'\n  } > secrets.env.tmp\n  mv secrets.env.tmp secrets.env\nfi\numask 077\nsed -n 's/^DB_PASSWORD=//p' secrets.env | tr -d '\\n' > /db-secret/password\nchown 70:70 /db-secret/password\nchown -R 1001:1001 /data\n"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data:/data"
+      - "${APP_DATA_DIR:-.}/data/db-secret:/db-secret"
+  nametag-db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: nametag
+      POSTGRES_PASSWORD_FILE: /run/nametag/password
+      POSTGRES_DB: nametag
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/postgres:/var/lib/postgresql/data"
+      - "${APP_DATA_DIR:-.}/data/db-secret:/run/nametag"
+    depends_on:
+      - nametag-init
+  nametag-cron:
+    image: alpine:3.20
+    restart: unless-stopped
+    command:
+      - /bin/sh
+      - "-c"
+      - "while [ ! -f /data/secrets.env ]; do sleep 2; done\nprintf '%s\\n' \\\n  '0 8 * * * send-reminders' \\\n  '0 3 * * * purge-deleted' \\\n  '0 2,10,18 * * * carddav-sync' \\\n  '*/5 * * * * geocode' > /tmp/jobs\nsed -n 's/^CRON_SECRET=//p' /data/secrets.env > /tmp/secret\nsed 's|^\\(.* \\)\\([a-z-]*\\)|\\1wget -q -O - --header=\"Authorization: Bearer SECRET\" http://nametag:3000/api/cron/\\2 > /proc/1/fd/1 2>\\&1|' /tmp/jobs > /tmp/crontab\nsed \"s|SECRET|`cat /tmp/secret`|\" /tmp/crontab > /etc/crontabs/root\nrm -f /tmp/jobs /tmp/secret /tmp/crontab\nexec crond -f -l 2\n"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/data:/data"
+    depends_on:
+      - nametag

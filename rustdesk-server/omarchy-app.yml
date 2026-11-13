@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: rustdesk-server
+name: "RustDesk Server"
+tagline: "Your own remote-desktop relay"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/rustdesk-server.png
+category: networking
+version: "latest"
+port: 21080
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: web
+  port: 80
+# Ports that must be reachable from your network.
+openPorts: [21115, 21116, 21117, 21118, 21119]
+description: >-
+  RustDesk Server is the ID and relay server for RustDesk, so remote-desktop connections go through your own
+  server.
+developer: "rustdesk and contributors"
+website: https://rustdesk.com
+repo: https://github.com/rustdesk/rustdesk-server
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

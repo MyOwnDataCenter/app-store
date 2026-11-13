@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: traduora
+name: "Traduora"
+tagline: "Translation management platform for teams"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/traduora.png
+category: developer
+version: "latest"
+port: 10135
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: traduora
+  port: 8080
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Translation management platform for teams.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "ever-co and contributors"
+website: https://traduora.co
+repo: https://github.com/ever-co/ever-traduora
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

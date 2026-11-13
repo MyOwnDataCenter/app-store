@@ -1,0 +1,29 @@
+manifestVersion: 1
+id: this-week-in-past
+name: "This week in past"
+tagline: "Aggregates images taken this week, from previous years and presents"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/this-week-in-past.png
+category: photography
+version: "latest"
+port: 10058
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: this-week-in-past
+  port: 8080
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  Aggregates images taken this week, from previous years and presents them on a web page with a simple
+  slideshow.
+
+  Packaged from the compose file in the project’s own repository.
+developer: "RouHim and contributors"
+website: https://github.com/RouHim/this-week-in-past
+repo: https://github.com/RouHim/this-week-in-past
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

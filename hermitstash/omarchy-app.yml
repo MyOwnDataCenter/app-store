@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: hermitstash
+name: "HermitStash"
+tagline: "File sharing with post-quantum encryption"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/hermitstash.png
+category: files
+version: "latest"
+port: 3081
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: web
+  port: 3000
+description: >-
+  HermitStash is a file upload and sharing server that encrypts every file and record with a hybrid post-quantum
+  scheme before storing it.
+developer: "dotCooCoo and contributors"
+website: https://hermitstash.com
+repo: https://github.com/dotCooCoo/hermitstash
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

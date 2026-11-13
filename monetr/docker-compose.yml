@@ -1,0 +1,48 @@
+# Monetr: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  db:
+    image: postgres:17.9@sha256:7ad98329d513dd497293b951c195ca354274a77f12ddbbbbf85e68a811823d72
+    restart: unless-stopped
+    user: "1000:1000"
+    environment:
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      POSTGRES_USER: postgres
+      POSTGRES_DB: monetr
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/db:/var/lib/postgresql/data"
+  valkey:
+    image: valkey/valkey:9@sha256:3b55fbaa0cd93cf0d9d961f405e4dfcc70efe325e2d84da207a0a8e6d8fde4f9
+    restart: unless-stopped
+    user: "1000:1000"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/valkey:/data"
+  monetr:
+    image: ghcr.io/monetr/monetr:1.22.1@sha256:b761df02afd63d6da5c16f309b00628023c713ba1e0c9c7038af16771628d021
+    restart: unless-stopped
+    user: "1000:1000"
+    command:
+      - serve
+      - "--migrate"
+      - "--generate-certificates"
+    environment:
+      MONETR_ALLOW_SIGN_UP: "true"
+      MONETR_PROOF_OF_WORK_ENABLED: "false"
+      MONETR_PG_USERNAME: postgres
+      MONETR_PG_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      MONETR_PG_DATABASE: monetr
+      MONETR_PG_ADDRESS: db
+      MONETR_PG_PORT: "5432"
+      MONETR_REDIS_ENABLED: "true"
+      MONETR_REDIS_ADDRESS: valkey
+      MONETR_REDIS_PORT: "6379"
+      MONETR_STORAGE_ENABLED: "true"
+      MONETR_STORAGE_PROVIDER: filesystem
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/app:/etc/monetr"
+    depends_on:
+      - db
+      - valkey
+    ports:
+      - "8379:4000"

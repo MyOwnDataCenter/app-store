@@ -1,0 +1,55 @@
+# UI Bakery: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  bakery-gateway:
+    image: cruibakeryonprem.azurecr.io/cloud/gateway:${UI_BAKERY_VERSION:-latest}
+    restart: unless-stopped
+    depends_on:
+      - bakery-front
+      - workbench-front
+      - bakery-back
+    ports:
+      - "10091:3030"
+  bakery-front:
+    image: cruibakeryonprem.azurecr.io/cloud/bakery-front:${UI_BAKERY_VERSION:-latest}
+    restart: unless-stopped
+  workbench-front:
+    image: cruibakeryonprem.azurecr.io/cloud/workbench-front:${UI_BAKERY_VERSION:-latest}
+    restart: unless-stopped
+  datasource:
+    image: cruibakeryonprem.azurecr.io/cloud/datasource:${UI_BAKERY_VERSION:-latest}
+    restart: unless-stopped
+  bakery-back:
+    image: cruibakeryonprem.azurecr.io/cloud/bakery-back:${UI_BAKERY_VERSION:-latest}
+    restart: unless-stopped
+    depends_on:
+      - db
+  automation:
+    image: cruibakeryonprem.azurecr.io/cloud/automation:${UI_BAKERY_VERSION:-latest}
+    restart: unless-stopped
+  python-runtime:
+    image: cruibakeryonprem.azurecr.io/cloud/python-runtime:${UI_BAKERY_VERSION:-latest}
+    restart: unless-stopped
+  db:
+    image: mysql:8.4
+    restart: unless-stopped
+    command: "--mysql-native-password=ON --skip-log-bin"
+    environment:
+      MYSQL_DATABASE: bakery
+      MYSQL_USER: bakery
+      MYSQL_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      MYSQL_ROOT_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/my-db:/var/lib/mysql"
+    cap_add:
+      - SYS_NICE
+  bakery-db:
+    image: postgres:16.1
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: bakery
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      POSTGRES_DB: bakery
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/internal-db:/var/lib/postgresql/data"

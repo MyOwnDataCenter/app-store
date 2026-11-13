@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: netdata
+name: "Netdata"
+tagline: "Real-time monitoring of your server"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/netdata.png
+category: files
+version: "latest"
+port: 19999
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: netdata
+  port: 19999
+description: >-
+  Netdata shows live, per-second charts for CPU, memory, disks, network and running apps.
+
+  It manages containers, so Omarchy Server asks before installing it.
+developer: "netdata and contributors"
+website: https://www.netdata.cloud/
+repo: https://github.com/netdata/netdata
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

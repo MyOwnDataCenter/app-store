@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: kiwix-serve
+name: "Kiwix Server"
+tagline: "HTTP daemon for serving wikis from ZIM files"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/kiwix-serve.png
+category: media
+version: "latest"
+port: 8169
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: kiwix-serve
+  port: 8080
+# Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
+description: >-
+  HTTP daemon for serving wikis from ZIM files.
+developer: "kiwix and contributors"
+website: https://github.com/kiwix/kiwix-tools
+repo: https://github.com/kiwix/kiwix-tools
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

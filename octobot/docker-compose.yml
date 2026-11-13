@@ -1,0 +1,15 @@
+# Octobot: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  octobot:
+    image: drakkarsoftware/octobot:2.1.13
+    restart: unless-stopped
+    environment:
+      TZ: "${TZ:-UTC}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/user:/octobot/user"
+      - "${APP_DATA_DIR:-.}/data/tentacles:/octobot/tentacles"
+      - "${APP_DATA_DIR:-.}/data/logs:/octobot/logs"
+    ports:
+      - "8825:5001"

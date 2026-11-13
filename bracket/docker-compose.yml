@@ -1,0 +1,28 @@
+# Bracket: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  bracket:
+    image: ghcr.io/evroon/bracket
+    restart: unless-stopped
+    environment:
+      ENVIRONMENT: DEVELOPMENT
+      CORS_ORIGINS: "http://localhost:8400"
+      PG_DSN: "postgresql://bracket_dev:${APP_PASSWORD:?set APP_PASSWORD}@postgres:5432/bracket_dev"
+      SERVE_FRONTEND: "True"
+      API_PREFIX: /api
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/bracket_static_data:/app/static"
+    depends_on:
+      - postgres
+    ports:
+      - "10098:8400"
+  postgres:
+    image: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: bracket_dev
+      POSTGRES_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      POSTGRES_USER: bracket_dev
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/bracket_pg_data:/var/lib/postgresql"

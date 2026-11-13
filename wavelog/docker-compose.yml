@@ -1,0 +1,27 @@
+# Wavelog: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  app:
+    image: ghcr.io/wavelog/wavelog:3.2.5@sha256:e371b599572bbd50b019acf8bf54009df7042bbd8f238d905a540d6e956b2c25
+    restart: unless-stopped
+    environment:
+      CI_ENV: docker
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/config:/var/www/html/application/config/docker"
+      - "${APP_DATA_DIR:-.}/data/uploads:/var/www/html/uploads"
+      - "${APP_DATA_DIR:-.}/data/userdata:/var/www/html/userdata"
+    depends_on:
+      - wavelog-db
+    ports:
+      - "10014:80"
+  wavelog-db:
+    image: mariadb:11.4@sha256:39596f079862334be04f4231664862e55d4febe54309cc62f750f2297de85b06
+    restart: unless-stopped
+    environment:
+      MARIADB_RANDOM_ROOT_PASSWORD: "True"
+      MARIADB_DATABASE: wavelog
+      MARIADB_USER: wavelog
+      MARIADB_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/db:/var/lib/mysql"

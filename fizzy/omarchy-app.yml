@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: fizzy
+name: "Fizzy"
+tagline: "A refreshingly simple Kanban board"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/fizzy.png
+category: social
+version: "latest"
+port: 8005
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: server
+  port: 80
+description: >-
+  Fizzy is a lightweight Kanban board from 37signals for tracking work in cards and columns without the clutter
+  of bigger tools.
+developer: "basecamp and contributors"
+website: https://www.fizzy.do
+repo: https://github.com/basecamp/fizzy
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

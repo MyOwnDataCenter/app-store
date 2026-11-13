@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: moodist
+name: "Moodist"
+tagline: "Ambient sounds for focus and calm"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/moodist.png
+category: media
+version: "latest"
+port: 8221
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: moodist
+  port: 8080
+description: >-
+  Moodist mixes ambient sounds such as rain, cafés and nature to help you focus or relax.
+developer: "remvze and contributors"
+website: https://moodist.mvze.net/
+repo: https://github.com/remvze/moodist
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

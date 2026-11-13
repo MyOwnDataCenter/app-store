@@ -1,0 +1,17 @@
+# DailyTxT: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  dailytxt:
+    image: phitux/dailytxt:2.6.4
+    restart: unless-stopped
+    environment:
+      SECRET_KEY: "${APP_SEED:?set APP_SEED}"
+      ALLOW_REGISTRATION: "True"
+      ADMIN_PASSWORD: "${APP_PASSWORD:?set APP_PASSWORD}"
+      DATA_INDENT: "2"
+      LOGOUT_AFTER_DAYS: "60"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/dailytxt:/data/"
+    ports:
+      - "8156:80"

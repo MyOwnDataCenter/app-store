@@ -1,0 +1,33 @@
+# dpaste: a plain Docker Compose file based on the project's own example.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  staticfiles:
+    image: staticfiles
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/package.json:/app/package.json"
+      - "${APP_DATA_DIR:-.}/data/package-log.json:/app/package-log.json"
+      - "${APP_DATA_DIR:-.}/data/client:/app/client:delegated"
+      - "${APP_DATA_DIR:-.}/data/dpaste/static:/app/dpaste/static"
+  app:
+    image: app
+    restart: unless-stopped
+    command: "./manage.py runserver 0:8000"
+    environment:
+      STATIC_ROOT: /collectstatic
+      DATABASE_URL: "sqlite:////db/dpaste.sqlite"
+      PORT: "8000"
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/.:/app:delegated"
+      - "${APP_DATA_DIR:-.}/data/data_collectstatic:/collectstatic"
+      - "${APP_DATA_DIR:-.}/data/data_db:/db"
+    ports:
+      - "10060:8000"
+  migration:
+    image: app
+    restart: unless-stopped
+    command: ./manage.py migrate --noinput
+    volumes:
+      - "${APP_DATA_DIR:-.}/data/.:/app:delegated"
+      - "${APP_DATA_DIR:-.}/data/data_db:/db"
