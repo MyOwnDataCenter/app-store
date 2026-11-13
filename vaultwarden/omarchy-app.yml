@@ -15,8 +15,8 @@ description: >-
   Vaultwarden is a light Bitwarden-compatible server: use the Bitwarden apps and browser extensions with your
   own server.
 
-  Browsers only let the web vault work over HTTPS, so reach it through Tailscale Serve, a Cloudflare tunnel or
-  Nginx Proxy Manager.
+  Browsers only allow it on secure (https://) pages, so Omarchy Server opens it over https:// with its own certificate.
+  Trust this server in Settings → Secure connection to stop the browser’s certificate warning.
 developer: "dani-garcia and contributors"
 website: https://github.com/dani-garcia
 repo: https://github.com/dani-garcia/vaultwarden
@@ -27,3 +27,5 @@ gallery: []
 dependencies: []
 defaultUsername: ""
 defaultPassword: ""
+# Needs a secure (https://) page in the browser; Omarchy Server opens it over https.
+requiresHttps: true

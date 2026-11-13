@@ -1,7 +1,7 @@
 manifestVersion: 1
 id: touchworkstation-brave-secure
 name: Brave (HTTPS)
-tagline: Brave on your server, for use through HTTPS and Cloudflare tunnels
+tagline: Brave on your server, streamed over a secure connection
 icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/brave-logo.png
 category: networking
 version: "1.99.56-ls145"
@@ -11,9 +11,9 @@ description: >-
   Your profile stays on your server, and downloads land in Home → Downloads.
 
 
-  ⚠️ Needs HTTPS. Selkies uses browser features (WebCodecs) that only work on secure pages, so open this app through
-  an HTTPS address, such as a Cloudflare tunnel or Tailscale Serve. Over a plain http:// address it will not stream.
-  On your home network or Tailscale without HTTPS, use the "Brave" or "Google Chrome" apps from this store instead.
+  Needs a secure page: Selkies uses browser features (WebCodecs) that only work on https:// pages. Omarchy Server
+  opens it over https:// with its own certificate. The first time, your browser may warn about the certificate; trust
+  this server in Settings → Secure connection to stop the warning.
 
 
   The container is hardened to be a browser only: no terminal, no sudo, no remote commands and no sidebar file transfers.
@@ -32,3 +32,5 @@ dependencies: []
 path: ""
 defaultUsername: ""
 defaultPassword: ""
+# Needs a secure (https://) page in the browser; Omarchy Server opens it over https.
+requiresHttps: true
