@@ -49,6 +49,13 @@ network administration; Stalwart uses the mail ports. Omarchy Server reads this 
 app's page, and installs only after you allow it. Container managers get your own rootless container engine, never a
 root one.
 
+### Checking a listing
+
+`npm ci`, then `npm run validate`, checks every app: both files are there and are valid YAML, the listing's `id`
+matches its folder, and its `web.service` is a service in the compose file. Warnings, such as an image that is
+not a fixed version, are counted but do not fail the run; add `--warnings` to list them. GitHub runs the same
+check on every pull request.
+
 ### Where the listings come from
 
 Every compose file here is written for this store. The image, ports, folders and settings for each app were
