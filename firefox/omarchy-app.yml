@@ -25,3 +25,5 @@ gallery: []
 dependencies: []
 defaultUsername: ""
 defaultPassword: ""
+# Its streamed desktop (Selkies) only works on a secure (https://) page; Omarchy Server opens it over https.
+requiresHttps: true
