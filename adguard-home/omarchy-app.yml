@@ -4,7 +4,7 @@ name: "AdGuard Home"
 tagline: "Network-wide ad and tracker blocking"
 icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/adguard-home.png
 category: networking
-version: "latest"
+version: "latest-2"
 port: 3003
 path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).

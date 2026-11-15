@@ -4,15 +4,17 @@ name: Google Chrome
 tagline: Google Chrome, running on your server and streamed to any device
 icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/chrome-logo.png
 category: networking
-version: "3.2.0"
+version: "3.2.0-2"
 port: 38780
+# The video stream (WebRTC) reaches your device on these ports, so the server's firewall lets them in.
+openPorts: [52200, 52201, 52202, 52203, 52204, 52205, 52206, 52207, 52208, 52209]
 description: >-
   A full Google Chrome browser that runs on your server and streams to your phone, tablet or computer, powered by Neko (WebRTC).
   Your profile, bookmarks, passwords and extensions stay on your server, and downloads land in Home → Downloads.
 
 
   Works on your home network and over Tailscale. It does not stream through a Cloudflare tunnel, because the video uses
-  WebRTC on ports 52200-52240 (UDP) of your server. For access through Cloudflare, install "Brave (HTTPS)" instead.
+  WebRTC on ports 52200-52209 (UDP) of your server. For access through Cloudflare, install "Brave (HTTPS)" instead.
 
 
   Omarchy Server’s sign-in protects this app; anyone who can sign in to your server can use this browser as you.

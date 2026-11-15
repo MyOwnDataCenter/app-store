@@ -21,7 +21,7 @@ services:
       NEKO_SESSION_IMPLICIT_HOSTING: "true"
       NEKO_SESSION_MERCIFUL_RECONNECT: "true"
       # WebRTC: advertise this server's own addresses (LAN, Tailscale), never a looked-up public IP.
-      NEKO_WEBRTC_EPR: 52200-52240
+      NEKO_WEBRTC_EPR: 52200-52209
       NEKO_WEBRTC_ICELITE: "false"
       NEKO_WEBRTC_IP_RETRIEVAL_URL: ""
     volumes:

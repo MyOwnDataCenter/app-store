@@ -4,15 +4,17 @@ name: Brave
 tagline: Brave, running on your server and streamed to any device
 icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/brave-logo.png
 category: networking
-version: "3.2.0"
+version: "3.2.0-2"
 port: 38781
+# The video stream (WebRTC) reaches your device on these ports, so the server's firewall lets them in.
+openPorts: [52250, 52251, 52252, 52253, 52254, 52255, 52256, 52257, 52258, 52259]
 description: >-
   A full Brave browser, with its built-in ad and tracker blocking, that runs on your server and streams to your phone, tablet or computer, powered by Neko (WebRTC).
   Your profile, bookmarks, passwords and extensions stay on your server, and downloads land in Home → Downloads.
 
 
   Works on your home network and over Tailscale. It does not stream through a Cloudflare tunnel, because the video uses
-  WebRTC on ports 52250-52290 (UDP) of your server. For access through Cloudflare, install "Brave (HTTPS)" instead.
+  WebRTC on ports 52250-52259 (UDP) of your server. For access through Cloudflare, install "Brave (HTTPS)" instead.
 
 
   Omarchy Server’s sign-in protects this app; anyone who can sign in to your server can use this browser as you.
