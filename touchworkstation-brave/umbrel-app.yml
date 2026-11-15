@@ -12,7 +12,7 @@ description: >-
 
 
   Works on your home network and over Tailscale. It does not stream through a Cloudflare tunnel, because the video uses
-  WebRTC on ports 52250-52290 (UDP) of your Umbrel. For access through Cloudflare, install "Brave (HTTPS)" instead.
+  WebRTC on ports 52250-52259 (UDP) of your Umbrel. For access through Cloudflare, install "Brave (HTTPS)" instead.
 
 
   Umbrel's sign-in protects this app; anyone who can sign in to your Umbrel can use this browser as you.

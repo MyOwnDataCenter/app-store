@@ -5,6 +5,21 @@ services:
   adguard-home:
     image: adguard/adguardhome:latest
     restart: unless-stopped
+    # AdGuard Home's setup moves its own page to another port (80 unless you change it), where
+    # nothing here would reach it. --web-addr keeps the page on 3000; setup still moves it until the
+    # next start, so the first run restarts AdGuard Home once, right after setup writes its settings.
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        cd /opt/adguardhome
+        if [ ! -s conf/AdGuardHome.yaml ]; then
+          ./AdGuardHome --no-check-update -c /opt/adguardhome/conf/AdGuardHome.yaml -w /opt/adguardhome/work --web-addr 0.0.0.0:3000 &
+          until [ -s conf/AdGuardHome.yaml ] || ! pidof AdGuardHome >/dev/null; do sleep 1; done
+          sleep 2
+          killall AdGuardHome
+          wait
+        fi
+        exec ./AdGuardHome --no-check-update -c /opt/adguardhome/conf/AdGuardHome.yaml -w /opt/adguardhome/work --web-addr 0.0.0.0:3000
     volumes:
       - ${APP_DATA_DIR:-.}/data/work:/opt/adguardhome/work
       - ${APP_DATA_DIR:-.}/data/conf:/opt/adguardhome/conf
