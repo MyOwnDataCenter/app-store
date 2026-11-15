@@ -1,0 +1,16 @@
+# TouchWorkstation (App Store build): ghcr.io/touchworkstation/touchworkstation-app, built from
+# packaging/app-store in the TouchWorkstation repository.
+# Omarchy Server fills in the ${...} values. APP_GATEWAY_KEY is how the app knows a request came
+# through Omarchy Server's sign-in; it won't start without it. FOLDER_PROJECTS is the projects folder
+# you chose when installing (inside the app unless you picked one of yours).
+services:
+  web:
+    image: ghcr.io/touchworkstation/touchworkstation-app:latest
+    restart: unless-stopped
+    environment:
+      OMARCHY_GATEWAY_KEY: ${APP_GATEWAY_KEY}
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/home:/data/home
+      - ${FOLDER_PROJECTS:-./data/projects}:/data/home/Projects
+    ports:
+      - "8796:8787"

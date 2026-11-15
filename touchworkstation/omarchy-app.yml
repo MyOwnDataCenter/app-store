@@ -1,0 +1,44 @@
+manifestVersion: 1
+id: touchworkstation
+name: TouchWorkstation
+tagline: Projects, GitHub and AI coding agents, with live previews, from any device
+icon: https://raw.githubusercontent.com/TouchWorkStation/TouchWorkstation/master/ui/public/icon-512.png
+category: developer
+version: "latest"
+port: 8796
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: web
+  port: 8787
+# Asked when you install: keep your projects inside the app, or in a folder of yours.
+folders:
+  - id: projects
+    label: Where your projects live
+    detail: >-
+      The repositories you clone and the projects your agents work on. Keep them inside the app, or put them in a
+      folder in your home so you can also open them from Files and the Omarchy desktop.
+    suggest: Projects
+description: >-
+  TouchWorkstation's developer workspace, made for your phone: clone and manage your projects, sign in to GitHub to
+  pull and push, run a project's dev server and see a live preview of it, and work with AI coding agents (Claude Code
+  and Codex) in a chat view or a terminal, with a task board per agent.
+
+
+  It runs in its own container. Agents and dev servers see only the app's own home and the projects folder you chose
+  when installing, never the rest of your server. Sign in to GitHub and your AI tools once, in Settings.
+
+
+  Omarchy Server's sign-in protects it: there is no separate password. x86-64 (amd64) only.
+developer: TouchWorkStation
+website: https://github.com/TouchWorkStation/TouchWorkstation
+repo: https://github.com/TouchWorkStation/TouchWorkstation
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/TouchWorkstation/issues
+gallery: []
+releaseNotes: >-
+  First release: Projects (GitHub, dev servers, live previews), Agents (Claude Code, Codex) and a terminal inside
+  the app.
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""
