@@ -1,6 +1,6 @@
 manifestVersion: 1
-id: touchworkstation
-name: TouchWorkstation
+id: dev-space
+name: Dev-Space
 tagline: Projects, GitHub and AI coding agents, with live previews, from any device
 icon: https://raw.githubusercontent.com/TouchWorkStation/TouchWorkstation/master/ui/public/icon-512.png
 category: developer
@@ -19,7 +19,7 @@ folders:
       folder in your home so you can also open them from Files and the Omarchy desktop.
     suggest: Projects
 description: >-
-  TouchWorkstation's developer workspace, made for your phone: clone and manage your projects, sign in to GitHub to
+  Dev-Space is a developer workspace (built on TouchWorkstation), made for your phone: clone and manage your projects, sign in to GitHub to
   pull and push, run a project's dev server and see a live preview of it, and work with AI coding agents (Claude Code
   and Codex) in a chat view or a terminal, with a task board per agent.
 
