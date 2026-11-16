@@ -11,12 +11,16 @@ path: ""
 web:
   service: homepage
   port: 80
-# Ports that must be reachable from your network.
+# Container SMB on 446 so it does not take the host's 445. 445 on the server itself is
+# LAN-only; Tailscale is a second network and does not get it.
 openPorts: [446]
 # Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
 description: >-
   Standard Windows interoperability suite of programs for Linux and Unix. It provides secure, stable and fast
   file and print services for all clients using the SMB/CIFS protocol.
+
+  This listing uses port 446 so it does not take the server's own SMB on 445. The server's
+  own shares stay on your home LAN; Tailscale is a second network and does not get port 445.
 
   Where the app asks for a password it hasn’t shown you, use the one on this app’s page.
 developer: "Samba project"
