@@ -1,6 +1,3 @@
-# Wavelog: a plain Docker Compose file from the project's official image.
-# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
-# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
 services:
   app:
     image: ghcr.io/wavelog/wavelog:3.2.5@sha256:e371b599572bbd50b019acf8bf54009df7042bbd8f238d905a540d6e956b2c25

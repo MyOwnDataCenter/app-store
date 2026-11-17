@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/kitchenowl.png
 category: files
 version: "latest"
 port: 8393
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: kitchenowl
@@ -16,10 +15,3 @@ description: >-
 developer: "TomBursch and contributors"
 website: https://kitchenowl.org/
 repo: https://github.com/TomBursch/kitchenowl
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

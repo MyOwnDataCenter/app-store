@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/koillection.w
 category: files
 version: "latest"
 port: 8050
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: koillection
@@ -17,10 +16,3 @@ description: >-
 developer: "benjaminjonard and contributors"
 website: https://koillection.github.io/
 repo: https://github.com/benjaminjonard/koillection
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

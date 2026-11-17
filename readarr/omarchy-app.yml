@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/readarr.png
 category: media
 version: "latest"
 port: 10002
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: server
@@ -17,10 +16,3 @@ description: >-
 developer: "Readarr and contributors"
 website: https://readarr.com/
 repo: https://github.com/Readarr/Readarr
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

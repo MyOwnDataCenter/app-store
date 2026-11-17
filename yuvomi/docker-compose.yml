@@ -1,6 +1,3 @@
-# Yuvomi: a plain Docker Compose file from the project's official image.
-# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
-# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
 services:
   web:
     image: ghcr.io/ulsklyc/yuvomi:2.89.1@sha256:da12fa2236985424428d81f7f75b175a2863ab3537fd20e3c2aae547cf151352

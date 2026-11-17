@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/strix.png
 category: automation
 version: "latest"
 port: 4567
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: web
@@ -17,10 +16,3 @@ description: >-
 developer: "eduard256 and contributors"
 website: https://github.com/eduard256/Strix
 repo: https://github.com/eduard256/Strix
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

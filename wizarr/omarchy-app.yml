@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/wizarr.png
 category: media
 version: "latest"
 port: 5690
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: wizarr
@@ -17,10 +16,3 @@ description: >-
 developer: "wizarrrr and contributors"
 website: https://github.com/wizarrrr/wizarr
 repo: https://github.com/wizarrrr/wizarr
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

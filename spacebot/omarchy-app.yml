@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/spacebot.png
 category: ai
 version: "latest"
 port: 19898
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: server
@@ -17,10 +16,3 @@ description: >-
 developer: "spacedriveapp and contributors"
 website: https://spacebot.sh
 repo: https://github.com/spacedriveapp/spacebot
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/wallos.png
 category: finance
 version: "latest"
 port: 8282
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: wallos
@@ -19,10 +18,3 @@ description: >-
 developer: "Miguel Ribeiro"
 website: https://wallosapp.com
 repo: https://github.com/ellite/Wallos
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

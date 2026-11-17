@@ -1,0 +1,17 @@
+{
+  "name": "app-store",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Apps for Omarchy Server. npm run validate checks every listing.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "test": "node --test scripts/*.test.mjs"
+  },
+  "devDependencies": {
+    "yaml": "^2.9.1"
+  }
+}

@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/homehub.png
 category: files
 version: "latest"
 port: 5001
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: homehub
@@ -16,10 +15,3 @@ description: >-
 developer: "surajverma and contributors"
 website: https://github.com/surajverma/homehub
 repo: https://github.com/surajverma/homehub
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

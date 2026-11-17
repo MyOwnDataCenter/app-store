@@ -17,10 +17,3 @@ description: >-
 developer: "WordPress and contributors"
 website: https://wordpress.org/
 repo: https://github.com/WordPress/WordPress
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

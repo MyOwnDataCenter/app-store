@@ -1,6 +1,3 @@
-# NoteDiscovery: a plain Docker Compose file from the project's official image.
-# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
-# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
 services:
   web:
     image: ghcr.io/gamosoft/notediscovery:0.34.0@sha256:be991d08f64b73490ed1465c8d222a29cf83076b6990696624ef38666b61a664

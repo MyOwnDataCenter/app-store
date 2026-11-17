@@ -1,6 +1,3 @@
-# Yucca: a plain Docker Compose file from the project's official image.
-# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
-# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
 services:
   yucca:
     image: yuccastream/yucca:0.13.4@sha256:1304ad68fa866f2cf426d8c0bddf238cd2bbaeb3aeedd7a2b65eeafdd2b79917

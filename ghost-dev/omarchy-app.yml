@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/ghost.webp
 category: social
 version: "latest"
 port: 8225
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: ghost-dev
@@ -17,10 +16,3 @@ description: >-
 developer: "TryGhost and contributors"
 website: https://ghost.org/
 repo: https://github.com/TryGhost/Ghost
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

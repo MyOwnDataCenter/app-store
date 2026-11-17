@@ -1,6 +1,3 @@
-# Gupt: a plain Docker Compose file from the project's official image.
-# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
-# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
 services:
   web:
     image: ghcr.io/besoeasy/gupt:6.0.0@sha256:5f965544aa3f4df215895a83acaab4acbe45a532c1f012ac5d22de4613e0801a

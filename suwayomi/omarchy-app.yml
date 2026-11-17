@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/suwayomi.png
 category: media
 version: "latest"
 port: 10018
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: suwayomi
@@ -17,10 +16,3 @@ description: >-
 developer: "Suwayomi and contributors"
 website: https://github.com/Suwayomi/docker-tachidesk
 repo: https://github.com/Suwayomi/docker-tachidesk
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

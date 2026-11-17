@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/semaphore.png
 category: developer
 version: "latest"
 port: 3025
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: semaphore
@@ -17,12 +16,6 @@ description: >-
 developer: "semaphoreui and contributors"
 website: https://semaphoreui.com
 repo: https://github.com/semaphoreui/semaphore
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
 defaultUsername: "admin"
-defaultPassword: ""
 # The password is generated per server by Omarchy Server and shown on the app’s page.
 deterministicPassword: true

@@ -6,23 +6,18 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/umbrel.webp
 category: files
 version: "latest"
 port: 10001
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: server
   port: 80
-# Ports that must be reachable from your network.
+# Ports that must be reachable from your home LAN. Tailscale is a second network
+# and does not get SMB: Omarchy Server opens 445 only to the LAN.
 openPorts: [137, 138, 139, 445]
 # Description from awesome-selfhosted (CC BY-SA 3.0): https://awesome-selfhosted.net
 description: >-
   Beautiful personal server OS for self-hosting. Install on a Raspberry Pi 4 or Ubuntu/Debian.
+
+  Time Machine over SMB is for your home LAN. Tailscale is a second network and does not get port 445.
 developer: "getumbrel and contributors"
 website: https://umbrel.com/
 repo: https://github.com/getumbrel/umbrel
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

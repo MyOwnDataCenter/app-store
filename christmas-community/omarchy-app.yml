@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/christmas-community.webp
 category: files
 version: "latest"
 port: 10081
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: christmas-community
@@ -20,10 +19,3 @@ description: >-
 developer: "Wingysam and contributors"
 website: https://github.com/Wingysam/Christmas-Community
 repo: https://github.com/Wingysam/Christmas-Community
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

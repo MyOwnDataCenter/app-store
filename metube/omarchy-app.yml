@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/metube.png
 category: media
 version: "latest"
 port: 8081
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: metube
@@ -16,10 +15,3 @@ description: >-
 developer: "alexta69 and contributors"
 website: https://github.com/alexta69/metube
 repo: https://github.com/alexta69/metube
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

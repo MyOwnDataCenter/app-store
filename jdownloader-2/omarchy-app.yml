@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/jdownloader-2.
 category: media
 version: "latest"
 port: 5802
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: jdownloader-2
@@ -16,10 +15,3 @@ description: >-
 developer: "jlesage and contributors"
 website: https://jdownloader.org
 repo: https://github.com/jlesage/docker-jdownloader-2
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

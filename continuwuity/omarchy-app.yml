@@ -1,0 +1,29 @@
+manifestVersion: 1
+id: continuwuity
+name: "Continuwuity"
+tagline: "A Matrix homeserver"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/matrix.png
+category: social
+version: "latest"
+port: 8709
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: continuwuity
+  port: 8008
+description: >-
+  Continuwuity is a Matrix homeserver (Conduit/Conduwuit lineage). Federation is off in this listing
+  so it runs on your LAN.
+
+  Create the first user with the registration token printed in the logs, using Element (already in
+  the store). To federate, give it a domain and a reverse proxy on 443/8448.
+developer: "continuwuation and contributors"
+website: https://continuwuity.org
+repo: https://forgejo.ellis.link/continuwuation/continuwuity
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

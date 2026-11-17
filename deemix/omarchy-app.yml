@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/deemix.png
 category: media
 version: "latest"
 port: 6595
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: deemix
@@ -16,10 +15,3 @@ description: >-
 developer: "Bockiii and contributors"
 website: https://deemix.app/
 repo: https://gitlab.com/Bockiii/deemix-docker
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

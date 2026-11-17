@@ -1,0 +1,20 @@
+# LLDAP: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  lldap:
+    image: lldap/lldap:stable
+    restart: unless-stopped
+    environment:
+      UID: ${PUID:-1000}
+      GID: ${PGID:-1000}
+      TZ: ${TZ:-UTC}
+      LLDAP_JWT_SECRET: ${APP_SEED:?set APP_SEED}
+      LLDAP_KEY_SEED: ${APP_SEED:?set APP_SEED}
+      LLDAP_LDAP_BASE_DN: dc=example,dc=com
+      LLDAP_LDAP_USER_PASS: ${APP_PASSWORD:?set APP_PASSWORD}
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/data:/data
+    ports:
+      - "8702:17170"
+      - "3890:3890"

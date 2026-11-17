@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/filegator.web
 category: files
 version: "latest"
 port: 10088
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: filegator
@@ -19,10 +18,3 @@ description: >-
 developer: "filegator and contributors"
 website: https://filegator.io/
 repo: https://github.com/filegator/filegator
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

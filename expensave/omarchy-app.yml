@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/expensave.png
 category: finance
 version: "latest"
 port: 18000
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: application
@@ -20,10 +19,3 @@ description: >-
 developer: "algirdasc and contributors"
 website: https://github.com/algirdasc/expensave
 repo: https://github.com/algirdasc/expensave
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

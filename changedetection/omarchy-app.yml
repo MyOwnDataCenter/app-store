@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/changedetectio
 category: automation
 version: "latest"
 port: 5050
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: changedetection
@@ -17,10 +16,3 @@ description: >-
 developer: "dgtlmoon and contributors"
 website: https://changedetection.io
 repo: https://github.com/dgtlmoon/changedetection.io
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

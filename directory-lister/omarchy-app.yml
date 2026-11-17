@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/directory-list
 category: files
 version: "latest"
 port: 10063
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: app
@@ -22,10 +21,3 @@ description: >-
 developer: "DirectoryLister and contributors"
 website: https://www.directorylister.com/
 repo: https://github.com/DirectoryLister/DirectoryLister
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

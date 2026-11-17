@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/houndarr.webp
 category: media
 version: "latest"
 port: 8877
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: houndarr
@@ -21,10 +20,3 @@ description: >-
 developer: "av1155 and contributors"
 website: https://av1155.github.io/houndarr/
 repo: https://github.com/av1155/houndarr
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

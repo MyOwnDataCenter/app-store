@@ -1,6 +1,3 @@
-# Jellyfin Vue (Beta): a plain Docker Compose file from the project's official image.
-# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
-# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
 services:
   jellyfin-vue:
     image: ghcr.io/jellyfin/jellyfin-vue:unstable.2024-10-14.a47a7d5

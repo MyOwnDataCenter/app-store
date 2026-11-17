@@ -1,6 +1,3 @@
-# ownCloud: a plain Docker Compose file from the project's official image.
-# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
-# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
 services:
   server:
     image: owncloud/server:11.1.0@sha256:fa19b7038631f98929ec1771f1fb43595a18fc2b5f2f2220a7b66237c5ed1966

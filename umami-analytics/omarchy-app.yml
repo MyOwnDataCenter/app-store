@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/umami.webp
 category: files
 version: "latest"
 port: 8153
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: umami-analytics
@@ -17,10 +16,3 @@ description: >-
 developer: "umami-software and contributors"
 website: https://umami.is/
 repo: https://github.com/umami-software/umami
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

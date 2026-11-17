@@ -16,10 +16,3 @@ description: >-
 developer: "NousResearch and contributors"
 website: https://hermes-agent.nousresearch.com
 repo: https://github.com/NousResearch/hermes-agent
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

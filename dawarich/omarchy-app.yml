@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/dawarich.webp
 category: files
 version: "latest"
 port: 10059
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: dawarich_app
@@ -20,10 +19,3 @@ description: >-
 developer: "Freika and contributors"
 website: https://dawarich.app/
 repo: https://github.com/Freika/dawarich
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

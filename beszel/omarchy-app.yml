@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: beszel
+name: "Beszel"
+tagline: "Lightweight server monitoring"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/beszel.png
+category: files
+version: "latest"
+port: 8704
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: beszel
+  port: 8090
+description: >-
+  Beszel is a lightweight hub for server monitoring, with history, Docker stats and alerts.
+
+  Create the admin account the first time you open it. Add systems from the hub; agents run on the
+  machines you want to watch (they are not bundled here).
+developer: "henrygd and contributors"
+website: https://beszel.dev
+repo: https://github.com/henrygd/beszel
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

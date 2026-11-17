@@ -1,6 +1,3 @@
-# ha-fusion: a plain Docker Compose file from the project's official image.
-# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
-# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
 services:
   home-assistant-fusion-ui:
     image: ghcr.io/matt8707/ha-fusion:latest

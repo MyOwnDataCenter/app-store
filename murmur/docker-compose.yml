@@ -1,6 +1,3 @@
-# Murmur: a plain Docker Compose file from the project's official image.
-# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
-# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
 services:
   web:
     image: ghcr.io/getumbrel/murmur:v0.14.1@sha256:db92921008c24f09f8d78f7fb138ffac6d6faf1040e4cca6c850776f908c46f1

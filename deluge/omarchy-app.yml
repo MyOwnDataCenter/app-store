@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/deluge.png
 category: media
 version: "latest"
 port: 8112
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: deluge
@@ -20,10 +19,4 @@ description: >-
 developer: "linuxserver and contributors"
 website: https://deluge-torrent.org
 repo: https://github.com/linuxserver/docker-deluge
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
 defaultPassword: "deluge"

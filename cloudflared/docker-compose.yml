@@ -1,6 +1,3 @@
-# Cloudflare Tunnel: a plain Docker Compose file from the project's official image.
-# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
-# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
 services:
   web:
     image: ghcr.io/radiokot/umbrel-cloudflared:1.1.0@sha256:91157b02db64eacbc68d9ff099a4ba04f6327b011a9204fe9e7a37170f726b9a

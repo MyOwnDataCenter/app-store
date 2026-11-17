@@ -1,0 +1,31 @@
+manifestVersion: 1
+id: gotosocial
+name: "GoToSocial"
+tagline: "A light ActivityPub social server"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/gotosocial.png
+category: social
+version: "latest"
+port: 8708
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: gotosocial
+  port: 8080
+description: >-
+  Follow people on Mastodon and the rest of the fediverse from a light ActivityPub server.
+
+  Create the first user from the app terminal with gotosocial admin account create --username NAME
+  --email YOU@example.com --password 'PASSWORD' (already confirmed; promote with gotosocial admin
+  account promote --username NAME if you want an admin, then restart). For federation, set GTS_HOST
+  to a real domain and put this behind a reverse proxy on 443; the bundled listing is reachable
+  through Omarchy Server on the LAN.
+developer: "superseriousbusiness and contributors"
+website: https://gotosocial.org
+repo: https://codeberg.org/superseriousbusiness/gotosocial
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

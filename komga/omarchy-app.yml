@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/komga.png
 category: media
 version: "latest"
 port: 25600
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: komga
@@ -19,10 +18,3 @@ description: >-
 developer: "gotson and contributors"
 website: https://komga.org
 repo: https://github.com/gotson/komga
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

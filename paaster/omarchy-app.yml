@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/paaster.webp
 category: files
 version: "latest"
 port: 10092
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: paaster
@@ -19,10 +18,3 @@ description: >-
 developer: "WardPearce and contributors"
 website: https://paaster.io
 repo: https://github.com/WardPearce/paaster
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

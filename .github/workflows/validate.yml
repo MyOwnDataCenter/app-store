@@ -1,0 +1,26 @@
+name: Validate apps
+
+# Checks every app listing on pushes to main and on every pull request. Errors (a listing that cannot
+# install or show up) fail the run; warnings, such as images that are not a fixed version, only show up in the log.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: The validator's own tests
+        run: npm test
+      - name: Check every app
+        run: npm run validate

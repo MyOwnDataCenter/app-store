@@ -1,6 +1,3 @@
-# Umami Analytics: a plain Docker Compose file from the project's official image.
-# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
-# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
 services:
   umami-analytics:
     image: ghcr.io/umami-software/umami:3.5.0

@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/prometheus.png
 category: developer
 version: "latest"
 port: 9095
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: prometheus
@@ -16,10 +15,3 @@ description: >-
 developer: "prometheus and contributors"
 website: https://prometheus.io
 repo: https://github.com/prometheus/prometheus
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

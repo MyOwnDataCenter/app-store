@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/openresty-mana
 category: networking
 version: "latest"
 port: 34567
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: web
@@ -19,10 +18,3 @@ description: >-
 developer: "Safe3 and contributors"
 website: https://om.uusec.com/
 repo: https://github.com/Safe3/openresty-manager
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

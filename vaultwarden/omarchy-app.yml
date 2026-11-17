@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/vaultwarden.pn
 category: files
 version: "latest"
 port: 8415
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: vaultwarden
@@ -20,12 +19,5 @@ description: >-
 developer: "dani-garcia and contributors"
 website: https://github.com/dani-garcia
 repo: https://github.com/dani-garcia/vaultwarden
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""
 # Needs a secure (https://) page in the browser; Omarchy Server opens it over https.
 requiresHttps: true
