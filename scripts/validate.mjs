@@ -62,9 +62,10 @@ for (const app of apps) {
 		if (listing.id !== app) error(app, f, `id is ${JSON.stringify(listing.id)} but the folder is ${app}; they must match`)
 		for (const key of ['name', 'tagline', 'description', 'category', 'icon']) if (!text(listing[key])) error(app, f, `${key} is missing`)
 		if (!Number.isInteger(listing.port) || listing.port < 1 || listing.port > 65535) error(app, f, `port should be a number from 1 to 65535, not ${JSON.stringify(listing.port)}`)
-		if (typeof listing.path !== 'string') error(app, f, 'path is missing (use "" for the front page)')
+		// path is optional: Omarchy Server opens the front page when it's left out.
+		if (listing.path !== undefined && typeof listing.path !== 'string') error(app, f, `path should be text, not ${JSON.stringify(listing.path)}`)
 
-		// An Umbrel-style app names its web port in an app_proxy service instead; Omarchy Server reads that too.
+		// An older-style app names its web port in an app_proxy service instead; Omarchy Server reads that too.
 		if (listing.web === undefined && !(services && 'app_proxy' in services)) warn('no-web', app, 'has no web: block, so Omarchy Server cannot put its sign-in in front of the app')
 		else if (listing.web === undefined) {
 			// covered by app_proxy above
@@ -81,7 +82,7 @@ for (const app of apps) {
 
 	if (services)
 		for (const [service, def] of Object.entries(services)) {
-			if (service === 'app_proxy') continue // Umbrel's placeholder: it has no image of its own
+			if (service === 'app_proxy') continue // a placeholder for the web port: it has no image of its own
 			if (def?.image === undefined && def?.build === undefined && def?.extends === undefined) error(app, 'docker-compose.yml', `service ${service} has no image`)
 			else if (unpinned(def.image)) warn('image', app, `${service} uses ${def.image}, which is not a fixed version`)
 		}

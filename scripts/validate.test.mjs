@@ -67,7 +67,7 @@ test('each kind of mistake is an error that names the app and the file', async (
 	}
 })
 
-test('an Umbrel-style app with an app_proxy service and no web: block is fine', async () => {
+test('an app with an app_proxy service and no web: block is fine', async () => {
 	const compose = `services:\n  app_proxy:\n    environment:\n      APP_HOST: x\n      APP_PORT: 80\n  web:\n    image: nginx:1.27\n`
 	const listing = LISTING('proxied').replace(/web:\n  service: web\n  port: 80\n/, '')
 	const r = await check({proxied: {compose, listing}})

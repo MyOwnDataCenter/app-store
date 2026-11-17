@@ -2,7 +2,7 @@ manifestVersion: 1
 id: litellm
 name: "LiteLLM"
 tagline: "One API for many AI providers"
-icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/openai.png
+icon: https://raw.githubusercontent.com/BerriAI/litellm/main/litellm/proxy/logo_monogram.png
 category: ai
 version: "latest"
 port: 8710
