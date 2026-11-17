@@ -1,0 +1,37 @@
+# Tinyauth: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  tinyauth:
+    image: ghcr.io/tinyauthapp/tinyauth:v5
+    restart: unless-stopped
+    environment:
+      APP_PASSWORD: ${APP_PASSWORD:?set APP_PASSWORD}
+      TINYAUTH_APPURL: https://${SERVER_IP:-localhost}:8701
+      TINYAUTH_AUTH_USERSFILE: /data/users
+      TINYAUTH_AUTH_TRUSTEDPROXIES: 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
+      TINYAUTH_AUTH_SECURECOOKIE: "true"
+      TINYAUTH_LABELPROVIDER: none
+      TINYAUTH_ANALYTICS_ENABLED: "false"
+      TINYAUTH_DATABASE_PATH: /data/tinyauth.db
+      TINYAUTH_RESOURCES_PATH: /data/resources
+      TINYAUTH_OIDC_PRIVATEKEYPATH: /data/tinyauth_oidc_key
+      TINYAUTH_OIDC_PUBLICKEYPATH: /data/tinyauth_oidc_key.pub
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/data:/data
+    ports:
+      - "8701:3000"
+    # Image ENTRYPOINT is the tinyauth binary; PATH includes /tinyauth. First boot hashes
+    # APP_PASSWORD into /data/users (bcrypt cannot live in compose as APP_PASSWORD).
+    # Keep only the username:hash line; CLI chatter must not land in the users file.
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        set -e
+        if [ ! -s /data/users ]; then
+          tinyauth user create --username admin --password "$$APP_PASSWORD" \
+            | grep -E '^admin:' | tail -n 1 > /data/users
+          [ -s /data/users ]
+        fi
+        export TINYAUTH_AUTH_USERSFILE=/data/users
+        exec tinyauth

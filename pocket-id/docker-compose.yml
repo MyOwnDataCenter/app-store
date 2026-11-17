@@ -1,0 +1,18 @@
+# Pocket ID: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  pocket-id:
+    image: pocketid/pocket-id:v2
+    restart: unless-stopped
+    environment:
+      TZ: ${TZ:-UTC}
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      APP_URL: https://${SERVER_IP:-localhost}:8700
+      ENCRYPTION_KEY: ${APP_SEED:?set APP_SEED}
+      TRUST_PROXY: "true"
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/data:/app/data
+    ports:
+      - "8700:1411"
