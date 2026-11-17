@@ -1,0 +1,176 @@
+# Pangolin: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  pangolin:
+    image: fosrl/pangolin:latest
+    restart: unless-stopped
+    environment:
+      SERVER_IP: ${SERVER_IP:-localhost}
+      APP_SEED: ${APP_SEED:?set APP_SEED}
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/config:/app/config
+    ports:
+      - "8711:3002"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3001/api/v1/"]
+      interval: 3s
+      timeout: 3s
+      retries: 15
+    # Extra listing files are not copied on install. Write config.yml and Traefik
+    # files on first start from SERVER_IP and APP_SEED, then run the image default.
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        set -e
+        mkdir -p /app/config/traefik /app/config/letsencrypt /app/config/db
+        ip="$${SERVER_IP:-localhost}"
+        seed="$${APP_SEED:?set APP_SEED}"
+        if [ ! -s /app/config/config.yml ]; then
+          cat > /app/config/config.yml <<EOF
+        gerbil:
+          start_port: 51820
+          base_endpoint: "$${ip}"
+        app:
+          dashboard_url: "http://$${ip}:8711"
+          log_level: "info"
+          telemetry:
+            anonymous_usage: false
+        domains:
+          domain1:
+            base_domain: "$${ip}"
+        server:
+          secret: "$${seed}"
+          cors:
+            origins: ["http://$${ip}:8711", "https://$${ip}"]
+            methods: ["GET", "POST", "PUT", "DELETE", "PATCH"]
+            allowed_headers: ["X-CSRF-Token", "Content-Type"]
+            credentials: false
+        flags:
+          require_email_verification: false
+          disable_signup_without_invite: false
+          disable_user_create_org: false
+          allow_raw_resources: true
+        EOF
+        fi
+        if [ ! -s /app/config/traefik/traefik_config.yml ]; then
+          cat > /app/config/traefik/traefik_config.yml <<'EOF'
+        api:
+          insecure: true
+          dashboard: false
+        providers:
+          http:
+            endpoint: http://pangolin:3001/api/v1/traefik-config
+            pollInterval: 5s
+          file:
+            filename: /etc/traefik/dynamic_config.yml
+        experimental:
+          plugins:
+            badger:
+              moduleName: github.com/fosrl/badger
+              version: v1.7.0
+        entryPoints:
+          web:
+            address: ':80'
+          websecure:
+            address: ':443'
+        certificatesResolvers:
+          letsencrypt:
+            acme:
+              httpChallenge:
+                entryPoint: web
+              email: admin@localhost
+              storage: /letsencrypt/acme.json
+        serversTransport:
+          insecureSkipVerify: true
+        ping:
+          entryPoint: web
+        EOF
+        fi
+        if [ ! -s /app/config/traefik/dynamic_config.yml ]; then
+          cat > /app/config/traefik/dynamic_config.yml <<EOF
+        http:
+          middlewares:
+            badger:
+              plugin:
+                badger:
+                  disableForwardAuth: true
+          routers:
+            next-http:
+              rule: "Host(\`$${ip}\`) && !PathPrefix(\`/api/v1\`)"
+              service: next-service
+              entryPoints:
+                - web
+              middlewares:
+                - badger
+            api-http:
+              rule: "Host(\`$${ip}\`) && PathPrefix(\`/api/v1\`)"
+              service: api-service
+              entryPoints:
+                - web
+              middlewares:
+                - badger
+            next-https:
+              rule: "Host(\`$${ip}\`) && !PathPrefix(\`/api/v1\`)"
+              service: next-service
+              entryPoints:
+                - websecure
+              middlewares:
+                - badger
+              tls:
+                certResolver: letsencrypt
+            api-https:
+              rule: "Host(\`$${ip}\`) && PathPrefix(\`/api/v1\`)"
+              service: api-service
+              entryPoints:
+                - websecure
+              middlewares:
+                - badger
+              tls:
+                certResolver: letsencrypt
+          services:
+            next-service:
+              loadBalancer:
+                servers:
+                  - url: "http://pangolin:3002"
+            api-service:
+              loadBalancer:
+                servers:
+                  - url: "http://pangolin:3000"
+        EOF
+        fi
+        exec npm run start
+
+  gerbil:
+    image: fosrl/gerbil:latest
+    restart: unless-stopped
+    depends_on:
+      pangolin:
+        condition: service_healthy
+    command:
+      - --reachableAt=http://gerbil:3004
+      - --generateAndSaveKeyTo=/var/config/key
+      - --remoteConfig=http://pangolin:3001/api/v1/
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    ports:
+      - "51820:51820/udp"
+      - "21820:21820/udp"
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/config:/var/config
+
+  traefik:
+    image: traefik:v3.7
+    restart: unless-stopped
+    network_mode: service:gerbil
+    depends_on:
+      pangolin:
+        condition: service_healthy
+    command:
+      - --configFile=/etc/traefik/traefik_config.yml
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/config/traefik:/etc/traefik:ro
+      - ${APP_DATA_DIR:-.}/data/config/letsencrypt:/letsencrypt

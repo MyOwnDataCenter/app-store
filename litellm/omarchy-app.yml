@@ -1,0 +1,30 @@
+manifestVersion: 1
+id: litellm
+name: "LiteLLM"
+tagline: "One API for many AI providers"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/openai.png
+category: ai
+version: "latest"
+port: 8710
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: litellm
+  port: 4000
+description: >-
+  LiteLLM is a proxy with virtual keys and a small admin UI. Sign in with the password on the app page as the
+  master key, then add provider keys (OpenAI, Anthropic, Ollama, …) in the UI.
+
+  Do not rotate the salt; it is stored in app data and changing it makes saved credentials unreadable.
+developer: "BerriAI and contributors"
+website: https://docs.litellm.ai
+repo: https://github.com/BerriAI/litellm
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: "admin"
+defaultPassword: ""
+# The password is generated per server by Omarchy Server and shown on the app’s page.
+deterministicPassword: true
