@@ -38,7 +38,7 @@ async function check(apps, flags = []) {
 		if (files.compose !== undefined) await writeFile(join(dir, name, 'docker-compose.yml'), files.compose)
 		if (files.listing !== undefined) await writeFile(join(dir, name, 'omarchy-app.yml'), files.listing)
 	}
-	const r = spawnSync('node', [SCRIPT, '--root', dir, ...flags], {encoding: 'utf8'})
+	const r = spawnSync('node', [SCRIPT, '--root', dir, ...flags], {encoding: 'utf8', env: {...process.env, GITHUB_ACTIONS: ''}})
 	return {status: r.status, out: r.stdout + r.stderr}
 }
 
