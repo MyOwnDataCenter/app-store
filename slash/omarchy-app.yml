@@ -3,7 +3,7 @@ id: slash
 name: "Slash"
 tagline: "Bookmarks and link sharing platform"
 icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/slash.webp
-category: media
+category: files
 version: "latest"
 port: 5231
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).

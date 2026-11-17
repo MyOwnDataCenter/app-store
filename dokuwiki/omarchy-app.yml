@@ -3,7 +3,7 @@ id: dokuwiki
 name: "DokuWiki"
 tagline: "Easy to use, lightweight, standards-compliant wiki engine with a simple"
 icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/dokuwiki.webp
-category: media
+category: files
 version: "latest"
 port: 8149
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).

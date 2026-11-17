@@ -3,7 +3,7 @@ id: codex-docs
 name: "CodeX.docs"
 tagline: "Documentation that is easy to write"
 icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/codex-docs.png
-category: media
+category: files
 version: "latest"
 port: 8101
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
