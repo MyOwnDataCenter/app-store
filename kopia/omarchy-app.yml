@@ -1,0 +1,31 @@
+manifestVersion: 1
+id: kopia
+name: "Kopia"
+tagline: "Encrypted snapshots of your folders"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/kopia.png
+category: files
+version: "latest"
+port: 8706
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: kopia
+  port: 51515
+description: >-
+  Kopia’s web UI takes encrypted snapshots of your folders.
+
+  Sign in as admin with the password on the app page. Documents, Pictures, Music and Videos are under
+  /source. The repository password is generated for this server and stored in the app data; create or
+  connect a repository in the UI the first time you open it.
+developer: "kopia and contributors"
+website: https://kopia.io
+repo: https://github.com/kopia/kopia
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: "admin"
+defaultPassword: ""
+# The password is generated per server by Omarchy Server and shown on the app’s page.
+deterministicPassword: true

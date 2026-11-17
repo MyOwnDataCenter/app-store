@@ -1,0 +1,28 @@
+manifestVersion: 1
+id: scrutiny
+name: "Scrutiny"
+tagline: "S.M.A.R.T. disk health dashboard"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/scrutiny.png
+category: files
+version: "latest"
+port: 8705
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: scrutiny
+  port: 8080
+description: >-
+  Scrutiny shows S.M.A.R.T. health for the disks on this server, with history and failure predictions.
+
+  It needs disk devices, so Omarchy Server asks before installing it. It reads S.M.A.R.T. from every
+  disk it can see.
+developer: "AnalogJ and contributors"
+website: https://github.com/AnalogJ/scrutiny
+repo: https://github.com/AnalogJ/scrutiny
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""

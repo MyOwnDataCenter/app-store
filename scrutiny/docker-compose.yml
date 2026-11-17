@@ -1,0 +1,17 @@
+# Scrutiny: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  scrutiny:
+    image: ghcr.io/analogj/scrutiny:v0-omnibus
+    restart: unless-stopped
+    cap_add:
+      - SYS_RAWIO
+    volumes:
+      - /run/udev:/run/udev:ro
+      - ${APP_DATA_DIR:-.}/data/config:/opt/scrutiny/config
+      - ${APP_DATA_DIR:-.}/data/influxdb:/opt/scrutiny/influxdb
+    devices:
+      - /dev:/dev
+    ports:
+      - "8705:8080"
