@@ -1,0 +1,18 @@
+# Continuwuity: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  continuwuity:
+    image: forgejo.ellis.link/continuwuation/continuwuity:latest
+    restart: unless-stopped
+    command: /sbin/conduwuit
+    environment:
+      CONTINUWUITY_SERVER_NAME: ${SERVER_IP:-localhost}
+      CONTINUWUITY_DATABASE_PATH: /var/lib/continuwuity
+      CONTINUWUITY_ADDRESS: 0.0.0.0
+      CONTINUWUITY_PORT: 8008
+      CONTINUWUITY_ALLOW_FEDERATION: "false"
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/data:/var/lib/continuwuity
+    ports:
+      - "8709:8008"

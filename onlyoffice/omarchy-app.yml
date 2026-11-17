@@ -1,0 +1,29 @@
+manifestVersion: 1
+id: onlyoffice
+name: "ONLYOFFICE"
+tagline: "Edit Office documents in the browser"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/onlyoffice.png
+category: files
+version: "latest"
+port: 8707
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: onlyoffice
+  port: 80
+description: >-
+  Docs, Sheets and Slides in the browser. Point Nextcloud, Seafile or a similar app at this address.
+
+  Use the password on the app page as the JWT secret those apps need. Needs 2 GB of RAM or more.
+developer: "ONLYOFFICE and contributors"
+website: https://www.onlyoffice.com
+repo: https://github.com/ONLYOFFICE/DocumentServer
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: ""
+defaultPassword: ""
+# The password is generated per server by Omarchy Server and shown on the app’s page.
+deterministicPassword: true
