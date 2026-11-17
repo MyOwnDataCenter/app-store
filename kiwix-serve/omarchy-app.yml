@@ -1,6 +1,6 @@
 manifestVersion: 1
 id: kiwix-serve
-name: "Kiwix Server"
+name: "Kiwix"
 tagline: "HTTP daemon for serving wikis from ZIM files"
 icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/kiwix-serve.png
 category: media

@@ -1,6 +1,6 @@
 manifestVersion: 1
 id: pyload
-name: "PyLoad"
+name: "pyLoad"
 tagline: "Lightweight, customizable and remotely manageable downloader for"
 icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/pyload.webp
 category: media

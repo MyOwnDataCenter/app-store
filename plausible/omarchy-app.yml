@@ -1,6 +1,6 @@
 manifestVersion: 1
 id: plausible
-name: "Plausible Analytics"
+name: "Plausible"
 tagline: "Simple, lightweight (< 1 KB) and privacy-friendly web analytics"
 icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/plausible.png
 category: developer

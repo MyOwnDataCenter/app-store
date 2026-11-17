@@ -1,6 +1,6 @@
 manifestVersion: 1
 id: siyuan-note
-name: "SiYuan Note"
+name: "SiYuan (v3.6)"
 tagline: "Block-based personal knowledge base"
 icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/siyuan-note.png
 category: files

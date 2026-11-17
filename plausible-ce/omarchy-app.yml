@@ -1,6 +1,6 @@
 manifestVersion: 1
 id: plausible-ce
-name: "Plausible CE"
+name: "Plausible (v2)"
 tagline: "Privacy-friendly website analytics"
 icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/plausible-ce.png
 category: files

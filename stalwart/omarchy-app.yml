@@ -1,6 +1,6 @@
 manifestVersion: 1
 id: stalwart
-name: "Stalwart"
+name: "Stalwart (latest image)"
 tagline: "A complete mail server"
 icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/stalwart.png
 category: social

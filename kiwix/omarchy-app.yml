@@ -1,6 +1,6 @@
 manifestVersion: 1
 id: kiwix
-name: "Kiwix"
+name: "Kiwix (latest image)"
 tagline: "Wikipedia and other reference sites, offline"
 icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/kiwix.png
 category: files
