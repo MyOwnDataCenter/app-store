@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/kept-notes.png
 category: files
 version: "latest"
 port: 10152
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: kept
@@ -20,10 +19,3 @@ description: >-
 developer: "ericerkz and contributors"
 website: https://keepitkept.xyz
 repo: https://github.com/ericerkz/kept
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

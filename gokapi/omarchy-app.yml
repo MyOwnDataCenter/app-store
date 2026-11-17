@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/gokapi.webp
 category: files
 version: "latest"
 port: 53842
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: gokapi
@@ -20,10 +19,3 @@ description: >-
 developer: "Forceu and contributors"
 website: https://github.com/Forceu/gokapi
 repo: https://github.com/Forceu/gokapi
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/nostr-vpn.png
 category: networking
 version: "latest"
 port: 38180
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: web
@@ -17,10 +16,3 @@ description: >-
 developer: "mmalmi and contributors"
 website: https://github.com/mmalmi/nostr-vpn
 repo: https://github.com/mmalmi/nostr-vpn
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

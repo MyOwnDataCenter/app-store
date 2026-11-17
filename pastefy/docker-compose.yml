@@ -1,6 +1,3 @@
-# Pastefy: a plain Docker Compose file from the project's official image.
-# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
-# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
 services:
   db:
     image: mariadb:11.4.5@sha256:5dfb3093333fa0ea53194ddef0a2bfa21d3b1e1353bd228b22610cd6fc0c04da

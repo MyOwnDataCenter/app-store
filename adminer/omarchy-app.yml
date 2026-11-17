@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/adminer.png
 category: developer
 version: "latest"
 port: 8426
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: adminer
@@ -16,10 +15,3 @@ description: >-
 developer: "vrana and contributors"
 website: https://www.adminer.org
 repo: https://github.com/vrana/adminer
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

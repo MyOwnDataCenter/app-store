@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/ntfy.png
 category: automation
 version: "latest"
 port: 8093
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: ntfy
@@ -16,10 +15,3 @@ description: >-
 developer: "Philipp C. Heckel"
 website: https://ntfy.sh
 repo: https://github.com/binwiederhier/ntfy
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

@@ -1,6 +1,3 @@
-# AirTrail: a plain Docker Compose file from the project's official image.
-# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
-# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
 services:
   app:
     image: johly/airtrail:v3.14.0@sha256:69ef0a421d6a5f99c06d04ea6b66445a5d1261dd533d6efe3bd8bc3e2dfd018f

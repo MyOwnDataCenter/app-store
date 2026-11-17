@@ -1,6 +1,3 @@
-# bitBoard: a plain Docker Compose file from the project's official image.
-# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
-# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
 services:
   app:
     image: ghcr.io/egzola/bitboard:1.0.2@sha256:5805a2f8ed667e9972aba0d8f98615a3a36d9ec5088868dde7a375e0148fecb7

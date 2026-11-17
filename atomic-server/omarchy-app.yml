@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/atomic-server.
 category: files
 version: "latest"
 port: 10079
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: atomic-server
@@ -20,10 +19,3 @@ description: >-
 developer: "ontola and contributors"
 website: https://atomicserver.eu/
 repo: https://github.com/ontola/atomic-server
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

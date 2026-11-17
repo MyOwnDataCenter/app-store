@@ -1,6 +1,3 @@
-# Snort: a plain Docker Compose file from the project's official image.
-# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
-# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
 services:
   web:
     image: voidic/snort:v0.5.4@sha256:9ea5f2d60108984cb56992c7842950e02a3b31d610a6cb79ca9c43b46cbc1057

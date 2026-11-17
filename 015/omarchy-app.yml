@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/015.png
 category: files
 version: "latest"
 port: 10083
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: app
@@ -20,10 +19,3 @@ description: >-
 developer: "keven1024 and contributors"
 website: https://send.fudaoyuan.icu
 repo: https://github.com/keven1024/015
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

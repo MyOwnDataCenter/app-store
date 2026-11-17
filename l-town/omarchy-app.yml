@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/l-town.png
 category: social
 version: "latest"
 port: 30300
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: app
@@ -17,10 +16,3 @@ description: >-
 developer: "besoeasy and contributors"
 website: https://yantr.org/apps/l-town/
 repo: https://github.com/besoeasy/l-town
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

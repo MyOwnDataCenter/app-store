@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/hugo.png
 category: developer
 version: "latest"
 port: 1313
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: hugo
@@ -16,10 +15,3 @@ description: >-
 developer: "Hugo project"
 website: https://github.com/gohugoio/hugo
 repo: https://github.com/gohugoio/hugo
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

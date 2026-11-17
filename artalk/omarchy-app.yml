@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/artalk.png
 category: social
 version: "latest"
 port: 10074
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: artalk
@@ -20,10 +19,3 @@ description: >-
 developer: "ArtalkJS and contributors"
 website: https://artalk.js.org/
 repo: https://github.com/ArtalkJS/Artalk
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

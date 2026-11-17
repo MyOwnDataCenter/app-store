@@ -1,6 +1,3 @@
-# Formicaio: a plain Docker Compose file from the project's official image.
-# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
-# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
 services:
   proxy:
     image: bochaco/formicaio_proxy:0.3.0@sha256:49a8f7b1787aa356c9c444fe75b90fbd09da4d9a0be00c3f753e997a3196e1f9

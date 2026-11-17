@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/ech0.png
 category: social
 version: "latest"
 port: 6277
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: ech0
@@ -19,10 +18,3 @@ description: >-
 developer: "lin-snow and contributors"
 website: https://ech0.app/
 repo: https://github.com/lin-snow/Ech0
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

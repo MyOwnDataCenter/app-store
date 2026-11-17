@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/firefly-iii.w
 category: finance
 version: "latest"
 port: 30009
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: server
@@ -18,10 +17,3 @@ description: >-
 developer: "firefly-iii and contributors"
 website: https://firefly-iii.org/
 repo: https://github.com/firefly-iii/firefly-iii
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/leafwiki.png
 category: files
 version: "latest"
 port: 8389
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: leafwiki
@@ -16,10 +15,3 @@ description: >-
 developer: "perber and contributors"
 website: https://leafwiki.com/
 repo: https://github.com/perber/leafwiki
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

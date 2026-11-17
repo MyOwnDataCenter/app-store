@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/audiobookshelf
 category: media
 version: "latest"
 port: 13378
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: audiobookshelf
@@ -19,10 +18,3 @@ description: >-
 developer: "advplyr and contributors"
 website: https://www.audiobookshelf.org
 repo: https://github.com/advplyr/audiobookshelf
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

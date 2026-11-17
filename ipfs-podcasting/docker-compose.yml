@@ -1,6 +1,3 @@
-# IPFS Podcasting: a plain Docker Compose file from the project's official image.
-# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
-# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
 services:
   web:
     image: ipfspodcasting/podcastnode:v0.6@sha256:773d7c34d452764be973e8bc495990ec47f8042287493997784198c64e924393

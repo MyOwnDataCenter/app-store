@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/4ga-boards.png
 category: developer
 version: "latest"
 port: 10128
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: 4gaBoards
@@ -20,10 +19,3 @@ description: >-
 developer: "RARgames and contributors"
 website: https://4gaboards.com
 repo: https://github.com/RARgames/4gaBoards
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

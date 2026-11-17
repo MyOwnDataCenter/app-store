@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/rss.png
 category: files
 version: "latest"
 port: 8141
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: rss
@@ -16,10 +15,3 @@ description: >-
 developer: "ssddanbrown and contributors"
 website: https://github.com/ssddanbrown/rss
 repo: https://github.com/ssddanbrown/rss
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

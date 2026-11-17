@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/libredb-studi
 category: developer
 version: "latest"
 port: 10045
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: libredb-studio
@@ -19,10 +18,3 @@ description: >-
 developer: "libredb and contributors"
 website: https://libredb.org
 repo: https://github.com/libredb/libredb-studio
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

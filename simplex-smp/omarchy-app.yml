@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/simplex-smp.pn
 category: social
 version: "latest"
 port: 5223
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: simplex-smp
@@ -18,12 +17,5 @@ description: >-
 developer: "simplex-chat and contributors"
 website: https://simplex.chat/
 repo: https://github.com/simplex-chat/simplexmq
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""
 # The password is generated per server by Omarchy Server and shown on the app’s page.
 deterministicPassword: true

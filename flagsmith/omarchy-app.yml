@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/flagsmith.png
 category: developer
 version: "latest"
 port: 10066
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: flagsmith
@@ -21,10 +20,3 @@ description: >-
 developer: "flagsmith and contributors"
 website: https://flagsmith.com
 repo: https://github.com/flagsmith/flagsmith
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

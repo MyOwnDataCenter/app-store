@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/mealie.png
 category: files
 version: "latest"
 port: 9925
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: mealie
@@ -18,10 +17,5 @@ description: >-
 developer: "Mealie contributors"
 website: https://mealie.io
 repo: https://github.com/mealie-recipes/mealie
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
 defaultUsername: "changeme@example.com"
 defaultPassword: "MyPassword"

@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/bazarr.png
 category: media
 version: "latest"
 port: 6767
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: bazarr
@@ -16,10 +15,3 @@ description: >-
 developer: "morpheus65535 and contributors · image by linuxserver.io"
 website: https://www.bazarr.media
 repo: https://github.com/morpheus65535/bazarr
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

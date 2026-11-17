@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/mstream.png
 category: media
 version: "latest"
 port: 3010
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: mstream
@@ -16,10 +15,3 @@ description: >-
 developer: "IrosTheBeggar and contributors"
 website: https://mstream.io/
 repo: https://github.com/IrosTheBeggar/mStream
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

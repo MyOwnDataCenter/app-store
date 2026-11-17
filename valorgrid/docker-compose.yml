@@ -1,6 +1,3 @@
-# ValorGrid: a plain Docker Compose file from the project's official image.
-# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
-# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
 services:
   app:
     image: ghcr.io/aivm23/valorgrid:v3.36.3@sha256:e02967996cee5376e71578d8e97d6d756a48f7cf9c30e3548bad8396f95bd3c6

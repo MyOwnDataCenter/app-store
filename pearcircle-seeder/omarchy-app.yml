@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/pearcircle-see
 category: networking
 version: "latest"
 port: 8731
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: app
@@ -17,10 +16,3 @@ description: >-
 developer: "peerloomllc and contributors"
 website: https://peerloomllc.com
 repo: https://github.com/peerloomllc/pearcircle
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

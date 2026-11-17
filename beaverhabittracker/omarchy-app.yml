@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/beaver-habit-
 category: files
 version: "latest"
 port: 15580
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: beaverhabittracker
@@ -17,10 +16,3 @@ description: >-
 developer: "daya0576 and contributors"
 website: https://github.com/daya0576/beaverhabits
 repo: https://github.com/daya0576/beaverhabits
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

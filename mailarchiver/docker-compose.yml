@@ -1,6 +1,3 @@
-# Mail Archiver: a plain Docker Compose file from the project's official image.
-# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
-# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
 services:
   app:
     image: ghcr.io/s1t5/mailarchiver:2611.2@sha256:4baca9cb9dc6f97f2824f62489ba649ededc1095c4555f4d8b87da71349f7ebc

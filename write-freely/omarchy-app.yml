@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/writefreely.w
 category: social
 version: "latest"
 port: 8574
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: write-freely
@@ -19,10 +18,3 @@ description: >-
 developer: "writefreely and contributors"
 website: https://writefreely.org
 repo: https://github.com/writefreely/writefreely
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

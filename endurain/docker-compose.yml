@@ -1,6 +1,3 @@
-# Endurain: a plain Docker Compose file from the project's official image.
-# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
-# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
 services:
   app:
     image: ghcr.io/endurain-project/endurain:v0.20.2@sha256:045af8835f82df64203b4e025baa2c603512da9c2e17babd0044533452cc20d6

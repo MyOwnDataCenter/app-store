@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/sure.webp
 category: finance
 version: "latest"
 port: 3064
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: web
@@ -17,10 +16,3 @@ description: >-
 developer: "we-promise and contributors"
 website: https://github.com/we-promise/sure
 repo: https://github.com/we-promise/sure
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

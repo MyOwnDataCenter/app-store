@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/inspircd.webp
 category: social
 version: "latest"
 port: 6697
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: inspircd
@@ -17,10 +16,3 @@ description: >-
 developer: "inspircd and contributors"
 website: https://www.inspircd.org/
 repo: https://github.com/inspircd/inspircd
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

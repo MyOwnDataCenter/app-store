@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/evershop.webp
 category: finance
 version: "latest"
 port: 10075
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: app
@@ -21,10 +20,3 @@ description: >-
 developer: "evershopcommerce and contributors"
 website: https://evershop.io/
 repo: https://github.com/evershopcommerce/evershop
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

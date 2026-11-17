@@ -20,10 +20,3 @@ description: >-
 developer: "Plex, Inc."
 website: https://www.plex.tv
 repo: https://github.com/plexinc/pms-docker
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

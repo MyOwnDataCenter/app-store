@@ -1,6 +1,3 @@
-# ZeroNote: a plain Docker Compose file from the project's official image.
-# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
-# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
 services:
   app:
     image: ghcr.io/besoeasy/zeronote:1.0.12@sha256:208586649fcf38a86b73f2b7ed5888d71faac38729fd00c5a793ab90b09ecf2f

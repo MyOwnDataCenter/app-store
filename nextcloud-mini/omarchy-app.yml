@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/nextcloud.web
 category: files
 version: "latest"
 port: 8564
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: nextcloud-mini
@@ -19,12 +18,5 @@ description: >-
 developer: "nextcloud and contributors"
 website: https://nextcloud.com/
 repo: https://github.com/nextcloud/server
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""
 # The password is generated per server by Omarchy Server and shown on the app’s page.
 deterministicPassword: true

@@ -1,6 +1,3 @@
-# L-Town: a plain Docker Compose file from the project's official image.
-# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
-# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
 services:
   app:
     image: ghcr.io/besoeasy/l-town:20260621@sha256:48d6aa09d4cdb279c512c73b5e17bd30cb40657685fb5135e6bf840abf0f36e2

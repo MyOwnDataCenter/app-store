@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/simpledms.webp
 category: files
 version: "latest"
 port: 7072
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: xberg
@@ -22,10 +21,3 @@ description: >-
 developer: "simpledms and contributors"
 website: https://simpledms.eu
 repo: https://github.com/simpledms/simpledms
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

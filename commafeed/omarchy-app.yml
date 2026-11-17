@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/commafeed.png
 category: social
 version: "latest"
 port: 8082
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: commafeed
@@ -18,10 +17,5 @@ description: >-
 developer: "Athou and contributors"
 website: https://www.commafeed.com
 repo: https://github.com/Athou/commafeed
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
 defaultUsername: "admin"
 defaultPassword: "admin"

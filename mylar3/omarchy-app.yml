@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/mylar3.png
 category: media
 version: "latest"
 port: 8430
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: mylar3
@@ -16,10 +15,3 @@ description: >-
 developer: "mylar3 and contributors"
 website: https://mylarcomics.com
 repo: https://github.com/mylar3/mylar3
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

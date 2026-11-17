@@ -1,6 +1,3 @@
-# Wanderer: a plain Docker Compose file from the project's official image.
-# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
-# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
 services:
   web:
     image: flomp/wanderer-web:v0.21.2@sha256:849f63732d3e751f077c1567bda77aebc68c8b5691271cb418e10efbcf2f364f

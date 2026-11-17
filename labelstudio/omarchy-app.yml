@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/labelstudio.pn
 category: ai
 version: "latest"
 port: 10049
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: label-studio
@@ -16,10 +15,3 @@ description: >-
 developer: "Label Studio project"
 website: https://hub.docker.com/r/heartexlabs/label-studio
 repo: https://hub.docker.com/r/heartexlabs/label-studio
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

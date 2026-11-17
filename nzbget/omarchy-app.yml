@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/nzbget.png
 category: media
 version: "latest"
 port: 6789
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: nzbget
@@ -18,10 +17,5 @@ description: >-
 developer: "nzbgetcom and contributors"
 website: https://nzbget.com
 repo: https://github.com/nzbgetcom/nzbget
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
 defaultUsername: "nzbget"
 defaultPassword: "tegbzn6789"

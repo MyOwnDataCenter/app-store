@@ -1,6 +1,3 @@
-# Passky Server: a plain Docker Compose file from the project's official image.
-# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
-# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
 services:
   server:
     image: rabbitcompany/passky-server:9.0.0@sha256:c5229f4b88a47aaddd4e25eadea8a47331af3a8cae6b7a0bb176ef906849afd6
