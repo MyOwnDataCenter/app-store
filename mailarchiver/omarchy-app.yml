@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/mail-archiver
 category: files
 version: "latest"
 port: 10004
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: app
@@ -18,10 +17,3 @@ description: >-
 developer: "s1t5 and contributors"
 website: https://github.com/s1t5/mail-archiver
 repo: https://github.com/s1t5/mail-archiver
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

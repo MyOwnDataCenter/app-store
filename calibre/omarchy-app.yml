@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/calibre.png
 category: media
 version: "latest"
 port: 3038
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: calibre
@@ -16,12 +15,5 @@ description: >-
 developer: "linuxserver and contributors"
 website: https://calibre-ebook.com
 repo: https://github.com/linuxserver/docker-calibre
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""
 # Its streamed desktop (Selkies) only works on a secure (https://) page; Omarchy Server opens it over https.
 requiresHttps: true

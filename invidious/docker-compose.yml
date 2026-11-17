@@ -1,6 +1,3 @@
-# Invidious: a plain Docker Compose file from the project's official image.
-# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
-# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
 services:
   web:
     image: ceramicwhite/invidious:latest-amd64@sha256:ba09cf7b5c749472c3ccc814e6d3efe929243952077ae4dfd7d77ef74fbc9ec5

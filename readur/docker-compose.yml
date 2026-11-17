@@ -1,6 +1,3 @@
-# Readur: a plain Docker Compose file from the project's official image.
-# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
-# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
 services:
   app:
     image: ghcr.io/readur/readur:3.1.2@sha256:6883b5cf1528b374b2e3b3026f5f28e76e487811783beaeb495f539208a5406b

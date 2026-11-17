@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/smallweb.png
 category: developer
 version: "latest"
 port: 7777
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: smallweb
@@ -16,10 +15,3 @@ description: >-
 developer: "pomdtr and contributors"
 website: https://smallweb.run
 repo: https://github.com/pomdtr/smallweb
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

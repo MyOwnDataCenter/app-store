@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/anything-llm.p
 category: ai
 version: "latest"
 port: 3002
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: anything-llm
@@ -17,10 +16,3 @@ description: >-
 developer: "Mintplex-Labs and contributors"
 website: https://anythingllm.com
 repo: https://github.com/Mintplex-Labs/anything-llm
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

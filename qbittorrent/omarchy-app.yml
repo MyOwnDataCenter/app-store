@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/qbittorrent.pn
 category: media
 version: "latest"
 port: 8090
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: qbittorrent
@@ -22,10 +21,4 @@ description: >-
 developer: "qBittorrent project · image by linuxserver.io"
 website: https://www.qbittorrent.org
 repo: https://github.com/linuxserver/docker-qbittorrent
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
 defaultUsername: "admin"
-defaultPassword: ""

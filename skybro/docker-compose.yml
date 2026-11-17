@@ -1,6 +1,3 @@
-# SkyBro: a plain Docker Compose file from the project's official image.
-# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
-# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
 services:
   tracker:
     image: xdeekay/skybro-tracker:1.6.2@sha256:9425a99b0f1cfbf8a4cf39ee4ca8876496d20750e9b960109fc9d5b1eeaa2c67

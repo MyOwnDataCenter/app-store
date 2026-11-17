@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/gopeed.png
 category: media
 version: "latest"
 port: 10043
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: gopeed
@@ -16,10 +15,3 @@ description: >-
 developer: "Gopeed project"
 website: https://hub.docker.com/r/liwei2633/gopeed
 repo: https://hub.docker.com/r/liwei2633/gopeed
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

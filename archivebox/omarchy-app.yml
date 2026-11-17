@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/archivebox.png
 category: files
 version: "latest"
 port: 8033
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: archivebox
@@ -17,12 +16,6 @@ description: >-
 developer: "ArchiveBox and contributors"
 website: https://archivebox.io
 repo: https://github.com/ArchiveBox/ArchiveBox
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
 defaultUsername: "admin"
-defaultPassword: ""
 # The password is generated per server by Omarchy Server and shown on the app’s page.
 deterministicPassword: true

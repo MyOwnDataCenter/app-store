@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/serge.png
 category: ai
 version: "latest"
 port: 8008
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: serge
@@ -16,10 +15,3 @@ description: >-
 developer: "serge-chat and contributors"
 website: https://github.com/serge-chat/serge
 repo: https://github.com/serge-chat/serge
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

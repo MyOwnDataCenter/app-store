@@ -17,10 +17,3 @@ description: >-
 developer: "PocketBase project"
 website: https://pocketbase.io/
 repo: https://ganigeorgiev.com/pocketbase/pocketbase
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

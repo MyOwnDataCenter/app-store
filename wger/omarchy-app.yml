@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/wger.webp
 category: files
 version: "latest"
 port: 8450
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: nginx
@@ -18,10 +17,3 @@ description: >-
 developer: "wger-project and contributors"
 website: https://wger.de/
 repo: https://github.com/wger-project/wger
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

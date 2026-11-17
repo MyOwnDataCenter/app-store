@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/actual.png
 category: finance
 version: "latest"
 port: 5006
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: actual
@@ -19,12 +18,5 @@ description: >-
 developer: "actualbudget and contributors"
 website: https://actualbudget.org/
 repo: https://github.com/actualbudget/actual
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""
 # Needs a secure (https://) page in the browser; Omarchy Server opens it over https.
 requiresHttps: true

@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/snapotter.webp
 category: files
 version: "latest"
 port: 1349
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: snapotter
@@ -19,12 +18,6 @@ description: >-
 developer: "snapotter-hq and contributors"
 website: https://snapotter.com
 repo: https://github.com/snapotter-hq/SnapOtter
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
 defaultUsername: "admin"
-defaultPassword: ""
 # The password is generated per server by Omarchy Server and shown on the app’s page.
 deterministicPassword: true

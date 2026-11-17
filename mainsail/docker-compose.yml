@@ -1,6 +1,3 @@
-# Mainsail: a plain Docker Compose file from the project's official image.
-# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
-# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
 services:
   web:
     image: ghcr.io/mainsail-crew/mainsail:v2.19.0@sha256:adcadcdb6f9f6ede1f347ca4ac5f469dcc07f3677d46f8ffcd23696c66681893

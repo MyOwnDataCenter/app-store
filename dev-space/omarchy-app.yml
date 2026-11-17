@@ -32,13 +32,7 @@ description: >-
 developer: TouchWorkStation
 website: https://github.com/TouchWorkStation/TouchWorkstation
 repo: https://github.com/TouchWorkStation/TouchWorkstation
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
 support: https://github.com/TouchWorkStation/TouchWorkstation/issues
-gallery: []
 releaseNotes: >-
   First release: Projects (GitHub, dev servers, live previews), Agents (Claude Code, Codex) and a terminal inside
   the app.
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

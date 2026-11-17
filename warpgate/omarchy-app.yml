@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/warpgate.webp
 category: files
 version: "latest"
 port: 10107
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: warpgate
@@ -22,10 +21,3 @@ description: >-
 developer: "warp-tech and contributors"
 website: https://github.com/warp-tech/warpgate
 repo: https://github.com/warp-tech/warpgate
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

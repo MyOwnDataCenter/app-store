@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/it-tools-by-sh
 category: files
 version: "latest"
 port: 10073
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: it-tools
@@ -19,10 +18,3 @@ description: >-
 developer: "sharevb and contributors"
 website: https://github.com/sharevb/it-tools
 repo: https://github.com/sharevb/it-tools
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/glances.png
 category: files
 version: "latest"
 port: 10023
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: glances
@@ -18,10 +17,3 @@ description: >-
 developer: "nicolargo and contributors"
 website: https://nicolargo.github.io/glances/
 repo: https://github.com/nicolargo/glances
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

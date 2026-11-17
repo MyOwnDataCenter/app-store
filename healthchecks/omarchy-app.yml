@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/healthchecks.p
 category: automation
 version: "latest"
 port: 8039
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: healthchecks
@@ -16,12 +15,6 @@ description: >-
 developer: "healthchecks and contributors"
 website: https://healthchecks.io
 repo: https://github.com/healthchecks/healthchecks
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
 defaultUsername: "admin@example.com"
-defaultPassword: ""
 # The password is generated per server by Omarchy Server and shown on the app’s page.
 deterministicPassword: true

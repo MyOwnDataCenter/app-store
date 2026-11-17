@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/fider.webp
 category: files
 version: "latest"
 port: 10125
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: smtp
@@ -21,10 +20,3 @@ description: >-
 developer: "getfider and contributors"
 website: https://fider.io
 repo: https://github.com/getfider/fider
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

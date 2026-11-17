@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/glance.webp
 category: files
 version: "latest"
 port: 8568
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: glance
@@ -17,10 +16,3 @@ description: >-
 developer: "glanceapp and contributors"
 website: https://github.com/glanceapp/glance
 repo: https://github.com/glanceapp/glance
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

@@ -20,17 +20,9 @@ description: >-
   Omarchy Server’s sign-in protects this app; anyone who can sign in to your server can use this browser as you.
 developer: Brave Software · linuxserver.io
 website: https://brave.com
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
 repo: https://github.com/linuxserver/docker-brave
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
 releaseNotes: >-
   First release: linuxserver/brave 1.99.56-ls145 (Selkies), hardened to a browser-only desktop, with downloads saved to
   Home → Downloads.
-dependencies: []
-path: ""
-defaultUsername: ""
-defaultPassword: ""
 # Needs a secure (https://) page in the browser; Omarchy Server opens it over https.
 requiresHttps: true

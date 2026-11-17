@@ -1,6 +1,3 @@
-# Samba: a plain Docker Compose file from the project's official image.
-# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
-# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
 services:
   homepage:
     image: loficafe/static-web-server-samba:1.0.1@sha256:783667f052d9535bb75946ff9bc807989b041e25437ef10c30b291589d041e6e

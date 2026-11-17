@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/umami.png
 category: developer
 version: "latest"
 port: 3021
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: umami
@@ -19,10 +18,5 @@ description: >-
 developer: "umami-software and contributors"
 website: https://umami.is
 repo: https://github.com/umami-software/umami
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
 defaultUsername: "admin"
 defaultPassword: "umami"

@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/canary-tokens.
 category: networking
 version: "latest"
 port: 10126
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: latest
@@ -21,10 +20,3 @@ description: >-
 developer: "thinkst and contributors"
 website: https://canarytokens.org
 repo: https://github.com/thinkst/opencanary
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

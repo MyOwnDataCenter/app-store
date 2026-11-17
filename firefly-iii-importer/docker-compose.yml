@@ -1,6 +1,3 @@
-# Firefly III Importer: a plain Docker Compose file from the project's official image.
-# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
-# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
 services:
   importer:
     image: fireflyiii/data-importer:version-2.3.5@sha256:59f2f26ddf6eb55e84ce0d571259c9aabd6ddfcc23dd4d3825ab01ad79e34930

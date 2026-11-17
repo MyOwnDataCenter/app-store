@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/anaconda3.png
 category: ai
 version: "latest"
 port: 10047
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: anaconda3
@@ -16,10 +15,3 @@ description: >-
 developer: "Anaconda3 project"
 website: https://hub.docker.com/r/continuumio/anaconda3
 repo: https://hub.docker.com/r/continuumio/anaconda3
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

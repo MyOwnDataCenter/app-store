@@ -1,6 +1,3 @@
-# Habitica: a plain Docker Compose file from the project's official image.
-# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
-# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
 services:
   server:
     image: awinterstein/habitica-server:5.50.6@sha256:964caa1adddda20b7e11116f0892339bd0c740e4c7d9e2253b7991a0a610d5f1

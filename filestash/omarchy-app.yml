@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/filestash.web
 category: files
 version: "latest"
 port: 8189
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: filestash
@@ -18,10 +17,3 @@ description: >-
 developer: "mickael-kerjean and contributors"
 website: https://www.filestash.app/
 repo: https://github.com/mickael-kerjean/filestash
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

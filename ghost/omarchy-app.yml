@@ -17,12 +17,5 @@ description: >-
 developer: "TryGhost and contributors"
 website: https://ghost.org/
 repo: https://github.com/TryGhost/Ghost
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""
 # The password is generated per server by Omarchy Server and shown on the app’s page.
 deterministicPassword: true

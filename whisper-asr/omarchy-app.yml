@@ -16,10 +16,3 @@ description: >-
 developer: "ahmetoner and contributors"
 website: https://ahmetoner.com/whisper-asr-webservice/
 repo: https://github.com/ahmetoner/whisper-asr-webservice
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/formicaio.png
 category: crypto
 version: "latest"
 port: 52100
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: proxy
@@ -16,10 +15,3 @@ description: >-
 developer: "bochaco and contributors"
 website: https://github.com/bochaco/formicaio
 repo: https://github.com/bochaco/formicaio
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

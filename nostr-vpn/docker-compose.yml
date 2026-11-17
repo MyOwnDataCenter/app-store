@@ -1,6 +1,3 @@
-# Nostr VPN: a plain Docker Compose file from the project's official image.
-# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
-# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
 services:
   daemon:
     image: ghcr.io/mmalmi/nostr-vpn-umbrel:v4.1.20@sha256:efd210787468120fbec95586cb9dc11c3642ced1c104cd7a15c044995530e45f

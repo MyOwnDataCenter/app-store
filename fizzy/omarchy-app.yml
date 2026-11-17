@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/fizzy.png
 category: social
 version: "latest"
 port: 8005
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: server
@@ -17,10 +16,3 @@ description: >-
 developer: "basecamp and contributors"
 website: https://www.fizzy.do
 repo: https://github.com/basecamp/fizzy
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

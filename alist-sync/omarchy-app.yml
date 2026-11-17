@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/alist-sync.png
 category: files
 version: "latest"
 port: 52441
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: alist-sync
@@ -16,10 +15,3 @@ description: >-
 developer: "Alist-Sync project"
 website: https://hub.docker.com/r/xjxjin/alist-sync
 repo: https://hub.docker.com/r/xjxjin/alist-sync
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

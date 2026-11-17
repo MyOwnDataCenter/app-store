@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/wanderer.webp
 category: files
 version: "latest"
 port: 3111
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: web
@@ -20,12 +19,5 @@ description: >-
 developer: "open-wanderer and contributors"
 website: https://github.com/open-wanderer/wanderer
 repo: https://github.com/open-wanderer/wanderer
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""
 # The password is generated per server by Omarchy Server and shown on the app’s page.
 deterministicPassword: true

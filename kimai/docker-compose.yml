@@ -1,6 +1,3 @@
-# Kimai: a plain Docker Compose file from the project's official image.
-# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
-# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
 services:
   app:
     image: kimai/kimai2:2.71.0@sha256:19b34043e7631b122c5e5aca27c3f3caa0bb37d2bce1478342c666bcdfe84f48

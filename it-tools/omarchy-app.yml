@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/it-tools.png
 category: developer
 version: "latest"
 port: 8087
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: it-tools
@@ -17,10 +16,3 @@ description: >-
 developer: "Corentin Thomasset"
 website: https://it-tools.tech
 repo: https://github.com/CorentinTh/it-tools
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

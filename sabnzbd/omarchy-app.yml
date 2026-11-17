@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/sabnzbd.png
 category: media
 version: "latest"
 port: 8085
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: sabnzbd
@@ -18,10 +17,3 @@ description: >-
 developer: "SABnzbd team · image by linuxserver.io"
 website: https://sabnzbd.org
 repo: https://github.com/linuxserver/docker-sabnzbd
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

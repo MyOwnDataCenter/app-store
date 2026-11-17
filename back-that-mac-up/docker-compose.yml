@@ -1,6 +1,3 @@
-# Back That Mac Up: a plain Docker Compose file from the project's official image.
-# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
-# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
 services:
   server:
     image: getumbrel/umbrel-back-that-mac-up:1.0.1@sha256:d9561eebd791fcaaddb9885b9ace25dec42374c4ab0fe17035493a264081688c

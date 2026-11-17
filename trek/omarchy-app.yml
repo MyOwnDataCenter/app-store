@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/trek.webp
 category: files
 version: "latest"
 port: 10142
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: app
@@ -20,10 +19,3 @@ description: >-
 developer: "liketrek and contributors"
 website: https://github.com/liketrek/TREK
 repo: https://github.com/liketrek/TREK
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

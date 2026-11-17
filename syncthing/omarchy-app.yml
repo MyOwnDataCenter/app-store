@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/syncthing.png
 category: files
 version: "latest"
 port: 8384
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: syncthing
@@ -21,10 +20,3 @@ description: >-
 developer: "Syncthing Foundation · image by linuxserver.io"
 website: https://syncthing.net
 repo: https://github.com/syncthing/syncthing
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

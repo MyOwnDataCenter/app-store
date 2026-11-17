@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/bindery.webp
 category: media
 version: "latest"
 port: 10087
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: bindery
@@ -20,10 +19,3 @@ description: >-
 developer: "jarynclouatre and contributors"
 website: https://github.com/jarynclouatre/bindery
 repo: https://github.com/jarynclouatre/bindery
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""

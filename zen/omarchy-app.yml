@@ -6,7 +6,6 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/zen.png
 category: files
 version: "latest"
 port: 8894
-path: ""
 # Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
 web:
   service: app
@@ -16,10 +15,3 @@ description: >-
 developer: "sheshbabu and contributors"
 website: https://www.sheshbabu.com/zen/
 repo: https://github.com/sheshbabu/zen
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
-gallery: []
-dependencies: []
-defaultUsername: ""
-defaultPassword: ""
