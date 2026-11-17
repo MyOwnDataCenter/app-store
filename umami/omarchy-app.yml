@@ -1,6 +1,6 @@
 manifestVersion: 1
 id: umami
-name: "Umami"
+name: "Umami (latest image)"
 tagline: "Simple, private website analytics"
 icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/umami.png
 category: developer

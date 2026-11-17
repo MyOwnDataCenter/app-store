@@ -1,6 +1,6 @@
 manifestVersion: 1
 id: pyload-ng
-name: "pyload-ng"
+name: "pyLoad (latest image)"
 tagline: "A download manager for direct links and file hosts"
 icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/pyload-ng.png
 category: files

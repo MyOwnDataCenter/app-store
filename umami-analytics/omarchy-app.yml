@@ -1,6 +1,6 @@
 manifestVersion: 1
 id: umami-analytics
-name: "Umami Analytics"
+name: "Umami"
 tagline: "Simple, fast, privacy-focused (alternative to Google Analytics)"
 icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/umami.webp
 category: files

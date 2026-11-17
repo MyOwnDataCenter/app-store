@@ -1,6 +1,6 @@
 manifestVersion: 1
 id: trilium-notes
-name: "Trilium Notes"
+name: "Trilium (latest image)"
 tagline: "A hierarchical notes app for big knowledge bases"
 icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/trilium-notes.png
 category: files
