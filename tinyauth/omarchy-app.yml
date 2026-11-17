@@ -1,0 +1,34 @@
+manifestVersion: 1
+id: tinyauth
+name: "Tinyauth"
+tagline: "A tiny login screen for your apps"
+icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/tinyauth.png
+category: developer
+version: "latest"
+port: 8701
+path: ""
+# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+web:
+  service: tinyauth
+  port: 3000
+description: >-
+  Tinyauth is a tiny login screen for your apps: forward-auth or OIDC in front of another reverse proxy. Pair it
+  with Nginx Proxy Manager or Pangolin; this listing does not include Traefik.
+
+  Sign in as admin with the password shown on the app page. Cookies and the app URL need a secure (https://) page, so
+  Omarchy Server opens it over https:// with its own certificate. Trust this server in Settings → Secure connection
+  to stop the browser’s certificate warning.
+developer: "tinyauthapp and contributors"
+website: https://tinyauth.app
+repo: https://github.com/tinyauthapp/tinyauth
+submitter: TouchWorkStation
+submission: https://github.com/TouchWorkStation/app-store
+support: https://github.com/TouchWorkStation/app-store/issues
+gallery: []
+dependencies: []
+defaultUsername: "admin"
+defaultPassword: ""
+# The password is generated per server by Omarchy Server and shown on the app’s page.
+deterministicPassword: true
+# Needs a secure (https://) page in the browser; Omarchy Server opens it over https.
+requiresHttps: true
