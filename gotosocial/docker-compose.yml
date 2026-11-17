@@ -1,0 +1,21 @@
+# GoToSocial: a plain Docker Compose file from the project's official image.
+# Omarchy Server fills in the ${...} values; to run it on its own, set them in a .env file
+# (APP_PASSWORD and APP_SEED where used) and run: docker compose up -d
+services:
+  gotosocial:
+    image: docker.io/superseriousbusiness/gotosocial:latest
+    restart: unless-stopped
+    user: "${PUID:-1000}:${PGID:-1000}"
+    environment:
+      GTS_HOST: ${SERVER_IP:-localhost}
+      GTS_DB_TYPE: sqlite
+      GTS_DB_ADDRESS: /gotosocial/storage/sqlite.db
+      GTS_LETSENCRYPT_ENABLED: "false"
+      GTS_WAZERO_COMPILATION_CACHE: /gotosocial/.cache
+      GTS_TRUSTED_PROXIES: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
+      TZ: ${TZ:-UTC}
+    volumes:
+      - ${APP_DATA_DIR:-.}/data/storage:/gotosocial/storage
+      - ${APP_DATA_DIR:-.}/data/cache:/gotosocial/.cache
+    ports:
+      - "8708:8080"
