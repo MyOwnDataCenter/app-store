@@ -80,18 +80,32 @@ Full web browsers that run on your server and stream to your phone, tablet or co
 | **Brave** | [Neko](https://github.com/m1k1o/neko) (WebRTC) | Home network, Tailscale | x86-64 only. Video uses UDP 52250-52290. |
 | **Brave (HTTPS)** | [linuxserver Selkies](https://github.com/linuxserver/docker-brave) | HTTPS only (Cloudflare tunnel, Tailscale Serve) | Hardened to a browser-only desktop. |
 
-All three sit behind Umbrel's sign-in, keep your browser profile on your Umbrel, and save downloads to Home → Downloads.
-The Neko apps turn off Neko's own login because Omarchy Server's sign-in already protects them, and they listen only on
-Umbrel's internal network.
+All three sit behind your server's sign-in, keep your browser profile on your server, and save downloads to
+Home → Downloads. The Neko apps turn off Neko's own login because Omarchy Server's sign-in already protects them, and
+they listen only on the server's internal network.
 
 ## Add this store
 
-**umbrelOS:** App Store → ⋯ (next to search) → Community App Stores → paste
-`https://github.com/TouchWorkStation/app-store` → Add.
+**Omarchy Server:** it's there already. This is the built-in store.
 
-**UmbrelOS Touch:** Apps → App Store → ⋯ → Community stores → TouchWorkStation.
+**umbrelOS (the browser apps only):** App Store → ⋯ (next to search) → Community App Stores → paste
+`https://github.com/TouchWorkStation/app-store` → Add. umbrelOS doesn't review community stores, so only add ones
+you trust.
 
-Community app stores are not reviewed by the Umbrel team. Only add stores you trust.
+## Submitting an app
+
+Every app here is packaged and tested by TouchWorkStation. To suggest or submit an app, use the
+**[Modc App Store](https://github.com/TouchWorkStation/Modc-app-store)**, where anyone can:
+
+* [fill in a short form](https://github.com/TouchWorkStation/Modc-app-store/issues/new?template=submit-app.yml), or
+* open a pull request with the app's two files ([how](https://github.com/TouchWorkStation/Modc-app-store/blob/main/CONTRIBUTING.md)).
+
+Submissions there are checked automatically and reviewed. Apps that do well there can move here, with their
+submitter credited. In Omarchy Server, **App Store › Stores** adds Modc, and **Submit an app** is at the bottom
+of the App Store.
+
+Fixes to an app already here are welcome as pull requests to this repository; see
+[CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Why two engines?
 
@@ -117,6 +131,5 @@ download that doesn't match. No hashes are stored here, so "latest" entries stay
 
 ## Omarchy Server
 
-Omarchy Server reads this store natively: add `https://github.com/TouchWorkStation/app-store` under
-App Store → Stores. Each app has an `omarchy-app.yml` (its listing in Omarchy Server) next to the
+Omarchy Server reads this store natively; it's the store every server starts with. Each app has an `omarchy-app.yml` (its listing in Omarchy Server) next to the
 listing used by umbrelOS; both share the same compose file.
