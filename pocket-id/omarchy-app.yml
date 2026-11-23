@@ -7,7 +7,7 @@ category: developer
 version: "latest"
 port: 8700
 path: ""
-# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+# Which service and container port is the web page (My Own Data Center puts its sign-in in front of it).
 web:
   service: pocket-id
   port: 1411
@@ -15,17 +15,17 @@ description: >-
   Pocket ID is a passwordless identity provider: your apps sign in with passkeys over OIDC/SSO.
 
   The first time you open it, create the admin account and its passkey. Passkeys only work on https:// pages, so
-  Omarchy Server opens it over https:// with its own certificate. Trust this server in Settings → Secure connection
+  My Own Data Center opens it over https:// with its own certificate. Trust this server in Settings → Secure connection
   to stop the browser’s certificate warning.
 developer: "pocket-id and contributors"
 website: https://pocket-id.org
 repo: https://github.com/pocket-id/pocket-id
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
+submitter: MyOwnDataCenter
+submission: https://github.com/MyOwnDataCenter/app-store
+support: https://github.com/MyOwnDataCenter/app-store/issues
 gallery: []
 dependencies: []
 defaultUsername: ""
 defaultPassword: ""
-# Needs a secure (https://) page in the browser; Omarchy Server opens it over https.
+# Needs a secure (https://) page in the browser; My Own Data Center opens it over https.
 requiresHttps: true

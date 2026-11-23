@@ -6,7 +6,7 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/ragflow.png
 category: ai
 version: "latest"
 port: 30080
-# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+# Which service and container port is the web page (My Own Data Center puts its sign-in in front of it).
 web:
   service: ragflow
   port: 80
@@ -15,7 +15,7 @@ openPorts: [5455, 5679, 6379, 9200, 9201, 9380, 9382, 9385, 10443, 15432, 23817,
 description: >-
   RAGFlow reads complex documents and answers questions about them with citations, using your chosen AI model.
 
-  It manages containers, so Omarchy Server asks before installing it.
+  It manages containers, so My Own Data Center asks before installing it.
 developer: "RagFlow project"
 website: https://hub.docker.com/r/icewhaletech/ragflow
 repo: https://hub.docker.com/r/icewhaletech/ragflow

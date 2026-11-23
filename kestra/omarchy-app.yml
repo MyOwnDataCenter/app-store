@@ -6,7 +6,7 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/kestra.webp
 category: automation
 version: "latest"
 port: 10071
-# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+# Which service and container port is the web page (My Own Data Center puts its sign-in in front of it).
 web:
   service: kestra
   port: 8080
@@ -15,10 +15,10 @@ description: >-
   Event-driven, language-agnostic platform to create, schedule, and monitor workflows. In code. Coordinate data
   pipelines and tasks such as ETL and ELT.
 
-  Packaged from the compose file in the project’s own repository. It manages containers, so Omarchy Server asks
+  Packaged from the compose file in the project’s own repository. It manages containers, so My Own Data Center asks
   before installing it.
 developer: "kestra-io and contributors"
 website: https://kestra.io
 repo: https://github.com/kestra-io/kestra
-# The password is generated per server by Omarchy Server and shown on the app’s page.
+# The password is generated per server by My Own Data Center and shown on the app’s page.
 deterministicPassword: true

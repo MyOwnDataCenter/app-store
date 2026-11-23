@@ -7,7 +7,7 @@ category: ai
 version: "latest"
 port: 18790
 path: "/chat"
-# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+# Which service and container port is the web page (My Own Data Center puts its sign-in in front of it).
 web:
   service: web
   port: 18789

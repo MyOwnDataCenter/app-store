@@ -7,7 +7,7 @@ category: developer
 version: "latest"
 port: 8703
 path: ""
-# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+# Which service and container port is the web page (My Own Data Center puts its sign-in in front of it).
 web:
   service: server
   port: 9000
@@ -19,12 +19,12 @@ description: >-
 developer: "authentik and contributors"
 website: https://goauthentik.io
 repo: https://github.com/goauthentik/authentik
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
+submitter: MyOwnDataCenter
+submission: https://github.com/MyOwnDataCenter/app-store
+support: https://github.com/MyOwnDataCenter/app-store/issues
 gallery: []
 dependencies: []
 defaultUsername: "akadmin"
 defaultPassword: ""
-# The password is generated per server by Omarchy Server and shown on the app’s page.
+# The password is generated per server by My Own Data Center and shown on the app’s page.
 deterministicPassword: true

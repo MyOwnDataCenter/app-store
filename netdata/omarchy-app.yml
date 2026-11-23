@@ -6,14 +6,14 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/netdata.png
 category: files
 version: "latest"
 port: 19999
-# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+# Which service and container port is the web page (My Own Data Center puts its sign-in in front of it).
 web:
   service: netdata
   port: 19999
 description: >-
   Netdata shows live, per-second charts for CPU, memory, disks, network and running apps.
 
-  It manages containers, so Omarchy Server asks before installing it.
+  It manages containers, so My Own Data Center asks before installing it.
 developer: "netdata and contributors"
 website: https://www.netdata.cloud/
 repo: https://github.com/netdata/netdata

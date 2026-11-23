@@ -7,21 +7,21 @@ category: files
 version: "latest"
 port: 8705
 path: ""
-# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+# Which service and container port is the web page (My Own Data Center puts its sign-in in front of it).
 web:
   service: scrutiny
   port: 8080
 description: >-
   Scrutiny shows S.M.A.R.T. health for the disks on this server, with history and failure predictions.
 
-  It needs disk devices, so Omarchy Server asks before installing it. It reads S.M.A.R.T. from every
+  It needs disk devices, so My Own Data Center asks before installing it. It reads S.M.A.R.T. from every
   disk it can see.
 developer: "AnalogJ and contributors"
 website: https://github.com/AnalogJ/scrutiny
 repo: https://github.com/AnalogJ/scrutiny
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
+submitter: MyOwnDataCenter
+submission: https://github.com/MyOwnDataCenter/app-store
+support: https://github.com/MyOwnDataCenter/app-store/issues
 gallery: []
 dependencies: []
 defaultUsername: ""

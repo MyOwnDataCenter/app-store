@@ -6,7 +6,7 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/firefox.png
 category: networking
 version: "latest"
 port: 3030
-# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+# Which service and container port is the web page (My Own Data Center puts its sign-in in front of it).
 web:
   service: firefox
   port: 3000
@@ -17,5 +17,5 @@ description: >-
 developer: "Firefox project"
 website: https://www.mozilla.org/en-US/firefox/
 repo: https://support.mozilla.org/en-US/contribute
-# Its streamed desktop (Selkies) only works on a secure (https://) page; Omarchy Server opens it over https.
+# Its streamed desktop (Selkies) only works on a secure (https://) page; My Own Data Center opens it over https.
 requiresHttps: true

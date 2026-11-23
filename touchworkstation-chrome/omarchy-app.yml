@@ -17,7 +17,7 @@ description: >-
   WebRTC on ports 52200-52209 (UDP) of your server. For access through Cloudflare, install "Brave (HTTPS)" instead.
 
 
-  Omarchy Server’s sign-in protects this app; anyone who can sign in to your server can use this browser as you.
+  My Own Data Center’s sign-in protects this app; anyone who can sign in to your server can use this browser as you.
   x86-64 (amd64) only.
 developer: m1k1o (Neko) · Google (Chrome)
 website: https://neko.m1k1o.net/

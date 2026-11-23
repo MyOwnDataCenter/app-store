@@ -6,7 +6,7 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/mongo.png
 category: developer
 version: "latest"
 port: 27017
-# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+# Which service and container port is the web page (My Own Data Center puts its sign-in in front of it).
 web:
   service: mongo
   port: 27017
@@ -17,5 +17,5 @@ description: >-
 developer: "mongodb and contributors"
 website: https://www.mongodb.com/
 repo: https://github.com/mongodb/mongo
-# The password is generated per server by Omarchy Server and shown on the app’s page.
+# The password is generated per server by My Own Data Center and shown on the app’s page.
 deterministicPassword: true
