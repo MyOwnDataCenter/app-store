@@ -7,7 +7,7 @@ category: networking
 version: "latest"
 port: 8053
 path: "/admin"
-# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+# Which service and container port is the web page (My Own Data Center puts its sign-in in front of it).
 web:
   service: pi-hole
   port: 80
@@ -21,5 +21,5 @@ description: >-
 developer: "pi-hole and contributors"
 website: https://pi-hole.net
 repo: https://github.com/pi-hole/docker-pi-hole
-# The password is generated per server by Omarchy Server and shown on the app’s page.
+# The password is generated per server by My Own Data Center and shown on the app’s page.
 deterministicPassword: true

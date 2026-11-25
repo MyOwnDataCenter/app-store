@@ -6,7 +6,7 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/plane.webp
 category: files
 version: "latest"
 port: 8762
-# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+# Which service and container port is the web page (My Own Data Center puts its sign-in in front of it).
 web:
   service: nginx
   port: 8762
@@ -21,5 +21,5 @@ description: >-
 developer: "makeplane and contributors"
 website: https://plane.so
 repo: https://github.com/makeplane/plane
-# The password is generated per server by Omarchy Server and shown on the app’s page.
+# The password is generated per server by My Own Data Center and shown on the app’s page.
 deterministicPassword: true

@@ -6,14 +6,14 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/glances.png
 category: files
 version: "latest"
 port: 10023
-# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+# Which service and container port is the web page (My Own Data Center puts its sign-in in front of it).
 web:
   service: glances
   port: 61208
 description: >-
   Glances shows CPU, memory, disks, network, sensors and processes for your server on one page.
 
-  It manages containers, so Omarchy Server asks before installing it.
+  It manages containers, so My Own Data Center asks before installing it.
 developer: "nicolargo and contributors"
 website: https://nicolargo.github.io/glances/
 repo: https://github.com/nicolargo/glances

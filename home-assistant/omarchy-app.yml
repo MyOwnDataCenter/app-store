@@ -6,7 +6,7 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/home-assistant
 category: automation
 version: "latest"
 port: 8123
-# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+# Which service and container port is the web page (My Own Data Center puts its sign-in in front of it).
 web:
   service: homeassistant
   port: 8123
@@ -15,7 +15,7 @@ description: >-
   automations that run on your server, not in someone’s cloud.
 
   Runs on your server’s own network so it can discover devices. The first start takes a minute or two. USB
-  sticks (Zigbee, Z-Wave) may not be reachable from Omarchy Server’s rootless containers.
+  sticks (Zigbee, Z-Wave) may not be reachable from My Own Data Center’s rootless containers.
 developer: "Open Home Foundation"
 website: https://www.home-assistant.io
 repo: https://github.com/home-assistant/core

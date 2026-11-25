@@ -6,7 +6,7 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/vaultwarden.pn
 category: files
 version: "latest"
 port: 8415
-# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+# Which service and container port is the web page (My Own Data Center puts its sign-in in front of it).
 web:
   service: vaultwarden
   port: 80
@@ -14,10 +14,10 @@ description: >-
   Vaultwarden is a light Bitwarden-compatible server: use the Bitwarden apps and browser extensions with your
   own server.
 
-  Browsers only allow it on secure (https://) pages, so Omarchy Server opens it over https:// with its own certificate.
+  Browsers only allow it on secure (https://) pages, so My Own Data Center opens it over https:// with its own certificate.
   Trust this server in Settings → Secure connection to stop the browser’s certificate warning.
 developer: "dani-garcia and contributors"
 website: https://github.com/dani-garcia
 repo: https://github.com/dani-garcia/vaultwarden
-# Needs a secure (https://) page in the browser; Omarchy Server opens it over https.
+# Needs a secure (https://) page in the browser; My Own Data Center opens it over https.
 requiresHttps: true

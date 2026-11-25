@@ -6,7 +6,7 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/bitmagnet.web
 category: media
 version: "latest"
 port: 3335
-# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+# Which service and container port is the web page (My Own Data Center puts its sign-in in front of it).
 web:
   service: bitmagnet
   port: 3333
@@ -21,5 +21,5 @@ description: >-
 developer: "bitmagnet-io and contributors"
 website: https://bitmagnet.io
 repo: https://github.com/bitmagnet-io/bitmagnet
-# The password is generated per server by Omarchy Server and shown on the app’s page.
+# The password is generated per server by My Own Data Center and shown on the app’s page.
 deterministicPassword: true

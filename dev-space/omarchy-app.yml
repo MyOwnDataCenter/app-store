@@ -2,11 +2,11 @@ manifestVersion: 1
 id: dev-space
 name: Dev-Space
 tagline: Projects, GitHub and AI coding agents, with live previews, from any device
-icon: https://raw.githubusercontent.com/TouchWorkStation/TouchWorkstation/master/ui/public/icon-512.png
+icon: https://raw.githubusercontent.com/MyOwnDataCenter/TouchWorkstation/master/ui/public/icon-512.png
 category: developer
 version: "latest"
 port: 8796
-# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+# Which service and container port is the web page (My Own Data Center puts its sign-in in front of it).
 web:
   service: web
   port: 8787
@@ -28,11 +28,11 @@ description: >-
   when installing, never the rest of your server. Sign in to GitHub and your AI tools once, in Settings.
 
 
-  Omarchy Server's sign-in protects it: there is no separate password. x86-64 (amd64) only.
-developer: TouchWorkStation
-website: https://github.com/TouchWorkStation/TouchWorkstation
-repo: https://github.com/TouchWorkStation/TouchWorkstation
-support: https://github.com/TouchWorkStation/TouchWorkstation/issues
+  My Own Data Center's sign-in protects it: there is no separate password. x86-64 (amd64) only.
+developer: MyOwnDataCenter
+website: https://github.com/MyOwnDataCenter/TouchWorkstation
+repo: https://github.com/MyOwnDataCenter/TouchWorkstation
+support: https://github.com/MyOwnDataCenter/TouchWorkstation/issues
 releaseNotes: >-
   First release: Projects (GitHub, dev servers, live previews), Agents (Claude Code, Codex) and a terminal inside
   the app.

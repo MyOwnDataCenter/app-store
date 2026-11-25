@@ -6,7 +6,7 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/invidious.web
 category: social
 version: "latest"
 port: 3420
-# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+# Which service and container port is the web page (My Own Data Center puts its sign-in in front of it).
 web:
   service: web
   port: 3000
@@ -16,5 +16,5 @@ description: >-
 developer: "iv-org and contributors"
 website: https://github.com/iv-org/invidious
 repo: https://github.com/iv-org/invidious
-# The password is generated per server by Omarchy Server and shown on the app’s page.
+# The password is generated per server by My Own Data Center and shown on the app’s page.
 deterministicPassword: true

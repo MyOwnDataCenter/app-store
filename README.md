@@ -1,18 +1,18 @@
-# TouchWorkStation App Store
+# My Own Data Center App Store
 
-Apps for [Omarchy Server](https://github.com/TouchWorkStation/omarchy-server), and a few browser apps that also
+Apps for [My Own Data Center](https://github.com/MyOwnDataCenter/server), and a few browser apps that also
 install on umbrelOS.
 
-## Omarchy Server apps
+## My Own Data Center apps
 
-Every app here is packaged by TouchWorkStation from the project's own official Docker image and documentation.
+Every app here is packaged by My Own Data Center from the project's own official Docker image and documentation.
 Each folder has two files:
 
-* `docker-compose.yml`: a plain Docker Compose file. Omarchy Server fills in the `${...}` values (your folders,
+* `docker-compose.yml`: a plain Docker Compose file. My Own Data Center fills in the `${...}` values (your folders,
   this server's address, a password generated for this server). To run one on its own, set those in a `.env` file
   and run `docker compose up -d`.
 * `omarchy-app.yml`: the listing: name, a short description, the port it opens on, and which service and port is
-  its web page (`web:`), so Omarchy Server can put its sign-in in front of it.
+  its web page (`web:`), so My Own Data Center can put its sign-in in front of it.
 
 Your Videos, Music, Pictures, Documents and Downloads folders are given to apps that use them, as
 `${VIDEOS_DIR}`, `${MUSIC_DIR}`, `${PICTURES_DIR}`, `${DOCUMENTS_DIR}` and `${DOWNLOADS_DIR}`.
@@ -35,7 +35,7 @@ Your Videos, Music, Pictures, Documents and Downloads folders are given to apps 
 
 **AI (41):** [Agent Zero](https://github.com/agent0ai/agent-zero), [Anaconda3](https://hub.docker.com/r/continuumio/anaconda3), [AnythingLLM](https://anythingllm.com), [ChatBot UI](https://github.com/mckaywrigley/chatbot-ui), [ChatGPT Next Web](https://hub.docker.com/r/yidadaa/chatgpt-next-web), [Chatpad AI](https://github.com/deiucanta/chatpad), [Cheshire Cat AI](https://cheshirecat.ai), [Ekko Studio](https://github.com/EKKOLearnAI/ekko-studio), [Flowise AI](https://flowiseai.com/), [Hermes](https://hub.docker.com/r/nousresearch/hermes-agent), [Hermes Agent](https://hermes-agent.nousresearch.com), [Index-TTS](https://hub.docker.com/r/icewhaletech/index-tts), [Khoj](https://khoj.dev/), [Kokoro](https://huggingface.co/hexgrad/Kokoro-82M), [Label Studio](https://hub.docker.com/r/heartexlabs/label-studio), [Langflow](https://www.langflow.org/), [LibreChat](https://www.librechat.ai), [LibreTranslate](https://libretranslate.com), [LiteLLM](https://docs.litellm.ai), [llama.cpp](https://github.com/ggml-org/llama.cpp), [Lobe Hub](https://lobehub.com/), [Local Deep Research](https://github.com/LearningCircuit/local-deep-research), [LocalAI](https://localai.io/), [Murmur](https://umbrel.com/), [Ollama](https://ollama.com/), [Ollama - AMD](https://ollama.com/), [Ollama - CPU](https://ollama.com/), [Open WebUI](https://openwebui.com), [OpenClaw](https://openclaw.ai), [OpenCode](https://opencode.ai/), [OpenHands](https://www.all-hands.dev/), [OpenReader](https://docs.openreader.richardr.dev/), [Paperclip](https://paperclip.ing/), [PicoClaw](https://picoclaw.io), [RagFlow](https://hub.docker.com/r/icewhaletech/ragflow), [Serge](https://github.com/serge-chat/serge), [Spacebot](https://spacebot.sh), [Stable Diffusion](https://hub.docker.com/r/johnguan/stable-diffusion-webui), [Vane](https://github.com/ItzCrazyKns/Vane), [WeKnora](https://hub.docker.com/r/wechatopenai/weknora-ui), [Whisper ASR](https://ahmetoner.com/whisper-asr-webservice/)
 
-**Developer tools (70):** [4ga Boards](https://4gaboards.com), [Adminer](https://www.adminer.org), [Appsmith](https://www.appsmith.com/), [Aptabase](https://aptabase.com/), [Arcane](https://getarcane.app/), [authentik](https://goauthentik.io), [BFFless](https://docs.bffless.app/deployment/umbrel/), [Budibase](https://budibase.com), [CloudBeaver](https://dbeaver.com/), [code-server](https://coder.com/docs/code-server), [Countly Community Edition](https://count.ly), [CyberChef](https://gchq.github.io/CyberChef/), [Daily Stars Explorer](https://emanuelef.github.io/daily-stars-explorer), [Dashy](https://dashy.to), [DB Browser for SQLite](https://sqlitebrowser.org/), [Dev-Space](https://github.com/TouchWorkStation/TouchWorkstation), [Dockge](https://dockge.kuma.pet), [Dozzle](https://dozzle.dev), [drawDB](https://www.drawdb.app), [Excalidraw](https://excalidraw.com), [Flagsmith](https://flagsmith.com), [Forgejo](https://forgejo.org/), [Gitea](https://about.gitea.com), [Gitea Mirror](https://github.com/raylabshq/gitea-mirror), [Gitingest](https://gitingest.com/), [GitLab](https://about.gitlab.com), [Homepage](https://gethomepage.dev), [Hugo](https://github.com/gohugoio/hugo), [InfluxDB](https://www.influxdata.com/), [InfluxDB 2](https://www.influxdata.com/), [IT Tools](https://it-tools.tech), [Jenkins](https://www.jenkins.io), [JupyterLab](https://jupyterlab.readthedocs.io/en/latest/), [Kanboard](https://kanboard.org/), [Kaneo](https://kaneo.app/), [Keycloak](https://www.keycloak.org), [Komodo](https://komo.do/), [LibreDB Studio](https://libredb.org), [LLDAP](https://github.com/lldap/lldap), [Mailpit](https://mailpit.axllent.org), [MinIO](https://min.io), [MongoDB](https://www.mongodb.com/), [OmniTools](https://omnitools.app/), [OneDev](https://onedev.io/), [Opengist](https://opengist.io/), [Pastefy](https://pastefy.app/), [Penpot](https://penpot.app/), [pgAdmin](https://www.pgadmin.org), [Planning Poker](https://github.com/axeleroy/self-host-planning-poker), [Plausible](https://plausible.io/), [Pocket ID](https://pocket-id.org), [PocketBase](https://pocketbase.io/), [Portainer](https://portainer.io), [Postiz](https://postiz.com), [Prisme Analytics](https://www.prismeanalytics.com), [Prometheus](https://prometheus.io), [RStudio](https://posit.co/products/open-source/rstudio-server/), [Semaphore UI](https://semaphoreui.com), [Smallweb](https://smallweb.run), [Sshwifty](https://github.com/nirui/sshwifty), [StackRender](https://stackrender.io/), [Termix](https://docs.termix.site/), [Tinyauth](https://tinyauth.app), [Tolgee](https://tolgee.io), [Traduora](https://traduora.co), [Tyk](https://tyk.io), [UI Bakery](https://uibakery.io), [Umami (latest image)](https://umami.is), [Wekan](https://wekan.github.io/), [Wiki.js](https://js.wiki/)
+**Developer tools (70):** [4ga Boards](https://4gaboards.com), [Adminer](https://www.adminer.org), [Appsmith](https://www.appsmith.com/), [Aptabase](https://aptabase.com/), [Arcane](https://getarcane.app/), [authentik](https://goauthentik.io), [BFFless](https://docs.bffless.app/deployment/umbrel/), [Budibase](https://budibase.com), [CloudBeaver](https://dbeaver.com/), [code-server](https://coder.com/docs/code-server), [Countly Community Edition](https://count.ly), [CyberChef](https://gchq.github.io/CyberChef/), [Daily Stars Explorer](https://emanuelef.github.io/daily-stars-explorer), [Dashy](https://dashy.to), [DB Browser for SQLite](https://sqlitebrowser.org/), [Dev-Space](https://github.com/MyOwnDataCenter/TouchWorkstation), [Dockge](https://dockge.kuma.pet), [Dozzle](https://dozzle.dev), [drawDB](https://www.drawdb.app), [Excalidraw](https://excalidraw.com), [Flagsmith](https://flagsmith.com), [Forgejo](https://forgejo.org/), [Gitea](https://about.gitea.com), [Gitea Mirror](https://github.com/raylabshq/gitea-mirror), [Gitingest](https://gitingest.com/), [GitLab](https://about.gitlab.com), [Homepage](https://gethomepage.dev), [Hugo](https://github.com/gohugoio/hugo), [InfluxDB](https://www.influxdata.com/), [InfluxDB 2](https://www.influxdata.com/), [IT Tools](https://it-tools.tech), [Jenkins](https://www.jenkins.io), [JupyterLab](https://jupyterlab.readthedocs.io/en/latest/), [Kanboard](https://kanboard.org/), [Kaneo](https://kaneo.app/), [Keycloak](https://www.keycloak.org), [Komodo](https://komo.do/), [LibreDB Studio](https://libredb.org), [LLDAP](https://github.com/lldap/lldap), [Mailpit](https://mailpit.axllent.org), [MinIO](https://min.io), [MongoDB](https://www.mongodb.com/), [OmniTools](https://omnitools.app/), [OneDev](https://onedev.io/), [Opengist](https://opengist.io/), [Pastefy](https://pastefy.app/), [Penpot](https://penpot.app/), [pgAdmin](https://www.pgadmin.org), [Planning Poker](https://github.com/axeleroy/self-host-planning-poker), [Plausible](https://plausible.io/), [Pocket ID](https://pocket-id.org), [PocketBase](https://pocketbase.io/), [Portainer](https://portainer.io), [Postiz](https://postiz.com), [Prisme Analytics](https://www.prismeanalytics.com), [Prometheus](https://prometheus.io), [RStudio](https://posit.co/products/open-source/rstudio-server/), [Semaphore UI](https://semaphoreui.com), [Smallweb](https://smallweb.run), [Sshwifty](https://github.com/nirui/sshwifty), [StackRender](https://stackrender.io/), [Termix](https://docs.termix.site/), [Tinyauth](https://tinyauth.app), [Tolgee](https://tolgee.io), [Traduora](https://traduora.co), [Tyk](https://tyk.io), [UI Bakery](https://uibakery.io), [Umami (latest image)](https://umami.is), [Wekan](https://wekan.github.io/), [Wiki.js](https://js.wiki/)
 
 **Gaming (10):** [Calagopus](https://calagopus.com), [Emulatorjs](https://emulatorjs.org/), [Fireshare](https://fireshare.net/), [GameAP](https://gameap.com/), [Lodestone Core](https://lodestone.cc), [Minecraft Server](https://docker-minecraft-server.readthedocs.io/en/latest/), [NextGBA](https://github.com/nicotsx/nextgba), [Pelican Panel](https://pelican.dev/), [PKVault](https://github.com/Chnapy/PKVault), [Razzia](https://github.com/Ralex91/Razzia)
 
@@ -45,7 +45,7 @@ Your Videos, Music, Pictures, Documents and Downloads folders are given to apps 
 
 Some apps need more than a plain container: Portainer, Dockge and Dozzle manage your containers; Pi-hole, AdGuard
 Home and Technitium answer DNS on port 53; Nginx Proxy Manager and Zoraxy use ports 80 and 443; WireGuard Easy needs
-network administration; Stalwart uses the mail ports. Omarchy Server reads this from each compose file, lists it on the
+network administration; Stalwart uses the mail ports. My Own Data Center reads this from each compose file, lists it on the
 app's page, and installs only after you allow it. Container managers get your own rootless container engine, never a
 root one.
 
@@ -81,27 +81,27 @@ Full web browsers that run on your server and stream to your phone, tablet or co
 | **Brave (HTTPS)** | [linuxserver Selkies](https://github.com/linuxserver/docker-brave) | HTTPS only (Cloudflare tunnel, Tailscale Serve) | Hardened to a browser-only desktop. |
 
 All three sit behind your server's sign-in, keep your browser profile on your server, and save downloads to
-Home → Downloads. The Neko apps turn off Neko's own login because Omarchy Server's sign-in already protects them, and
+Home → Downloads. The Neko apps turn off Neko's own login because My Own Data Center's sign-in already protects them, and
 they listen only on the server's internal network.
 
 ## Add this store
 
-**Omarchy Server:** it's there already. This is the built-in store.
+**My Own Data Center:** it's there already. This is the built-in store.
 
 **umbrelOS (the browser apps only):** App Store → ⋯ (next to search) → Community App Stores → paste
-`https://github.com/TouchWorkStation/app-store` → Add. umbrelOS doesn't review community stores, so only add ones
+`https://github.com/MyOwnDataCenter/app-store` → Add. umbrelOS doesn't review community stores, so only add ones
 you trust.
 
 ## Submitting an app
 
-Every app here is packaged and tested by TouchWorkStation. To suggest or submit an app, use the
-**[Modc App Store](https://github.com/TouchWorkStation/Modc-app-store)**, where anyone can:
+Every app here is packaged and tested by My Own Data Center. To suggest or submit an app, use the
+**[Modc App Store](https://github.com/MyOwnDataCenter/Modc-app-store)**, where anyone can:
 
-* [fill in a short form](https://github.com/TouchWorkStation/Modc-app-store/issues/new?template=submit-app.yml), or
-* open a pull request with the app's two files ([how](https://github.com/TouchWorkStation/Modc-app-store/blob/main/CONTRIBUTING.md)).
+* [fill in a short form](https://github.com/MyOwnDataCenter/Modc-app-store/issues/new?template=submit-app.yml), or
+* open a pull request with the app's two files ([how](https://github.com/MyOwnDataCenter/Modc-app-store/blob/main/CONTRIBUTING.md)).
 
 Submissions there are checked automatically and reviewed. Apps that do well there can move here, with their
-submitter credited. In Omarchy Server, **App Store › Stores** adds Modc, and **Submit an app** is at the bottom
+submitter credited. In My Own Data Center, **App Store › Stores** adds Modc, and **Submit an app** is at the bottom
 of the App Store.
 
 Fixes to an app already here are welcome as pull requests to this repository; see
@@ -125,11 +125,11 @@ of their owners.
 
 ## Machine catalog
 
-`machines/catalog.json` lists the operating systems Omarchy Server can create virtual machines from.
-Each entry points at the publisher's own cloud image and checksum file; Omarchy Server refuses any
+`machines/catalog.json` lists the operating systems My Own Data Center can create virtual machines from.
+Each entry points at the publisher's own cloud image and checksum file; My Own Data Center refuses any
 download that doesn't match. No hashes are stored here, so "latest" entries stay valid.
 
-## Omarchy Server
+## My Own Data Center
 
-Omarchy Server reads this store natively; it's the store every server starts with. Each app has an `omarchy-app.yml` (its listing in Omarchy Server) next to the
+My Own Data Center reads this store natively; it's the store every server starts with. Each app has an `omarchy-app.yml` (its listing in My Own Data Center) next to the
 listing used by umbrelOS; both share the same compose file.

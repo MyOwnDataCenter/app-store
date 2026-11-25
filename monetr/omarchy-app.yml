@@ -6,7 +6,7 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/monetr.webp
 category: finance
 version: "latest"
 port: 8379
-# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+# Which service and container port is the web page (My Own Data Center puts its sign-in in front of it).
 web:
   service: monetr
   port: 4000
@@ -17,5 +17,5 @@ developer: "monetr and contributors"
 website: https://monetr.app/
 repo: https://github.com/monetr/monetr
 defaultUsername: "postgres"
-# The password is generated per server by Omarchy Server and shown on the app’s page.
+# The password is generated per server by My Own Data Center and shown on the app’s page.
 deterministicPassword: true

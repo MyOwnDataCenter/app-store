@@ -6,7 +6,7 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/tandoor-recip
 category: files
 version: "latest"
 port: 9456
-# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+# Which service and container port is the web page (My Own Data Center puts its sign-in in front of it).
 web:
   service: web
   port: 80
@@ -19,5 +19,5 @@ description: >-
 developer: "TandoorRecipes and contributors"
 website: https://docs.tandoor.dev/
 repo: https://github.com/TandoorRecipes/recipes
-# The password is generated per server by Omarchy Server and shown on the app’s page.
+# The password is generated per server by My Own Data Center and shown on the app’s page.
 deterministicPassword: true

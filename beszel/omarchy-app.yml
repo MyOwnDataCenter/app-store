@@ -7,7 +7,7 @@ category: files
 version: "latest"
 port: 8704
 path: ""
-# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+# Which service and container port is the web page (My Own Data Center puts its sign-in in front of it).
 web:
   service: beszel
   port: 8090
@@ -19,9 +19,9 @@ description: >-
 developer: "henrygd and contributors"
 website: https://beszel.dev
 repo: https://github.com/henrygd/beszel
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
+submitter: MyOwnDataCenter
+submission: https://github.com/MyOwnDataCenter/app-store
+support: https://github.com/MyOwnDataCenter/app-store/issues
 gallery: []
 dependencies: []
 defaultUsername: ""
