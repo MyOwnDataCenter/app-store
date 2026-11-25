@@ -75,6 +75,13 @@ test('an app with an app_proxy service and no web: block is fine', async () => {
 	assert.match(r.out, /0 errors, 0 warnings/)
 })
 
+test('an app with no web: block and no app_proxy warns that My Own Data Center cannot put sign-in in front', async () => {
+	const listing = LISTING('noweb').replace(/web:\n  service: web\n  port: 80\n/, '')
+	const r = await check({noweb: {compose: COMPOSE(), listing}})
+	assert.equal(r.status, 0, r.out)
+	assert.match(r.out, /has no web: block, so My Own Data Center cannot put its sign-in in front of the app/)
+})
+
 test('unfixed image versions are warnings: they do not fail, unless --strict', async () => {
 	const apps = {a: {compose: COMPOSE('nginx:latest'), listing: LISTING('a')}, b: {compose: COMPOSE('nginx'), listing: LISTING('b')}, c: {compose: COMPOSE('ghcr.io/x/y:2.1'), listing: LISTING('c')}, d: {compose: COMPOSE('x/y@sha256:' + 'a'.repeat(64)), listing: LISTING('d')}, e: {compose: COMPOSE('${IMAGE:-x/y:1}'), listing: LISTING('e')}}
 	const r = await check(apps)

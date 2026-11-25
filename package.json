@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "description": "Apps for Omarchy Server. npm run validate checks every listing.",
+  "description": "Apps for My Own Data Center. npm run validate checks every listing.",
   "engines": {
     "node": ">=20"
   },

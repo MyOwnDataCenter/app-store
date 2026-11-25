@@ -14,7 +14,7 @@ web:
 description: >-
   Scrutiny shows S.M.A.R.T. health for the disks on this server, with history and failure predictions.
 
-  It needs disk devices, so Omarchy Server asks before installing it. It reads S.M.A.R.T. from every
+  It needs disk devices, so My Own Data Center asks before installing it. It reads S.M.A.R.T. from every
   disk it can see.
 developer: "AnalogJ and contributors"
 website: https://github.com/AnalogJ/scrutiny

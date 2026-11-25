@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "about": "Operating systems Omarchy Server can create machines from, with one tap. Every download comes from its publisher and must match a checksum: either the publisher's own checksum list (entries that track 'latest') or a sha256 pinned here (versioned files). Cloud images set themselves up with cloud-init; desktops add their desktop on first start. Omarchy installs itself from its official ISO.",
+  "about": "Operating systems My Own Data Center can create machines from, with one tap. Every download comes from its publisher and must match a checksum: either the publisher's own checksum list (entries that track 'latest') or a sha256 pinned here (versioned files). Cloud images set themselves up with cloud-init; desktops add their desktop on first start. Omarchy installs itself from its official ISO.",
   "images": [
     {
       "id": "ubuntu-26.04-desktop-amd64",

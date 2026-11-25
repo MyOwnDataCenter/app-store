@@ -14,7 +14,7 @@ description: >-
   Komodo manages Docker stacks, builds and deployments on one or many servers, with logs, alerts and history.
 
   Where the app asks for a password it hasn’t shown you, use the one on this app’s page. It manages containers,
-  so Omarchy Server asks before installing it.
+  so My Own Data Center asks before installing it.
 developer: "moghtech and contributors"
 website: https://komo.do/
 repo: https://github.com/moghtech/komodo

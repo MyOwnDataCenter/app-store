@@ -16,7 +16,7 @@ openPorts: [5556]
 description: >-
   Self-service workflow execution platform with approvals, remote execution and scheduling.
 
-  Packaged from the compose file in the project’s own repository. It manages containers, so Omarchy Server asks
+  Packaged from the compose file in the project’s own repository. It manages containers, so My Own Data Center asks
   before installing it.
 developer: "cvhariharan and contributors"
 website: https://flowctl.net

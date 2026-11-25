@@ -15,7 +15,7 @@ description: >-
   Pocket ID is a passwordless identity provider: your apps sign in with passkeys over OIDC/SSO.
 
   The first time you open it, create the admin account and its passkey. Passkeys only work on https:// pages, so
-  Omarchy Server opens it over https:// with its own certificate. Trust this server in Settings → Secure connection
+  My Own Data Center opens it over https:// with its own certificate. Trust this server in Settings → Secure connection
   to stop the browser’s certificate warning.
 developer: "pocket-id and contributors"
 website: https://pocket-id.org

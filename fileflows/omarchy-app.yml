@@ -13,7 +13,7 @@ web:
 description: >-
   FileFlows watches folders and runs flows that convert, tag and move your video and audio files.
 
-  It manages containers, so Omarchy Server asks before installing it.
+  It manages containers, so My Own Data Center asks before installing it.
 developer: "FileFlows project"
 website: https://hub.docker.com/r/revenz/fileflows
 repo: https://hub.docker.com/r/revenz/fileflows

@@ -13,7 +13,7 @@ web:
 description: >-
   JupyterLab runs interactive notebooks for Python, data analysis and charts in your browser.
 
-  Sign in with the password Omarchy Server shows for this app.
+  Sign in with the password My Own Data Center shows for this app.
 developer: "jupyterlab and contributors"
 website: https://jupyterlab.readthedocs.io/en/latest/
 repo: https://github.com/jupyterlab/jupyterlab

@@ -18,7 +18,7 @@ description: >-
   --email YOU@example.com --password 'PASSWORD' (already confirmed; promote with gotosocial admin
   account promote --username NAME if you want an admin, then restart). For federation, set GTS_HOST
   to a real domain and put this behind a reverse proxy on 443; the bundled listing is reachable
-  through Omarchy Server on the LAN.
+  through My Own Data Center on the LAN.
 developer: "superseriousbusiness and contributors"
 website: https://gotosocial.org
 repo: https://codeberg.org/superseriousbusiness/gotosocial

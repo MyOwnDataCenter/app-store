@@ -16,7 +16,7 @@ description: >-
   with Nginx Proxy Manager or Pangolin; this listing does not include Traefik.
 
   Sign in as admin with the password shown on the app page. Cookies and the app URL need a secure (https://) page, so
-  Omarchy Server opens it over https:// with its own certificate. Trust this server in Settings → Secure connection
+  My Own Data Center opens it over https:// with its own certificate. Trust this server in Settings → Secure connection
   to stop the browser’s certificate warning.
 developer: "tinyauthapp and contributors"
 website: https://tinyauth.app

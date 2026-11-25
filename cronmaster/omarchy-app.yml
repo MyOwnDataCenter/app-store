@@ -14,7 +14,7 @@ web:
 description: >-
   Cronjob management UI with human readable syntax, live logging and log history for your cronjobs.
 
-  Packaged from the compose file in the project’s own repository. It manages containers, so Omarchy Server asks
+  Packaged from the compose file in the project’s own repository. It manages containers, so My Own Data Center asks
   before installing it.
 developer: "fccview and contributors"
 website: https://github.com/fccview/cronmaster

@@ -15,8 +15,8 @@ STORE_FILES = ("omarchy-app-store.yml", "umbrel-app-store.yml")
 APP_FILES = ("omarchy-app.yml", "umbrel-app.yml")
 COMPOSE_FILES = ("omarchy-compose.yml", "docker-compose.yml")
 ABOUT = (
-    "Apps Omarchy Server can install from this store. Each id is a folder with "
-    "omarchy-app.yml and docker-compose.yml. Omarchy Server still copies compose "
+    "Apps My Own Data Center can install from this store. Each id is a folder with "
+    "omarchy-app.yml and docker-compose.yml. My Own Data Center still copies compose "
     "from that folder on install."
 )
 PROVIDED = {
@@ -263,7 +263,7 @@ def listing_object(item: dict, by_id: dict[str, dict], found: list[dict], needed
         caution = f"Works with {', '.join(optional_from)} too: install {pronoun} to use those features."
     elif unknown:
         caution = (
-            "Some features may not work here: it expects settings Omarchy Server doesn’t have "
+            "Some features may not work here: it expects settings My Own Data Center doesn’t have "
             f"({', '.join(unknown[:3])})."
         )
     else:

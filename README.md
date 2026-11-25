@@ -1,18 +1,18 @@
-# TouchWorkStation App Store
+# My Own Data Center App Store
 
-Apps for [Omarchy Server](https://github.com/TouchWorkStation/omarchy-server), and a few browser apps that also
+Apps for [My Own Data Center](https://github.com/MyOwnDataCenter/server), and a few browser apps that also
 install on umbrelOS.
 
-## Omarchy Server apps
+## My Own Data Center apps
 
-Every app here is packaged by TouchWorkStation from the project's own official Docker image and documentation.
+Every app here is packaged by My Own Data Center from the project's own official Docker image and documentation.
 Each folder has two files:
 
-* `docker-compose.yml`: a plain Docker Compose file. Omarchy Server fills in the `${...}` values (your folders,
+* `docker-compose.yml`: a plain Docker Compose file. My Own Data Center fills in the `${...}` values (your folders,
   this server's address, a password generated for this server). To run one on its own, set those in a `.env` file
   and run `docker compose up -d`.
 * `omarchy-app.yml`: the listing: name, a short description, the port it opens on, and which service and port is
-  its web page (`web:`), so Omarchy Server can put its sign-in in front of it.
+  its web page (`web:`), so My Own Data Center can put its sign-in in front of it.
 
 Your Videos, Music, Pictures, Documents and Downloads folders are given to apps that use them, as
 `${VIDEOS_DIR}`, `${MUSIC_DIR}`, `${PICTURES_DIR}`, `${DOCUMENTS_DIR}` and `${DOWNLOADS_DIR}`.
@@ -45,7 +45,7 @@ Your Videos, Music, Pictures, Documents and Downloads folders are given to apps 
 
 Some apps need more than a plain container: Portainer, Dockge and Dozzle manage your containers; Pi-hole, AdGuard
 Home and Technitium answer DNS on port 53; Nginx Proxy Manager and Zoraxy use ports 80 and 443; WireGuard Easy needs
-network administration; Stalwart uses the mail ports. Omarchy Server reads this from each compose file, lists it on the
+network administration; Stalwart uses the mail ports. My Own Data Center reads this from each compose file, lists it on the
 app's page, and installs only after you allow it. Container managers get your own rootless container engine, never a
 root one.
 
@@ -81,27 +81,27 @@ Full web browsers that run on your server and stream to your phone, tablet or co
 | **Brave (HTTPS)** | [linuxserver Selkies](https://github.com/linuxserver/docker-brave) | HTTPS only (Cloudflare tunnel, Tailscale Serve) | Hardened to a browser-only desktop. |
 
 All three sit behind your server's sign-in, keep your browser profile on your server, and save downloads to
-Home → Downloads. The Neko apps turn off Neko's own login because Omarchy Server's sign-in already protects them, and
+Home → Downloads. The Neko apps turn off Neko's own login because My Own Data Center's sign-in already protects them, and
 they listen only on the server's internal network.
 
 ## Add this store
 
-**Omarchy Server:** it's there already. This is the built-in store.
+**My Own Data Center:** it's there already. This is the built-in store.
 
 **umbrelOS (the browser apps only):** App Store → ⋯ (next to search) → Community App Stores → paste
-`https://github.com/TouchWorkStation/app-store` → Add. umbrelOS doesn't review community stores, so only add ones
+`https://github.com/MyOwnDataCenter/app-store` → Add. umbrelOS doesn't review community stores, so only add ones
 you trust.
 
 ## Submitting an app
 
-Every app here is packaged and tested by TouchWorkStation. To suggest or submit an app, use the
-**[Modc App Store](https://github.com/TouchWorkStation/Modc-app-store)**, where anyone can:
+Every app here is packaged and tested by My Own Data Center. To suggest or submit an app, use the
+**[Modc App Store](https://github.com/MyOwnDataCenter/Modc-app-store)**, where anyone can:
 
-* [fill in a short form](https://github.com/TouchWorkStation/Modc-app-store/issues/new?template=submit-app.yml), or
-* open a pull request with the app's two files ([how](https://github.com/TouchWorkStation/Modc-app-store/blob/main/CONTRIBUTING.md)).
+* [fill in a short form](https://github.com/MyOwnDataCenter/Modc-app-store/issues/new?template=submit-app.yml), or
+* open a pull request with the app's two files ([how](https://github.com/MyOwnDataCenter/Modc-app-store/blob/main/CONTRIBUTING.md)).
 
 Submissions there are checked automatically and reviewed. Apps that do well there can move here, with their
-submitter credited. In Omarchy Server, **App Store › Stores** adds Modc, and **Submit an app** is at the bottom
+submitter credited. In My Own Data Center, **App Store › Stores** adds Modc, and **Submit an app** is at the bottom
 of the App Store.
 
 Fixes to an app already here are welcome as pull requests to this repository; see
@@ -125,11 +125,11 @@ of their owners.
 
 ## Machine catalog
 
-`machines/catalog.json` lists the operating systems Omarchy Server can create virtual machines from.
-Each entry points at the publisher's own cloud image and checksum file; Omarchy Server refuses any
+`machines/catalog.json` lists the operating systems My Own Data Center can create virtual machines from.
+Each entry points at the publisher's own cloud image and checksum file; My Own Data Center refuses any
 download that doesn't match. No hashes are stored here, so "latest" entries stay valid.
 
-## Omarchy Server
+## My Own Data Center
 
-Omarchy Server reads this store natively; it's the store every server starts with. Each app has an `omarchy-app.yml` (its listing in Omarchy Server) next to the
+My Own Data Center reads this store natively; it's the store every server starts with. Each app has an `omarchy-app.yml` (its listing in My Own Data Center) next to the
 listing used by umbrelOS; both share the same compose file.

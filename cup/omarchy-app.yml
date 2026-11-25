@@ -13,7 +13,7 @@ web:
 description: >-
   Cup checks your container images for newer versions and lists what can be updated.
 
-  It manages containers, so Omarchy Server asks before installing it.
+  It manages containers, so My Own Data Center asks before installing it.
 developer: "sergi0g and contributors"
 website: https://cup.sergi0g.dev/
 repo: https://github.com/sergi0g/cup

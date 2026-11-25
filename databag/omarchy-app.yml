@@ -13,7 +13,7 @@ web:
 description: >-
   Databag is a lightweight, federated messenger for text, photos and calls, with mobile apps.
 
-  The admin page uses the password Omarchy Server shows for this app.
+  The admin page uses the password My Own Data Center shows for this app.
 developer: "balzack and contributors"
 website: https://github.com/balzack/databag
 repo: https://github.com/balzack/databag

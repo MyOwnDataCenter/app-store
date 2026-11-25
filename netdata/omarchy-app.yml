@@ -13,7 +13,7 @@ web:
 description: >-
   Netdata shows live, per-second charts for CPU, memory, disks, network and running apps.
 
-  It manages containers, so Omarchy Server asks before installing it.
+  It manages containers, so My Own Data Center asks before installing it.
 developer: "netdata and contributors"
 website: https://www.netdata.cloud/
 repo: https://github.com/netdata/netdata

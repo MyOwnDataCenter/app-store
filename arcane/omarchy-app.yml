@@ -14,7 +14,7 @@ description: >-
   Arcane manages containers, images, volumes and Compose projects from a clean, fast web page.
 
   Where the app asks for a password it hasn’t shown you, use the one on this app’s page. It manages containers,
-  so Omarchy Server asks before installing it.
+  so My Own Data Center asks before installing it.
 developer: "getarcaneapp and contributors"
 website: https://getarcane.app/
 repo: https://github.com/getarcaneapp/arcane
