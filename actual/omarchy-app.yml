@@ -6,7 +6,7 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/actual.png
 category: finance
 version: "latest"
 port: 5006
-# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+# Which service and container port is the web page (My Own Data Center puts its sign-in in front of it).
 web:
   service: actual
   port: 5006
@@ -18,5 +18,5 @@ description: >-
 developer: "actualbudget and contributors"
 website: https://actualbudget.org/
 repo: https://github.com/actualbudget/actual
-# Needs a secure (https://) page in the browser; Omarchy Server opens it over https.
+# Needs a secure (https://) page in the browser; My Own Data Center opens it over https.
 requiresHttps: true

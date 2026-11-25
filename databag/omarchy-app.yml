@@ -6,7 +6,7 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/databag.png
 category: social
 version: "latest"
 port: 7000
-# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+# Which service and container port is the web page (My Own Data Center puts its sign-in in front of it).
 web:
   service: databag
   port: 7000
@@ -17,5 +17,5 @@ description: >-
 developer: "balzack and contributors"
 website: https://github.com/balzack/databag
 repo: https://github.com/balzack/databag
-# The password is generated per server by Omarchy Server and shown on the app’s page.
+# The password is generated per server by My Own Data Center and shown on the app’s page.
 deterministicPassword: true

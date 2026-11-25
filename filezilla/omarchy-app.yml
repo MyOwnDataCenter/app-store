@@ -6,7 +6,7 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/filezilla.png
 category: networking
 version: "latest"
 port: 3041
-# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+# Which service and container port is the web page (My Own Data Center puts its sign-in in front of it).
 web:
   service: filezilla
   port: 3000
@@ -15,5 +15,5 @@ description: >-
 developer: "linuxserver and contributors"
 website: https://filezilla-project.org
 repo: https://github.com/linuxserver/docker-filezilla
-# Its streamed desktop (Selkies) only works on a secure (https://) page; Omarchy Server opens it over https.
+# Its streamed desktop (Selkies) only works on a secure (https://) page; My Own Data Center opens it over https.
 requiresHttps: true

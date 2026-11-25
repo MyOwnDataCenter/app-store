@@ -6,7 +6,7 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/guacamole.web
 category: networking
 version: "latest"
 port: 8493
-# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+# Which service and container port is the web page (My Own Data Center puts its sign-in in front of it).
 web:
   service: web
   port: 8080
@@ -18,5 +18,5 @@ description: >-
 developer: "apache and contributors"
 website: https://guacamole.apache.org
 repo: https://github.com/apache/guacamole-server
-# The password is generated per server by Omarchy Server and shown on the app’s page.
+# The password is generated per server by My Own Data Center and shown on the app’s page.
 deterministicPassword: true

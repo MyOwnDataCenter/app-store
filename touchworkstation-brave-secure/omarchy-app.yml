@@ -24,5 +24,5 @@ repo: https://github.com/linuxserver/docker-brave
 releaseNotes: >-
   First release: linuxserver/brave 1.99.56-ls145 (Selkies), hardened to a browser-only desktop, with downloads saved to
   Home → Downloads.
-# Needs a secure (https://) page in the browser; Omarchy Server opens it over https.
+# Needs a secure (https://) page in the browser; My Own Data Center opens it over https.
 requiresHttps: true

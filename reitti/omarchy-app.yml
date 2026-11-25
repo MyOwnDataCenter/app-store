@@ -6,7 +6,7 @@ icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/reitti.png
 category: files
 version: "latest"
 port: 8744
-# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+# Which service and container port is the web page (My Own Data Center puts its sign-in in front of it).
 web:
   service: app
   port: 8080
@@ -17,5 +17,5 @@ developer: "dedicatedcode and contributors"
 website: https://www.dedicatedcode.com/projects/reitti/overview/
 repo: https://github.com/dedicatedcode/reitti
 defaultUsername: "reitti"
-# The password is generated per server by Omarchy Server and shown on the app’s page.
+# The password is generated per server by My Own Data Center and shown on the app’s page.
 deterministicPassword: true

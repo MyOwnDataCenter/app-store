@@ -7,7 +7,7 @@ category: files
 version: "latest"
 port: 8707
 path: ""
-# Which service and container port is the web page (Omarchy Server puts its sign-in in front of it).
+# Which service and container port is the web page (My Own Data Center puts its sign-in in front of it).
 web:
   service: onlyoffice
   port: 80
@@ -18,12 +18,12 @@ description: >-
 developer: "ONLYOFFICE and contributors"
 website: https://www.onlyoffice.com
 repo: https://github.com/ONLYOFFICE/DocumentServer
-submitter: TouchWorkStation
-submission: https://github.com/TouchWorkStation/app-store
-support: https://github.com/TouchWorkStation/app-store/issues
+submitter: MyOwnDataCenter
+submission: https://github.com/MyOwnDataCenter/app-store
+support: https://github.com/MyOwnDataCenter/app-store/issues
 gallery: []
 dependencies: []
 defaultUsername: ""
 defaultPassword: ""
-# The password is generated per server by Omarchy Server and shown on the app’s page.
+# The password is generated per server by My Own Data Center and shown on the app’s page.
 deterministicPassword: true
